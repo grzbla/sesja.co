@@ -53,6 +53,84 @@
 
 
         </style>
+
+        <!--
+        https://codepen.io/kevinpowell/pen/mdwXRqd
+        https://codepen.io/natszafraniec/pen/gOxrKJv
+        https://codepen.io/gabriele_997/pen/wvqPKKE
+        https://codepen.io/jsonyeung/pen/zYdRWvX
+        https://codepen.io/team/keyframers/pen/RwKoMmb
+        https://codepen.io/jesuskinto/pen/wvJeVez
+        https://freefrontend.com/css-text-animations/
+        https://codepen.io/vainsan/pen/NWRaPXG
+        https://codepen.io/alvarotrigo/pen/eYEqPZa
+        https://codepen.io/alvarotrigo/pen/xxLvyOG
+        https://codepen.io/alvarotrigo/pen/qBXeJab
+        https://codepen.io/alvarotrigo/pen/bGrXmwM
+        https://codepen.io/alvarotrigo/pen/ZEJgqLN
+        https://codepen.io/designfenix/pen/gOGVXWw
+     -->
+        <style loading media="screen">
+            @font-face
+            {
+                font-family: CyberwayRiders;
+                src: url(static/CyberwayRiders.ttf);
+            }
+            div[loading]
+            {
+                width: 100vw;
+                height: 100vh;
+                background-color: black;
+                background-image: url(static/loading.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            div[container]
+            {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                pointer-events: none;
+            }
+            div[container] > [box]
+            {
+              transform-style: preserve-3d;
+              animation: rollit 7s ease-in-out infinite alternate;
+            }
+            div[container] > [box] > span
+            {
+              background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
+              text-transform: uppercase;
+              line-height: 0.76em;
+              position: absolute;
+              color: #fff;
+              font-size: 3.5em;
+              white-space: nowrap;
+              font-weight: bold;
+              padding: 0px 10px;
+              transform-style: preserve-3d;
+              text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+              transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
+              font-family: 'CyberwayRiders';
+            }
+            div[container] > [box] span i {
+               font-style: initial;
+            }
+            div[container] > [box] span i:nth-child(1) {
+              color: #5c5fc4;
+            }
+            div[container] > [box] span i:nth-child(2) {
+              color: #c4c15c;
+            }
+            @keyframes rollit {
+              0% {
+                transform: perspective(500px) rotateX(0deg) rotate(5deg);
+              }
+              100% {
+                transform: perspective(50px) rotateX(360deg) rotate(5deg);
+              }
+            }
+        </style>
         <style media="screen">
             :root
             {
@@ -123,20 +201,102 @@
             [document] > [half] { border: 0.1vw solid blue; min-width: var(--half-element-width); flex: 1; }
             [document] > [third] { border: 0.1vw solid white; min-width: var(--third-element-width); flex: 1; }
             [document] > [two] { border: 0.1vw solid purple; min-width: var(--two-element-width); flex: 1; }
-            [document] > [full]
+            [document] > div
             {
                 mix-blend-mode: screen;
             }
-            [document] > [full] > [img]
+            [document] > div > div
             {
                 position: absolute;
                 width: 100%;
                 height: 100%;
+                background-repeat: no-repeat;
+            }
+            [document] > div > [crack]
+            {
                 background-image: url(static/crack.png);
                 background-size: 15% 30%;
-                background-repeat: no-repeat;
                 background-position: 85% center ;
                 opacity: 0.4;
+            }
+            [document] > div > [stains]
+            {
+                background-image: url(static/stains.png);
+                background-size: 100% 100%;
+                background-position: 85% center ;
+                opacity: 0.1;
+            }
+            [document] > div > [used]
+            {
+                background-image: url(static/used.png);
+                background-size: 100% 120%;
+                background-position: 85% center ;
+                opacity: 0.1;
+            }
+            [document] > div > [triangles]
+            {
+                background-image: url(static/triangles.png);
+                background-size: 65% 65%;
+                background-repeat: repeat;
+                background-position: 85% center ;
+                opacity: 0.2;
+            }
+            [document] > div > [logic]
+            {
+                background-image: url(static/logic.png);
+                background-size: 65% 65%;
+                background-repeat: repeat;
+                background-position: 85% center ;
+                opacity: 0.2;
+            }
+            [document] > div > [broken]
+            {
+                background-image: url(static/broken.png);
+                background-size: contain;
+                background-repeat: repeat-x;
+                background-position: 85% center ;
+                opacity: 0.2;
+            }
+            [document] > div > [holo]
+            {
+                background-image: url(static/holo.png);
+                background-size: contain;
+                background-repeat: repeat-x;
+                background-position: 85% center ;
+                opacity: 0.2;
+            }
+            [document] > div > [mbdiag]
+            {
+                background-image: url(static/mbdiag.png);
+                background-size: contain;
+                background-repeat: repeat-x;
+                background-position: 85% center ;
+                opacity: 0.2;
+            }
+            [document] > div > [wear]
+            {
+                background-image: url(static/wear.png);
+                background-size: 120% 120%;
+                background-position: 85% center ;
+                opacity: 0.4;
+            }
+
+            [stats]
+            {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                display: flex;
+                color: white;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: stretch;
+                justify-content: space-between;
+                align-items: center;
+            }
+            [stats] > div
+            {
+
             }
         </style>
 
@@ -160,11 +320,14 @@
                 background: var(--hover-box-bgcolor);
                 box-shadow: var(--hover-box-shadow);
                 backdrop-filter: blur(var(--hover-box-blur-radius));
-                animation: flicker 5s infinite;
             }
-            [document] > div:hover [img]
+            [document][flicker] > div:hover
             {
-                animation: crackFlicker 5s infinite;
+                animation: flicker 5s infinite alternate;
+            }
+            [document][flicker] > div:hover [background]
+            {
+                animation: backgroundFlicker 5s infinite alternate;
             }
             @keyframes flicker
             {
@@ -205,77 +368,41 @@
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
             }
-            @keyframes crackFlicker
+            @keyframes backgroundFlicker
             {
                 0% {
                     backdrop-filter: blur(var(--hover-box-blur-radius));
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     opacity: 0.4;
                 }
                 92.25% {
                     backdrop-filter: blur(var(--hover-box-blur-radius));
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     opacity: 0.4;
                 }
                 92.5% {
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                     opacity: 1;
                 }
                 93% {
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                     opacity: 1;
                 }
                 93.5% {
                     backdrop-filter: blur(var(--primary-box-blur-radius));
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     opacity: 0.4;
                 }
                 94% {
                     backdrop-filter: blur(var(--primary-box-blur-radius));
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     opacity: 0.4;
                 }
                 94.5% {
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                     opacity: 1;
                 }
                 95% {
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                     opacity: 1;
                 }
                 100% {
-                    background-image: url(static/crack.png);
-                    background-size: 15% 30%;
-                    background-repeat: no-repeat;
-                    background-position: 85% center;
                     opacity: 0.4;
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
@@ -395,20 +522,119 @@
             </tests>
         </test>
 
+        <div loading>
+            <div container>
+                <div box>
+                    <span style="--i: 1">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 2">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 3">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 4">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 5">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 6">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 7">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 8">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 9">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 10">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 11">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 12">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 13">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 14">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 15">
+                      <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                    <span style="--i: 16">
+                       <i>cyber</i>
+                      punk
+                      <i>2048</i>
+                    </span>
+                  </div>
+              </div>
+        </div>
+
         <div container><div document>
-            <div full><div img></div></div>
-            <div demi></div>
-            <div demi></div>
-            <div half></div>
-            <div third></div>
-            <div two></div>
-            <div third></div>
-            <div third></div>
-            <div third></div>
+            <div full><div wear></div><div crack></div></div>
+            <div demi><div wear></div><div stains></div></div>
+            <div demi>
+                <div wear></div>
+                <div stats>
+                    <div intelligence><div name>intelligence</div><div value expertise>8</div></div>
+                    <div dexterity><div name>dexterity</div><div value cap>8</div></div>
+                    <div cool><div name>cool</div><div value>8</div></div>
+                    <div tech><div name>tech</div><div value>8</div></div>
+                    <div presence><div name>presence</div><div value>8</div></div>
+                    <div luck><div name>luck</div><div value>8</div></div>
+                    <div toughness><div name>toughness</div><div value>8</div></div>
+                    <div strength><div name>strength</div><div value>8</div></div>
+                </div>
+            </div>
+            <div half><div wear></div><div mbdiag></div></div>
+            <div third><div wear></div><div holo></div></div>
+            <div two><div wear></div><div used></div></div>
+            <div third><div wear></div><div triangles></div></div>
+            <div third><div wear></div><div logic></div></div>
+            <div third><div wear></div><div broken></div></div>
         </div></div>
 
         <div info></div>
-        <div stats></div>
+
         <div portrait></div>
 
         <div talent></div>
@@ -420,5 +646,10 @@
         <div stage></div>
         <div actor></div>
 
+
+
+
+        <!-- wisdom, finesse, valor, mag, chrisma, luck, toughness, strength -->
+        <!-- intelligence, dexterity, cool, tech, presence, luck, toughness, strength -->
     </body>
 </html>
