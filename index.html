@@ -5,10 +5,6 @@
         <title></title>
 
         <style test media="screen">
-            :root
-            {
-                --zero-px: 0px;
-            }
             test
             {
                 --barcode-length: 24;
@@ -53,6 +49,7 @@
             @media (scripting: enabled) { test > css > ff-scripting { background-color: var(--assert-true-color) } }
             @media (scripting: enabled) { test > css > webkit { background-color: var(--assert-true-color) } }
             @media (video-dynamic-range: high) { test > css > hdr { background-color: var(--assert-true-color) } }
+            @-moz-document url-prefix() { test > css > firefox { background-color: var(--assert-true-color) } }
 
 
         </style>
@@ -134,7 +131,7 @@
             {
                 --hover-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
                 --hover-box-bgcolor: rgba(53, 36, 112, 0.2);
-                --hover-box-flicker-bgcolor: #ae9bf128;
+                --hover-box-flicker-bgcolor: #ffffff1a;
                 --hover-box-blur-radius: 7.5px;
                 --hover-box-flicker-blur-radius: 10px;
             }
@@ -145,54 +142,44 @@
                 z-index: calc(var(--container-layer-id) + 1);
                 background: var(--hover-box-bgcolor);
                 box-shadow: var(--hover-box-shadow);
-                -webkit-backdrop-filter: blur(var(--hover-box-blur-radius));
                 backdrop-filter: blur(var(--hover-box-blur-radius));
                 animation: flicker 5s infinite;
             }
             @keyframes flicker
             {
-                0%
-                {
+                0% {
                     background-color: transparent;
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
-                96.5%
-                {
+                92.25% {
                     background-color: transparent;
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
-                97%
-                {
+                92.5% {
                     background-color: var(--hover-box-flicker-bgcolor);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
-                97.5%
-                {
+                93% {
                     background-color: var(--hover-box-flicker-bgcolor);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
-                98%
-                {
+                93.5% {
                     background-color: var(--hover-box-bgcolor);
-                    backdrop-filter: blur(0);
+                    backdrop-filter: blur(var(--primary-box-blur-radius));
                 }
-                98.5%
-                {
+                94% {
                     background-color: var(--hover-box-bgcolor);
-                    backdrop-filter: blur(0);
+                    backdrop-filter: blur(var(--primary-box-blur-radius));
                 }
-                99%
-                {
+                94.5% {
                     background-color: var(--hover-box-flicker-bgcolor);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
-                99.5%
-                {
+                95% {
                     background-color: var(--hover-box-flicker-bgcolor);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
-                100%
-                {
+                100% {
                     background-color: transparent;
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
@@ -242,14 +229,14 @@
                     }
                     catch (e){}
                 </script>
-                <script firefox media="screen">
+                <!-- <script firefox media="screen">
                     if (navigator.userAgent.toLowerCase().includes('firefox'))
                     {
                         const firefox = document.querySelector("test > css > firefox")
                         if (firefox)
                             firefox.setAttribute("true", "")
                     }
-                </script>
+                </script> -->
                 <script landscape media="screen">
                     if (window.innerWidth > window.innerHeight)
                     {
