@@ -1,1 +1,144 @@
-<body style="background-color: black; color: white;">boop</body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style test media="screen">
+            :root
+            {
+                --assert-true-color: #444444;
+                --test-layer-id: -1337;
+                --container-layer-id: 1;
+                --hover-scale-factor: 1.25;
+                --primary-transition-time: 0.5s;
+                --primary-transition-type: ease-out;
+                --full-element-width: 92vw;
+                --half-element-width: 40vw;
+                --demi-element-width: 20vw;
+                --two-element-width: 59vw;
+                --third-element-width: 28vw;
+                --primary-margin-inline-start: 5vw;
+            }
+            body
+            {
+                background-color: black;
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+                overflow: hidden;
+            }
+            test
+            {
+                width: auto;
+                height: auto;
+                display: block;
+                position: fixed;
+                z-index: var(--test-layer-id);
+            }
+            test > css
+            {
+                width: inherit;
+                height: inherit;
+                display: block;
+            }
+            test > css > *
+            {
+                width: calc(100vw / 20);
+                height: 100vh;
+                margin: 0 calc(100vw / 40) 0 calc(100vw / 40);
+                background-color: transparent;
+                display: inline-block;
+            }
+            @media (max-width: max(1000000px, 2000000px, 1px)) { test > css > max { background-color: var(--assert-true-color) } }
+            @media (min-width: min(1000000px, 2000000px, 1px)) { test > css > min { background-color: var(--assert-true-color) } }
+            @media (max-width: clamp(1px, 50000px, 1000000px)) { test > css > clamp { background-color: var(--assert-true-color) } }
+            @media (max-width: max(1000000em, 2000000px, 1rem)) { test > css > max-mixed { background-color: var(--assert-true-color) } }
+            @media (min-width: min(1000000rem, 2000000rem, 1px)) { test > css > min-mixed { background-color: var(--assert-true-color) } }
+            @media (max-width: clamp(1em, 50000px, 1000000rem)) { test > css > clamp-mixed { background-color: var(--assert-true-color) } }
+            @media (max-width: var(--ass)) { test > css > var { background-color: var(--assert-true-color) } }
+            @media (max-width: calc(1000000em + 1px)) { test > css > calc { background-color: var(--assert-true-color) } }
+            @media (max-width: calc(var(--ass) + var(--ass))) { test > css > calc-var { background-color: var(--assert-true-color) } }
+        </style>
+        <style media="screen">
+            [container]
+            {
+                margin: 0;
+                width: calc(100vw + 18px);
+                height: 100vh;
+                overflow-x: hidden;
+                overflow-y: auto;
+                z-index: var(--container-layer-id);
+            }
+            [document]
+            {
+                width: auto;
+                height: auto;
+                display: flex;
+                z-index: var(--container-layer-id);
+                flex-wrap: wrap;
+                flex-direction: row;
+                margin-inline-start: var(--primary-margin-inline-start);
+                box-sizing: content-box;
+                justify-content: space-between;
+                padding-top: 1vw;
+                overflow: hidden;
+            }
+            [document] > div
+            {
+                display: inline-block;
+                margin-top: 2vh;
+                margin-bottom: 2vh;
+                min-height: 340px; max-height: 30vh;
+                box-sizing: content-box;
+                margin-inline-end: 3vw;
+                transition: transform var(--primary-transition-time) var(--primary-transition-type);
+            }
+
+            /*
+                hover events
+            */
+            @media (hover: hover)
+            {
+              [document] > div:hover
+              {
+                transform: scale(var(--hover-scale-factor));
+                cursor: pointer;
+                z-index: calc(var(--container-layer-id) + 1);
+              }
+            }
+
+            [document] > [full] { display: block; border: 0.1vw solid red; width: var(--full-element-width);}
+            [document] > [demi] { border: 0.1vw solid green; width: var(--demi-element-width);}
+            [document] > [half] { border: 0.1vw solid blue; width: var(--half-element-width);}
+            [document] > [third] { border: 0.1vw solid white; width: var(--third-element-width);}
+            [document] > [two] { border: 0.1vw solid purple; width: var(--two-element-width);}
+        </style>
+    </head>
+    <body>
+        <test>
+            <css>
+                <max></max>
+                <min></min>
+                <clamp></clamp>
+                <max-mixed></max-mixed>
+                <min-mixed></min-mixed>
+                <clamp-mixed></clamp-mixed>
+                <var></var>
+                <calc></calc>
+                <calc-var></calc-var>
+            </css>
+        </test>
+        <div container><div document>
+            <div full></div>
+            <div demi></div>
+            <div demi></div>
+            <div half></div>
+            <div third></div>
+            <div two></div>
+            <div third></div>
+            <div third></div>
+            <div third></div>
+        </div></div>
+
+    </body>
+</html>
