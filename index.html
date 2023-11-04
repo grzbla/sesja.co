@@ -3,32 +3,17 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+
         <style test media="screen">
             :root
             {
-                --assert-true-color: #444444;
-                --test-layer-id: -1337;
-                --container-layer-id: 1;
-                --hover-scale-factor: 1.25;
-                --primary-transition-time: 0.5s;
-                --primary-transition-type: ease-out;
-                --full-element-width: 92vw;
-                --half-element-width: 40vw;
-                --demi-element-width: 20vw;
-                --two-element-width: 59vw;
-                --third-element-width: 28vw;
-                --primary-margin-inline-start: 5vw;
-            }
-            body
-            {
-                background-color: black;
-                width: 100vw;
-                height: 100vh;
-                margin: 0;
-                overflow: hidden;
+                --zero-px: 0px;
             }
             test
             {
+                --barcode-length: 24;
+                --assert-true-color: #444444;
+
                 width: auto;
                 height: auto;
                 display: block;
@@ -43,23 +28,60 @@
             }
             test > css > *
             {
-                width: calc(100vw / 20);
+                width: calc(100vw / calc(var(--barcode-length) * 2));
                 height: 100vh;
-                margin: 0 calc(100vw / 40) 0 calc(100vw / 40);
+                margin: 0 0 0 calc(100vw / calc(var(--barcode-length) * 2));
                 background-color: transparent;
                 display: inline-block;
+                vertical-align: top;
+                color: limegreen;
+                font-size: 16px;
+                text-align: center;
+                padding-top: 1.5vh;
+                font-variant: small-caps;
             }
-            @media (max-width: max(1000000px, 2000000px, 1px)) { test > css > max { background-color: var(--assert-true-color) } }
-            @media (min-width: min(1000000px, 2000000px, 1px)) { test > css > min { background-color: var(--assert-true-color) } }
-            @media (max-width: clamp(1px, 50000px, 1000000px)) { test > css > clamp { background-color: var(--assert-true-color) } }
-            @media (max-width: max(1000000em, 2000000px, 1rem)) { test > css > max-mixed { background-color: var(--assert-true-color) } }
-            @media (min-width: min(1000000rem, 2000000rem, 1px)) { test > css > min-mixed { background-color: var(--assert-true-color) } }
-            @media (max-width: clamp(1em, 50000px, 1000000rem)) { test > css > clamp-mixed { background-color: var(--assert-true-color) } }
-            @media (max-width: var(--ass)) { test > css > var { background-color: var(--assert-true-color) } }
-            @media (max-width: calc(1000000em + 1px)) { test > css > calc { background-color: var(--assert-true-color) } }
-            @media (max-width: calc(var(--ass) + var(--ass))) { test > css > calc-var { background-color: var(--assert-true-color) } }
+            test > css > *[true] { background-color: var(--assert-true-color) }
+            @supports selector(div[parent] > [child][with][additional][params]) { test > css > selector { background-color: var(--assert-true-color) } }
+            @supports (display:flex) { test > css > flex { background-color: var(--assert-true-color) } }
+            @supports font-format(opentype) { test > css > opentype { background-color: var(--assert-true-color) } }
+            @supports font-format(woff) or font-format(woff2) { test > css > woff { background-color: var(--assert-true-color) } }
+            @supports (-webkit-touch-callout: none) { test > css > ios { background-color: var(--assert-true-color) } }
+            @supports (ul:has(> li )) { test > css > has { background-color: var(--assert-true-color) } }
+            @media screen and (min-width: 1024px) { test > css > ahd { background-color: var(--assert-true-color) } }
+            @media screen and (min-width: 1440px) { test > css > hd { background-color: var(--assert-true-color) } }
+            @media screen and (min-width: 2560px) { test > css > uhd { background-color: var(--assert-true-color) } }
+            @media (scripting: enabled) { test > css > ff-scripting { background-color: var(--assert-true-color) } }
+            @media (scripting: enabled) { test > css > webkit { background-color: var(--assert-true-color) } }
+            @media (video-dynamic-range: high) { test > css > hdr { background-color: var(--assert-true-color) } }
+
+
         </style>
         <style media="screen">
+            :root
+            {
+                --test-layer-id: -1337;
+                --container-layer-id: 1;
+                --hover-scale-factor: 1.25;
+                --primary-transition-time: 0.4s;
+                --primary-transition-type: ease-out;
+                --full-element-width: 92vw;
+                --half-element-width: 40vw;
+                --demi-element-width: 20vw;
+                --two-element-width: 59vw;
+                --third-element-width: 28vw;
+                --primary-margin-inline-start: 5vw;
+                --primary-box-blur-radius: 3px;
+            }
+            body
+            {
+                background-color: black;
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+                overflow: hidden;
+            }
+
+
             [container]
             {
                 margin: 0;
@@ -91,20 +113,10 @@
                 min-height: 340px; max-height: 30vh;
                 box-sizing: content-box;
                 margin-inline-end: 3vw;
-                transition: transform var(--primary-transition-time) var(--primary-transition-type);
-            }
-
-            /*
-                hover events
-            */
-            @media (hover: hover)
-            {
-              [document] > div:hover
-              {
-                transform: scale(var(--hover-scale-factor));
-                cursor: pointer;
-                z-index: calc(var(--container-layer-id) + 1);
-              }
+                transition: transform var(--primary-transition-time) var(--primary-transition-type),
+                            background-color var(--primary-transition-time) var(--primary-transition-type),
+                            backdrop-filter var(--primary-transition-time) var(--primary-transition-type);
+                backdrop-filter: blur(var(--primary-box-blur-radius));
             }
 
             [document] > [full] { display: block; border: 0.1vw solid red; width: var(--full-element-width);}
@@ -113,21 +125,193 @@
             [document] > [third] { border: 0.1vw solid white; width: var(--third-element-width);}
             [document] > [two] { border: 0.1vw solid purple; width: var(--two-element-width);}
         </style>
+
+        <style media="screen and (hover: hover)">
+            /*
+                hover effects
+            */
+            [document]
+            {
+                --hover-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                --hover-box-bgcolor: rgba(53, 36, 112, 0.2);
+                --hover-box-flicker-bgcolor: #ae9bf128;
+                --hover-box-blur-radius: 7.5px;
+                --hover-box-flicker-blur-radius: 10px;
+            }
+            [document] > div:hover
+            {
+                transform: scale(var(--hover-scale-factor));
+                cursor: pointer;
+                z-index: calc(var(--container-layer-id) + 1);
+                background: var(--hover-box-bgcolor);
+                box-shadow: var(--hover-box-shadow);
+                -webkit-backdrop-filter: blur(var(--hover-box-blur-radius));
+                backdrop-filter: blur(var(--hover-box-blur-radius));
+                animation: flicker 5s infinite;
+            }
+            @keyframes flicker
+            {
+                0%
+                {
+                    background-color: transparent;
+                    backdrop-filter: blur(var(--hover-box-blur-radius));
+                }
+                96.5%
+                {
+                    background-color: transparent;
+                    backdrop-filter: blur(var(--hover-box-blur-radius));
+                }
+                97%
+                {
+                    background-color: var(--hover-box-flicker-bgcolor);
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                }
+                97.5%
+                {
+                    background-color: var(--hover-box-flicker-bgcolor);
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                }
+                98%
+                {
+                    background-color: var(--hover-box-bgcolor);
+                    backdrop-filter: blur(0);
+                }
+                98.5%
+                {
+                    background-color: var(--hover-box-bgcolor);
+                    backdrop-filter: blur(0);
+                }
+                99%
+                {
+                    background-color: var(--hover-box-flicker-bgcolor);
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                }
+                99.5%
+                {
+                    background-color: var(--hover-box-flicker-bgcolor);
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                }
+                100%
+                {
+                    background-color: transparent;
+                    backdrop-filter: blur(var(--hover-box-blur-radius));
+                }
+            }
+        </style>
     </head>
     <body>
         <test>
             <css>
-                <max></max>
-                <min></min>
-                <clamp></clamp>
-                <max-mixed></max-mixed>
-                <min-mixed></min-mixed>
-                <clamp-mixed></clamp-mixed>
-                <var></var>
-                <calc></calc>
-                <calc-var></calc-var>
+                <js>js</js>
+                <write>write</write>
+                <storage>storage</storage>
+                <idb>idb</idb>
+                <webrtc>rtc</webrtc>
+                <webkit>wk</webkit>
+                <selector>[]</selector>
+                <flex>flex</flex>
+                <opentype>ot</opentype>
+                <woff>woff</woff>
+                <has>has</has>
+                <ahd>ahd</ahd>
+                <hd>hd</hd>
+                <uhd>uhd</uhd>
+                <landscape>---</landscape>
+                <firefox>ff</firefox>
+                <ff-scripting>ff-s</ff-scripting>
+                <ios>ios</ios>
+                <ie>ie</ie>
+                <edge>edge</edge>
+                <webgl>wgl</webgl>
+                <hdr>hdr</hdr>
             </css>
+            <tests>
+                <div parent><div child with additional params></div></div>
+                <script js media="screen">
+                    document.querySelector("test > css > js").setAttribute("true", "")
+                </script>
+                <script write media="screen">
+                    if (navigator.cookieEnabled)
+                        document.querySelector("test > css > write").setAttribute("true", "")
+                </script>
+                <script storage media="screen">
+                    try
+                    {
+                        if (window.localStorage && window.sessionStorage)
+                            document.querySelector("test > css > storage").setAttribute("true", "")
+                    }
+                    catch (e){}
+                </script>
+                <script firefox media="screen">
+                    if (navigator.userAgent.toLowerCase().includes('firefox'))
+                    {
+                        const firefox = document.querySelector("test > css > firefox")
+                        if (firefox)
+                            firefox.setAttribute("true", "")
+                    }
+                </script>
+                <script landscape media="screen">
+                    if (window.innerWidth > window.innerHeight)
+                    {
+                        const landscape = document.querySelector("test > css > landscape")
+                        if (landscape)
+                            landscape.setAttribute("true", "")
+                    }
+                </script>
+                <script idb media="screen">
+                    if ('indexedDB' in window)
+                    {
+                        const idb = document.querySelector("test > css > idb")
+                        if (idb)
+                            idb.setAttribute("true", "")
+                    }
+                </script>
+                <script webrtc media="screen">
+                    if (RTCDataChannel)
+                    {
+                        const webrtc = document.querySelector("test > css > webrtc")
+                        if (webrtc)
+                            webrtc.setAttribute("true", "")
+                    }
+                </script>
+                <script webkit media="screen">
+                    if ('webkitRequestAnimationFrame' in window)
+                    {
+                        const webrtc = document.querySelector("test > css > webkit")
+                        if (webrtc)
+                            webrtc.setAttribute("true", "")
+                    }
+                </script>
+                <script ie media="screen">
+                    if (/MSIE|Trident/.test(window.navigator.userAgent))
+                    {
+                        const ie = document.querySelector("test > css > ie")
+                        if (ie)
+                            ie.setAttribute("true", "")
+                    }
+                </script>
+                <script edge media="screen">
+                    if (/Edg/.test(window.navigator.userAgent))
+                    {
+                        const edge = document.querySelector("test > css > edge")
+                        if (edge)
+                            edge.setAttribute("true", "")
+                    }
+                </script>
+                <script webgl media="screen">
+                    const canvas = document.createElement("canvas")
+                    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
+
+                    if (gl instanceof WebGLRenderingContext)
+                    {
+                        const webgl = document.querySelector("test > css > webgl")
+                        if (webgl)
+                            webgl.setAttribute("true", "")
+                    }
+                </script>
+            </tests>
         </test>
+
         <div container><div document>
             <div full></div>
             <div demi></div>
