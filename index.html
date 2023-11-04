@@ -96,10 +96,10 @@
                 z-index: var(--container-layer-id);
                 flex-wrap: wrap;
                 flex-direction: row;
-                margin-inline-start: var(--primary-margin-inline-start);
                 box-sizing: content-box;
                 justify-content: space-between;
                 padding-top: 1vw;
+                padding-left: var(--primary-margin-inline-start);;
                 overflow: hidden;
             }
             [document] > div
@@ -107,20 +107,22 @@
                 display: inline-block;
                 margin-top: 2vh;
                 margin-bottom: 2vh;
-                min-height: 340px; max-height: 30vh;
+                min-height: 340px;
+                max-height: 50vh;
                 box-sizing: content-box;
                 margin-inline-end: 3vw;
                 transition: transform var(--primary-transition-time) var(--primary-transition-type),
                             background-color var(--primary-transition-time) var(--primary-transition-type),
                             backdrop-filter var(--primary-transition-time) var(--primary-transition-type);
                 backdrop-filter: blur(var(--primary-box-blur-radius));
+                transform-origin: top center;
             }
 
-            [document] > [full] { display: block; border: 0.1vw solid red; width: var(--full-element-width);}
-            [document] > [demi] { border: 0.1vw solid green; width: var(--demi-element-width);}
-            [document] > [half] { border: 0.1vw solid blue; width: var(--half-element-width);}
-            [document] > [third] { border: 0.1vw solid white; width: var(--third-element-width);}
-            [document] > [two] { border: 0.1vw solid purple; width: var(--two-element-width);}
+            [document] > [full] { display: block; border: 0.1vw solid red; min-width: var(--full-element-width); flex: 1; }
+            [document] > [demi] { border: 0.1vw solid green; min-width: var(--demi-element-width); flex: 1; }
+            [document] > [half] { border: 0.1vw solid blue; min-width: var(--half-element-width); flex: 1; }
+            [document] > [third] { border: 0.1vw solid white; min-width: var(--third-element-width); flex: 1; }
+            [document] > [two] { border: 0.1vw solid purple; min-width: var(--two-element-width); flex: 1; }
         </style>
 
         <style media="screen and (hover: hover)">
@@ -310,6 +312,9 @@
             <div third></div>
             <div third></div>
         </div></div>
+
+        <div stats></div>
+        <div stats></div>
 
     </body>
 </html>
