@@ -42,7 +42,7 @@
             @supports font-format(opentype) { test > css > opentype { background-color: var(--assert-true-color) } }
             @supports font-format(woff) or font-format(woff2) { test > css > woff { background-color: var(--assert-true-color) } }
             @supports (-webkit-touch-callout: none) { test > css > ios { background-color: var(--assert-true-color) } }
-            @supports (ul:has(> li )) { test > css > has { background-color: var(--assert-true-color) } }
+            @supports (test:has(css > has)) { test > css > has { background-color: var(--assert-true-color) } }
             @media screen and (min-width: 1024px) { test > css > ahd { background-color: var(--assert-true-color) } }
             @media screen and (min-width: 1440px) { test > css > hd { background-color: var(--assert-true-color) } }
             @media screen and (min-width: 2560px) { test > css > uhd { background-color: var(--assert-true-color) } }
@@ -123,6 +123,21 @@
             [document] > [half] { border: 0.1vw solid blue; min-width: var(--half-element-width); flex: 1; }
             [document] > [third] { border: 0.1vw solid white; min-width: var(--third-element-width); flex: 1; }
             [document] > [two] { border: 0.1vw solid purple; min-width: var(--two-element-width); flex: 1; }
+            [document] > [full]
+            {
+                mix-blend-mode: screen;
+            }
+            [document] > [full] > [img]
+            {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-image: url(static/crack.png);
+                background-size: 15% 30%;
+                background-repeat: no-repeat;
+                background-position: 85% center ;
+                opacity: 0.4;
+            }
         </style>
 
         <style media="screen and (hover: hover)">
@@ -147,42 +162,121 @@
                 backdrop-filter: blur(var(--hover-box-blur-radius));
                 animation: flicker 5s infinite;
             }
+            [document] > div:hover [img]
+            {
+                animation: crackFlicker 5s infinite;
+            }
             @keyframes flicker
             {
                 0% {
-                    background-color: transparent;
+                    background: transparent;
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
                 92.25% {
-                    background-color: transparent;
+                    background: transparent;
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
                 92.5% {
-                    background-color: var(--hover-box-flicker-bgcolor);
+                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
                 93% {
-                    background-color: var(--hover-box-flicker-bgcolor);
+                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
                 93.5% {
-                    background-color: var(--hover-box-bgcolor);
+                    background: var(--hover-box-bgcolor);
                     backdrop-filter: blur(var(--primary-box-blur-radius));
                 }
                 94% {
-                    background-color: var(--hover-box-bgcolor);
+                    background: var(--hover-box-bgcolor);
                     backdrop-filter: blur(var(--primary-box-blur-radius));
                 }
                 94.5% {
-                    background-color: var(--hover-box-flicker-bgcolor);
+                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
                 95% {
-                    background-color: var(--hover-box-flicker-bgcolor);
+                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
                     backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
                 }
                 100% {
-                    background-color: transparent;
+                    background: transparent;
+                    backdrop-filter: blur(var(--hover-box-blur-radius));
+                }
+            }
+            @keyframes crackFlicker
+            {
+                0% {
+                    backdrop-filter: blur(var(--hover-box-blur-radius));
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    opacity: 0.4;
+                }
+                92.25% {
+                    backdrop-filter: blur(var(--hover-box-blur-radius));
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    opacity: 0.4;
+                }
+                92.5% {
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                    opacity: 1;
+                }
+                93% {
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                    opacity: 1;
+                }
+                93.5% {
+                    backdrop-filter: blur(var(--primary-box-blur-radius));
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    opacity: 0.4;
+                }
+                94% {
+                    backdrop-filter: blur(var(--primary-box-blur-radius));
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    opacity: 0.4;
+                }
+                94.5% {
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                    opacity: 1;
+                }
+                95% {
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                    opacity: 1;
+                }
+                100% {
+                    background-image: url(static/crack.png);
+                    background-size: 15% 30%;
+                    background-repeat: no-repeat;
+                    background-position: 85% center;
+                    opacity: 0.4;
                     backdrop-filter: blur(var(--hover-box-blur-radius));
                 }
             }
@@ -196,23 +290,23 @@
                 <storage>storage</storage>
                 <idb>idb</idb>
                 <webrtc>rtc</webrtc>
-                <webkit>wk</webkit>
+                <webkit>wkit</webkit>
+                <webgl>wgl</webgl>
                 <selector>[]</selector>
                 <flex>flex</flex>
-                <opentype>ot</opentype>
+                <opentype>otf</opentype>
                 <woff>woff</woff>
                 <has>has</has>
                 <ahd>ahd</ahd>
                 <hd>hd</hd>
                 <uhd>uhd</uhd>
+                <hdr>hdr</hdr>
                 <landscape>---</landscape>
                 <firefox>ff</firefox>
                 <ff-scripting>ff-s</ff-scripting>
                 <ios>ios</ios>
                 <ie>ie</ie>
                 <edge>edge</edge>
-                <webgl>wgl</webgl>
-                <hdr>hdr</hdr>
             </css>
             <tests>
                 <div parent><div child with additional params></div></div>
@@ -302,7 +396,7 @@
         </test>
 
         <div container><div document>
-            <div full></div>
+            <div full><div img></div></div>
             <div demi></div>
             <div demi></div>
             <div half></div>
@@ -313,8 +407,18 @@
             <div third></div>
         </div></div>
 
+        <div info></div>
         <div stats></div>
-        <div stats></div>
+        <div portrait></div>
+
+        <div talent></div>
+        <div wealth></div>
+        <div gear></div>
+
+        <div role></div>
+        <div prop></div>
+        <div stage></div>
+        <div actor></div>
 
     </body>
 </html>
