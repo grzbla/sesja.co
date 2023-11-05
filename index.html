@@ -1,458 +1,813 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
 
-        <style test media="screen">
-            test
-            {
-                --barcode-length: 24;
-                --assert-true-color: #444444;
+<head>
+    <meta charset="utf-8">
+    <title></title>
 
-                width: auto;
-                height: auto;
-                display: block;
-                position: fixed;
-                z-index: var(--test-layer-id);
-            }
-            test > css
-            {
-                width: inherit;
-                height: inherit;
-                display: block;
-            }
-            test > css > *
-            {
-                width: calc(100vw / calc(var(--barcode-length) * 2));
-                height: 100vh;
-                margin: 0 0 0 calc(100vw / calc(var(--barcode-length) * 2));
-                background-color: transparent;
-                display: inline-block;
-                vertical-align: top;
-                color: limegreen;
-                font-size: 16px;
-                text-align: center;
-                padding-top: 1.5vh;
-                font-variant: small-caps;
-            }
-            test > css > *[true] { background-color: var(--assert-true-color) }
-            @supports selector(div[parent] > [child][with][additional][params]) { test > css > selector { background-color: var(--assert-true-color) } }
-            @supports (display:flex) { test > css > flex { background-color: var(--assert-true-color) } }
-            @supports font-format(opentype) { test > css > opentype { background-color: var(--assert-true-color) } }
-            @supports font-format(woff) or font-format(woff2) { test > css > woff { background-color: var(--assert-true-color) } }
-            @supports (-webkit-touch-callout: none) { test > css > ios { background-color: var(--assert-true-color) } }
-            @supports (test:has(css > has)) { test > css > has { background-color: var(--assert-true-color) } }
-            @media screen and (min-width: 1024px) { test > css > ahd { background-color: var(--assert-true-color) } }
-            @media screen and (min-width: 1440px) { test > css > hd { background-color: var(--assert-true-color) } }
-            @media screen and (min-width: 2560px) { test > css > uhd { background-color: var(--assert-true-color) } }
-            @media (scripting: enabled) { test > css > ff-scripting { background-color: var(--assert-true-color) } }
-            @media (scripting: enabled) { test > css > webkit { background-color: var(--assert-true-color) } }
-            @media (video-dynamic-range: high) { test > css > hdr { background-color: var(--assert-true-color) } }
-            @-moz-document url-prefix() { test > css > firefox { background-color: var(--assert-true-color) } }
+    <style test media="screen">
+        test {
+            --barcode-length: 24;
+            --assert-true-color: #444444;
 
+            width: auto;
+            height: auto;
+            display: block;
+            position: fixed;
+            z-index: var(--test-layer-id);
+        }
 
-        </style>
+        test>css {
+            width: inherit;
+            height: inherit;
+            display: block;
+        }
 
-        <!--
-        https://codepen.io/kevinpowell/pen/mdwXRqd
-        https://codepen.io/natszafraniec/pen/gOxrKJv
-        https://codepen.io/gabriele_997/pen/wvqPKKE
-        https://codepen.io/jsonyeung/pen/zYdRWvX
-        https://codepen.io/team/keyframers/pen/RwKoMmb
-        https://codepen.io/jesuskinto/pen/wvJeVez
-        https://freefrontend.com/css-text-animations/
-        https://codepen.io/vainsan/pen/NWRaPXG
-        https://codepen.io/alvarotrigo/pen/eYEqPZa
-        https://codepen.io/alvarotrigo/pen/xxLvyOG
-        https://codepen.io/alvarotrigo/pen/qBXeJab
-        https://codepen.io/alvarotrigo/pen/bGrXmwM
-        https://codepen.io/alvarotrigo/pen/ZEJgqLN
-        https://codepen.io/designfenix/pen/gOGVXWw
-     -->
-        <style loading media="screen">
-            @font-face
-            {
-                font-family: CyberwayRiders;
-                src: url(static/CyberwayRiders.ttf);
+        test>css>* {
+            width: calc(100vw / calc(var(--barcode-length) * 2));
+            height: 100vh;
+            margin: 0 0 0 calc(100vw / calc(var(--barcode-length) * 2));
+            background-color: transparent;
+            display: inline-block;
+            vertical-align: top;
+            color: limegreen;
+            font-size: 16px;
+            text-align: center;
+            padding-top: 0.5vh;
+            font-variant: small-caps;
+        }
+
+        test>css>*[true] {
+            background-color: var(--assert-true-color)
+        }
+
+        @supports selector(div[parent] > [child][with][additional][params]) {
+            test>css>selector {
+                background-color: var(--assert-true-color)
             }
-            div[loading]
-            {
-                width: 100vw;
-                height: 100vh;
-                background-color: black;
-                background-image: url(static/loading.png);
-                background-repeat: no-repeat;
-                background-size: cover;
+        }
+
+        @supports (display:flex) {
+            test>css>flex {
+                background-color: var(--assert-true-color)
             }
-            div[container]
-            {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                pointer-events: none;
+        }
+
+        @supports font-format(opentype) {
+            test>css>opentype {
+                background-color: var(--assert-true-color)
             }
-            div[container] > [box]
-            {
-              transform-style: preserve-3d;
-              animation: rollit 7s ease-in-out infinite alternate;
+        }
+
+        @supports font-format(woff) or font-format(woff2) {
+            test>css>woff {
+                background-color: var(--assert-true-color)
             }
-            div[container] > [box] > span
-            {
-              background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
-              text-transform: uppercase;
-              line-height: 0.76em;
-              position: absolute;
-              color: #fff;
-              font-size: 3.5em;
-              white-space: nowrap;
-              font-weight: bold;
-              padding: 0px 10px;
-              transform-style: preserve-3d;
-              text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-              transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
-              font-family: 'CyberwayRiders';
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            test>css>ios {
+                background-color: var(--assert-true-color)
             }
-            div[container] > [box] span i {
-               font-style: initial;
+        }
+
+        @supports (test:has(css > has)) {
+            test>css>has {
+                background-color: var(--assert-true-color)
             }
-            div[container] > [box] span i:nth-child(1) {
-              color: #5c5fc4;
+        }
+
+        @media screen and (min-width: 1024px) {
+            test>css>ahd {
+                background-color: var(--assert-true-color)
             }
-            div[container] > [box] span i:nth-child(2) {
-              color: #c4c15c;
+        }
+
+        @media screen and (min-width: 1440px) {
+            test>css>hd {
+                background-color: var(--assert-true-color)
             }
-            @keyframes rollit {
-              0% {
+        }
+
+        @media screen and (min-width: 2560px) {
+            test>css>uhd {
+                background-color: var(--assert-true-color)
+            }
+        }
+
+        @media (scripting: enabled) {
+            test>css>ff-scripting {
+                background-color: var(--assert-true-color)
+            }
+        }
+
+        @media (scripting: enabled) {
+            test>css>webkit {
+                background-color: var(--assert-true-color)
+            }
+        }
+
+        @media (video-dynamic-range: high) {
+            test>css>hdr {
+                background-color: var(--assert-true-color)
+            }
+        }
+
+        @-moz-document url-prefix() {
+            test>css>firefox {
+                background-color: var(--assert-true-color)
+            }
+        }
+    </style>
+
+    <!--
+            https://codepen.io/kevinpowell/pen/mdwXRqd
+            https://codepen.io/natszafraniec/pen/gOxrKJv
+            https://codepen.io/gabriele_997/pen/wvqPKKE
+            https://codepen.io/jsonyeung/pen/zYdRWvX
+            https://codepen.io/team/keyframers/pen/RwKoMmb
+            https://codepen.io/jesuskinto/pen/wvJeVez
+            https://freefrontend.com/css-text-animations/
+            https://codepen.io/vainsan/pen/NWRaPXG
+            https://codepen.io/alvarotrigo/pen/eYEqPZa
+            https://codepen.io/alvarotrigo/pen/xxLvyOG
+            https://codepen.io/alvarotrigo/pen/qBXeJab
+            https://codepen.io/alvarotrigo/pen/bGrXmwM
+            https://codepen.io/alvarotrigo/pen/ZEJgqLN
+            https://codepen.io/designfenix/pen/gOGVXWw
+         -->
+    <style loading media="screen">
+        @font-face {
+            font-family: CyberwayRiders;
+            src: url(static/CyberwayRiders.ttf);
+        }
+        @font-face {
+            font-family: BravePhoenixItalic;
+            src: url(static/BravePhoenixItalic.otf);
+        }
+
+        [loading] {
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            background-image: url(static/loading.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: none;
+        }
+
+        [loading]>[container] {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
+
+        [loading]>[container]>[box] {
+            transform-style: preserve-3d;
+            animation: rollit 7s ease-in-out infinite alternate;
+        }
+
+        [loading]>[container]>[box]>span {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 90%, transparent);
+            text-transform: uppercase;
+            line-height: 0.76em;
+            position: absolute;
+            color: #fff;
+            font-size: 3.5em;
+            white-space: nowrap;
+            font-weight: bold;
+            padding: 0px 10px;
+            transform-style: preserve-3d;
+            text-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+            transform: translate(-50%, -50%) rotateX(calc(var(--i) * 22.5deg)) translateZ(109px);
+            font-family: 'CyberwayRiders';
+        }
+
+        [loading]>[container]>[box]>span>i {
+            font-style: initial;
+        }
+
+        [loading]>[container]>[box]>span>i:nth-child(1) {
+            color: #5c5fc4;
+        }
+
+        [loading]>[container]>[box]>span>i:nth-child(2) {
+            color: #c4c15c;
+        }
+
+        @keyframes rollit {
+            0% {
                 transform: perspective(500px) rotateX(0deg) rotate(5deg);
-              }
-              100% {
+            }
+
+            100% {
                 transform: perspective(50px) rotateX(360deg) rotate(5deg);
-              }
             }
-        </style>
-        <style media="screen">
-            :root
-            {
-                --test-layer-id: -1337;
-                --container-layer-id: 1;
-                --hover-scale-factor: 1.25;
-                --primary-transition-time: 0.4s;
-                --primary-transition-type: ease-out;
-                --full-element-width: 92vw;
-                --half-element-width: 40vw;
-                --demi-element-width: 20vw;
-                --two-element-width: 59vw;
-                --third-element-width: 28vw;
-                --primary-margin-inline-start: 5vw;
-                --primary-box-blur-radius: 3px;
-            }
-            body
-            {
-                background-color: black;
-                width: 100vw;
-                height: 100vh;
-                margin: 0;
-                overflow: hidden;
-            }
+        }
+    </style>
+    <style media="screen">
+        :root {
+            --test-layer-id: -1337;
+            --container-layer-id: 1;
+            --hover-scale-factor: 1.25;
+            --primary-transition-time: 0.4s;
+            --primary-transition-type: ease-out;
+            --full-element-width: 92vw;
+            --half-element-width: 40vw;
+            --demi-element-width: 20vw;
+            --two-element-width: 59vw;
+            --third-element-width: 28vw;
+            --primary-margin-inline-start: 5vw;
+            --primary-box-blur-radius: 3px;
+        }
+
+        body {
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
 
 
-            [container]
-            {
-                margin: 0;
-                width: calc(100vw + 18px);
-                height: 100vh;
-                overflow-x: hidden;
-                overflow-y: auto;
-                z-index: var(--container-layer-id);
-            }
+        [container] {
+            margin: 0;
+            width: calc(100vw + 18px);
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            z-index: var(--container-layer-id);
+        }
+
+        [document] {
+            width: auto;
+            height: auto;
+            display: flex;
+            z-index: var(--container-layer-id);
+            flex-wrap: wrap;
+            flex-direction: row;
+            box-sizing: content-box;
+            justify-content: space-between;
+            padding-top: 1vw;
+            padding-left: var(--primary-margin-inline-start);
+            ;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 900px) {
             [document]
             {
-                width: auto;
-                height: auto;
-                display: flex;
-                z-index: var(--container-layer-id);
-                flex-wrap: wrap;
-                flex-direction: row;
-                box-sizing: content-box;
-                justify-content: space-between;
-                padding-top: 1vw;
-                padding-left: var(--primary-margin-inline-start);;
-                overflow: hidden;
+                flex-wrap: nowrap;
+                flex-direction: column;
             }
-            [document] > div
-            {
-                display: inline-block;
-                margin-top: 2vh;
-                margin-bottom: 2vh;
-                min-height: 340px;
-                max-height: 50vh;
-                box-sizing: content-box;
-                margin-inline-end: 3vw;
-                transition: transform var(--primary-transition-time) var(--primary-transition-type),
-                            background-color var(--primary-transition-time) var(--primary-transition-type),
-                            backdrop-filter var(--primary-transition-time) var(--primary-transition-type);
-                backdrop-filter: blur(var(--primary-box-blur-radius));
-                transform-origin: top center;
+        }
+
+        [document]>div {
+            display: inline-block;
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+            min-height: 340px;
+            min-width: 240px;
+            box-sizing: content-box;
+            margin-inline-end: 3vw;
+            transition: transform var(--primary-transition-time) var(--primary-transition-type),
+                background-color var(--primary-transition-time) var(--primary-transition-type),
+                backdrop-filter var(--primary-transition-time) var(--primary-transition-type);
+            backdrop-filter: blur(var(--primary-box-blur-radius));
+            transform-origin: top center;
+        }
+
+        [document]>[full] {
+            display: block;
+            border: 0.1vw solid red;
+            min-width: var(--full-element-width);
+            flex: 1;
+        }
+
+        [document]>[demi] {
+            border: 0.1vw solid green;
+            min-width: var(--demi-element-width);
+            flex: 1;
+        }
+
+        [document]>[half] {
+            border: 0.1vw solid blue;
+            min-width: var(--half-element-width);
+            flex: 1;
+        }
+
+        [document]>[third] {
+            border: 0.1vw solid white;
+            min-width: var(--third-element-width);
+            flex: 1;
+        }
+
+        [document]>[two] {
+            border: 0.1vw solid purple;
+            min-width: var(--two-element-width);
+            flex: 1;
+        }
+
+        [document]>div {
+            mix-blend-mode: screen;
+        }
+
+        [document]>div>div {
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+        }
+
+        [document]>div>[crack] {
+            background-image: url(static/crack.png);
+            background-size: 15% 30%;
+            background-position: 85% center;
+            opacity: 0.4;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[stains] {
+            background-image: url(static/stains.png);
+            background-size: 100% 100%;
+            background-position: 85% center;
+            opacity: 0.1;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[used] {
+            background-image: url(static/used.png);
+            background-size: 100% 120%;
+            background-position: 85% center;
+            opacity: 0.1;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[triangles] {
+            background-image: url(static/triangles.png);
+            background-size: 65% 65%;
+            background-repeat: repeat;
+            background-position: 85% center;
+            opacity: 0.2;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[logic] {
+            background-image: url(static/logic.png);
+            background-size: 65% 65%;
+            background-repeat: repeat;
+            background-position: 85% center;
+            opacity: 0.2;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[broken] {
+            background-image: url(static/broken.png);
+            background-size: contain;
+            background-repeat: repeat-x;
+            background-position: 85% center;
+            opacity: 0.2;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[holo] {
+            background-image: url(static/holo.png);
+            background-size: contain;
+            background-repeat: repeat-x;
+            background-position: 85% center;
+            opacity: 0.2;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[mbdiag] {
+            background-image: url(static/mbdiag.png);
+            background-size: contain;
+            background-repeat: repeat-x;
+            background-position: 85% center;
+            opacity: 0.2;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [document]>div>[wear] {
+            background-image: url(static/wear.png);
+            background-size: 120% 120%;
+            background-position: 85% center;
+            opacity: 0.4;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        [stats] {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: stretch;
+            justify-content: space-evenly;
+            /* overflow-x: scroll; */
+            background-color: #00000077;
+        }
+
+        [stats]>div {
+            --rectum: #ffffffbb;
+            color: var(--rectum);
+            min-width: 170px;
+            width: 44%;
+            max-width: 25vh;
+            padding-top: 0.5vh;
+            transition: color 0.3s ease-out;
+        }
+        [stats]>div:hover {
+            --rectum: #ffffffdd;
+        }
+
+        [stats]>div>div {
+            text-align: center;
+            outline: none;
+            --background-color: #232323;
+            text-shadow: -0.23vw 0px 0px var(--background-color), 0.23vw 0px 0px var(--background-color),
+                0.08vw 0.08vw 0.08vw var(--background-color), 0.08vw -0.08vw 0.08vw var(--background-color),
+                -0.08vw 0.08vw 0.08vw var(--background-color), -0.08vw -0.08vw 0.08vw var(--background-color),
+                0.08vw 0px 0.08vw var(--background-color), 0px 0.08vw 0.08vw var(--background-color),
+                -0.08vw 0px 0.08vw var(--background-color), 0px -0.08vw 0.08vw var(--background-color);
+        }
+        [stats]>div>[name] {
+            font-variant: small-caps;
+            font-family: BravePhoenixItalic;
+            text-shadow: none;
+            letter-spacing: 0.1vw;
+        }
+
+        [stats]>div>[value] {
+            font-size: 3vh;
+        }
+
+        [stats]>div>[indicator] {
+            width: 100%;
+            min-height: 3px;
+            position: relative;
+            background: linear-gradient(#000 0 0) 0/0% no-repeat var(--rectum);
+            transform: scaleX(-1);
+            margin: 0.2vh 0 0.2vh 0;
+        }
+        [stats]>div [indicator] {
+            --rectum: #ffffff65;
+        }
+        [stats]>div:hover [indicator] {
+            --rectum: #ffffffdd;
+        }
+        [stats]>div>[indicator] ~ [indicator] {
+            min-height: 1px;
+        }
+
+        [stats]>div>[indicator='1'] {
+            width: 10%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/100%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/100%;
+            animation: progress 0.5s steps(1) reverse;
+        }
+
+        [stats]>div>[indicator='2'] {
+            width: 20%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/50%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/50%;
+            animation: progress 1s steps(2) reverse;
+        }
+
+        [stats]>div>[indicator='3'] {
+            width: 30%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/33.3%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/33.3%;
+            animation: progress 1.5s steps(3) reverse;
+        }
+
+        [stats]>div>[indicator='4'] {
+            width: 40%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/25%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/25%;
+            animation: progress 2s steps(4) reverse;
+        }
+
+        [stats]>div>[indicator='5'] {
+            width: 50%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/20%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/20%;
+            animation: progress 2.5s steps(5) reverse;
+        }
+
+        [stats]>div>[indicator='6'] {
+            width: 60%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/16.67%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/16.67%;
+            animation: progress 3s steps(6) reverse;
+        }
+
+        [stats]>div>[indicator='7'] {
+            width: 70%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/14.28%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/14.28%;
+            animation: progress 3.5s steps(7) reverse;
+        }
+
+        [stats]>div>[indicator='8'] {
+            width: 80%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/12.5%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/12.5%;
+            animation: progress 4s steps(8) reverse;
+        }
+
+        [stats]>div>[indicator='9'] {
+            width: 90%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/11.11%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/11.11%;
+            animation: progress 4.5s steps(9) reverse;
+        }
+
+        [stats]>div>[indicator='10'] {
+            width: 100%;
+            mask: linear-gradient(90deg, #000 70%, #0000 0) 0/10%;
+            -webkit-mask: linear-gradient(90deg, #000 70%, #0000 0) 0/10%;
+            animation: progress 5s steps(10) reverse;
+        }
+
+        @keyframes progress {
+            100% {
+                background-size: 100%
+            }
+        }
+
+        [stats]>div>[fluff] {
+            display: inline-block;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        [stats]>div>[fluff]>blockquote {
+            background-color: #000;
+            border: solid 2px var(--rectum);
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 0;
+            position: relative;
+            width: 100%;
+            text-shadow: none;
+        }
+
+        [stats]>div>[fluff]>blockquote>p {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        [stats]>div>[fluff]>blockquote:before {
+            animation: clockwise 30s infinite linear;
+            background-color: #000;
+            content: "";
+            left: 0;
+            opacity: 0.5;
+            position: absolute;
+            right: 0;
+            bottom: 10%;
+            top: 10%;
+        }
+
+        [stats]>div>[fluff]>blockquote:after {
+            animation: counter 30s infinite linear;
+            background-color: #000;
+            content: "";
+            left: 0;
+            opacity: 0.5;
+            position: absolute;
+            right: 0;
+            bottom: 10%;
+            top: 10%;
+        }
+
+        [stats]>div>[fluff]>blockquote>cite {
+            display: block;
+            font-style: italic;
+            text-align: right;
+            font-size: 10px;
+            margin-right: 5px;
+        }
+
+        [stats]>div>[fluff]>blockquote>cite:before {
+            content: "- ";
+        }
+
+        [stats]>div>[fluff]>blockquote>* {
+            position: relative;
+            z-index: 1;
+        }
+
+
+        @keyframes clockwise {
+            0% {
+                transform: rotate(0);
             }
 
-            [document] > [full] { display: block; border: 0.1vw solid red; min-width: var(--full-element-width); flex: 1; }
-            [document] > [demi] { border: 0.1vw solid green; min-width: var(--demi-element-width); flex: 1; }
-            [document] > [half] { border: 0.1vw solid blue; min-width: var(--half-element-width); flex: 1; }
-            [document] > [third] { border: 0.1vw solid white; min-width: var(--third-element-width); flex: 1; }
-            [document] > [two] { border: 0.1vw solid purple; min-width: var(--two-element-width); flex: 1; }
-            [document] > div
-            {
-                mix-blend-mode: screen;
+            100% {
+                transform: rotate(360deg);
             }
-            [document] > div > div
-            {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-repeat: no-repeat;
-            }
-            [document] > div > [crack]
-            {
-                background-image: url(static/crack.png);
-                background-size: 15% 30%;
-                background-position: 85% center ;
-                opacity: 0.4;
-            }
-            [document] > div > [stains]
-            {
-                background-image: url(static/stains.png);
-                background-size: 100% 100%;
-                background-position: 85% center ;
-                opacity: 0.1;
-            }
-            [document] > div > [used]
-            {
-                background-image: url(static/used.png);
-                background-size: 100% 120%;
-                background-position: 85% center ;
-                opacity: 0.1;
-            }
-            [document] > div > [triangles]
-            {
-                background-image: url(static/triangles.png);
-                background-size: 65% 65%;
-                background-repeat: repeat;
-                background-position: 85% center ;
-                opacity: 0.2;
-            }
-            [document] > div > [logic]
-            {
-                background-image: url(static/logic.png);
-                background-size: 65% 65%;
-                background-repeat: repeat;
-                background-position: 85% center ;
-                opacity: 0.2;
-            }
-            [document] > div > [broken]
-            {
-                background-image: url(static/broken.png);
-                background-size: contain;
-                background-repeat: repeat-x;
-                background-position: 85% center ;
-                opacity: 0.2;
-            }
-            [document] > div > [holo]
-            {
-                background-image: url(static/holo.png);
-                background-size: contain;
-                background-repeat: repeat-x;
-                background-position: 85% center ;
-                opacity: 0.2;
-            }
-            [document] > div > [mbdiag]
-            {
-                background-image: url(static/mbdiag.png);
-                background-size: contain;
-                background-repeat: repeat-x;
-                background-position: 85% center ;
-                opacity: 0.2;
-            }
-            [document] > div > [wear]
-            {
-                background-image: url(static/wear.png);
-                background-size: 120% 120%;
-                background-position: 85% center ;
-                opacity: 0.4;
+        }
+
+        @keyframes counter {
+            0% {
+                transform: rotate(0);
             }
 
-            [stats]
-            {
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                display: flex;
-                color: white;
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-content: stretch;
-                justify-content: space-between;
-                align-items: center;
+            100% {
+                transform: rotate(-360deg);
             }
-            [stats] > div
-            {
+        }
 
-            }
-        </style>
+        [stats] > div > [gear]
+        {
+            font-size: 12px;
+            text-shadow: none;
+        }
+        [stats] > div > [honors]
+        {
+            font-size: 12px;
+            text-shadow: none;
+        }
+    </style>
 
-        <style media="screen and (hover: hover)">
-            /*
+    <style media="screen and (hover: hover)">
+        /*
                 hover effects
             */
-            [document]
-            {
-                --hover-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                --hover-box-bgcolor: rgba(53, 36, 112, 0.2);
-                --hover-box-flicker-bgcolor: #ffffff1a;
-                --hover-box-blur-radius: 7.5px;
-                --hover-box-flicker-blur-radius: 10px;
-            }
-            [document] > div:hover
-            {
-                transform: scale(var(--hover-scale-factor));
-                cursor: pointer;
-                z-index: calc(var(--container-layer-id) + 1);
-                background: var(--hover-box-bgcolor);
-                box-shadow: var(--hover-box-shadow);
+        [document] {
+            --hover-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            --hover-box-bgcolor: rgba(53, 36, 112, 0.2);
+            --hover-box-flicker-bgcolor: #ffffff1a;
+            --hover-box-blur-radius: 7.5px;
+            --hover-box-flicker-blur-radius: 10px;
+        }
+
+        [document]>div:hover {
+            transform: scale(var(--hover-scale-factor));
+            cursor: pointer;
+            z-index: calc(var(--container-layer-id) + 1);
+            background: var(--hover-box-bgcolor);
+            box-shadow: var(--hover-box-shadow);
+            backdrop-filter: blur(var(--hover-box-blur-radius));
+        }
+
+        [document] div[flicker]:hover {
+            animation: flicker 5s infinite;
+        }
+
+        @keyframes flicker {
+            0% {
+                background: transparent;
                 backdrop-filter: blur(var(--hover-box-blur-radius));
             }
-            [document][flicker] > div:hover
-            {
-                animation: flicker 5s infinite alternate;
+
+            92.25% {
+                background: transparent;
+                backdrop-filter: blur(var(--hover-box-blur-radius));
             }
-            [document][flicker] > div:hover [background]
-            {
-                animation: backgroundFlicker 5s infinite alternate;
+
+            92.5% {
+                background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
             }
-            @keyframes flicker
-            {
-                0% {
-                    background: transparent;
-                    backdrop-filter: blur(var(--hover-box-blur-radius));
-                }
-                92.25% {
-                    background: transparent;
-                    backdrop-filter: blur(var(--hover-box-blur-radius));
-                }
-                92.5% {
-                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                }
-                93% {
-                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                }
-                93.5% {
-                    background: var(--hover-box-bgcolor);
-                    backdrop-filter: blur(var(--primary-box-blur-radius));
-                }
-                94% {
-                    background: var(--hover-box-bgcolor);
-                    backdrop-filter: blur(var(--primary-box-blur-radius));
-                }
-                94.5% {
-                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                }
-                95% {
-                    background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                }
-                100% {
-                    background: transparent;
-                    backdrop-filter: blur(var(--hover-box-blur-radius));
-                }
+
+            93% {
+                background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
             }
-            @keyframes backgroundFlicker
-            {
-                0% {
-                    backdrop-filter: blur(var(--hover-box-blur-radius));
-                    opacity: 0.4;
-                }
-                92.25% {
-                    backdrop-filter: blur(var(--hover-box-blur-radius));
-                    opacity: 0.4;
-                }
-                92.5% {
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                    opacity: 1;
-                }
-                93% {
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                    opacity: 1;
-                }
-                93.5% {
-                    backdrop-filter: blur(var(--primary-box-blur-radius));
-                    opacity: 0.4;
-                }
-                94% {
-                    backdrop-filter: blur(var(--primary-box-blur-radius));
-                    opacity: 0.4;
-                }
-                94.5% {
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                    opacity: 1;
-                }
-                95% {
-                    backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
-                    opacity: 1;
-                }
-                100% {
-                    opacity: 0.4;
-                    backdrop-filter: blur(var(--hover-box-blur-radius));
-                }
+
+            93.5% {
+                background: var(--hover-box-bgcolor);
+                backdrop-filter: blur(var(--primary-box-blur-radius));
             }
-        </style>
-    </head>
-    <body>
-        <test>
-            <css>
-                <js>js</js>
-                <write>write</write>
-                <storage>storage</storage>
-                <idb>idb</idb>
-                <webrtc>rtc</webrtc>
-                <webkit>wkit</webkit>
-                <webgl>wgl</webgl>
-                <selector>[]</selector>
-                <flex>flex</flex>
-                <opentype>otf</opentype>
-                <woff>woff</woff>
-                <has>has</has>
-                <ahd>ahd</ahd>
-                <hd>hd</hd>
-                <uhd>uhd</uhd>
-                <hdr>hdr</hdr>
-                <landscape>---</landscape>
-                <firefox>ff</firefox>
-                <ff-scripting>ff-s</ff-scripting>
-                <ios>ios</ios>
-                <ie>ie</ie>
-                <edge>edge</edge>
-            </css>
-            <tests>
-                <div parent><div child with additional params></div></div>
-                <script js media="screen">
-                    document.querySelector("test > css > js").setAttribute("true", "")
-                </script>
-                <script write media="screen">
-                    if (navigator.cookieEnabled)
-                        document.querySelector("test > css > write").setAttribute("true", "")
-                </script>
-                <script storage media="screen">
-                    try
-                    {
-                        if (window.localStorage && window.sessionStorage)
-                            document.querySelector("test > css > storage").setAttribute("true", "")
-                    }
-                    catch (e){}
-                </script>
-                <!-- <script firefox media="screen">
+
+            94% {
+                background: var(--hover-box-bgcolor);
+                backdrop-filter: blur(var(--primary-box-blur-radius));
+            }
+
+            94.5% {
+                background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+            }
+
+            95% {
+                background: radial-gradient(circle, var(--hover-box-bgcolor) 0%, var(--hover-box-flicker-bgcolor) 100%);
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+            }
+
+            100% {
+                background: transparent;
+                backdrop-filter: blur(var(--hover-box-blur-radius));
+            }
+        }
+
+        @keyframes backgroundFlicker {
+            0% {
+                backdrop-filter: blur(var(--hover-box-blur-radius));
+                opacity: 0.4;
+            }
+
+            92.25% {
+                backdrop-filter: blur(var(--hover-box-blur-radius));
+                opacity: 0.4;
+            }
+
+            92.5% {
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                opacity: 1;
+            }
+
+            93% {
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                opacity: 1;
+            }
+
+            93.5% {
+                backdrop-filter: blur(var(--primary-box-blur-radius));
+                opacity: 0.4;
+            }
+
+            94% {
+                backdrop-filter: blur(var(--primary-box-blur-radius));
+                opacity: 0.4;
+            }
+
+            94.5% {
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                opacity: 1;
+            }
+
+            95% {
+                backdrop-filter: blur(var(--hover-box-flicker-blur-radius));
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.4;
+                backdrop-filter: blur(var(--hover-box-blur-radius));
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <test>
+        <css>
+            <js>js</js>
+            <write>write</write>
+            <storage>storage</storage>
+            <idb>idb</idb>
+            <webrtc>rtc</webrtc>
+            <webkit>wkit</webkit>
+            <webgl>wgl</webgl>
+            <selector>[]</selector>
+            <flex>flex</flex>
+            <opentype>otf</opentype>
+            <woff>woff</woff>
+            <has>has</has>
+            <ahd>ahd</ahd>
+            <hd>hd</hd>
+            <uhd>uhd</uhd>
+            <hdr>hdr</hdr>
+            <landscape>---</landscape>
+            <firefox>ff</firefox>
+            <ff-scripting>ff-s</ff-scripting>
+            <ios>ios</ios>
+            <ie>ie</ie>
+            <edge>edge</edge>
+        </css>
+        <tests>
+            <div parent>
+                <div child with additional params></div>
+            </div>
+            <script js media="screen">
+                document.querySelector("test > css > js").setAttribute("true", "")
+            </script>
+            <script write media="screen">
+                if (navigator.cookieEnabled)
+                    document.querySelector("test > css > write").setAttribute("true", "")
+            </script>
+            <script storage media="screen">
+                try {
+                    if (window.localStorage && window.sessionStorage)
+                        document.querySelector("test > css > storage").setAttribute("true", "")
+                } catch (e) {}
+            </script>
+            <!-- <script firefox media="screen">
                     if (navigator.userAgent.toLowerCase().includes('firefox'))
                     {
                         const firefox = document.querySelector("test > css > firefox")
@@ -460,69 +815,62 @@
                             firefox.setAttribute("true", "")
                     }
                 </script> -->
-                <script landscape media="screen">
-                    if (window.innerWidth > window.innerHeight)
-                    {
-                        const landscape = document.querySelector("test > css > landscape")
-                        if (landscape)
-                            landscape.setAttribute("true", "")
-                    }
-                </script>
-                <script idb media="screen">
-                    if ('indexedDB' in window)
-                    {
-                        const idb = document.querySelector("test > css > idb")
-                        if (idb)
-                            idb.setAttribute("true", "")
-                    }
-                </script>
-                <script webrtc media="screen">
-                    if (RTCDataChannel)
-                    {
-                        const webrtc = document.querySelector("test > css > webrtc")
-                        if (webrtc)
-                            webrtc.setAttribute("true", "")
-                    }
-                </script>
-                <script webkit media="screen">
-                    if ('webkitRequestAnimationFrame' in window)
-                    {
-                        const webrtc = document.querySelector("test > css > webkit")
-                        if (webrtc)
-                            webrtc.setAttribute("true", "")
-                    }
-                </script>
-                <script ie media="screen">
-                    if (/MSIE|Trident/.test(window.navigator.userAgent))
-                    {
-                        const ie = document.querySelector("test > css > ie")
-                        if (ie)
-                            ie.setAttribute("true", "")
-                    }
-                </script>
-                <script edge media="screen">
-                    if (/Edg/.test(window.navigator.userAgent))
-                    {
-                        const edge = document.querySelector("test > css > edge")
-                        if (edge)
-                            edge.setAttribute("true", "")
-                    }
-                </script>
-                <script webgl media="screen">
-                    const canvas = document.createElement("canvas")
-                    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
+            <script landscape media="screen">
+                if (window.innerWidth > window.innerHeight) {
+                    const landscape = document.querySelector("test > css > landscape")
+                    if (landscape)
+                        landscape.setAttribute("true", "")
+                }
+            </script>
+            <script idb media="screen">
+                if ('indexedDB' in window) {
+                    const idb = document.querySelector("test > css > idb")
+                    if (idb)
+                        idb.setAttribute("true", "")
+                }
+            </script>
+            <script webrtc media="screen">
+                if (RTCDataChannel) {
+                    const webrtc = document.querySelector("test > css > webrtc")
+                    if (webrtc)
+                        webrtc.setAttribute("true", "")
+                }
+            </script>
+            <script webkit media="screen">
+                if ('webkitRequestAnimationFrame' in window) {
+                    const webrtc = document.querySelector("test > css > webkit")
+                    if (webrtc)
+                        webrtc.setAttribute("true", "")
+                }
+            </script>
+            <script ie media="screen">
+                if (/MSIE|Trident/.test(window.navigator.userAgent)) {
+                    const ie = document.querySelector("test > css > ie")
+                    if (ie)
+                        ie.setAttribute("true", "")
+                }
+            </script>
+            <script edge media="screen">
+                if (/Edg/.test(window.navigator.userAgent)) {
+                    const edge = document.querySelector("test > css > edge")
+                    if (edge)
+                        edge.setAttribute("true", "")
+                }
+            </script>
+            <script webgl media="screen">
+                const canvas = document.createElement("canvas")
+                const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
 
-                    if (gl instanceof WebGLRenderingContext)
-                    {
-                        const webgl = document.querySelector("test > css > webgl")
-                        if (webgl)
-                            webgl.setAttribute("true", "")
-                    }
-                </script>
-            </tests>
-        </test>
+                if (gl instanceof WebGLRenderingContext) {
+                    const webgl = document.querySelector("test > css > webgl")
+                    if (webgl)
+                        webgl.setAttribute("true", "")
+                }
+            </script>
+        </tests>
+    </test>
 
-        <div loading>
+    <!-- <div loading>
             <div container>
                 <div box>
                     <span style="--i: 1">
@@ -607,49 +955,172 @@
                     </span>
                   </div>
               </div>
-        </div>
+        </div> -->
 
-        <div container><div document>
-            <div full><div wear></div><div crack></div></div>
-            <div demi><div wear></div><div stains></div></div>
+    <div container>
+        <div document>
+            <div full flicker>
+                <div wear></div>
+                <div crack></div>
+            </div>
             <div demi>
                 <div wear></div>
+                <div stains></div>
+            </div>
+            <div demi flicker>
+                <div wear></div>
                 <div stats>
-                    <div intelligence><div name>intelligence</div><div value expertise>8</div></div>
-                    <div dexterity><div name>dexterity</div><div value cap>8</div></div>
-                    <div cool><div name>cool</div><div value>8</div></div>
-                    <div tech><div name>tech</div><div value>8</div></div>
-                    <div presence><div name>presence</div><div value>8</div></div>
-                    <div luck><div name>luck</div><div value>8</div></div>
-                    <div toughness><div name>toughness</div><div value>8</div></div>
-                    <div strength><div name>strength</div><div value>8</div></div>
+                    <div intelligence>
+                        <div indicator='8'></div>
+                        <div name>intelligence</div>
+                        <div value>8</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Can outsmart the president.</p><cite>1st Lady</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>co-processing: 4</div>
+                        <div honors>Linquist, Graduated Harvard</div>
+                    </div>
+                    <div dexterity>
+                        <div indicator='9'></div>
+                        <div name>dexterity</div>
+                        <div value>9</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Can maintain balance while picking nose.</p><cite>National Geographic</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>boosting: 4</div>
+                        <div honors>Juggler, Dancer</div>
+                    </div>
+                    <div cool>
+                        <div indicator='10'></div>
+                        <div name>cool</div>
+                        <div value>10</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Is known to withstand intense nagging.</p><cite>Neighbours</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>controller: 4</div>
+                        <div honors>Scientology training</div>
+                    </div>
+                    <div tech>
+                        <div indicator='7'></div>
+                        <div name>tech</div>
+                        <div value>7</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Not scared of a PC.</p><cite>LinkedIn profile</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>diagnostics: 4</div>
+                        <div honors>Runner</div>
+                    </div>
+                    <div presence>
+                        <div indicator='5'></div>
+                        <div name>presence</div>
+                        <div value>5</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Turns heads like the meme.</p><cite>Papa Razzi</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>style: 4</div>
+                        <div honors>Influencer, Ass-scented Candles</div>
+                    </div>
+                    <div luck>
+                        <div indicator='4'></div>
+                        <div name>luck</div>
+                        <div value>4</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Last enemy choked on a dick.</p><cite>White House Security Footage</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>intuition: 4</div>
+                        <div honors>Car Spotter</div>
+                    </div>
+                    <div toughness>
+                        <div indicator='3'></div>
+                        <div name>toughness</div>
+                        <div value>3</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Can be startled by own farts.</p><cite>CIA</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>build: 4</div>
+                        <div honors>Juggler, Dancer</div>
+                    </div>
+                    <div strength>
+                        <div indicator='8'></div>
+                        <div name>strength</div>
+                        <div value>8</div>
+                        <div fluff>
+                            <blockquote>
+                                <p>Able to bend hard stuff.</p><cite>Bendy stuff</cite>
+                            </blockquote>
+                        </div>
+                        <div indicator='4'></div>
+                        <div gear>hardware: 4</div>
+                        <div honors>Powerlifter</div>
+                    </div>
                 </div>
             </div>
-            <div half><div wear></div><div mbdiag></div></div>
-            <div third><div wear></div><div holo></div></div>
-            <div two><div wear></div><div used></div></div>
-            <div third><div wear></div><div triangles></div></div>
-            <div third><div wear></div><div logic></div></div>
-            <div third><div wear></div><div broken></div></div>
-        </div></div>
+            <div half>
+                <div wear></div>
+                <div mbdiag></div>
+            </div>
+            <div third>
+                <div wear></div>
+                <div holo></div>
+            </div>
+            <div two>
+                <div wear></div>
+                <div used></div>
+            </div>
+            <div third>
+                <div wear></div>
+                <div triangles></div>
+            </div>
+            <div third>
+                <div wear></div>
+                <div logic></div>
+            </div>
+            <div third>
+                <div wear></div>
+                <div broken></div>
+            </div>
+        </div>
+    </div>
 
-        <div info></div>
+    <div info></div>
 
-        <div portrait></div>
+    <div portrait></div>
 
-        <div talent></div>
-        <div wealth></div>
-        <div gear></div>
+    <div talent></div>
+    <div wealth></div>
+    <div gear></div>
 
-        <div role></div>
-        <div prop></div>
-        <div stage></div>
-        <div actor></div>
-
-
+    <div role></div>
+    <div prop></div>
+    <div stage></div>
+    <div actor></div>
 
 
-        <!-- wisdom, finesse, valor, mag, chrisma, luck, toughness, strength -->
-        <!-- intelligence, dexterity, cool, tech, presence, luck, toughness, strength -->
-    </body>
+
+
+    <!-- wisdom, finesse, valor, mag, chrisma, luck, toughness, strength -->
+    <!-- intelligence, dexterity, cool, tech, presence, luck, toughness, strength -->
+</body>
+
 </html>
