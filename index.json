@@ -1,0 +1,20 @@
+{
+    "[loading]": {
+        "content": "",
+        "style": {
+            "width": "100vw",
+            "height": "100vh",
+            "background-image": "url(static/_temp/loading.png)"
+        },
+        "script": "console.log('assssssss')"
+    },
+    "[ass][test],[ass][mustbeotherass] [test] [ugle] [bubllblblbl]": {
+        "content": "",
+        "style": {
+            "width": "100vw",
+            "height": "100vh",
+            "background-image": "url(static/_temp/loading.png)"
+        },
+        "script": "console.log('assssssss')"
+    }
+}
