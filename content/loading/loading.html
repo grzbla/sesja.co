@@ -1,3 +1,4 @@
+<canvas blobs></canvas>
 <style media='screen'>
     body {
         background-color: black;
@@ -49,12 +50,14 @@
 
     .container {
         --container-padding-horizontal: 32px;
-        position: relative;
+        position: absolute;
         padding-inline: var(--container-padding-horizontal);
         display: grid;
         place-items: center;
         height: 100%;
         overflow: hidden;
+        width: 100vw;
+        top: 0px;
     }
 
     .carousel {
@@ -150,7 +153,7 @@
         width: 48px;
         height: 24px;
         display: inline-block;
-        position: relative;
+        position: absolute;
         border: 1px solid #f0f;
         bottom: 10vh;
         left: calc(50vw - 24px);
@@ -250,15 +253,15 @@
 <div class="container">
     <div class="carousel">
         <div class="carousel__wrapper">
-            <div class="item" id="slide-0"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_0bbfa66d-6869-45d4-b189-e359f24d9085.jpg" /></div>
-            <div class="item" id="slide-1"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_100203c7-9913-4d49-b66e-0536e3594611.jpg" /></div>
-            <div class="item" id="slide-2"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_574c2e0e-f554-4a54-bd63-4f390e95d70a.jpg" /></div>
-            <div class="item" id="slide-3"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_5767920d-91fe-46be-b28d-06a4791d29a5.jpg" /></div>
-            <div class="item" id="slide-4"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_04d6dc4f-53a3-43ae-aff1-d07cf24d0feb.jpg" /></div>
-            <div class="item" id="slide-5"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_082eebfb-760a-4672-a38b-9ca9ea9477ff.jpg" /></div>
-            <div class="item" id="slide-6"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_7dc3bf9f-6469-4bda-b04a-71c94352cac2.jpg" /></div>
-            <div class="item" id="slide-7"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_e7668ab5-9aba-4b65-86a5-e423768bb76f.jpg" /></div>
-            <div class="item" id="slide-8"><img src="img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_fe282f77-bdd3-4548-a23b-ed655f80d234.jpg" /></div>
+            <div class="item" id="slide-0"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_0bbfa66d-6869-45d4-b189-e359f24d9085.jpg" /></div>
+            <div class="item" id="slide-1"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_100203c7-9913-4d49-b66e-0536e3594611.jpg" /></div>
+            <div class="item" id="slide-2"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_574c2e0e-f554-4a54-bd63-4f390e95d70a.jpg" /></div>
+            <div class="item" id="slide-3"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_5767920d-91fe-46be-b28d-06a4791d29a5.jpg" /></div>
+            <div class="item" id="slide-4"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_04d6dc4f-53a3-43ae-aff1-d07cf24d0feb.jpg" /></div>
+            <div class="item" id="slide-5"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_082eebfb-760a-4672-a38b-9ca9ea9477ff.jpg" /></div>
+            <div class="item" id="slide-6"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_mixed_w_7dc3bf9f-6469-4bda-b04a-71c94352cac2.jpg" /></div>
+            <div class="item" id="slide-7"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_e7668ab5-9aba-4b65-86a5-e423768bb76f.jpg" /></div>
+            <div class="item" id="slide-8"><img src="content\loading\img\caniplaywithmadness_canon_r5_photography_of_los_angeles_skyline_fe282f77-bdd3-4548-a23b-ed655f80d234.jpg" /></div>
         </div>
     </div>
 </div>
