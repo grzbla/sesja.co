@@ -2,23 +2,11 @@
     "start": "loading",
     "pages":
     {
-        "loading":
-        {
-            "title": "booting up sesja.co for your RPG delight"
+        "loading": { "name": "loading",
+            "title": "booting up sesja.co for your RPG delight",
             "content": "loading.html",
-            "script": "script.js"
-        }
+            "script": "script.js" },
+        "e404":{}
     },
-    "script":
-    {
-
-    },
-    "style":
-    {
-
-    },
-    "head":
-    {
-
-    }
+    "script": {}, "style":{}, "head":{}
 }
