@@ -38,6 +38,7 @@ function PeeriPeeri(url = "index.json")
             }
 
             let queries = []
+            if (page)
             Object.keys(page).forEach((key) =>
             {
                 key.split(",").forEach((splat) => {queries.push(splat)})
@@ -150,18 +151,8 @@ function PeeriPeeri(url = "index.json")
             parent = $(elementSelector, parent)
         })
     }
-
-
-
-    this.e404 = () =>
-    {
-
-    }
-
     /*
 
     */
     t.boot.init()
 }
-
-const pp = new PeeriPeeri()

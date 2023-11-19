@@ -1,20 +1,24 @@
 {
-    "[loading]": {
-        "content": "",
-        "style": {
-            "width": "100vw",
-            "height": "100vh",
-            "background-image": "url(static/_temp/loading.png)"
-        },
-        "script": "console.log('assssssss')"
+    "start": "loading",
+    "pages":
+    {
+        "loading":
+        {
+            "title": "booting up sesja.co for your RPG delight"
+            "content": "loading.html",
+            "script": "script.js"
+        }
     },
-    "[ass][test],[ass][mustbeotherass] [test] [ugle] [bubllblblbl]": {
-        "content": "",
-        "style": {
-            "width": "100vw",
-            "height": "100vh",
-            "background-image": "url(static/_temp/loading.png)"
-        },
-        "script": "console.log('assssssss')"
+    "script":
+    {
+
+    },
+    "style":
+    {
+
+    },
+    "head":
+    {
+
     }
 }
