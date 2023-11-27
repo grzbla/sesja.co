@@ -6,7 +6,10 @@
             "title": "booting up sesja.co for your RPG delight",
             "content": "loading.html",
             "script": "script.js" },
-        "e404":{}
+        "selector": { "name": "selector",
+            "title": "choose your fluffvour",
+            "content": "selector.html",
+            "script": "selector.js" }
     },
     "script": {}, "style":{}, "head":{}
 }
