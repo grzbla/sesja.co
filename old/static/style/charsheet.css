@@ -245,7 +245,7 @@
     }
 
     [stats]>div>[indicator] {
-        width: 100%;
+        width: 50%;
         min-height: 3px;
         position: relative;
         background: linear-gradient(#000 0 0) 0/0% no-repeat var(--rectum);
@@ -423,7 +423,7 @@
         }
     }
 
-    [stats] > div > [gear]
+    [stats] > div > [construct]
     {
         font-size: 12px;
         text-shadow: none;
