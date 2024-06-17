@@ -1,0 +1,123 @@
+<script src="https://cdn.jsdelivr.net/gh/localforage/localforage/dist/localforage.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@6.65.7/lib/codemirror.min.js"></script>
+<script src="diagnostics.js"></script>
+<script src="base.js"></script>
+<script src="elements.js"></script>
+<script type="text/javascript">
+
+
+    let batch = new Batch({
+        "name": "testboi",
+        "tags": ["main"],
+        "target": [{ "functor": "pool" }, { "shit": "variable" }],
+        "functors": [new Functor({"name": "first test", "language": "js", "target": [{"logic": "pool" }], "params": ["local", "global", "fecal"],
+                    "source": ["console.log(local); console.log(global); console.log(fecal); console.log(arguments)"]}),
+                    new Functor({"name": "second test", "language": "js", "target": [{"another": "poOOoool" }], "params": ["local", "global", "pisual"],
+                                "source": ["console.log(local); console.log(global); console.log(pisual); console.log(arguments)"]})]
+    })
+
+    let sequencer = new Sequencer({'batches': {"test": batch, "test2": batch}})
+    sequencer.dispatch(["test", "test2"])
+</script>
+
+<style media="screen">
+:root
+{
+    --side-width: 50px;
+    --highlight1: #ffffff07;
+    --highlight2: #ffffff15;
+    --highlight3: #ffffff22;
+}
+body
+{
+    background-color: #232323;
+    color: #dcdcdc;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+div[panel]
+{
+    width: 100%;
+    height: 100%;
+}
+[panel] > [left],
+[panel] > [right]
+{
+    top: 0;
+    position: absolute;
+    width: 5%;
+    min-width: var(--side-width);
+    height: 100%;
+    background-color: var(--highlight1);
+    transition: background 0.3s ease-out;
+}
+[panel] > [left]:hover,
+[panel] > [right]:hover
+{
+    cursor: pointer;
+    background-color: var(--highlight2);
+}
+[panel] > [left]:active,
+[panel] > [right]:active
+{
+    background-color: var(--highlight3);
+}
+[panel] > [right]
+{
+    right: 0;
+}
+[panel] > [attributes]
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+[attributes] > attribute-card
+{
+    flex: 1;
+    height: 100%;
+    min-height: 350px;
+    max-height: 800px;
+    border: 1px solid white;
+    transition: background 0.3s ease-out, flex 0.15s ease-out;
+}
+[attributes] > attribute-card:hover
+{
+    cursor: pointer;
+    flex: 1.5;
+    background-color: var(--highlight1);
+
+}
+[attributes] > attribute-card:active
+{
+    flex: 2;
+    background-color: var(--highlight3);
+}
+</style>
+<system-diagnostics></system-diagnostics>
+<div panel>
+    <div left></div>
+    <div attributes>
+        <attribute-card shortname></attribute-card>
+        <attribute-card name2></attribute-card>
+        <attribute-card name3></attribute-card>
+        <attribute-card name4></attribute-card>
+        <attribute-card name5></attribute-card>
+        <attribute-card name6></attribute-card>
+        <attribute-card name7></attribute-card>
+        <attribute-card name8></attribute-card>
+        <attribute-card name9></attribute-card>
+        <attribute-card name10></attribute-card>
+        <attribute-card name11></attribute-card>
+        <attribute-card name12></attribute-card>
+        <attributes-selector shortname></attributes-selector>
+    </div>
+    <div right></div>
+</div>

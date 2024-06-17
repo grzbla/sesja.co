@@ -1,0 +1,119 @@
+{
+    "Sharpshooter": {
+        "Siege Weapons": {},
+        "Ranged Combat": {},
+        "Enchanted Arms": {},
+        "Light Arms": {},
+        "Bowmanship": {},
+        "Armor Crafting": {}
+    },
+    "Operator": {
+        "Skyfaring": {},
+        "Seamanship": {},
+        "Horsemanship": {},
+        "Golem Control": {},
+        "Wagon Mastery": {},
+        "Craftsmanship": {}
+    },
+    "Commander": {
+        "Leadership": {},
+        "Tactical Lore": {},
+        "Battle Formations": {},
+        "Mentorship": {},
+        "Supply Management": {}
+    },
+    "Self Defense": {
+        "Strength Training": {},
+        "Athletic Feats": {},
+        "Close Combat": {},
+        "Martial Training": {},
+        "Hand-to-Hand Combat": {},
+        "Body Conditioning": {}
+    },
+    "Peacekeeping": {
+        "Investigation": {},
+        "Mind Healer": {},
+        "Judicial Knowledge": {},
+        "Cipher Deciphering": {},
+        "Healer's Art": {},
+        "Fire Suppression": {}
+    },
+    "Engineer": {
+        "Skyship Mechanics": {},
+        "Shipwright": {},
+        "Carriage Repair": {},
+        "Military Artifice": {},
+        "Explosive Craft": {},
+        "Material Alchemy": {}
+    },
+    "Technical Skills": {
+        "Arcane Devices": {},
+        "Herbalism": {},
+        "Magecraft": {},
+        "Minutiae": {},
+        "Fleshcraft": {},
+        "Eldritch Study": {}
+    },
+    "Trading": {
+        "Regional Knowledge": {},
+        "Games of Chance": {},
+        "Forgery": {},
+        "Street Savvy": {}
+    },
+    "Sportsman": {
+        "Field Ball": {},
+        "Stickball": {},
+        "Hoop Game": {},
+        "Ice Game": {},
+        "Club Game": {},
+        "Foot Racing": {}
+    },
+    "Personality": {
+        "Charisma": {},
+        "Fashion": {},
+        "Judgement": {},
+        "Conversation": {},
+        "Persuasion": {},
+        "Charm": {}
+    },
+    "Entertainer": {
+        "Performance": {},
+        "Scribing": {},
+        "Visual Art": {},
+        "Musical Talent": {},
+        "Dance": {},
+        "Styling": {}
+    },
+    "Education": {
+        "Practical Skills": {},
+        "Scholarship": {},
+        "Languages": {},
+        "Academic Knowledge": {},
+        "Economics": {},
+        "Management": {}
+    },
+    "Agility": {
+        "Contortion": {},
+        "Stealth": {},
+        "Acrobatics": {},
+        "Swimming": {},
+        "Climbing": {},
+        "Precision": {}
+    },
+    "Survival": {
+        "Endurance": {},
+        "Tracking": {},
+        "Healing": {},
+        "Caretaking": {}
+    },
+    "Craftsmanship": {
+        "Tailoring": {},
+        "Woodworking": {},
+        "Building": {}
+    },
+    "Other": {
+        "Lip Reading": {},
+        "Investigation": {},
+        "Lifestyle": {}
+    }
+}
