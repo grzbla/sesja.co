@@ -10,36 +10,10 @@ customElements.define('attribute-panel', HTMLAttributePanelElement)
 
 
 
-
-
-
-
-
-
 class HTMLAttributeCardElement extends HTMLElement {
 
     constructor() {
         super()
-        this.observers = {"mutation": new MutationObserver((mutationRecords) =>
-        {
-            mutationRecords.forEach(record =>
-            {
-                if (record.oldValue != record.attributeName) {
-                    this.open(record.attributeName) }
-
-                if (record.attributeName == '' || !record.attributeName)
-                    this.close()
-            })
-        }),
-            "intersection": new IntersectionObserver((entries) => {
-              if (entries[0].intersectionRatio <= 0)
-                  this.close()
-              else
-                  this.open()
-        })}
-
-        this.observers.mutation.observe(this, { attributes: true })
-        this.observers.intersection.observe(this)
     }
 
     connectedCallback() {
@@ -52,14 +26,6 @@ class HTMLAttributeCardElement extends HTMLElement {
         })
 
     }
-
-    open(attribute)
-    {
-        console.log(attribute);
-        const current = member('currentCharacter')
-        if (!current) return
-
-    }
 }
 customElements.define('attribute-card', HTMLAttributeCardElement)
 
@@ -68,6 +34,29 @@ class HTMLPictureFrameElement extends HTMLElement {
     static observedAttributes = ['src', 'size', 'repeat', 'position', 'blend']
     constructor() {
         super()
+        this.attachShadow({mode: "open"})
+        this.set =
+        {
+            'src': (v) => { $('div[image]', this.shadowRoot).style.backgroundImage = 'url(' + v + ')' },
+            'size': (v) => { $('div[image]', this.shadowRoot).style.backgroundSize = v },
+            'repeat': (v) => { $('div[image]', this.shadowRoot).style.backgroundRepeat = v },
+            'position': (v) => { $('div[image]', this.shadowRoot).style.backgroundPosition = v },
+            'blend': (v) => { $('div[image]', this.shadowRoot).style.mixBlendMode = v }
+        }
+    }
+
+    connectedCallback()
+    {
+        const image = maek('div', ['image'])
+        image.style.width = '100%'
+        image.style.height = '100%'
+
+        const blend = maek('div', ['blend'])
+        blend.style.width = '100%'
+        blend.style.height = '100%'
+
+        image.append(blend)
+        this.shadowRoot.append(image)
 
         this.observer = new IntersectionObserver((entries) => {
           if (entries[0].intersectionRatio <= 0)
@@ -79,37 +68,13 @@ class HTMLPictureFrameElement extends HTMLElement {
         this.observer.observe(this)
     }
 
-    connectedCallback()
+    attributeChangedCallback(name, oldValue, newValue)
     {
-        const style = maek('style')
-        const image = maek('div', ['image'])
-        const blend = maek('div', ['blend'])
-        this.attachShadow({mode: "open"})
-        this.shadowRoot.append(style)
-        image.append(blend)
-        this.shadowRoot.append(image)
+        setTimeout(()=>{ this.set[name](newValue) }, 0)
     }
 
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        if (oldValue != newValue)
-            switch (name) {
-                case 'size':
-                    this.
-                    break;
-            }
-    }
-
-    open()
-    {
-        console.log(this.getAttribute("src"))
-        console.log(this.shadowRoot.querySelector['style'])
-
-    }
-    close()
-    {
-
-    }
+    open() { untag($('div[image]', this.shadowRoot), 'hidden') }
+    close() { tag($('div[image]', this.shadowRoot), 'hidden') }
 
 }
 customElements.define('pic-frame', HTMLPictureFrameElement)

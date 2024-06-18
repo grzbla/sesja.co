@@ -1,4 +1,5 @@
 // clickity savers
+function $(selector, parent) { return (parent ? parent : document).querySelector(selector) }
 function get(item) { return localForage.getItem(item) }
 function set(item, data) { return localForage.setItem(item, data) }
 function s(v, alt = undefined) { return v ? v : alt }
@@ -12,6 +13,8 @@ function maek(type, tags) {
     return element
 }
 function tag(element, tag) { element.setAttribute(tag, '')}
+function untag(element, tag) { try { element.removeAttribute(tag) } catch {} }
+function isTagged(element, tag) { try { return element.hasAttribute(tag) } catch { console.log("Element is " + element); return false } }
 function member(key, value)
 {
     try {sessionStorage} catch {} finally { return error('sessionStorage')}
