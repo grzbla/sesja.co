@@ -2,7 +2,10 @@
 <script src="https://cdn.jsdelivr.net/npm/codemirror@6.65.7/lib/codemirror.min.js"></script>
 <script src="diagnostics.js"></script>
 <script src="base.js"></script>
+<script src="mock/test.js"></script>
+<script src="mock/attributes.js"></script>
 <script src="elements.js"></script>
+<script src="init.js"></script>
 <script type="text/javascript">
 
 
@@ -27,8 +30,9 @@
     --highlight1: #ffffff07;
     --highlight2: #ffffff15;
     --highlight3: #ffffff22;
+    --bg-color: #232323;
 
-    background-color: #232323;
+    background-color: var(--bg-color);
     color: #dcdcdc;
 }
 body
@@ -42,6 +46,10 @@ body
 [hidden]
 {
     display: none;
+}
+[invisible]
+{
+    opacity: 0;
 }
 div[panel]
 {
@@ -74,7 +82,7 @@ div[panel]
 {
     right: 0;
 }
-[panel] > [attributes]
+[panel] > attribute-list
 {
     height: 100%;
     width: 100%;
@@ -84,7 +92,7 @@ div[panel]
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-[attributes] > attribute-card
+attribute-list > attribute-card
 {
     flex: 1;
     height: 100%;
@@ -93,7 +101,7 @@ div[panel]
     border: 1px solid white;
     transition: background 0.3s ease-out, flex 0.15s ease-out, max-height 0.15s ease-out;
 }
-[attributes] > attribute-card:hover
+attribute-list > attribute-card:hover
 {
     cursor: pointer;
     flex: 1.5;
@@ -101,29 +109,34 @@ div[panel]
     background-color: var(--highlight1);
 
 }
-[attributes] > attribute-card:active
+attribute-list > attribute-card:active
 {
     flex: 2;
     background-color: var(--highlight3);
+}
+attribute-list > attribute-card[open]
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+    background-color: var(--bg-color);
+    transition: background 0.3s ease-out, flex 0.15s ease-out, max-height 0.15s ease-out, border 0.15s ease-out;
 }
 </style>
 <system-diagnostics></system-diagnostics>
 <div panel>
     <div left></div>
-    <div attributes>
-        <attribute-card shortname></attribute-card>
-        <attribute-card name2></attribute-card>
-        <attribute-card name3></attribute-card>
-        <attribute-card name4></attribute-card>
-        <attribute-card name5></attribute-card>
-        <attribute-card name6></attribute-card>
-        <attribute-card name7></attribute-card>
-        <attribute-card name8></attribute-card>
-        <attribute-card name9></attribute-card>
-        <attribute-card name10></attribute-card>
-        <attribute-card name11></attribute-card>
-        <attribute-card name12></attribute-card>
+    <attribute-list for='Examplarnold Testenegger'>
+        <attribute-card athlete></attribute-card>
+        <attribute-card cognition></attribute-card>
+        <attribute-card officer></attribute-card>
+        <attribute-card streetwise></attribute-card>
+        <attribute-card sharpshooter></attribute-card>
+        <attribute-card peacekeeper></attribute-card>
         <attributes-selector shortname></attributes-selector>
-    </div>
+    </attribute-list>
     <div right></div>
 </div>

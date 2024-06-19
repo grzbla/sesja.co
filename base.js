@@ -1,30 +1,37 @@
 // clickity savers
 function $(selector, parent) { return (parent ? parent : document).querySelector(selector) }
-function get(item) { return localForage.getItem(item) }
-function set(item, data) { return localForage.setItem(item, data) }
+function cache(item, data) { return (data ? localForage.setItem(item, data) : localForage.getItem(item)) }
 function s(v, alt = undefined) { return v ? v : alt }
-function code(sign) { return get('code\\' + sign) }
-function setCode(sign, source) { return set('code\\' + sign) }
-function functor(sign) { return get('functor\\' + sign) }
-function setFunctor(sign, f) { return set('functor\\' + sign, f) }
+function code(sign, source) { return (source ? cache('code\\' + sign, source) : cache('code\\' + sign)) }
+function functor(sign, f) { return (f ? cache('functor\\' + sign, f) : cache('functor\\' + sign, f)) }
 function maek(type, tags) {
     let element = document.createElement(type ? type : 'div')
     if (tags) tags.forEach(t => { tag(element, t)})
     return element
 }
-function tag(element, tag) { element.setAttribute(tag, '')}
-function untag(element, tag) { try { element.removeAttribute(tag) } catch {} }
-function isTagged(element, tag) { try { return element.hasAttribute(tag) } catch { console.log("Element is " + element); return false } }
-function member(key, value)
+function tag(element, t) { element.setAttribute(t, '')}
+function untag(element, t) { try { element.removeAttribute(t) } catch {} }
+function isTagged(element, t)
 {
-    try {sessionStorage} catch {} finally { return error('sessionStorage')}
-    return value ? sessionStorage.setItem(key, value) : sessionStorage.getItem(key)
+    if (!element) { console.log("Element is " + element); return false }
+    if (!tag) { return element.attributes.length > 0 }
+    return element.hasAttribute(t)
 }
-const errors =
+function toggleTag(element, t)
 {
-    "sessionStorage": () => {console.log("Session Storage cannot be accessed. Handle this shit.")}
+    if (isTagged(element, t))
+        untag(element, t)
+    else
+        tag(element, t)
 }
-function error(e) { errors[e]() }
+
+var member;
+try
+{
+    window.sessionStorage
+    member = (key, value) => { return value ? sessionStorage.setItem(key, value) : sessionStorage.getItem(key) }
+}
+catch {} finally { member = () => {return false} }
 
 
 function gib(args) {

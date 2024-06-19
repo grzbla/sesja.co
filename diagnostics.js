@@ -6,13 +6,48 @@ class HTMLSystemDiagnosticsElement extends HTMLElement {
         super()
     }
 
+    get localStorage() { this.getAttribute('localStorage') }
+    get sessionStorage() { this.getAttribute('sessionStorage') }
+    get landscape() { this.getAttribute('landscape') }
+    get indexeddb() { this.getAttribute('indexeddb') }
+    get webrtc() { this.getAttribute('webrtc') }
+    get shadowdom() { this.getAttribute('shadowdom') }
+    get es6() { this.getAttribute('es6') }
+    get clonenode() { this.getAttribute('clonenode') }
+    get template() { this.getAttribute('template') }
+    get slot() { this.getAttribute('slot') }
+    get firefox() { this.getAttribute('firefox') }
+    get assign() { this.getAttribute('assign') }
+    get append() { this.getAttribute('append') }
+    get documentfragment() { this.getAttribute('documentfragment') }
+    get replacestate() { this.getAttribute('replacestate') }
+    get remove() { this.getAttribute('remove') }
+    get edge() { this.getAttribute('edge') }
+    get webgl() { this.getAttribute('webgl') }
+    get flex() { this.getAttribute('flex') }
+    get opentype() { this.getAttribute('opentype') }
+    get woff() { this.getAttribute('woff') }
+    get ios() { this.getAttribute('ios') }
+    get has() { this.getAttribute('has') }
+    get hd() { this.getAttribute('hd') }
+    get uhd() { this.getAttribute('uhd') }
+    get hdr() { this.getAttribute('hdr') }
+
     connectedCallback() {
         this.setAttribute('cookie', navigator.cookieEnabled ? 'true' : 'false')
+
         try {
-            this.setAttribute('storage', (window.localStorage && window.sessionStorage) ? 'true' : 'false')
+            this.setAttribute('localStorage', window.localStorage ? 'true' : 'false')
         } catch (error) {
-            this.setAttribute('storage', 'false')
+            this.setAttribute('localStorage', 'false')
         }
+
+        try {
+            this.setAttribute('sessionStorage', window.sessionStorage ? 'true' : 'false')
+        } catch (error) {
+            this.setAttribute('sessionStorage', 'false')
+        }
+
         this.setAttribute('landscape', window.innerWidth > window.innerHeight ? 'true' : 'false')
         window.addEventListener('resize', (event) => {
             this.setAttribute('landscape', (window.innerWidth > window.innerHeight).toString())
