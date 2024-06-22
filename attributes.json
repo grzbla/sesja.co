@@ -199,9 +199,11 @@
                 "stock": {},
                 "underground": {},
                 "capitalist": {},
-                "oligarch": {}
+                "oligarch": {},
+                "dictator": {}
             },
             "composure": {},
+            "gaslighting": {},
             "coaching": {},
             "logistics": {},
             "strategy": {}
@@ -224,7 +226,7 @@
     {
         "talents":
         {
-            "forging": {},
+            "jewlery": {},
             "founding": {},
             "carving": {},
             "scuplting": {},
@@ -290,7 +292,13 @@
                     "information": {"description": "It's all just information, man."}
                 }
             },
-            "mechanics": {},
+            "mechanics":
+            {
+                "": {},
+                "": {},
+                "": {},
+                "movement": {"description": "It's all just movement, man."}
+            },
             "design": {}
         }
     },
