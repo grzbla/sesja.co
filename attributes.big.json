@@ -1,0 +1,543 @@
+{
+    "schema": [{"key": "rules"}],
+    "rules": {
+        "levels": {
+            "professional": [
+                "Can pick and chose from multiple jobs regularly available on the market. You can ask for reconsideration when presenting your point of view."
+            ],
+            "mastery": [
+                "Jobs have to compete for you. You can manipulate the scene."
+            ],
+            "genius": [
+                "You can set some of the rules."
+            ]
+        }
+    },
+    "attributes": {
+        "athletics": {
+            "name": "Athletics",
+            "description": "Trained athletic abilities.",
+            "skills": {
+                "biking": {
+                    "levels": {
+                        "professional": {
+                            "name": "Professional rider",
+                            "description": "Professional biker."
+                        },
+                        "olympic": {
+                            "description": "Hardest pedaller."
+                        },
+                        "stunt": {
+                            "description": "It's all about flying now."
+                        }
+                    }
+                },
+                "sailing": {
+                    "levels": {
+                        "licensed": {
+                            "name": "Sailor",
+                            "description": "Licensed sailor."
+                        },
+                        "sea-man": {
+                            "description": "You live at the sea."
+                        },
+                        "worldwide": {
+                            "description": "To boldly go where no-one has gone before."
+                        }
+                    }
+                },
+                "diving": {
+                    "levels": {
+                        "recreational": {
+                            "name": "Weekend rider",
+                            "description": "Recreational biking"
+                        },
+                        "professional": {
+                            "description": "You live from the sea."
+                        },
+                        "deep-sea": {
+                            "description": "Industrial grade diving with deep understanding how to bring large things back from there."
+                        }
+                    }
+                },
+                "climbing": {
+                    "levels": {
+                        "urban": {
+                            "name": "Urban Climber",
+                            "description": "Scaling urban infrastructure with ease."
+                        },
+                        "rock": {
+                            "name": "Rock Climber",
+                            "description": "No stranger to rocks and small mountains."
+                        },
+                        "mountaneer": {
+                            "name": "Mountaneer",
+                            "description": "You can mingle with the goats."
+                        }
+                    }
+                },
+                "lifting": {
+                    "levels": {
+                        "professional": {
+                            "name": "Professional",
+                            "description": "You didn't chose the lift life, the lift life chose you."
+                        },
+                        "power": {
+                            "name": "Power Lifter",
+                            "description": "Light weight! Whoo!"
+                        },
+                        "monster": {
+                            "name": "Mass Monster",
+                            "description": "Now you're mostly just trying to brainstorm training on Jupiter. You get some weird looks."
+                        }
+                    }
+                },
+                "acrobatics": {
+                    "levels": {
+                        "professional": {
+                            "name": "Professional Acrobat",
+                            "description": "You can make a living out of being part of corporate entertainment."
+                        },
+                        "olympic": {
+                            "description": "Gold medals are just coated in gold."
+                        },
+                        "extreme": {
+                            "description": "Kung-fu levels of acrobatics."
+                        }
+                    }
+                },
+                "gymnastics": {
+                    "levels": {
+                        "professional": {
+                            "name": "Professional Acrobat",
+                            "description": "You can make a living out of being part of corporate entertainment."
+                        },
+                        "olympic": {
+                            "description": ""
+                        },
+                        "extreme": {
+                            "description": "Kung-fu levels of acrobatics."
+                        }
+                    }
+                },
+                "swimming": {
+                    "levels": {
+                        "professional": {
+                            "description": "You have it in you to go olympic level. You're just busy."
+                        },
+                        "olympic": {
+                            "description": ""
+                        },
+                        "extreme": {
+                            "description": "When encountering 100% deadly storm deep in the ocean react with 'not again'."
+                        }
+                    }
+                },
+                "running": {
+                    "levels": {
+                        "jogger": {
+                            "description": "Recreational running"
+                        },
+                        "sprinter": {
+                            "description": "Professional short distance runner."
+                        },
+                        "marathoner": {
+                            "description": "Professional long distance runner."
+                        },
+                        "strider": {
+                            "description": "Capable of withstanding most challenging distances and routes."
+                        }
+                    }
+                }
+            }
+        },
+        "cognition": {
+            "name": "Cognition",
+            "description": "Exceptional cognitive abilities.",
+            "skills": {
+                "assessment": {
+                    "description": "Reading the room, situation assessment.",
+                    "levels": {
+                        "2": {
+                            "description": ""
+                        },
+                        "3": {
+                            "description": ""
+                        },
+                        "observer": {
+                            "description": "Capable of reading what people do."
+                        }
+                    }
+                },
+                "investigate": {
+                    "levels": {
+                        "1": {
+                            "description": ""
+                        },
+                        "2": {
+                            "description": ""
+                        },
+                        "3": {
+                            "description": ""
+                        }
+                    }
+                },
+                "subtext": {
+                    "levels": {
+                        "1": {
+                            "description": ""
+                        },
+                        "2": {
+                            "description": ""
+                        },
+                        "3": {
+                            "description": ""
+                        }
+                    }
+                },
+                "lip reading": {
+                    "levels": {
+                        "1": {
+                            "description": ""
+                        },
+                        "2": {
+                            "description": ""
+                        },
+                        "3": {
+                            "description": ""
+                        }
+                    }
+                },
+                "body language": {
+                    "levels": {
+                        "1": {
+                            "description": ""
+                        },
+                        "2": {
+                            "description": ""
+                        },
+                        "3": {
+                            "description": ""
+                        }
+                    }
+                },
+                "recognition": {
+                    "levels": {
+                        "1": {
+                            "description": ""
+                        },
+                        "2": {
+                            "description": ""
+                        },
+                        "3": {
+                            "description": ""
+                        }
+                    }
+                }
+            }
+        },
+        "officer": {
+            "name": "Commanding",
+            "description": "Career making commanding abilities.",
+            "skills": {
+                "playbook": {
+                    "military": {
+                        "description": "Knowledge how to keep your unit in optimal shape, along with rules of enemy engagement.",
+                        "levels": {
+                            "captain": {},
+                            "major": {},
+                            "general": {}
+                        }
+                    },
+                    "stock": {},
+                    "underground": {},
+                    "capitalist": {},
+                    "oligarch": {},
+                    "dictator": {}
+                },
+                "composure": {},
+                "gaslighting": {},
+                "coaching": {},
+                "logistics": {},
+                "strategy": {}
+            }
+        },
+        "constructor": {
+            "name": "Construction",
+            "description": "Professional construction experience.",
+            "skills": {
+                "forging": {},
+                "founding": {},
+                "laying": {},
+                "destructuring": {},
+                "materialogy": {}
+            }
+        },
+        "craftsman": {
+            "skills": {
+                "jewlery": {},
+                "founding": {},
+                "carving": {},
+                "scuplting": {},
+                "ceramics": {}
+            }
+        },
+        "educator": {
+            "skills": {
+                "language": {},
+                "academics": {},
+                "research": {},
+                "economy": {},
+                "management": {
+                    "levels": {
+                        "career": {
+                            "name": "Career Manager",
+                            "description": "Born to rule, your biggest ambition is to give orders people with the use your trusty passive agressiveness."
+                        },
+                        "manager": {
+                            "name": "Upper Manager",
+                            "description": "You possess enough worth to keep you close by, despite your horrible personality."
+                        },
+                        "director": {
+                            "name": "Director",
+                            "description": "All those years of deception are finally paying off. You can order other people to think for you."
+                        },
+                        "ceo": {
+                            "name": "Chief Executive Officer",
+                            "description": "Your biggest nightmare is being overlooked by multi trillion dollar hedge fund."
+                        }
+                    }
+                },
+                "propaganda": {}
+            }
+        },
+        "electronics": {
+            "skills": {
+                "boards": {
+                    "levels": {
+                        "1": {},
+                        "2": {},
+                        "electrons": {
+                            "description": "It's all just electrons, man."
+                        }
+                    }
+                },
+                "processing": {
+                    "levels": {
+                        "1": {},
+                        "2": {},
+                        "information": {
+                            "description": "It's all just information, man."
+                        }
+                    }
+                },
+                "mechanics": {
+                    "1": {},
+                    "2": {},
+                    "movement": {
+                        "description": "It's all just movement, man."
+                    }
+                },
+                "design": {}
+            }
+        },
+        "engineer": {
+            "skills": {
+                "siege": {},
+                "naval": {},
+                "aeronautics": {},
+                "transport": {},
+                "industrial": {},
+                "military": {},
+                "cybernetics": {},
+                "orbital": {},
+                "solar": {}
+            }
+        },
+        "entertainer": {
+            "skills": {
+                "acting": {},
+                "writing": {},
+                "music": {},
+                "visual artistry": {},
+                "dance": {},
+                "stylist": {}
+            }
+        },
+        "farmer": {
+            "skills": {
+                "cultivation": {},
+                "hydroponics": {},
+                "geotechnics": {},
+                "management": {}
+            }
+        },
+        "gatherer": {
+            "skills": {
+                "woodcutting": {},
+                "mining": {},
+                "foraging": {},
+                "endurance": {}
+            }
+        },
+        "hunter": {
+            "skills": {
+                "sure shot": {},
+                "trailing": {},
+                "endurance": {},
+                "swimming": {}
+            }
+        },
+        "mechanic": {
+            "skills": {
+                "naval": {},
+                "aeronautics": {},
+                "transport": {},
+                "industrial": {},
+                "military": {},
+                "cybernetics": {},
+                "orbital": {}
+            }
+        },
+        "operator": {
+            "skills": {
+                "industry": {
+                    "transport": {},
+                    "industrial": {},
+                    "naval": {},
+                    "aeronautics": {},
+                    "military": {},
+                    "cybernetics": {},
+                    "orbital": {},
+                    "solar": {}
+                },
+                "driving": {
+                    "description": "Focused driving skill.",
+                    "levels": {
+                        "licensed": {
+                            "name": "Licensed",
+                            "description": "You are licensed to drive legally on urban and rural roads."
+                        },
+                        "street": {
+                            "name": "Street Racer",
+                            "description": "You participate in street races regularly."
+                        },
+                        "race": {
+                            "name": "Race Driver",
+                            "description": "You are capable of attaining professional driving career."
+                        },
+                        "stung": {
+                            "name": "Stunt Driver",
+                            "description": "It's about flying now."
+                        }
+                    }
+                },
+                "cruising": {
+                    "description": "Ability to travel tuned off."
+                },
+                "navigation": {},
+                "endurance": {}
+            }
+        },
+        "peacekeeper": {
+            "skills": {
+                "force": {
+                    "medical": {
+                        "description": "Medical Unit ties to put people together into one piece whenever possible."
+                    },
+                    "containment": {
+                        "description": "Disaster Containment Unit is responsible for Firefighting and rescue missions."
+                    },
+                    "prevention": {
+                        "description": "Crime Prevention Unit is tasked with keeping society orderly and catching preps anything disorderly it happens."
+                    },
+                    "penal": {
+                        "description": "Penal Unit takes care of punishing those who outstep the hard rules of society."
+                    },
+                    "detective": {
+                        "description": "Investigation Unit tasked with untangling most challenging cases to solve."
+                    },
+                    "trooper": {
+                        "description": "Part of storm trooper squad intented at tackling down larger problems with overwhelming numbers."
+                    }
+                },
+                "forensics": {},
+                "law": {},
+                "rehabilitation": {}
+            }
+        },
+        "personality": {
+            "skills": {
+                "presence": {},
+                "style": {},
+                "judgement": {},
+                "pitch": {},
+                "chat": {}
+            }
+        },
+        "martial arts": {
+            "melee": {},
+            "cqc": {},
+            "motorics": {
+                "athletics": {}
+            }
+        },
+        "sharpshooter": {
+            "skills": {
+                "expertise": {
+                    "bows": {},
+                    "crossbows": {},
+                    "throwing": {},
+                    "handguns": {},
+                    "smgs": {},
+                    "assault": {},
+                    "rifles": {},
+                    "heavy": {},
+                    "explosives": {},
+                    "integrated": {}
+                },
+                "sure shot": {
+                    "description": "Well planned and aimed shot, intented to be a hit."
+                },
+                "quick shot": {
+                    "description": "Quick instinctual shot intented at hitting targets nearby."
+                },
+                "trick shot": {
+                    "description": "Rare shot possible only in specific circumstance, usually allowing to reach targets conventionally unreachable."
+                },
+                "barrel anxiety": {
+                    "description": "You don't want to be in front of a gun barrel at all times, leading to a habit of trying to find a spot with least probability of being shot."
+                }
+            }
+        },
+        "sportsman": {
+            "skills": {
+                "discipline": {
+                    "american football": {},
+                    "european football": {},
+                    "baseball": {},
+                    "basketball": {},
+                    "hockey": {},
+                    "golf": {}
+                }
+            }
+        },
+        "streetwise": {
+            "skills": {
+                "barter": {},
+                "area expert": {},
+                "gambling": {},
+                "forgery": {},
+                "meshing": {}
+            }
+        },
+        "survivor": {
+            "skills": {
+                "foraging": {},
+                "grassrooting": {},
+                "caretaking": {},
+                "med aid": {}
+            }
+        }
+    }
+}

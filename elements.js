@@ -22,7 +22,7 @@ class HTMLAttributeListElement extends HTMLElement {
 
     load()
     {
-        console.log('ass');
+
     }
 
 }
