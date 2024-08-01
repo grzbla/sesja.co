@@ -291,8 +291,29 @@
     {
         "talents":
         {
+<<<<<<< HEAD
             "boards": {},
             "processing": {},
+=======
+            "boards": {
+                "levels":
+                {
+                    "": {},
+                    "": {},
+                    "": {},
+                    "electrons": {"description": "It's all just electrons, man."}
+                }
+            },
+            "processing": {
+                "levels":
+                {
+                    "": {},
+                    "": {},
+                    "": {},
+                    "information": {"description": "It's all just information, man."}
+                }
+            },
+>>>>>>> parent of 95dd282 (pics)
             "mechanics": {},
             "design": {}
         }
