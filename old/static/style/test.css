@@ -1,0 +1,116 @@
+@media screen
+{
+    test {
+        --barcode-length: 24;
+        --assert-true-color: #444444;
+
+        width: auto;
+        height: auto;
+        display: block;
+        position: fixed;
+        z-index: var(--test-layer-id);
+    }
+
+    test>css {
+        width: inherit;
+        height: inherit;
+        display: block;
+    }
+
+    test>css>* {
+        width: calc(100vw / calc(var(--barcode-length) * 2));
+        height: 100vh;
+        margin: 0 0 0 calc(100vw / calc(var(--barcode-length) * 2));
+        background-color: transparent;
+        display: inline-block;
+        vertical-align: top;
+        color: limegreen;
+        font-size: 16px;
+        text-align: center;
+        padding-top: 0.5vh;
+        font-variant: small-caps;
+    }
+
+    test>css>*[true] {
+        background-color: var(--assert-true-color)
+    }
+
+    @supports selector(div[parent] > [child][with][additional][params]) {
+        test>css>selector {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @supports (display:flex) {
+        test>css>flex {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @supports font-format(opentype) {
+        test>css>opentype {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @supports font-format(woff) or font-format(woff2) {
+        test>css>woff {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @supports (-webkit-touch-callout: none) {
+        test>css>ios {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @supports (test:has(css > has)) {
+        test>css>has {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        test>css>ahd {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @media screen and (min-width: 1440px) {
+        test>css>hd {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @media screen and (min-width: 2560px) {
+        test>css>uhd {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @media (scripting: enabled) {
+        test>css>ff-scripting {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @media (scripting: enabled) {
+        test>css>webkit {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @media (video-dynamic-range: high) {
+        test>css>hdr {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+    @-moz-document url-prefix() {
+        test>css>firefox {
+            background-color: var(--assert-true-color)
+        }
+    }
+
+}

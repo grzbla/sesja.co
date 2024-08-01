@@ -1,0 +1,74 @@
+/* DESKTOP */
+@media only screen and (orientation: landscape)
+{
+    :root
+    {
+        --attribute-panel-bar-height: 2vh;
+        --attribute-panel-font-size: 1.5vh;
+        --attribute-panel-line-height: 120%;
+        --attribute-panel-name-left: 2.5vw;
+        --attribute-panel-letter-spacing: 0.1vw;
+        --attribute-panel-value-right: 30px;
+        --attribute-panel-value-width: 36px;
+        --attribute-panel-value-font-weight: 600;
+        --attribute-panel-bar-line-size: 0.15vh;
+    }
+
+    .attributePanel
+    {
+        width: 20vw;
+        font-size: var(--attribute-panel-font-size);
+        border: 1px solid blue;
+        transition: all 0.35s ease-in-out;
+    }
+
+    .attributePanel .attribute
+    {
+        width: 100%;
+        height: var(--attribute-panel-bar-height);
+        overflow: hidden;
+        position: relative;
+        display: block;
+        margin: 5px 0px 5px 0px;
+    }
+
+
+
+}
+
+/* -------------------------------------------------------------------------- */
+/* MOBILE */
+
+@media only screen and (orientation: portrait)
+{
+    :root
+    {
+        --attribute-panel-bar-height: 2vh;
+        --attribute-panel-font-size: 1.75vh;
+        --attribute-panel-line-height: 120%;
+        --attribute-panel-name-left: 2.5vw;
+        --attribute-panel-letter-spacing: 0.1vw;
+        --attribute-panel-value-right: 30px;
+        --attribute-panel-value-width: 36px;
+        --attribute-panel-value-font-weight: 600;
+        --attribute-panel-bar-line-size: 0.2vh;
+    }
+
+    .attributePanel
+    {
+        width: 48vw;
+        font-size: var(--attribute-panel-font-size);
+        border: 1px solid red;
+        transition: all 0.35s ease-in-out;
+    }
+
+    .attributePanel .attribute
+    {
+        width: 100%;
+        height: var(--attribute-panel-bar-height);
+        overflow: hidden;
+        position: relative;
+        display: block;
+        margin: 5px 0px 5px 0px;
+    }
+}
