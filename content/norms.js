@@ -3,17 +3,25 @@ const norm = {
     {
         0: 'Can survive in equitable utopian society.',
         1: ['Able to survive in generous and forgiving environment.',
-            'Capable of operating on binary level: yes/no, right/wrong, left/right'],
+            'Capable of operating on binary level: yes/no, right/wrong, left/right',
+            'Unconscious incompetence'],
         2: ['Will prosper with lifetime worth of inheritance.',
-            'Capable of producing words to back up own stance.'],
+            'Capable of producing words to back up own stance.',
+            'Conscious incompetence'],
         3: ['Could achieve a livable standard in free and fair environment.',
-            'Can form indeptendent opinions.'],
+            'Can form indeptendent opinions.',
+            'conscious competence'],
         4: ['Will prosper in limited or closely controlled economy.',
             'Can predict and avoid mistakes.'],
         5: ['Capable of surviving in resource scarce environment.',
-            'Can formulate complex plans.'],
+            'Can formulate complex plans.',
+            'Unconscious competence'],
         6: ['Able to thrive in a cut-throat dog eat dog world.',
             'Does always extra.']
+    },
+    phases:
+    {
+
     },
     skills:
     {
@@ -24,10 +32,200 @@ const norm = {
             "Intermediate's Luck": ['Get +5N bonus.', 'Can boost rolls until level 5.'],
             "Pro Luck": ['Get +1D4 Luck Die.']
         },
-        "":
+        "telepathic aid": "can use microaction to give telepatic tips granting bonus for current actions to target character",
+        "generic talents":
+        {
+            "legacy": "you continue or usurp legacy of someone who passed.",
+            "know a guy": "you know a guy who can do affiliated thing as well as you do.",
+            "mentor": "gib bonus to someone who has lower skill?"
+        },
+        "gangster/rogue": {
+            "description": "managing attention, suspicion and guilt"
+            "talents": {
+                "no stranger": {"description": "give off that street vibe that you're not a cop or a snitch"},
+                "unassuming": {"description": "Evades Attention."},
+                "unnotticed": {"description": "Slip unnotticed when Assumed Suspicious. Exploit gaps in awareness and cognition."},
+                "slippery": {"description": "Move when Assumed Guilty."},
+                "leverage": {"description": "Reclaim freedom when Apprehended."},
+                "magnetic": {"description": "your fans and enemies always obscure operations against you."},
+                "admired": {"description": "you find friends in least expected places."},
+                "inspirating": {"description": "your copycats tend to do similar things at similar time diverting attention from you."},
+                "idolized": {"description": "there are people who think some of your illicit activities shoudldn't be punishable"}
+                "legendary": {"description": "facts and fiction become undistinguishable, you can write your own story"}
+            }
+        },
+        "equestrian": {
+            "talents": {
+                "caretaking": {"description": "handle ailments, provide optimal nutrition, entertainment and excercise"},
+                "recovery": {"description": "can recover from being knocked off the mount"},
+                "handling": {"description": "can handle mount when it gets emotional"},
+                "control": {"description": "can push mount to it's limits"},
+                "bonding": {"description": "mount can look up to you and understand the importance of pushing the limits."},
+                "understanding": {"description": "can communicate with mount with body language and imitation sounds"},
+                "magnetic": {"description": "you find friends in least expected forms"},
+                "inspirating": {"description": "some use your routes for their convenience"},
+                "idolized": {"description": "your journeys lead to local progress"},
+                "legendary": {"description": "facts and fiction become undistinguishable, you can write your own story"}
+            }
+        },
+        "blacksmith":
+        {
+            "talents": {
+                "armory": "crafting weapons and armor",
+                "mineralogy": "knowledge of materials outside of your work experience",
+                "alloys": "melding stuffs",
+                "refining": "removing impurities",
+                "casting": "metal casting usually for utility crafting",
+                "batching": "do same thing in large quantities",
+                "artisanal": "make it pretty n shit",
+                "masterwork": "produce as high quality as possible",
+                "improvisation": "can work with substitute materials and tools",
+                "homeworker": "prefers to work in his own workshop"
+            }
+        },
+        "carpentry": {
+            "dendrology": "knowledge of wood outside of your work experience",
+            "architecture": "can make plans for others. good plans good bonuses",
+            "construction": "can make buildings and coordinate teams",
+            "artisanal": "fancy shmancy",
+            "masterwork": "produce as high quality as possible",
+            "shipwright": "ships",
+            "engineering": "can build things that move",
+            "bowmaking": "and arrows",
+            "foraging": "can find your own materials in the wild",
+            "expert": "pefer to work with someone else's resources"
+        },
+        "masonry":
+        {
+            "architecture": "plannen",
+            "construction": "bulden",
+            "artisanal": "knowledge of wood outside of your work experience",
+            "lithology": "rocks",
+            "engineering": "can build things that move or enable movement",
+            "siege": "build things which break other things or resist being broken by things which break other things",
+            "roofing": "not the bill cosby type",
+            "monumental": "make big things which make people sound like ooh",
+            "expert": "pefer to work with someone else's resources",
+            "masterwork": "one of a kind quality"
+        },
+        "alchemist":
+        {
+            "talents": {
+                "brewery": "specialization in brewing",
+                "gastronomy": "specialization in cooking",
+                "catalysis": "increase reactions by adding stuff",
+                "scribe": "recipes",
+                "journeyman": "work in travel conditions",
+                "preservation": "dry, powder, freeze, pickle",
+                "concentrates": "create concentrations of substance",
+                "distilation": "separate one substance from others",
+                "charlatan": "do same amount with less ingredient",
+                "transmutation": "change one type of matter into another"
+            }
+        },
+        "wizard":
+        {
+            "invocation": "",
+            "divination": "",
+        },
+        "enchanter":
+        {
+            "abjuration": "",
+            "evocation": "",
+        },
+        "bladesinger": {},
+        "blood mage": {},
+        "necromancer": {},
+        "demonologist": {},
+        "conjurer": {},
+        "illusionist": {},
+        "warmage": "",
+        "sorcerer": "",
+        "investigator":
+        {
+            "description": "sorcerer specializing in investigating the strange, paranormal and aberrant"
+        },
+        "mechatron":
+        {
+            "description": "sorcerer whose soul is from mechanized plane like Mechanus"
+        },
+        "divine soul":
+        {
+            "description": "sorcerers from celestial sources"
+        },
+        "draconic lineage":
+        {
+            "description": "sorcerers from magic dragon blood"
+        },
+        "astrologer":
+        {
+            "description": "sorcerers from magic powers of the space and planets and shit"
+        },
+        "shadowfallen":
+        {
+            "description": "sorcerers from shadowfell edgelord powers"
+        },
+        "wind whisperer":
+        {
+            "description": "sorcerers weather powers"
+        },
+        "chaos sorc":
+        {
+            "description": "sorcerers with wild magic"
+        },
+        "priest":
+        {
+            "turn undead": "",
+            "destroy undead": "",
+            "divine intervention": "",
+            "ritualism": "",
+            "": ""
+        },
+        "domain":
         {
 
-        }
+        },
+        "druid": {},
+        "circle": {},
+        "warlock": {},
+        "patron": {},
+        "martial artist": {},
+        "tradition": {},
+        "artificer":
+        {
+            "talents":
+            {
+                "harness": "can reliably attach things to beings"
+            }
+        },
+        "machinist": "generates magic power with steam machines",
+        "academy": {},
+        "vagabond": {
+            "talents": {}
+        },
+        "tribe": {}
+        "aristocracy":
+        {
+            "acreocracy": "",
+        },
+        "archer":{},
+        "academics": {},
+        "sailor": {},
+        "commander": {},
+        "diplomat": {},
+        "mentor": {},
+        "marauder": {},
+    },
+    "secondary":
+    {
+        "merchant": {},
+        "jeweler": {},
+        "forger": {},
+        "linguist": {},
+        "gambler": {},
+        "highlander": {},
+        "islander": {},
+        "woodlander": {},
     },
     epochs:
     {

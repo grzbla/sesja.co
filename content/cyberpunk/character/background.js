@@ -1,29 +1,95 @@
+const cyberpunk = {character: {background: {}}}
+cyberpunk.character.background.region =
 {
-    "region":
-    {
-        "name": "Cultural Region",
-        "description": [
-            "The Cyberpunk world is multicultural and multinational. You either learn to deal with all kinds of people from all over a fractured and chaotic world, or you die the first time you look side-eye at the wrong person. Where you come from determines your native language. In RED, we assume everyone speaks Streetslang, the pidgin that has evolved to be used by almost everyone in the Dark Future, but you probably also have another primary tongue you learned at your mother's knee. After rolling to determine your general cultural region, choose one of the languages from the list adjacent to your cultural region. You begin with 4 points in that Language Skill. There are hundreds of languages spoken around the world but for our purposes here we've listed the most commonly spoken languages in each region during the Time of the Red. If you want your Character to speak a language that isn't represented you can go ahead and choose that language instead of one of the listed languages"
-        ],
-        "rule": [
-            "Roll 1d10 or choose one."
-        ],
-        "trait": {
-                "label": "Your (General) Cultural Region",
-                "values": [
-                    ["North American"],
-                    ["South/Central American"],
-                    ["Western European"],
-                    ["Eastern European"],
-                    ["Middle Eastern/North African"],
-                    ["Sub-Saharan African"],
-                    ["South Asian"],
-                    ["South East Asian"],
-                    ["East Asian"],
-                    ["Oceania/Pacific Islander"]
-                ]
-            }
-    },
+    url: 'pic',
+    name: 'Cultural Region',
+    description: [
+        "The Cyberpunk world is multicultural and multinational. You either learn to deal with all kinds of people from all over a fractured and chaotic world, or you die the first time you look side-eye at the wrong person. Where you come from determines your native language. In RED, we assume everyone speaks Streetslang, the pidgin that has evolved to be used by almost everyone in the Dark Future, but you probably also have another primary tongue you learned at your mother's knee. After rolling to determine your general cultural region, choose one of the languages from the list adjacent to your cultural region. You begin with 4 points in that Language Skill. There are hundreds of languages spoken around the world but for our purposes here we've listed the most commonly spoken languages in each region during the Time of the Red. If you want your Character to speak a language that isn't represented you can go ahead and choose that language instead of one of the listed languages"
+    ],
+    rule: [
+        "Roll 1d10 or choose one."
+    ],
+    trait: {
+            "label": "Your (General) Cultural Region",
+            "values": [
+                ["North American"],
+                ["South/Central American"],
+                ["Western European"],
+                ["Eastern European"],
+                ["Middle Eastern/North African"],
+                ["Sub-Saharan African"],
+                ["South Asian"],
+                ["South East Asian"],
+                ["East Asian"],
+                ["Oceania/Pacific Islander"]
+            ]
+        }
+}
+
+cyberpunk.character.background.status = {
+    "name": "Your Original Family Background ",
+    "description": [
+        "Now we know what you're basically like, so it's time to find out how you got there: it's time to explore your Background.",
+        "Who are you and where did you originally come from? Were you born with a silver spoon in your mouth or were you using it to stab your brother so you could steal that extra bite of dead rat you both found?"
+    ],
+    "traits": [{
+            "label": "Original Background",
+            "values": [
+                "Corporate Execs",
+                "Corporate Managers",
+                "Corporate Technicians",
+                "Nomad Pack",
+                "Ganger 'Family'",
+                "Combat Zoners",
+                "Urban Homeless",
+                "Megastructure Warren Rats",
+                "Reclaimers",
+                "Edgerunners"
+            ]
+        },
+        {
+            "label": "Description",
+            "values": [
+                "Wealthy, powerful, with servants, luxury homes, and the best of everything. Private security made sure you were always safe. You definitely went to a big-name private school.",
+                "Well to do, with large homes, safe neighborhoods, nice cars, etc. Sometimes your parent(s) would hire servants, although this was rare. You had a mix of private and corporate education.",
+                "Middle-middle class, with comfortable condos or Beaverville suburban homes, minivans, and corporate-run technical schools. Kind of like living 1950s America crossed with 1984.",
+                "You had a mix of rugged trailers, vehicles, and huge road kombis for your home. You learned to drive and fight at an early age, but the family was always there to care for you. Food was actually fresh and abundant. Mostly home schooled.",
+                "A savage, violent home in any place the gang could take over. You were usually hungry, cold, and scared. You probably didn't know who your actual parents were. Education? The Gang taught you how to fight, kill, and steal—what else did you need to know?",
+                "A step up from a gang 'family,' your home was a decaying building somewhere in the 'Zone,' heavily fortified. You were hungry at times, but regularly could score a bed and a meal. Home schooled.",
+                "You lived in cars, dumpsters, or abandoned shipping modules. If you were lucky. You were usually hungry, cold, and scared, unless you were tough enough to fight for the scraps. Education? School of Hard Knocks.",
+                "You grew up in one of the huge new megastructures that went up after the War. A tiny conapt, kibble and scop for food, a mostly warm bed. Some better educated adult warren dwellers or a local Corporation may have set up a school.",
+                "You started out on the road, but then moved into one of the deserted ghost towns or cities to rebuild it. A pioneer life: dangerous, but with plenty of simple food and a safe place to sleep. You were home schooled if there was anyone who had the time.",
+                "Your home was always changing based on your parents' current 'job.' Could be a luxury apartment, an urban conapt, or a dumpster if you were on the run. Food and shelter ran the gamut from gourmet to kibble."
+            ]
+        }
+    ]
+}
+"environment": {
+    "name": "Your Environment",
+    "description": "How did you grow up? What kind of places did you and your sibs hang out in? Safe and calm? Crazy dangerous? Massively oppressive? It's possible that something happened in your background and your environment turns out drastically different from your original family background.",
+    "rule": [
+        "Roll 1d10 or choose one."
+    ],
+    "trait": [{
+        "label": "Childhood Environment",
+        "values": [
+            "Ran on The Street, with no adult supervision.",
+            "Spent in a safe Corp Zone walled off from the rest of the City.",
+            "In a Nomad pack moving from place to place.",
+            "In a Nomad pack with roots in transport (ships, planes, caravans).",
+            "In a decaying, once upscale neighborhood, now holding off the boosters to survive.",
+            "In the heart of the Combat Zone, living in a wrecked building or other squat.",
+            "In a huge 'megastructure' building controlled by a Corp or the City.",
+            "In the ruins of a deserted town or city taken over by Reclaimers.",
+            "In a Drift Nation (a floating offshore city) that is a meeting place for all kinds of people.",
+            "In a Corporate luxury 'starscraper,' high above the rest of the teeming rabble."
+        ]
+    }]
+}
+
+
+
+const ass = {
     "language":
     {
 
