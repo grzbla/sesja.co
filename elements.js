@@ -146,7 +146,6 @@ class HTMLPictureFrameElement extends HTMLElement {
 
     open() { $('div[image]', this.shadowRoot).style.display = 'block'; setTimeout( () => { $('div[image]', this.shadowRoot).style.opacity = '1' }, Math.random() * (this.maxDelay - this.minDelay) + this.minDelay) }
     close() { $('div[image]', this.shadowRoot).style.display = 'none'; $('div[image]', this.shadowRoot).style.opacity = '0' }
-
 }
 customElements.define('pic-frame', HTMLPictureFrameElement)
 

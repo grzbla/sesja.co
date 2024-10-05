@@ -29,110 +29,110 @@
 </head>
 
 <body>
-    <test>
-        <css>
-            <js>js</js>
-            <write>write</write>
-            <storage>storage</storage>
-            <idb>idb</idb>
-            <webrtc>rtc</webrtc>
-            <webkit>wkit</webkit>
-            <webgl>wgl</webgl>
-            <selector>[]</selector>
-            <flex>flex</flex>
-            <opentype>otf</opentype>
-            <woff>woff</woff>
-            <has>has</has>
-            <ahd>ahd</ahd>
-            <hd>hd</hd>
-            <uhd>uhd</uhd>
-            <hdr>hdr</hdr>
-            <landscape>---</landscape>
-            <firefox>ff</firefox>
-            <ff-scripting>ff-s</ff-scripting>
-            <ios>ios</ios>
-            <ie>ie</ie>
-            <edge>edge</edge>
-        </css>
-        <tests>
-            <div parent>
-                <div child with additional params></div>
-            </div>
-            <script js media="screen">
-                document.querySelector("test > css > js").setAttribute("true", "")
-            </script>
-            <script write media="screen">
-                if (navigator.cookieEnabled)
-                    document.querySelector("test > css > write").setAttribute("true", "")
-            </script>
-            <script storage media="screen">
-                try {
-                    if (window.localStorage && window.sessionStorage)
-                        document.querySelector("test > css > storage").setAttribute("true", "")
-                } catch (e) {}
-            </script>
-            <!-- <script firefox media="screen">
-                    if (navigator.userAgent.toLowerCase().includes('firefox'))
-                    {
-                        const firefox = document.querySelector("test > css > firefox")
-                        if (firefox)
-                            firefox.setAttribute("true", "")
-                    }
-                </script> -->
-            <script landscape media="screen">
-                if (window.innerWidth > window.innerHeight) {
-                    const landscape = document.querySelector("test > css > landscape")
-                    if (landscape)
-                        landscape.setAttribute("true", "")
-                }
-            </script>
-            <script idb media="screen">
-                if ('indexedDB' in window) {
-                    const idb = document.querySelector("test > css > idb")
-                    if (idb)
-                        idb.setAttribute("true", "")
-                }
-            </script>
-            <script webrtc media="screen">
-                if (RTCDataChannel) {
-                    const webrtc = document.querySelector("test > css > webrtc")
-                    if (webrtc)
-                        webrtc.setAttribute("true", "")
-                }
-            </script>
-            <script webkit media="screen">
-                if ('webkitRequestAnimationFrame' in window) {
-                    const webrtc = document.querySelector("test > css > webkit")
-                    if (webrtc)
-                        webrtc.setAttribute("true", "")
-                }
-            </script>
-            <script ie media="screen">
-                if (/MSIE|Trident/.test(window.navigator.userAgent)) {
-                    const ie = document.querySelector("test > css > ie")
-                    if (ie)
-                        ie.setAttribute("true", "")
-                }
-            </script>
-            <script edge media="screen">
-                if (/Edg/.test(window.navigator.userAgent)) {
-                    const edge = document.querySelector("test > css > edge")
-                    if (edge)
-                        edge.setAttribute("true", "")
-                }
-            </script>
-            <script webgl media="screen">
-                const canvas = document.createElement("canvas")
-                const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl")
+    <!-- <test> -->
+    <!--     <css> -->
+    <!--         <js>js</js> -->
+    <!--         <write>write</write> -->
+    <!--         <storage>storage</storage> -->
+    <!--         <idb>idb</idb> -->
+    <!--         <webrtc>rtc</webrtc> -->
+    <!--         <webkit>wkit</webkit> -->
+    <!--         <webgl>wgl</webgl> -->
+    <!--         <selector>[]</selector> -->
+    <!--         <flex>flex</flex> -->
+    <!--         <opentype>otf</opentype> -->
+    <!--         <woff>woff</woff> -->
+    <!--         <has>has</has> -->
+    <!--         <ahd>ahd</ahd> -->
+    <!--         <hd>hd</hd> -->
+    <!--         <uhd>uhd</uhd> -->
+    <!--         <hdr>hdr</hdr> -->
+    <!--         <landscape>---</landscape> -->
+    <!--         <firefox>ff</firefox> -->
+    <!--         <ff-scripting>ff-s</ff-scripting> -->
+    <!--         <ios>ios</ios> -->
+    <!--         <ie>ie</ie> -->
+    <!--         <edge>edge</edge> -->
+    <!--     </css> -->
+    <!--     <tests> -->
+    <!--         <div parent> -->
+    <!--             <div child with additional params></div> -->
+    <!--         </div> -->
+    <!--         <script js media="screen"> -->
+    <!--             document.querySelector("test > css > js").setAttribute("true", "") -->
+    <!--         </script> -->
+    <!--         <script write media="screen"> -->
+    <!--             if (navigator.cookieEnabled) -->
+    <!--                 document.querySelector("test > css > write").setAttribute("true", "") -->
+    <!--         </script> -->
+    <!--         <script storage media="screen"> -->
+    <!--             try { -->
+    <!--                 if (window.localStorage && window.sessionStorage) -->
+    <!--                     document.querySelector("test > css > storage").setAttribute("true", "") -->
+    <!--             } catch (e) {} -->
+    <!--         </script> -->
+    <!--         <!-- <script firefox media="screen"> -->
+    <!--                 if (navigator.userAgent.toLowerCase().includes('firefox')) -->
+    <!--                 { -->
+    <!--                     const firefox = document.querySelector("test > css > firefox") -->
+    <!--                     if (firefox) -->
+    <!--                         firefox.setAttribute("true", "") -->
+    <!--                 } -->
+    <!--             </script> --> -->
+    <!--         <script landscape media="screen"> -->
+    <!--             if (window.innerWidth > window.innerHeight) { -->
+    <!--                 const landscape = document.querySelector("test > css > landscape") -->
+    <!--                 if (landscape) -->
+    <!--                     landscape.setAttribute("true", "") -->
+    <!--             } -->
+    <!--         </script> -->
+    <!--         <script idb media="screen"> -->
+    <!--             if ('indexedDB' in window) { -->
+    <!--                 const idb = document.querySelector("test > css > idb") -->
+    <!--                 if (idb) -->
+    <!--                     idb.setAttribute("true", "") -->
+    <!--             } -->
+    <!--         </script> -->
+    <!--         <script webrtc media="screen"> -->
+    <!--             if (RTCDataChannel) { -->
+    <!--                 const webrtc = document.querySelector("test > css > webrtc") -->
+    <!--                 if (webrtc) -->
+    <!--                     webrtc.setAttribute("true", "") -->
+    <!--             } -->
+    <!--         </script> -->
+    <!--         <script webkit media="screen"> -->
+    <!--             if ('webkitRequestAnimationFrame' in window) { -->
+    <!--                 const webrtc = document.querySelector("test > css > webkit") -->
+    <!--                 if (webrtc) -->
+    <!--                     webrtc.setAttribute("true", "") -->
+    <!--             } -->
+    <!--         </script> -->
+    <!--         <script ie media="screen"> -->
+    <!--             if (/MSIE|Trident/.test(window.navigator.userAgent)) { -->
+    <!--                 const ie = document.querySelector("test > css > ie") -->
+    <!--                 if (ie) -->
+    <!--                     ie.setAttribute("true", "") -->
+    <!--             } -->
+    <!--         </script> -->
+    <!--         <script edge media="screen"> -->
+    <!--             if (/Edg/.test(window.navigator.userAgent)) { -->
+    <!--                 const edge = document.querySelector("test > css > edge") -->
+    <!--                 if (edge) -->
+    <!--                     edge.setAttribute("true", "") -->
+    <!--             } -->
+    <!--         </script> -->
+    <!--         <script webgl media="screen"> -->
+    <!--             const canvas = document.createElement("canvas") -->
+    <!--             const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl") -->
 
-                if (gl instanceof WebGLRenderingContext) {
-                    const webgl = document.querySelector("test > css > webgl")
-                    if (webgl)
-                        webgl.setAttribute("true", "")
-                }
-            </script>
-        </tests>
-    </test>
+    <!--             if (gl instanceof WebGLRenderingContext) { -->
+    <!--                 const webgl = document.querySelector("test > css > webgl") -->
+    <!--                 if (webgl) -->
+    <!--                     webgl.setAttribute("true", "") -->
+    <!--             } -->
+    <!--         </script> -->
+    <!--     </tests> -->
+    <!-- </test> -->
 
     <!-- <div loading>
             <div container>

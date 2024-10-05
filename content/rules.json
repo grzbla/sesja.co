@@ -1,0 +1,55 @@
+{
+    "preference cp": {},
+"labels cp":
+  {
+    "base": "does this one thing in popular, established, run of the mill manner.",
+    "woke": "prefers to do this one thing under the pretense of higher purpose. bliss",
+    "cringe": "convinced this one thing is most important for everyone to know as much as possible about",
+    "creep": "have preference about this one thing which would break most people and the feel it",
+    "toxic": "have preference about this one thing which would break most people and is vocal about it",
+    "nerd": "overly focused on this one thing he knows how to do",
+    "geek": "very excited by this one thing he enjoys a lot",
+    "nut": "openly believes there's only this one thing he knows a lot about and rest is secondary",
+    "faux": "knows someone who can do this one thing but takes the credit for it",
+    "lead": "can do this one thing but prefers to walk someone else through doing it instead",
+    "hack": "tendency to try new things introducing trial and error",
+    "trad": "knows how to do it, but it lacks finesse",
+    "packie": "does this one thing only when everyone else does it",
+    "leech": "does this one thing exclusively for monetary gains to continue doing this one thing",
+    "crony": "does this one thing only with close associates",
+    "goon": "does this one thing because of protective environment",
+    "simp": "does this one thing with intention of absorbing as much as possible. blind love",
+    "sigma": "does this one thing with a habit to create a queue of other like-minded individuals just right behind themselves",
+    "beta": "does this one thing by following self-perceived leaders in the discipline",
+    "sheepl": "ideologically motivated to do this one thing"
+  },
+"preference fr":
+{
+    "homeworker": "prefers to work in his own workshop",
+    "expert": "pefer to work with someone else's resources",
+    "journeyman": "work in travel conditions"
+},
+"labels fr":
+  {
+      "base": "does this one thing in popular, established, run of the mill manner",
+      "woke/blisswit": "prefers to do this one thing under the pretense of higher purpose. bliss",
+      "cringe": "convinced this one thing is most important for everyone to know as much as possible about",
+      "creep": "have preference about this one thing which would break most people and the feel it",
+      "toxic": "have preference about this one thing which would break most people and is vocal about it",
+      "nerd": "overly focused on this one thing he knows how to do",
+      "geek": "very excited by this one thing he enjoys a lot",
+      "nut": "openly believes there's only this one thing he knows a lot about and rest is secondary",
+      "faux": "knows someone who can do this one thing but takes the credit for it",
+      "lead": "can do this one thing but prefers to walk someone else through doing it instead",
+      "hack": "tendency to try new things introducing trial and error",
+      "trad": "knows how to do it, but it lacks finesse",
+      "packie": "does this one thing only when everyone else does it",
+      "leech": "does this one thing exclusively for monetary gains to continue doing this one thing",
+      "crony": "does this one thing only with close associates",
+      "goon": "does this one thing because of protective environemtn",
+      "simp": "does this one thing with intention of absorbing as much as possible. blind love",
+      "sigma": "does this one thing with a habit to create a queue of other like-minded individuals just right behind themselves",
+      "beta": "does this one thing by following self-perceived leaders in the discipline",
+      "sheepl": "ideologically motivated to do this one thing"
+  }
+}
