@@ -1,4 +1,33 @@
 {
+  "Farm": "Agriculture and food production, providing sustenance for the population.",
+  "Bridge": "Transportation and connectivity, linking regions across natural obstacles.",
+  "Cemetery": "Burial and remembrance, serving as a sacred space for the deceased.",
+  "Market Square": "Trade and commerce hub, where goods are exchanged and social interactions occur.",
+  "Port (Harbor)": "Maritime trade and transportation, facilitating the movement of goods and people.",
+  "Road": "Infrastructure for land travel and trade, connecting towns and regions.",
+  "Library": "Knowledge preservation and dissemination, serving as a center for learning and wisdom.",
+  "Prison": "Detainment and punishment, holding criminals and enforcing law.",
+  "Temple": "Religious worship and spiritual guidance, acting as a place for rituals and community gathering.",
+  "Workshop (Artisan's Workshop)": "Skilled labor and production of goods, where artisans and craftsmen work.",
+  "Blacksmith’s Forge": "Metalworking and crafting of tools and weapons, essential for a functioning society.",
+  "Forest": "Natural resource provision, offering timber, fuel, and magical or enchanted materials.",
+  "Quarry": "Resource extraction of stone and minerals, used in construction and industry.",
+  "Canal": "Water management and transportation, aiding in trade and irrigation.",
+  "Monastery": "Religious, cultural, and educational center, where monks or scholars live and work.",
+  "Castle": "Defense and governance, serving as a fortified residence for rulers and protectors.",
+  "Mill": "Processing of food or raw materials, such as grain or textiles, essential for daily life.",
+  "Plaza (Public Square)": "Civic gatherings and social events, a central area for public life and markets.",
+  "Town Walls (City Fortifications)": "Defense and protection, safeguarding towns from external threats.",
+  "Aqueduct": "Water supply and distribution, bringing essential resources to settlements.",
+  "Bathhouse": "Public hygiene and relaxation, providing a communal space for cleansing and socializing.",
+  "Warehouse": "Storage and management of goods, essential for trade and logistics.",
+  "University": "Higher education and research, a place of learning for scholars and magicians.",
+  "Watchtower": "Surveillance and defense, used to spot threats and protect settlements.",
+  "Arena": "Entertainment and competition, serving as a public venue for gladiatorial combat, tournaments, and large gatherings."
+}
+
+
+{
     "grave": {
         "1": {
             "name": "Bone Web of Ancestry",
