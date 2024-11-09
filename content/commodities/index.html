@@ -316,7 +316,7 @@
       const itemDiv = document.createElement("div");
       itemDiv.className = "item";
       itemDiv.innerHTML = `
-        <img src="${item.group}\\${item.name}.png" alt="Image placeholder" onerror="this.onerror=null;this.src='placeholder.png';this.className='off'">
+        <a href="${item.group}\\${item.name}.png"><img src="${item.group}\\${item.name}_t.jpg" alt="Image placeholder" onerror="this.onerror=null;this.src='placeholder.png';this.className='off'"></a>
         <h2>${item.name}</h2>
         <p>${item.description}</p>
       `;
