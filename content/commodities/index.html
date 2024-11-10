@@ -14,7 +14,7 @@
     h1,a {
       text-align: center;
       color: #f0e68c;
-      text-decoration: none; 
+      text-decoration: none;
     }
     .filter-bar {
       display: flex;
@@ -68,9 +68,9 @@
     }
     .item img {
       width: 100%;
-      aspect-ratio: 8 / 5;
       background-color: #555;
       border-radius: 5px;
+      height: auto;
     }
     .item img.off
     {
@@ -110,7 +110,6 @@
     const items = [
     { "group": "alloys", "name": "bronze", "description": "golden-brown with a smooth, weathered finish, a blend of copper and tin; durable and used in traditional weaponry.", "url": "https://forgottenrealms.fandom.com/wiki/Bronze" },
     { "group": "alloys", "name": "electrum", "description": "pale gold with subtle silver tones, highly valued for coinage and jewelry, symbolizing wealth.", "url": "https://forgottenrealms.fandom.com/wiki/Electrum" },
-    { "group": "alloys", "name": "laeral's silver", "description": "bright and lustrous, highly resistant to tarnish, often used in relics that must endure through ages.", "url": "https://forgottenrealms.fandom.com/wiki/Laeral%27s_Silver" },
     { "group": "alloys", "name": "steel", "description": "silvery-gray and polished with a hint of bluish hue, strong and versatile, the backbone of armor and weaponry.", "url": "https://forgottenrealms.fandom.com/wiki/Steel" },
     { "group": "alloys", "name": "telstang", "description": "semi-transparent bluish-green alloy infused with elemental essence, amplifying air and water magics.", "url": "https://forgottenrealms.fandom.com/wiki/Telstang" },
 
@@ -138,7 +137,6 @@
     { "group": "gems", "name": "carnelian", "description": "bright red-orange, translucent and glossy, often used in amulets for courage and protection.", "url": "https://forgottenrealms.fandom.com/wiki/Carnelian" },
     { "group": "gems", "name": "chalcedony", "description": "smooth and waxy, often in muted colors like gray or blue, valued for its healing properties.", "url": "https://forgottenrealms.fandom.com/wiki/Chalcedony" },
     { "group": "gems", "name": "diamond", "description": "clear, highly reflective, with a brilliant sparkle, symbolizing purity and strength.", "url": "https://forgottenrealms.fandom.com/wiki/Diamond" },
-    { "group": "gems", "name": "dragonstone", "description": "deep green with subtle sparkles, rare and associated with dragons and ancient magic.", "url": "https://forgottenrealms.fandom.com/wiki/Dragonstone" },
     { "group": "gems", "name": "emerald", "description": "vivid green, transparent, and valuable, symbolizing nature and rebirth.", "url": "https://forgottenrealms.fandom.com/wiki/Emerald" },
     { "group": "gems", "name": "garnet", "description": "deep red, smooth or faceted, with a glossy surface; often used in jewelry and talismans.", "url": "https://forgottenrealms.fandom.com/wiki/Garnet" },
     { "group": "gems", "name": "jade", "description": "green, opaque, smooth and polished, symbolizing health and longevity.", "url": "https://forgottenrealms.fandom.com/wiki/Jade" },
@@ -269,7 +267,6 @@
     { "group": "trees", "name": "yew", "description": "dark green needles and reddish bark, often associated with bows due to its elasticity and strength.", "url": "https://forgottenrealms.fandom.com/wiki/Yew" },
     { "group": "trees", "name": "zalantar", "description": "black-barked tree, resistant to moisture; often called blackwood, valued in weapon crafting.", "url": "https://forgottenrealms.fandom.com/wiki/Zalantar" },
 
-
     { "group": "vegetables", "name": "beans", "description": "green or dried pods with seeds, used in a variety of dishes.", "url": "https://forgottenrealms.fandom.com/wiki/Beans" },
     { "group": "vegetables", "name": "cabbage", "description": "round, leafy green heads; a common vegetable in soups and stews.", "url": "https://forgottenrealms.fandom.com/wiki/Cabbage" },
     { "group": "vegetables", "name": "carrots", "description": "orange, tapered roots with a sweet flavor; versatile and widely used.", "url": "https://forgottenrealms.fandom.com/wiki/Carrots" },
@@ -310,7 +307,6 @@
     container.innerHTML = "";
 
     filteredItems.forEach(item => {
-    console.log(item)
       const itemDiv = document.createElement("div");
       itemDiv.className = "item";
       itemDiv.innerHTML = `
