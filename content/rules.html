@@ -7,6 +7,13 @@ stat-description
 }
 </style>
 <script type="text/javascript">
+function maek(type, tags) {
+    let element = document.createElement(type ? type : 'div')
+    if (tags) tags.forEach(t => { tag(element, t)})
+    return element
+}
+function tag(element, t) { element.setAttribute(t, '')}
+function untag(element, t) { try { element.removeAttribute(t) } catch {} }
 const rules =
 {
     map:
@@ -33,6 +40,24 @@ const rules =
         8: [],//10+square
         9: [],//10+d8
         10: []//2d10
+    },
+    skills:
+    {
+        athletics:
+        {
+            talents:
+            [
+                "biking",
+                "sailing",
+                "diving",
+                "climbing",
+                "lifting",
+                "acrobatics",
+                "gymnastics",
+                "swimming",
+                "running"
+            ]
+        }
     }
 }
 
@@ -50,19 +75,25 @@ class HTMLStatDescriptionElement extends HTMLElement {
             this.print(array(rules.map, newValue), newValue)
         else //name == 'pool'
             this.update() //values
-    }    
+    }
 
     print(content, level)
     {
-        this.innerHTML = content.join("<br>")
+        const levelElement = maek('span', ['level'])
+        levelElement.innerHTML = level
+        this.appendChild(levelElement)
+
+        const description = maek('span', ['description'])
+        description.innerHTML = content.join("<br>")
+        this.appendChild(description)
         // print ur html here
     }
 
     update()
     {
-        
+
     }
-    
+
 } customElements.define('stat-description', HTMLStatDescriptionElement)
 
 </script>
@@ -72,6 +103,6 @@ class HTMLStatDescriptionElement extends HTMLElement {
     </stat-description>
     <stat-description level="1" bonus="1"></stat-description>
     <stat-description level="2" bonus="2"></stat-description>
-    
+
 
 </body>

@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "attributes": {
         "athletics": {
             "name": "Athletics",
@@ -291,35 +290,10 @@
     {
         "talents":
         {
-<<<<<<< HEAD
             "boards": {},
             "processing": {},
-=======
-            "boards": {
-                "levels":
-                {
-                    "": {},
-                    "": {},
-                    "": {},
-                    "electrons": {"description": "It's all just electrons, man."}
-                }
-            },
-            "processing": {
-                "levels":
-                {
-                    "": {},
-                    "": {},
-                    "": {},
-                    "information": {"description": "It's all just information, man."}
-                }
-            },
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 95dd282 (pics)
-=======
->>>>>>> parent of 95dd282 (pics)
-=======
->>>>>>> parent of 95dd282 (pics)
+            "boards": {},
+            "processing": {},
             "mechanics": {},
             "design": {}
         }
@@ -509,7 +483,6 @@
             "grassrooting": {},
             "caretaking": {},
             "med aid": {}
->>>>>>> parent of b340f17 (added pics and descriptions)
         }
     }
 }

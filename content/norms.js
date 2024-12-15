@@ -61,14 +61,8 @@ const norm = {
                 "unnotticed": {"description": "Slip unnotticed when Assumed Suspicious. Exploit gaps in awareness and cognition."},
                 "slippery": {"description": "Move when Assumed Guilty."},
                 "leverage": {"description": "Reclaim freedom when Apprehended."},
-                "magnetic": {"description": "your fans and enemies always obscure operations against you."},
-                "admired": {"description": "you find friends in least expected places."},
-                "inspirating": {"description": "your copycats tend to do similar things at similar time diverting attention from you."},
-                "idolized": {"description": "there are people who think some of your illicit activities shoudldn't be punishable"},
-                "legendary": {"description": "facts and fiction become undistinguishable, you can write your own story"}
+                "admired": {"description": "your fans and enemies always obscure operations against you."},
             },
-
-
         },
         "equestrian": {
             "talents": {
@@ -78,10 +72,6 @@ const norm = {
                 "control": {"description": "can push mount to it's limits"},
                 "bonding": {"description": "mount can look up to you and understand the importance of pushing the limits."},
                 "understanding": {"description": "can communicate with mount with body language and imitation sounds"},
-                "magnetic": {"description": "you find friends in least expected forms"},
-                "inspirating": {"description": "some use your routes for their convenience"},
-                "idolized": {"description": "your journeys lead to local progress"},
-                "legendary": {"description": "facts and fiction become undistinguishable, you can write your own story"}
             }
         },
         "blacksmith":
@@ -121,6 +111,24 @@ const norm = {
             "monumental": "make big things which make people go 'ooh'",
             "masterwork": "make one of a kind thing"
         },
+        "landworking":
+        {
+
+        },
+        "sailor": {},
+        "tribe": {}
+        "vagabond": {
+            "talents": {}
+        },
+        "aristocracy":
+        {
+            "acreocracy": "",
+        },
+        "archer":{},
+        "academics": {},
+        "commander": {},
+        "diplomat": {},
+        "marauder": {},
         "alchemist":
         {
             "brewery": "specialization in brewing",
@@ -251,22 +259,12 @@ const norm = {
             }
         },
         "machinist": "generates magic power with steam machines",
-        "academy": {},
-        "vagabond": {
-            "talents": {}
-        },
-        "tribe": {}
-        "aristocracy":
-        {
-            "acreocracy": "",
-        },
-        "archer":{},
-        "academics": {},
-        "sailor": {},
-        "commander": {},
-        "diplomat": {},
-        "mentor": {},
-        "marauder": {},
+        "academy": {}
+
+    },
+    routines:
+    {
+
     },
     "secondary":
     {
