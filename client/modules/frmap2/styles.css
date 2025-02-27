@@ -1,0 +1,187 @@
+/* Fantasy Modern Blend Theme */
+:root {
+    --fantasy-primary: #3A2E39;      /* Deep plum - primary background */
+    --fantasy-secondary: #5E4C5A;    /* Muted purple - secondary background */
+    --fantasy-accent: #8D7B88;       /* Dusty lavender - accents */
+    --fantasy-highlight: #C1A5A9;    /* Muted rose - highlights */
+    
+    --modern-primary: #2A3B4C;       /* Deep navy - modern primary */
+    --modern-secondary: #4A6680;     /* Steel blue - modern secondary */
+    --modern-accent: #94B0C2;        /* Light steel blue - modern accent */
+    --modern-highlight: #E8F1F5;     /* Ice blue - modern highlight */
+    
+    --text-primary: #F5E9E2;         /* Off-white - primary text */
+    --text-secondary: #D8C3BC;       /* Light tan - secondary text */
+    --text-dark: #2C2127;            /* Dark brown - dark text */
+    
+    --gold-accent: #BF9D5E;          /* Antique gold - special accents */
+    --copper-accent: #924C32;        /* Rich copper - line color */
+    
+    --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.3);
+    --shadow-hard: 0 8px 16px rgba(0, 0, 0, 0.4);
+    
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-full: 50%;
+}
+
+/* Base Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Color Picker Popup Styles */
+.color-picker-popup .leaflet-popup-content-wrapper {
+    background: transparent;
+    box-shadow: none;
+}
+
+.color-picker-popup .leaflet-popup-tip-container {
+    display: none;
+}
+
+.color-picker-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fantasy Popup Styles */
+.fantasy-popup {
+    margin-bottom: 42px;
+}
+
+.fantasy-popup .leaflet-popup-content-wrapper {
+    background: linear-gradient(135deg, var(--fantasy-primary), var(--modern-primary));
+    border: 2px solid var(--gold-accent);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-medium);
+}
+
+.fantasy-popup .leaflet-popup-tip {
+    background: var(--fantasy-primary);
+    border: 1px solid var(--gold-accent);
+    box-shadow: var(--shadow-soft);
+}
+
+.fantasy-popup .leaflet-popup-content {
+    color: var(--text-primary);
+    margin: 14px;
+}
+
+/* Editor Button Styles */
+#close-editor-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid var(--gold-accent);
+    background: linear-gradient(135deg, var(--modern-secondary), var(--fantasy-secondary));
+    color: var(--text-primary);
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+}
+
+#close-editor-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-hard);
+    background: linear-gradient(135deg, var(--fantasy-accent), var(--modern-accent));
+}
+
+.close-editor-btn {
+    text-align: center;
+    position: relative;
+    margin: 10px auto 30px auto;
+}
+
+/* Marker Editor Styles */
+.marker-editor {
+    background: linear-gradient(to bottom, var(--fantasy-primary), var(--modern-primary));
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+}
+
+.marker-editor input[type="text"] {
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+}
+
+.editor-toolbar {
+    background-color: var(--fantasy-secondary);
+    border: 1px solid var(--gold-accent);
+}
+
+.editor-toolbar button {
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    transition: all 0.2s ease;
+}
+
+.editor-toolbar button:hover {
+    background-color: var(--gold-accent);
+    color: var(--text-dark);
+}
+
+.editor-content {
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+}
+
+.image-dropzone {
+    border-color: var(--gold-accent) !important;
+}
+
+.image-dropzone:hover {
+    border-color: var(--copper-accent) !important;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Distance Line Styles */
+.distance-label {
+    background: linear-gradient(to bottom, var(--fantasy-secondary), var(--modern-secondary));
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    padding: 5px 6px;
+    font-size: 19px;
+    line-height: 18px;
+    text-align: center;
+}
+
+/* Placeholder Styles for Contenteditable */
+[contenteditable=true]:empty:before {
+    content: attr(placeholder);
+    color: var(--fantasy-highlight);
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* Drag Highlight States */
+.drag-highlight {
+    box-shadow: inset 0 0 50px rgba(191, 157, 94, 0.5); /* Gold accent with opacity */
+}
+
+.drag-over {
+    border-color: var(--copper-accent) !important;
+    box-shadow: inset 0 0 10px var(--gold-accent);
+} 
