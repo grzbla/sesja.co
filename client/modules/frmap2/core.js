@@ -3,33 +3,102 @@
  * This file contains the basic map initialization and configuration
  */
 
+const Toril = L.extend({}, L.CRS.EPSG3857, {
+    // Custom projection for distorted earth map
+    projection: L.extend({}, L.CRS.EPSG3857.projection, {
+        bounds: L.bounds([-20037508.34, -20037508.34], [20037508.34, 20037508.34]), // Add bounds property
+        
+        project(latlng) {
+            // Convert lat/lng to radians
+            const d = Math.PI / 180;
+            const lat = latlng.lat * d;
+            const lng = latlng.lng * d;
+            
+            // Project using modified Mercator
+            let point = L.point(
+                6378137 * lng, // Earth's radius * longitude
+                6378137 * Math.log(Math.tan(Math.PI/4 + lat/2))
+            );
+            
+            // Apply custom distortion - keep horizontal as is, increase vertical by 25%
+            point.y *= 0.8; // Expand vertically to match real distance
+            
+            return point;
+        },
+        
+        unproject(point) {
+            // Reverse the distortion
+            const adjustedPoint = L.point(
+                point.x,
+                point.y / 0.8
+            );
+            
+            // Reverse Mercator projection
+            const lng = adjustedPoint.x / 6378137;
+            const lat = 2 * Math.atan(Math.exp(adjustedPoint.y / 6378137)) - Math.PI/2;
+            
+            // Convert back to degrees
+            return L.latLng(
+                lat * 180 / Math.PI,
+                lng * 180 / Math.PI
+            );
+        }
+    }),
+    
+    // Scale factor for proper distance calculations
+    scale(zoom) {
+        return 256 * Math.pow(2, zoom);
+    },
+    
+    // Adjust distance calculation for distorted projection
+    distance(latlng1, latlng2) {
+        const d = Math.PI / 180;
+        const lat1 = latlng1.lat * d;
+        const lat2 = latlng2.lat * d;
+        const lng1 = latlng1.lng * d;
+        const lng2 = latlng2.lng * d;
+        
+        // Haversine formula adjusted for distortion
+        const R = 6378137; // Earth's radius in meters
+        const x = (lng2 - lng1) * Math.cos((lat1 + lat2) / 2);
+        const y = lat2 - lat1;
+        return Math.sqrt(x * x + y * y) * R;
+    },
+    
+    // Set map bounds
+    infinite: false,
+    wrapLng: [-180, 180],
+    wrapLat: [-85, 85]
+});
+
 // Initialize map with configuration
 const initMap = () => {
     const map = L.map('map', {
-        minZoom: 3,
+        minZoom: 4,
         maxZoom: 9,
         zoomControl: false,
+        center: [0, 0],
         attributionControl: false,
-        maxBoundsViscosity: 0.75,
-        center: [0, 0], // Center of the map (default)
-        zoom: 3,        // Initial zoom level
-        doubleClickZoom: false // Disable double-click zoom
+        maxBoundsViscosity: 0.98,
+        zoom: 3,
+        doubleClickZoom: false,
+        crs: Toril,
+        maxBounds: [[-69, -180], [69, 180]] // Restrict panning
     });
     
     // Add custom tile layer
     L.tileLayer('https://toril{z}.sesja.co/tiles/{y}/{x}.png', {
-        minZoom: 3,
-        maxZoom: 9
+        minZoom: 4,
+        maxZoom: 9,
+        tileSize: 256,
+        zoomOffset: 0
     }).addTo(map);
-    
-    // Set reasonable bounds
-    const bounds = L.latLngBounds(
-        L.latLng(-90, -180),
-        L.latLng(90, 180)
-    );
-    map.setMaxBounds(bounds);
 
-    L.control.scale({metric: true, imperial: true}).addTo(map);
+    L.control.scale({
+        metric: true,
+        imperial: true,
+        position: 'bottomleft'
+    }).addTo(map);
     
     return map;
 };
