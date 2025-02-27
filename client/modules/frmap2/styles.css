@@ -48,6 +48,14 @@ body, html {
     box-shadow: none;
 }
 
+
+.leaflet-popup.fantasy-popup.leaflet-zoom-animated > .leaflet-popup-tip-container
+{
+    left: -10px !important; 
+    top: 50% !important;
+    rotate: 90deg !important;
+}
+
 .color-picker-popup .leaflet-popup-tip-container {
     display: none;
 }
@@ -73,6 +81,7 @@ body, html {
     background: var(--fantasy-primary);
     border: 1px solid var(--gold-accent);
     box-shadow: var(--shadow-soft);
+
 }
 
 .fantasy-popup .leaflet-popup-content {

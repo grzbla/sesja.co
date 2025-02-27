@@ -256,14 +256,14 @@ const setupImageDragAndDrop = (map) => {
                 
                 // Store marker data
                 const markerData = {
-                    name: file.name || "Unnamed Marker",
+                    name: file.name || "Honk honk MFer. Where's my name?",
                     description: "",
                     imgUrl: imgDataUrl
                 };
                 
                 // Add normal click for editor
-                imgMarker.on('click', function() {
-                    openMarkerEditor(imgMarker, markerData, map);
+                imgMarker.on('click', function(event) {
+                    if (event.originalEvent.shiftKey) openMarkerEditor(imgMarker, markerData, map);
                 });
                 
                 // Add right-click to remove marker
@@ -332,7 +332,9 @@ const openMarkerEditor = (marker, markerData, map) => {
         autoClose: false,
         minWidth: 300,
         maxWidth: 400,
-        className: 'fantasy-popup'
+        className: 'fantasy-popup',
+        offset: L.point(215, 270)
+
     })
     .setLatLng(marker.getLatLng())
     .setContent(editorHtml)
