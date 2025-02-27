@@ -50,7 +50,12 @@ const setupPingMarkers = (map, keyboardControls) => {
             }).addTo(map);
             
             // Calculate distance in meters
-            const distanceInMeters = lastMarker.getLatLng().distanceTo(e.latlng);
+            //dirty distance hack because world map is not aligned leaflet coords
+            const distanceLatLng = {lat: lastMarker.getLatLng().lat > e.latlng.lat ? lastMarker.getLatLng().lat - e.latlng.lat : e.latlng.lat - lastMarker.getLatLng().lat, lng: lastMarker.getLatLng().lng > e.latlng.lng ? lastMarker.getLatLng().lng - e.latlng.lng : e.latlng.lng - lastMarker.getLatLng().lng}
+            
+            const distanceInMeters = Math.sqrt(Math.pow(distanceLatLng.lat, 2) + Math.pow(distanceLatLng.lng, 2)) * 90000;
+            console.log(distanceInMeters);
+            
             
             // Convert to kilometers if distance is large
             let distanceText;

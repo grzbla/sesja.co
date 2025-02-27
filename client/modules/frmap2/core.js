@@ -28,6 +28,8 @@ const initMap = () => {
         L.latLng(90, 180)
     );
     map.setMaxBounds(bounds);
+
+    L.control.scale({metric: true, imperial: true}).addTo(map);
     
     return map;
 };
