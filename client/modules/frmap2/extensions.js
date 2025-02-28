@@ -378,12 +378,11 @@ const openMarkerEditor = (marker, markerData, map) => {
     overlayElement.innerHTML = overlayHtml;
     document.body.appendChild(overlayElement.firstElementChild);
     
-    // Initialize the GrapeJS editor
+    // Initialize the GrapeJS editor using the new implementation
     if (typeof initGrapeJSEditor === 'function') {
-        // Call the editor initialization with marker data
         initGrapeJSEditor(markerData);
     } else {
-        console.error('GrapeJS editor initialization function not found. Make sure editor.js is loaded.');
+        console.error('GrapeJS editor implementation not found!');
     }
     
     // Wait for DOM to update
@@ -392,40 +391,6 @@ const openMarkerEditor = (marker, markerData, map) => {
         const imageDropZone = document.getElementById('image-drop-zone');
         const imageUploadInput = document.getElementById('image-upload');
         const markerImage = document.getElementById('marker-img');
-        const markerNameInput = document.getElementById('marker-name-input');
-        
-        // Handle marker name changes
-        markerNameInput.addEventListener('input', (e) => {
-            // Update marker data with new name
-            markerData.name = e.target.value;
-            
-            // If the marker has a valid reference, update its popup content
-            if (markerData.marker && typeof markerData.marker.bindPopup === 'function') {
-                // Get the current content from the editor if available
-                let description = '';
-                if (window.grapesjsEditor) {
-                    const htmlContent = window.grapesjsEditor.getHtml();
-                    // Create a preview text by stripping HTML tags
-                    description = `<p class="description-preview">${htmlContent.replace(/<[^>]*>/g, ' ').substring(0, 50)}...</p>`;
-                } else if (markerData.description) {
-                    // Use existing description if editor not initialized
-                    description = `<p class="description-preview">${markerData.description.replace(/<[^>]*>/g, ' ').substring(0, 50)}...</p>`;
-                }
-                
-                // Update the popup with new name
-                markerData.marker.bindPopup(`
-                    <div>
-                        <strong>${markerData.name}</strong>
-                        ${description}
-                    </div>
-                `);
-                
-                // Force popup update if it's currently open
-                if (markerData.marker._popup && markerData.marker._popup.isOpen()) {
-                    markerData.marker._popup.update();
-                }
-            }
-        });
         
         // Handle click on image container
         imageDropZone.addEventListener('click', () => {
@@ -435,7 +400,7 @@ const openMarkerEditor = (marker, markerData, map) => {
         // Handle file selection
         imageUploadInput.addEventListener('change', (e) => {
             if (e.target.files && e.target.files[0]) {
-                processImageFile(e.target.files[0], markerData, markerImage);
+                processImageFile(e.target.files[0]);
             }
         });
         
@@ -449,60 +414,61 @@ const openMarkerEditor = (marker, markerData, map) => {
             e.stopPropagation();
         }
         
-        // Highlight drop zone when dragging over it
+        // Highlight drop area
         ['dragenter', 'dragover'].forEach(eventName => {
-            imageDropZone.addEventListener(eventName, () => {
-                imageDropZone.classList.add('drag-over');
-            }, false);
+            imageDropZone.addEventListener(eventName, highlight, false);
         });
         
         ['dragleave', 'drop'].forEach(eventName => {
-            imageDropZone.addEventListener(eventName, () => {
-                imageDropZone.classList.remove('drag-over');
-            }, false);
+            imageDropZone.addEventListener(eventName, unhighlight, false);
         });
         
-        // Handle image drop
-        imageDropZone.addEventListener('drop', (e) => {
-            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-                processImageFile(e.dataTransfer.files[0], markerData, markerImage);
-            }
-        }, false);
-        
-    }, 100);
-};
-
-// Process the image file for marker customization
-const processImageFile = (file, markerData, imageElement) => {
-    if (!file.type.match('image.*')) {
-        alert('Please upload an image file');
-        return;
-    }
-    
-    const reader = new FileReader();
-    
-    reader.onload = (e) => {
-        // Update UI with new image
-        imageElement.src = e.target.result;
-        
-        // Update marker data
-        markerData.imgUrl = e.target.result;
-        
-        // Update marker icon if available
-        if (markerData.marker && typeof markerData.marker.setIcon === 'function') {
-            // Create new icon with the uploaded image
-            const newIcon = L.icon({
-                iconUrl: e.target.result,
-                iconSize: [40, 40],
-                iconAnchor: [20, 40],
-                popupAnchor: [0, -35]
-            });
-            
-            // Apply new icon to marker
-            markerData.marker.setIcon(newIcon);
+        function highlight() {
+            imageDropZone.classList.add('drag-over');
         }
-    };
-    
-    // Read the file as a data URL
-    reader.readAsDataURL(file);
+        
+        function unhighlight() {
+            imageDropZone.classList.remove('drag-over');
+        }
+        
+        // Handle dropped files
+        imageDropZone.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files && files.length) {
+                const file = files[0];
+                if (file.type.match('image.*')) {
+                    processImageFile(file);
+                }
+            }
+        });
+        
+        // Process image file (used for both drop and file input)
+        function processImageFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const imgUrl = e.target.result;
+                markerImage.src = imgUrl;
+                markerData.imgUrl = imgUrl;
+                
+                // Update the marker icon
+                const newIcon = L.icon({
+                    iconUrl: imgUrl,
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 25],
+                    popupAnchor: [0, -25]
+                });
+                marker.setIcon(newIcon);
+            };
+            
+            reader.readAsDataURL(file);
+        }
+        
+        // Setup name input functionality
+        const nameInput = document.getElementById('marker-name-input');
+        nameInput.addEventListener('input', () => {
+            markerData.name = nameInput.value || "Unnamed Marker";
+        });
+    });
 }; 
