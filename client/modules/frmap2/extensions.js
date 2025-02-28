@@ -6,6 +6,13 @@
  * - Drag and drop functionality
  */
 
+// Function to add placeholder styles for contenteditable elements
+// This function is now empty since these styles have been moved to styles.css
+const addPlaceholderStyles = () => {
+    // Placeholder styles for contenteditable elements are now defined in styles.css
+    // The CSS rule is: [contenteditable=true]:empty:before
+};
+
 // Initialize all map extensions
 const initMapExtensions = (mapCore) => {
     const { map, keyboardControls } = mapCore;
@@ -194,17 +201,31 @@ const setupImageDragAndDrop = (map) => {
     });
     
     function preventDefaults(e) {
+        // Check if the event originated from GrapeJS or if editor is open
+        if (e.isFromGrapeJS || window.isMarkerEditorOpen) {
+            return; // Do nothing if it's from GrapeJS or editor is open
+        }
         e.preventDefault();
         e.stopPropagation();
     }
     
     // Highlight drop area when item is dragged over it
     ['dragenter', 'dragover'].forEach(eventName => {
-        mapElement.addEventListener(eventName, highlight, false);
+        mapElement.addEventListener(eventName, (e) => {
+            // Only highlight if not from GrapeJS and editor is not open
+            if (!e.isFromGrapeJS && !window.isMarkerEditorOpen) {
+                highlight();
+            }
+        }, false);
     });
     
     ['dragleave', 'drop'].forEach(eventName => {
-        mapElement.addEventListener(eventName, unhighlight, false);
+        mapElement.addEventListener(eventName, (e) => {
+            // Only unhighlight if not from GrapeJS and editor is not open
+            if (!e.isFromGrapeJS && !window.isMarkerEditorOpen) {
+                unhighlight();
+            }
+        }, false);
     });
     
     function highlight() {
@@ -216,9 +237,12 @@ const setupImageDragAndDrop = (map) => {
     }
     
     // Handle dropped files
-    mapElement.addEventListener('drop', handleDrop, false);
-    
-    function handleDrop(e) {
+    mapElement.addEventListener('drop', function(e) {
+        // Skip if the event is from GrapeJS or editor is open
+        if (e.isFromGrapeJS || window.isMarkerEditorOpen) {
+            return;
+        }
+        
         const dt = e.dataTransfer;
         const files = dt.files;
         
@@ -233,7 +257,7 @@ const setupImageDragAndDrop = (map) => {
         
         // Handle dropped files
         handleFiles(files, latlng);
-    }
+    }, false);
     
     function handleFiles(files, latlng) {
         [...files].forEach(file => {
@@ -285,183 +309,200 @@ const setupImageDragAndDrop = (map) => {
     }
 };
 
+
 // Function to open marker editor
 const openMarkerEditor = (marker, markerData, map) => {
-    // Create editor panel with streamlined styling
-    const editorHtml = `
-        <div class="marker-editor" style="min-width: 300px; max-width: 400px;">
-            <div style="margin-bottom: 15px;">
-                <input type="text" id="marker-name" placeholder="Enter name" value="${markerData.name}" style="width: 100%; padding: 7px; box-sizing: border-box; border-radius: 4px;">
+    // Store marker reference for updating popup content later
+    markerData.marker = marker;
+    
+    // Create full-screen overlay for GrapeJS editor
+    const overlayHtml = `
+        <div id="editor-overlay" class="editor-fullscreen-overlay">
+            <div class="editor-header">
+                <button id="save-close-btn" class="save-close-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                        <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                        <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    Close
+                </button>
             </div>
-            
-            <div style="margin-bottom: 15px;">
-                <div style="border-radius: 4px; padding: 7px; margin-bottom: 5px;" class="editor-toolbar">
-                    <button type="button" onclick="document.execCommand('bold', false, null)" style="margin: 2px; border-radius: 4px; padding: 3px 7px; cursor: pointer;">B</button>
-                    <button type="button" onclick="document.execCommand('italic', false, null)" style="margin: 2px; border-radius: 4px; padding: 3px 7px; cursor: pointer;"><i>I</i></button>
-                    <button type="button" onclick="document.execCommand('underline', false, null)" style="margin: 2px; border-radius: 4px; padding: 3px 7px; cursor: pointer;"><u>U</u></button>
-                    <select onchange="document.execCommand('fontSize', false, this.value); this.selectedIndex = 0;" style="margin: 2px; border-radius: 4px; padding: 3px;">
-                        <option value="">Size</option>
-                        <option value="1">Small</option>
-                        <option value="3">Normal</option>
-                        <option value="5">Large</option>
-                        <option value="7">Extra Large</option>
-                    </select>
-                    <input type="color" onchange="document.execCommand('foreColor', false, this.value)" style="margin: 2px; border-radius: 4px; padding: 0; vertical-align: middle;">
-                </div>
-                <div id="marker-description" contenteditable="true" style="min-height: 100px; max-height: 200px; overflow-y: auto; padding: 10px; border-radius: 4px;" class="editor-content" placeholder="Add description here">${markerData.description}</div>
-            </div>
-            
-            <div style="margin-bottom: 10px;">
-                <div id="marker-img-preview" style="width: 100%; height: 120px; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: url('${markerData.imgUrl}'); border-style: dashed; border-width: 2px; margin-bottom: 5px; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center;" class="image-dropzone">
-                    <div style="background: rgba(0,0,0,0.5); color: white; padding: 8px 12px; border-radius: 4px; text-align: center; opacity: 0; transition: opacity 0.2s ease;">
-                        Click or drop to change image
+            <div class="editor-container">
+                <!-- Metadata section (outside GrapeJS control) -->
+                <div class="metadata-section">
+                    <div class="metadata-container">
+                        <div class="form-group">
+                            <label for="marker-name-input">Marker Name</label>
+                            <input id="marker-name-input" type="text" placeholder="Enter name" value="${markerData.name}" class="marker-name-input">
+                        </div>
+                        <div class="form-group">
+                            <div class="image-container" id="image-drop-zone">
+                                <img id="marker-img" src="${markerData.imgUrl}" class="marker-image">
+                                <div class="image-upload-overlay">
+                                    <input type="file" id="image-upload" accept="image/*" style="display:none">
+                                    <div class="image-drop-message">Drop image or click to change</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <input type="file" id="marker-img-input" accept="image/*" style="display: none;">
-            </div>
             
-            <div class="close-editor-btn">
-                <button id="close-editor-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <!-- GrapeJS Editor section -->
+                <div class="description-section">
+                    <!-- GrapeJS Toolbar -->
+                    <div id="gjs-toolbar" class="gjs-toolbar"></div>
+                    
+                    <!-- Main Editor Area -->
+                    <div class="gjs-editor-area">
+                        <!-- Canvas for editing -->
+                        <div id="gjs" data-description="${markerData.description || ''}"></div>
+                        
+                        <!-- Right sidebar for blocks and styles -->
+                        <div class="editor-sidebar">
+                            <div class="panel-tabs">
+                                <button id="blocks-tab" class="panel-tab active">Blocks</button>
+                                <button id="styles-tab" class="panel-tab">Styles</button>
+                            </div>
+                            <div id="blocks-panel" class="sidebar-panel"></div>
+                            <div id="styles-panel" class="sidebar-panel" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     `;
     
-    // Create and open popup
-    const popup = L.popup({
-        closeButton: false, // Remove top close button
-        closeOnClick: false,
-        autoClose: false,
-        minWidth: 300,
-        maxWidth: 400,
-        className: 'fantasy-popup',
-        offset: L.point(215, 270)
-
-    })
-    .setLatLng(marker.getLatLng())
-    .setContent(editorHtml)
-    .openOn(map);
+    // Add the overlay to the body
+    const overlayElement = document.createElement('div');
+    overlayElement.innerHTML = overlayHtml;
+    document.body.appendChild(overlayElement.firstElementChild);
     
-    // Store the popup reference with the marker for later access
-    marker._editorPopup = popup;
-    
-    // Function to update marker popup content
-    function updateMarkerPopup() {
-        const popupContent = `
-            <div>
-                <strong>${markerData.name}</strong>
-                ${markerData.description ? '<hr style="margin: 5px 0;">' : ''}
-                <div>${markerData.description}</div>
-            </div>
-        `;
-        marker.setPopupContent(popupContent);
+    // Initialize the GrapeJS editor
+    if (typeof initGrapeJSEditor === 'function') {
+        // Call the editor initialization with marker data
+        initGrapeJSEditor(markerData);
+    } else {
+        console.error('GrapeJS editor initialization function not found. Make sure editor.js is loaded.');
     }
     
-    // Setup event handlers after popup is added to DOM
+    // Wait for DOM to update
     setTimeout(() => {
-        // Image handling
-        const imgPreview = document.getElementById('marker-img-preview');
-        const imgInput = document.getElementById('marker-img-input');
-        const previewOverlay = imgPreview.querySelector('div'); // Get the overlay text div
+        // Setup image change functionality
+        const imageDropZone = document.getElementById('image-drop-zone');
+        const imageUploadInput = document.getElementById('image-upload');
+        const markerImage = document.getElementById('marker-img');
+        const markerNameInput = document.getElementById('marker-name-input');
         
-        // Get text fields for auto-save
-        const nameInput = document.getElementById('marker-name');
-        const descriptionEditor = document.getElementById('marker-description');
-        
-        // Auto-save for name field
-        nameInput.addEventListener('input', () => {
-            markerData.name = nameInput.value || "Unnamed Marker";
-            updateMarkerPopup();
-        });
-        
-        // Auto-save for description field
-        descriptionEditor.addEventListener('input', () => {
-            markerData.description = descriptionEditor.innerHTML;
-            updateMarkerPopup();
-        });
-        
-        // Show overlay on hover
-        imgPreview.addEventListener('mouseenter', () => {
-            previewOverlay.style.opacity = '1';
-        });
-        
-        imgPreview.addEventListener('mouseleave', () => {
-            previewOverlay.style.opacity = '0';
-        });
-        
-        // Setup drag and drop for the image preview
-        imgPreview.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            imgPreview.classList.add('drag-over');
-        });
-        
-        imgPreview.addEventListener('dragleave', () => {
-            imgPreview.classList.remove('drag-over');
-        });
-        
-        imgPreview.addEventListener('drop', (e) => {
-            e.preventDefault();
-            imgPreview.classList.remove('drag-over');
+        // Handle marker name changes
+        markerNameInput.addEventListener('input', (e) => {
+            // Update marker data with new name
+            markerData.name = e.target.value;
             
-            if (e.dataTransfer.files.length) {
-                const file = e.dataTransfer.files[0];
-                if (file.type.match('image.*')) {
-                    readAndPreviewImage(file);
+            // If the marker has a valid reference, update its popup content
+            if (markerData.marker && typeof markerData.marker.bindPopup === 'function') {
+                // Get the current content from the editor if available
+                let description = '';
+                if (window.grapesjsEditor) {
+                    const htmlContent = window.grapesjsEditor.getHtml();
+                    // Create a preview text by stripping HTML tags
+                    description = `<p class="description-preview">${htmlContent.replace(/<[^>]*>/g, ' ').substring(0, 50)}...</p>`;
+                } else if (markerData.description) {
+                    // Use existing description if editor not initialized
+                    description = `<p class="description-preview">${markerData.description.replace(/<[^>]*>/g, ' ').substring(0, 50)}...</p>`;
+                }
+                
+                // Update the popup with new name
+                markerData.marker.bindPopup(`
+                    <div>
+                        <strong>${markerData.name}</strong>
+                        ${description}
+                    </div>
+                `);
+                
+                // Force popup update if it's currently open
+                if (markerData.marker._popup && markerData.marker._popup.isOpen()) {
+                    markerData.marker._popup.update();
                 }
             }
         });
         
-        // Allow click to select image
-        imgPreview.addEventListener('click', () => {
-            imgInput.click();
+        // Handle click on image container
+        imageDropZone.addEventListener('click', () => {
+            imageUploadInput.click();
         });
         
-        imgInput.addEventListener('change', (e) => {
-            if (e.target.files.length) {
-                readAndPreviewImage(e.target.files[0]);
+        // Handle file selection
+        imageUploadInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                processImageFile(e.target.files[0], markerData, markerImage);
             }
         });
         
-        function readAndPreviewImage(file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const imgUrl = e.target.result;
-                imgPreview.style.backgroundImage = `url('${imgUrl}')`;
-                markerData.imgUrl = imgUrl;
-                
-                // Auto-save: Immediately update the marker icon
-                const newIcon = L.icon({
-                    iconUrl: imgUrl,
-                    iconSize: [50, 50],
-                    iconAnchor: [25, 25],
-                    popupAnchor: [0, -25]
-                });
-                marker.setIcon(newIcon);
-            };
-            reader.readAsDataURL(file);
+        // Setup drag and drop for image
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            imageDropZone.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
         }
         
-        // Ensure the close button works - fixed to close the editor popup
-        document.getElementById('close-editor-btn').addEventListener('click', () => {
-            // Close the editor popup specifically
-        map.closePopup(marker._editorPopup);
+        // Highlight drop zone when dragging over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            imageDropZone.addEventListener(eventName, () => {
+                imageDropZone.classList.add('drag-over');
+            }, false);
         });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            imageDropZone.addEventListener(eventName, () => {
+                imageDropZone.classList.remove('drag-over');
+            }, false);
+        });
+        
+        // Handle image drop
+        imageDropZone.addEventListener('drop', (e) => {
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                processImageFile(e.dataTransfer.files[0], markerData, markerImage);
+            }
+        }, false);
+        
     }, 100);
 };
 
-// Add CSS for placeholder text in contenteditable
-const addPlaceholderStyles = () => {
-    const extraStyles = document.createElement('style');
-    extraStyles.textContent = `
-        [contenteditable=true]:empty:before {
-            content: attr(placeholder);
-            color: var(--fantasy-highlight);
-            font-style: italic;
-            opacity: 0.7;
+// Process the image file for marker customization
+const processImageFile = (file, markerData, imageElement) => {
+    if (!file.type.match('image.*')) {
+        alert('Please upload an image file');
+        return;
+    }
+    
+    const reader = new FileReader();
+    
+    reader.onload = (e) => {
+        // Update UI with new image
+        imageElement.src = e.target.result;
+        
+        // Update marker data
+        markerData.imgUrl = e.target.result;
+        
+        // Update marker icon if available
+        if (markerData.marker && typeof markerData.marker.setIcon === 'function') {
+            // Create new icon with the uploaded image
+            const newIcon = L.icon({
+                iconUrl: e.target.result,
+                iconSize: [40, 40],
+                iconAnchor: [20, 40],
+                popupAnchor: [0, -35]
+            });
+            
+            // Apply new icon to marker
+            markerData.marker.setIcon(newIcon);
         }
-    `;
-    document.head.appendChild(extraStyles);
+    };
+    
+    // Read the file as a data URL
+    reader.readAsDataURL(file);
 }; 
