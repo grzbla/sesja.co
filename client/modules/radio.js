@@ -1,10 +1,16 @@
 /**
- * Radio - Handles the radio functionality using PeerComm for communication
+ * Radio - Handles the radio functionality using the system API for communication
  */
 class Radio {
-    constructor(commInstance) {
-        // Store the comm instance
-        this.comm = commInstance;
+    constructor() {
+        // Get the system components
+        this.comm = window.system.getComm();
+        this.network = window.system.getNetwork();
+        
+        if (!this.comm || !this.network) {
+            console.error('System components not available');
+            return;
+        }
         
         // Initialize elements
         this.initElements();
@@ -18,49 +24,63 @@ class Radio {
         this.processingReceivedData = false; // Flag to track when we're processing received data
         
         // Initialize components
-        this.setupComm();
+        this.setupNetwork();
         this.setupUI();
         this.setupAudioPlayer();
         this.setupFileDrop();
+        
+        // Make it available globally (for convenience and debugging)
+        window.radio = this;
+        
+        console.log('Radio application initialized successfully');
     }
     
     // Initialize DOM elements
     initElements() {
-        this.peerIdDisplay = document.getElementById('peerIdDisplay');
-        this.copyPeerIdBtn = document.getElementById('copyPeerIdBtn');
-        this.generateIdBtn = document.getElementById('generateIdBtn');
+        // Identity elements
+        this.usernameInput = document.getElementById('usernameInput');
+        this.secretKeyInput = document.getElementById('secretKeyInput');
+        this.generateKeyBtn = document.getElementById('generateKeyBtn');
+        this.connectionStringDisplay = document.getElementById('connectionStringDisplay');
+        this.copyConnectionStringBtn = document.getElementById('copyConnectionStringBtn');
+        
+        // Connection elements
         this.connectBtn = document.getElementById('connectBtn');
         this.disconnectBtn = document.getElementById('disconnectBtn');
         this.connectForm = document.getElementById('connectForm');
-        this.remotePeerId = document.getElementById('remotePeerId');
+        this.remoteConnectionString = document.getElementById('remoteConnectionString');
         this.submitConnectBtn = document.getElementById('submitConnectBtn');
         this.cancelConnectBtn = document.getElementById('cancelConnectBtn');
         this.connectionStatus = document.getElementById('connectionStatus');
         this.peerList = document.getElementById('peerList');
+        this.contactsList = document.getElementById('contactsList');
         
+        // Audio player elements
         this.dropArea = document.getElementById('dropArea');
         this.fileInput = document.getElementById('fileInput');
-        
         this.audioPlayer = document.getElementById('audioPlayer');
         this.playPauseBtn = document.getElementById('playPauseBtn');
         this.progressContainer = document.getElementById('progressContainer');
         this.progressBar = document.getElementById('progressBar');
         this.currentTime = document.getElementById('currentTime');
-        this.durationDisplay = document.getElementById('duration');
+        this.duration = document.getElementById('duration');
         this.volumeIcon = document.getElementById('volumeIcon');
         this.volumeSlider = document.getElementById('volumeSlider');
         this.songTitle = document.getElementById('songTitle');
         this.songArtist = document.getElementById('songArtist');
     }
     
-    // Setup comm instance event handlers
-    setupComm() {
-        if (!this.comm) {
-            console.error('No comm instance provided to Radio');
+    // Setup network and communication components
+    setupNetwork() {
+        if (!this.network || !this.comm) {
+            console.error('Network or communication system not available');
             return;
         }
         
-        // Register event handlers
+        // Load and display identity
+        this.updateIdentityDisplay();
+        
+        // Register comm event handlers
         this.comm.setEventHandlers({
             onStatusChange: (status, details) => this.handleStatusChange(status, details),
             onPeerConnect: (peerId) => this.handlePeerConnect(peerId),
@@ -68,60 +88,180 @@ class Radio {
             onMessage: (data, peerId, conn) => this.handleMessage(data, peerId, conn)
         });
         
-        // Update UI with current connection status
-        if (this.comm.getPeerId()) {
-            this.peerIdDisplay.value = this.comm.getPeerId();
+        // Register network event handlers
+        this.network.options.onIdentityUpdate = (identity) => this.handleIdentityUpdate(identity);
+        this.network.options.onContactsUpdate = (contacts) => this.handleContactsUpdate(contacts);
+        
+        // Update connection status
+        this.updateConnectionStatus();
+        
+        // Update connection lists
+        this.updateConnectionList();
+        this.updateContactsList();
+    }
+    
+    // Update the identity display with current values
+    updateIdentityDisplay() {
+        const identity = this.network.getIdentity();
+        
+        // Update username field
+        this.usernameInput.value = identity.username || '';
+        
+        // Update secret key field
+        this.secretKeyInput.value = identity.secretKey || '';
+        
+        // Update connection string display
+        this.connectionStringDisplay.value = this.network.getConnectionString();
+    }
+    
+    // Update the connection status display
+    updateConnectionStatus() {
+        if (this.comm.initialized) {
             this.connectionStatus.textContent = 'Ready to connect';
         } else {
             this.connectionStatus.textContent = 'Initializing communication...';
         }
-        
-        // Update connected peers list
-        this.updateConnectionList();
     }
     
     // Set up UI event listeners
     setupUI() {
-        this.copyPeerIdBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(this.peerIdDisplay.value)
-                .then(() => alert('Peer ID copied to clipboard!'))
-                .catch(err => console.error('Could not copy text: ', err));
+        // Username field change
+        this.usernameInput.addEventListener('input', () => {
+            const username = this.usernameInput.value.trim();
+            if (username) {
+                // Update identity without forcing peer ID update
+                this.network.updateIdentity({ username }, false);
+                
+                // Just update the connection string display
+                this.connectionStringDisplay.value = this.network.getConnectionString();
+            }
         });
         
-        this.generateIdBtn.addEventListener('click', () => {
-            this.comm.destroy();
-            this.comm.initialize();
+        // Generate new secret key (this does need to force a reconnect)
+        this.generateKeyBtn.addEventListener('click', () => {
+            if (confirm("Generating a new secret key will disconnect you from any current peers. Continue?")) {
+                const secretKey = this.network.generateSecretKey();
+                // Update with force flag to ensure peer ID updates
+                this.network.updateIdentity({ secretKey }, true);
+            }
         });
         
+        // Copy connection string
+        this.copyConnectionStringBtn.addEventListener('click', () => {
+            const connectionString = this.connectionStringDisplay.value;
+            if (connectionString) {
+                navigator.clipboard.writeText(connectionString)
+                    .then(() => {
+                        // Show a temporary success message
+                        const originalText = this.copyConnectionStringBtn.innerHTML;
+                        this.copyConnectionStringBtn.innerHTML = '<span class="material-icons">check</span>';
+                        setTimeout(() => {
+                            this.copyConnectionStringBtn.innerHTML = originalText;
+                        }, 2000);
+                    })
+                    .catch(err => console.error('Could not copy text: ', err));
+            }
+        });
+        
+        // Connect button
         this.connectBtn.addEventListener('click', () => {
             this.connectForm.classList.remove('hidden');
         });
         
+        // Submit connection
         this.submitConnectBtn.addEventListener('click', () => {
-            const remotePeerIdValue = this.remotePeerId.value.trim();
-            if (remotePeerIdValue) {
-                this.comm.connect(remotePeerIdValue)
+            const connectionString = this.remoteConnectionString.value.trim();
+            if (connectionString) {
+                this.network.connectToPeer(connectionString)
                     .catch(err => {
                         console.error('Connection error:', err);
                         this.connectionStatus.textContent = 'Connection error: ' + err.message;
                     });
                 this.connectForm.classList.add('hidden');
             } else {
-                alert('Please enter a valid Peer ID');
+                alert('Please enter a valid connection string (username:secretkey)');
             }
         });
         
+        // Cancel connection
         this.cancelConnectBtn.addEventListener('click', () => {
             this.connectForm.classList.add('hidden');
-            this.remotePeerId.value = '';
+            this.remoteConnectionString.value = '';
         });
         
+        // Disconnect button
         this.disconnectBtn.addEventListener('click', () => {
             this.comm.disconnectAll();
         });
+        
+        // Connect file input to drop area
+        this.dropArea.addEventListener('click', () => {
+            this.fileInput.click();
+        });
+        
+        this.fileInput.addEventListener('change', () => {
+            this.handleFiles(this.fileInput.files);
+        });
     }
     
-    // Set up file drop functionality
+    // Handle identity updates
+    handleIdentityUpdate(identity) {
+        console.log('Identity updated:', identity);
+        this.updateIdentityDisplay();
+    }
+    
+    // Handle contacts updates
+    handleContactsUpdate(contacts) {
+        console.log('Contacts updated:', contacts);
+        this.updateContactsList();
+    }
+    
+    // Update the contacts list display
+    updateContactsList() {
+        const contacts = this.network.getContacts();
+        
+        if (contacts.length === 0) {
+            this.contactsList.innerHTML = '<li>No saved contacts</li>';
+            return;
+        }
+        
+        this.contactsList.innerHTML = '';
+        
+        contacts.forEach(contact => {
+            const li = document.createElement('li');
+            
+            const nameSpan = document.createElement('span');
+            nameSpan.textContent = contact.username || contact.peerId;
+            li.appendChild(nameSpan);
+            
+            const actionsDiv = document.createElement('div');
+            
+            const connectBtn = document.createElement('button');
+            connectBtn.textContent = 'Connect';
+            connectBtn.classList.add('secondary');
+            connectBtn.addEventListener('click', () => {
+                this.network.connectToPeer(contact.peerId)
+                    .catch(err => {
+                        console.error('Connection error:', err);
+                        this.connectionStatus.textContent = 'Connection error: ' + err.message;
+                    });
+            });
+            actionsDiv.appendChild(connectBtn);
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Delete';
+            deleteBtn.classList.add('danger');
+            deleteBtn.addEventListener('click', () => {
+                this.network.removeContact(contact.peerId);
+            });
+            actionsDiv.appendChild(deleteBtn);
+            
+            li.appendChild(actionsDiv);
+            this.contactsList.appendChild(li);
+        });
+    }
+    
+    // Setup file drop functionality
     setupFileDrop() {
         // Prevent default drag behaviors
         ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -139,114 +279,74 @@ class Radio {
         
         // Handle dropped files
         this.dropArea.addEventListener('drop', (e) => this.handleDrop(e), false);
-        
-        // Handle click to select file
-        this.dropArea.addEventListener('click', () => {
-            this.fileInput.click();
-        });
-        
-        this.fileInput.addEventListener('change', (e) => {
-            this.handleFiles(e.target.files);
-        });
     }
     
-    // Prevent default drag behaviors
-    preventDefaults(e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-    
-    // Highlight drop area
-    highlight() {
-        this.dropArea.classList.add('highlight');
-    }
-    
-    // Unhighlight drop area
-    unhighlight() {
-        this.dropArea.classList.remove('highlight');
-    }
-    
-    // Handle dropped files
-    handleDrop(e) {
-        const dt = e.dataTransfer;
-        const files = dt.files;
-        this.handleFiles(files);
-    }
-    
-    // Handle selected files
-    handleFiles(files) {
-        if (files.length > 0) {
-            const file = files[0];
-            if (file.type.startsWith('audio/')) {
-                this.loadAudioFile(file);
-            } else {
-                alert('Please select an audio file.');
-            }
-        }
-    }
-    
-    // Set up custom audio player
+    // Set up audio player event handlers
     setupAudioPlayer() {
+        // Audio element event handlers
+        this.audioPlayer.addEventListener('play', () => this.updatePlayPauseButton(true));
+        this.audioPlayer.addEventListener('pause', () => this.updatePlayPauseButton(false));
+        this.audioPlayer.addEventListener('ended', () => this.handleAudioEnded());
+        this.audioPlayer.addEventListener('timeupdate', () => this.updateProgressBar());
+        this.audioPlayer.addEventListener('loadedmetadata', () => this.updateDuration());
+        
+        // Volume control
+        this.volumeSlider.addEventListener('input', () => this.updateVolume());
+        this.volumeIcon.addEventListener('click', () => this.toggleMute());
+        
         // Play/Pause button
         this.playPauseBtn.addEventListener('click', () => this.togglePlayPause());
         
-        // Progress bar
+        // Progress bar events
         this.progressContainer.addEventListener('mousedown', (e) => this.startDraggingProgress(e));
         document.addEventListener('mousemove', (e) => this.dragProgress(e));
         document.addEventListener('mouseup', () => this.stopDraggingProgress());
         this.progressContainer.addEventListener('click', (e) => this.seekToPosition(e));
-        
-        // Volume controls
-        this.volumeSlider.addEventListener('input', () => this.updateVolume());
-        this.volumeIcon.addEventListener('click', () => this.toggleMute());
-        
-        // Audio player events
-        this.audioPlayer.addEventListener('timeupdate', () => this.updateProgressBar());
-        this.audioPlayer.addEventListener('loadedmetadata', () => this.updateDuration());
-        this.audioPlayer.addEventListener('ended', () => this.handleAudioEnded());
-        this.audioPlayer.addEventListener('play', () => this.updatePlayPauseButton(true));
-        this.audioPlayer.addEventListener('pause', () => this.updatePlayPauseButton(false));
-        
-        // Set initial volume
-        this.audioPlayer.volume = this.volumeSlider.value;
     }
     
-    // Handle PeerComm status changes
+    // Handle comm status changes
     handleStatusChange(status, details) {
+        console.log('Comm status:', status, details);
+        
         switch (status) {
             case 'ready':
-                this.peerIdDisplay.value = details.id;
                 this.connectionStatus.textContent = 'Ready to connect';
-                // Update UI with current connections if any (in case comm was already initialized)
+                break;
+                
+            case 'connecting':
+                this.connectionStatus.textContent = 'Connecting to peer...';
+                break;
+                
+            case 'connected':
+                this.connectionStatus.textContent = 'Connected to peer';
+                this.disconnectBtn.disabled = false;
                 this.updateConnectionList();
                 break;
-            
-            case 'connecting':
-                this.connectionStatus.textContent = 'Connecting to ' + details.peerId + '...';
-                break;
-            
-            case 'connected':
-                this.connectionStatus.textContent = 'Connected to ' + details.peerId;
-                this.disconnectBtn.disabled = false;
-                break;
-            
+                
             case 'disconnected':
-                this.connectionStatus.textContent = 'Disconnected from ' + details.peerId;
+                if (this.comm.getConnectedPeers().length === 0) {
+                    this.connectionStatus.textContent = 'Disconnected';
+                    this.disconnectBtn.disabled = true;
+                } else {
+                    this.updateConnectionList();
+                }
                 break;
-            
-            case 'disconnected-all':
-                this.connectionStatus.textContent = 'Disconnected from all peers';
+                
+            case 'error':
+                this.connectionStatus.textContent = 'Error: ' + (details.error ? details.error.message : 'Unknown error');
+                break;
+                
+            case 'closed':
+                this.connectionStatus.textContent = 'Connection closed';
                 this.disconnectBtn.disabled = true;
                 break;
-            
-            case 'error':
-                console.error('PeerComm error:', details.error);
-                this.connectionStatus.textContent = 'Error: ' + details.error.message;
-                break;
+                
+            default:
+                this.connectionStatus.textContent = status;
         }
     }
     
-    // Handle new peer connection
+    // Handle PeerComm status changes
     handlePeerConnect(peerId) {
         this.updateConnectionList();
         
@@ -284,8 +384,18 @@ class Radio {
         
         this.peerList.innerHTML = '';
         peers.forEach(peerId => {
+            // Extract username from the peer ID format: radio-{secretKey}-{username}
+            let username = peerId;
+            if (peerId.startsWith('radio-')) {
+                const parts = peerId.split('-');
+                if (parts.length >= 3) {
+                    // The username is everything after the second dash
+                    username = parts.slice(2).join('-');
+                }
+            }
+            
             const item = document.createElement('li');
-            item.textContent = peerId;
+            item.textContent = username;
             this.peerList.appendChild(item);
         });
     }
@@ -442,7 +552,7 @@ class Radio {
     
     // Update duration display
     updateDuration() {
-        this.durationDisplay.textContent = this.formatTime(this.audioPlayer.duration);
+        this.duration.textContent = this.formatTime(this.audioPlayer.duration);
     }
     
     // Format time in MM:SS
@@ -681,4 +791,44 @@ class Radio {
         // Set the flag to true since we've requested sync
         this.hasPlayedSinceConnection = true;
     }
-} 
+    
+    // Prevent default drag behaviors
+    preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    // Highlight drop area
+    highlight() {
+        this.dropArea.classList.add('highlight');
+    }
+    
+    // Unhighlight drop area
+    unhighlight() {
+        this.dropArea.classList.remove('highlight');
+    }
+    
+    // Handle dropped files
+    handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        this.handleFiles(files);
+    }
+    
+    // Handle selected files
+    handleFiles(files) {
+        if (files.length > 0) {
+            const file = files[0];
+            if (file.type.startsWith('audio/')) {
+                this.loadAudioFile(file);
+            } else {
+                alert('Please select an audio file.');
+            }
+        }
+    }
+}
+
+// Initialize the radio app when the system is ready
+window.system.addEventListener('system:ready', () => {
+    new Radio();
+}); 

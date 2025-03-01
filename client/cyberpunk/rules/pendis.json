@@ -1,0 +1,101 @@
+{
+  "combat_system": {
+    "scaling": {
+      "description": "1 PEN = 1 DIS = 1 Skill Level.",
+      "damage_mechanics": "If PEN exceeds DIS, target dies. If PEN equals DIS, target is wounded but alive.",
+      "survival": "Skill level determines max survivable damage. Armor, cover, and movement prevent death."
+    },
+    "weapons": {
+      "handguns": {
+        "Glock 17": { "caliber": "9mm FMJ", "PEN": 3 },
+        "Colt 1911": { "caliber": ".45 ACP FMJ", "PEN": 4 },
+        "357 Magnum Revolver": { "caliber": ".357 Mag JHP", "PEN": 6 },
+        "Desert Eagle": { "caliber": ".44 Mag JSP", "PEN": 7 }
+      },
+      "submachine_guns": {
+        "MP5": { "caliber": "9mm FMJ", "PEN": 3 },
+        "MAC-10": { "caliber": "9mm / .45 ACP", "PEN": 4 },
+        "Uzi": { "caliber": "9mm", "PEN": 4 }
+      },
+      "shotguns": {
+        "12-Gauge Buckshot": { "caliber": "00 Buckshot", "PEN_per_pellet": 3, "pellets": 8 },
+        "12-Gauge Slug": { "caliber": "1 oz Slug", "PEN": 9 }
+      },
+      "rifles": {
+        "M4": { "caliber": "5.56mm M855", "PEN": 8 },
+        "AK-47": { "caliber": "7.62mm M43", "PEN": 9 },
+        "M40 Sniper Rifle": { "caliber": ".308 Win AP", "PEN": 10 }
+      },
+      "heavy_weapons": {
+        "Barrett M82": { "caliber": ".50 BMG FMJ", "PEN": 12 },
+        "RPG-7 HEAT Warhead": { "caliber": "85mm HEAT", "PEN": 20 },
+        "Javelin Missile": { "caliber": "Top-Attack HEAT", "PEN": 30 }
+      }
+    },
+    "weapon_mods": {
+      "suppressor": { "effect": "Reduces noise, slightly reduces accuracy (-1)." },
+      "laser_sight": { "effect": "Improves close-range accuracy (+1)." },
+      "holographic_scope": { "effect": "Negates accuracy penalty from movement (-3)." },
+      "bipod": { "effect": "Provides +4 accuracy when bracing." }
+    },
+    "armor": {
+      "soft_armors": {
+        "Kevlar Vest": { "NIJ": "II", "DIS": 3 },
+        "Tactical Vest": { "NIJ": "IIIA", "DIS": 5 },
+        "Riot Armor": { "NIJ": "IIIA+", "DIS": 6 }
+      },
+      "hard_armors": {
+        "Ballistic Plate Carrier": { "NIJ": "III", "DIS": 8 },
+        "Hard Plate": { "NIJ": "IV", "DIS": 10 },
+        "Ballistic Shield": { "NIJ": "III+", "DIS": 12 }
+      }
+    },
+    "heavy_gear": {
+      "exoskeletons": {
+        "Light Exosuit": { "DIS": 15, "effect": "Enhances speed & strength, minimal armor." },
+        "Combat Exosuit": { "DIS": 30, "effect": "Tactical armor with movement enhancement." },
+        "Power Armor": { "DIS": 45, "effect": "Full-body armor, enhanced strength, reduced agility." }
+      }
+    },
+    "vehicles": {
+      "light_vehicles": {
+        "Armored SUV": { "material": "Steel-Plated Body", "DIS": 25, "weak_spot": "Windshield" },
+        "Police Riot Truck": { "material": "Layered Steel", "DIS": 30, "weak_spot": "Tires" }
+      },
+      "military_vehicles": {
+        "APC": { "material": "Hardened Steel", "DIS": 45, "weak_spot": "Engine" },
+        "IFV": { "material": "Ceramic-Reinforced Armor", "DIS": 60, "weak_spot": "Turret" },
+        "Main Battle Tank": { "material": "Composite Armor", "DIS": 120, "weak_spot": "Rear" }
+      }
+    },
+    "aircrafts": {
+      "military_aircrafts": {
+        "Attack Helicopter": { "DIS": 50, "weak_spot": "Rotor Assembly" },
+        "Stealth Drone": { "DIS": 35, "weak_spot": "Sensors" }
+      }
+    },
+    "movement_modifiers": {
+      "Standing Still": { "DIS_bonus": 0, "accuracy_bonus": 0 },
+      "Walking": { "DIS_bonus": 2, "accuracy_penalty": -1 },
+      "Jogging": { "DIS_bonus": 5, "accuracy_penalty": -3 },
+      "Sprinting": { "DIS_bonus": 8, "accuracy_penalty": "No aiming" },
+      "Diving for Cover": { "DIS_bonus": 12, "accuracy_penalty": -3 },
+      "Sliding Into Cover": { "DIS_bonus": 6, "accuracy_penalty": -2 }
+    },
+    "environmentals": {
+      "cover": {
+        "Car Door": { "material": "Thin Metal", "DIS": 3 },
+        "Drywall": { "material": "Plywood/Sheetrock", "DIS": 4 },
+        "Brick Wall": { "material": "Red Brick", "DIS": 8 },
+        "Concrete Wall": { "material": "Reinforced Concrete", "DIS": 10 },
+        "Steel Beams": { "material": "Hardened Steel", "DIS": 12 }
+      },
+      "destructibility": {
+        "glass_window": { "material": "Glass", "DIS": 2, "effect": "Shatters instantly." },
+        "bulletproof_glass": { "material": "Laminated Polycarbonate", "DIS": 25, "effect": "Stops small arms fire, weak to sustained fire." },
+        "trash_dumpster": { "material": "Sheet Metal & Trash Fill", "DIS": 15, "effect": "Stops some handgun rounds, weak to rifles." }
+      }
+    }
+  }
+}
+

@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebRTC Audio Sharing Radio</title>
-    <!-- Load only system.js which will handle loading all other dependencies -->
+    <!-- Load system.js first which will handle loading core dependencies -->
     <script src="system.js"></script>
+    <!-- Load application modules after system -->
+    <script src="radio.js"></script>
     <link rel="stylesheet" href="radio.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -16,21 +18,40 @@
         <div class="section" id="connectionSection">
             <h2>Connection</h2>
             
-            <div class="peer-id-display">
-                <input type="text" id="peerIdDisplay" readonly placeholder="Waiting for Peer ID...">
-                <button id="copyPeerIdBtn">
-                    <span class="material-icons">content_copy</span>
-                </button>
+            <div class="identity-section">
+                <div class="form-group">
+                    <label for="usernameInput">Username:</label>
+                    <input type="text" id="usernameInput" placeholder="Enter your username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="secretKeyInput">Secret Key:</label>
+                    <div class="secret-key-wrapper">
+                        <input type="text" id="secretKeyInput" readonly placeholder="Your secret key">
+                        <button id="generateKeyBtn" class="secondary">
+                            <span class="material-icons">autorenew</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="connection-string-display">
+                    <label for="connectionStringDisplay">Your Connection String:</label>
+                    <div class="display-wrapper">
+                        <input type="text" id="connectionStringDisplay" readonly placeholder="username:secretkey">
+                        <button id="copyConnectionStringBtn">
+                            <span class="material-icons">content_copy</span>
+                        </button>
+                    </div>
+                </div>
             </div>
             
             <div class="controls">
-                <button id="generateIdBtn" class="secondary">Generate New ID</button>
                 <button id="connectBtn">Connect to Peer</button>
                 <button id="disconnectBtn" class="danger" disabled>Disconnect</button>
             </div>
             
             <div id="connectForm" class="hidden">
-                <input type="text" id="remotePeerId" placeholder="Enter the Peer ID to connect to">
+                <input type="text" id="remoteConnectionString" placeholder="Enter username:secretkey to connect to">
                 <div class="controls">
                     <button id="submitConnectBtn" class="secondary">Connect</button>
                     <button id="cancelConnectBtn">Cancel</button>
@@ -43,6 +64,13 @@
                 <h3>Connected Peers</h3>
                 <ul class="connection-list" id="peerList">
                     <li>No connections</li>
+                </ul>
+            </div>
+            
+            <div class="contacts">
+                <h3>Saved Contacts</h3>
+                <ul class="contacts-list" id="contactsList">
+                    <li>No saved contacts</li>
                 </ul>
             </div>
         </div>
@@ -96,7 +124,66 @@
         </div>
     </div>
     
-    <!-- No need for script tags for PeerJS, comm.js, and radio.js here anymore -->
-    <!-- They will be loaded by system.js -->
+    <!-- Add some additional CSS for the new elements -->
+    <style>
+        .identity-section {
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 10px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .secret-key-wrapper, .display-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        
+        .secret-key-wrapper input, .display-wrapper input {
+            flex: 1;
+            margin-right: 8px;
+        }
+        
+        .secret-key-wrapper button, .display-wrapper button {
+            padding: 8px;
+            height: 36px;
+            width: 36px;
+        }
+        
+        .connection-string-display {
+            margin-top: 15px;
+        }
+        
+        .contacts {
+            margin-top: 20px;
+        }
+        
+        .contacts-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contacts-list li {
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 5px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contacts-list li button {
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+    </style>
 </body>
 </html> 

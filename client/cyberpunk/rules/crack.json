@@ -1,0 +1,80 @@
+{
+  "system": "C.R.A.C.K.",
+  "description": "A deep-system cyberwarfare framework designed for realistic hacking, espionage, and digital sabotage in RPG mechanics.",
+  "core_competencies": {
+    "Forging": {
+      "purpose": "Creating fake identities, websites, and deception tools",
+      "covers": "Deepfake accounts, phishing, UI cloning, metadata manipulation",
+      "tools": ["HTTrack", "SocialFish", "Evilginx2", "ThisPersonDoesNotExist", "Deepfake AI"]
+    },
+    "Infrastructure": {
+      "purpose": "Controlling domains, servers, and backend exploits",
+      "covers": "DNS spoofing, malicious hosting, email spoofing, redirection techniques",
+      "tools": ["Gophish", "SPF/DKIM Bypass", "LetsEncrypt", "Cloudflare Exploits"]
+    },
+    "Reversing": {
+      "purpose": "Reverse engineering, binary patching, authentication bypassing",
+      "covers": "Cracking authentication, malware analysis, modifying software behavior",
+      "tools": ["Frida", "IDA Pro", "Radare2", "Ghidra", "API Hooking", "Burp Suite"]
+    },
+    "Exploiting": {
+      "purpose": "Injecting malware, trojans, and persistent backdoors",
+      "covers": "Payload development, obfuscation, rootkits, trojanized documents",
+      "tools": ["Metasploit", "Empire", "Veil", "Cobalt Strike", "PyInstaller Malware Wrapping"]
+    },
+    "Interception": {
+      "purpose": "Sniffing, manipulating, and rerouting live system traffic",
+      "covers": "Packet injection, session hijacking, log manipulation, Man-in-the-Middle attacks",
+      "tools": ["MITMf", "Responder", "DNS Spoofing", "Ettercap", "SIEM Log Manipulation"]
+    },
+    "Automation": {
+      "purpose": "Scaling attacks through botnets, AI-driven scripts, self-replicating malware",
+      "covers": "Distributed hacking, self-spreading worms, mass surveillance",
+      "tools": ["Mirai", "Storm", "AutoSploit", "Python Botnets"]
+    },
+    "Exfiltration": {
+      "purpose": "Stealing and moving large data sets undetected",
+      "covers": "Covert file transfers, data compression, encrypted tunnels",
+      "tools": ["Rclone", "DNS Tunneling", "Cobalt Strike Beacons", "Steganography"]
+    },
+    "Cleanup": {
+      "purpose": "Erasing evidence, wiping systems, forensic evasion",
+      "covers": "Secure erase, log tampering, drive destruction, SIEM manipulation",
+      "tools": ["Shred", "DBAN", "Data Wipers", "Firmware Kill Switches"]
+    },
+    "Disruption": {
+      "purpose": "Destabilizing networks, DDoS attacks, targeted sabotage",
+      "covers": "DoS/DDoS attacks, cache poisoning, router exploits",
+      "tools": ["LOIC", "HOIC", "BlackNurse", "Smurf Attacks", "BGP Hijacking"]
+    },
+    "Obfuscation": {
+      "purpose": "Evading detection through stealth techniques",
+      "covers": "Encrypting payloads, polymorphic malware, anti-forensics",
+      "tools": ["Veil", "Crypters", "Shellcode Obfuscators", "LogCleaners", "SIEM Bypasses"]
+    }
+  },
+  "workflow": {
+    "Cipher (Recon)": {
+      "description": "Scanning weaknesses, collecting data for Forging, Infrastructure, and Reversing."
+    },
+    "Reach (Infiltration)": {
+      "description": "Using Forging & Infrastructure to deploy phishing, fake portals, and credential harvesting."
+    },
+    "Acquire (Privilege Escalation)": {
+      "description": "Using Reversing & Exploiting to inject code, bypass authentication, and elevate access."
+    },
+    "Creep (Persistence)": {
+      "description": "Using Exploiting & Interception to deploy malware, establish backdoors, and control traffic flows."
+    },
+    "Keyjack (Exploitation)": {
+      "description": "Final attack phase, using Exfiltration & Automation for mass data theft, Disruption for system sabotage, Cleanup for covering tracks, and Obfuscation for long-term stealth."
+    }
+  },
+  "design_principles": {
+    "realism": "Built on real-world hacking methodologies and cybersecurity techniques.",
+    "risk_vs_reward": "Players must balance speed and stealth—fast hacks raise security alerts, slow hacks risk losing the window of opportunity.",
+    "tactical_decision_making": "Each phase of hacking requires different skill applications and risk assessment.",
+    "persistent_impact": "Successful hacks permanently alter digital, corporate, and political landscapes."
+  }
+}
+
