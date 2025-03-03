@@ -1,0 +1,145 @@
+{
+  "skills": {
+    "Transport": {
+      "Exosuits": {
+        "Talents": ["Mobility", "Endurance", "Power Control", "Emergency Recovery"],
+        "Classes": ["Loader", "Operator", "Exo Specialist", "Titan"]
+      },
+      "Industrial": {
+        "Talents": ["Crane Operation", "Excavation", "Precision Handling", "Load Balancing"],
+        "Classes": ["Apprentice", "Machinist", "Foreman", "Overlord"]
+      },
+      "Vehicle Mechanics": {
+        "Talents": ["Diagnostics", "Engine Tuning", "Emergency Repair", "Customization"],
+        "Classes": ["Grease Monkey", "Mechanic", "Engineer", "Gearhead"]
+      },
+      "Commandeering": {
+        "Talents": ["High-Speed Maneuvers", "Lock Bypass", "Defensive Driving", "Vehicle Combat"],
+        "Classes": ["Joyrider", "Getaway Driver", "Hijacker", "Road King"]
+      },
+      "Riding": {
+        "Talents": ["Animal Bonding", "Combat Training", "Speed Management", "Recovery"],
+        "Classes": ["Stablehand", "Rider", "Cavalier", "Beastmaster"]
+      }
+    },
+    "Negotiation": {
+      "Fixer": {
+        "Talents": ["Streetwise", "Leverage", "Networking", "Social Engineering"],
+        "Classes": ["Goon", "Cred", "Sought", "Top"]
+      },
+      "Presence": {
+        "Talents": ["Charisma", "Confidence", "Commanding Aura", "Speechcraft"],
+        "Classes": ["Nobody", "Face", "Persuader", "Kingmaker"]
+      },
+      "Judgment": {
+        "Talents": ["Intuition", "Evaluation", "Social Reading", "Verdict"],
+        "Classes": ["Observer", "Arbitrator", "Inquisitor", "Judge"]
+      },
+      "Charm": {
+        "Talents": ["Flattery", "Deception", "Seduction", "Persuasion"],
+        "Classes": ["Trickster", "Charmer", "Schemer", "Puppeteer"]
+      },
+      "Pitch": {
+        "Talents": ["Advertising", "Negotiation", "Storytelling", "Market Analysis"],
+        "Classes": ["Hustler", "Salesman", "Deal Broker", "Closer"]
+      },
+      "Style": {
+        "Talents": ["Wardrobe Coordination", "Image Management", "Trend Analysis", "Personal Branding"],
+        "Classes": ["Nobody", "Fashionista", "Icon", "Trendsetter"]
+      },
+      "Chat": {
+        "Talents": ["Small Talk", "Storytelling", "Improvisation", "Adaptation"],
+        "Classes": ["Listener", "Conversationalist", "Storyteller", "Social Maven"]
+      },
+      "Forgery": {
+        "Talents": ["Identification", "Counterfeiting", "Digital Replication", "Authentication Bypass"],
+        "Classes": ["Dabbler", "Forger", "Master Counterfeiter", "Ghostwriter"]
+      }
+    },
+    "Medtech": {
+      "Paramedic": {
+        "Talents": ["First Aid", "Triage", "Trauma Recovery", "Field Surgery"],
+        "Classes": ["Medic", "EMT", "Combat Medic", "Lifeline"]
+      },
+      "Pharma": {
+        "Talents": ["Dosage Control", "Performance Enhancements", "Synthesis", "Addiction Management"],
+        "Classes": ["Dispenser", "Pharmacist", "Chemist", "Alchemist"]
+      },
+      "Firefighting": {
+        "Talents": ["Fire Suppression", "Structural Integrity", "Rescue Operations", "Chemical Safety"],
+        "Classes": ["Recruit", "Firefighter", "Rescue Specialist", "Inferno Tamer"]
+      },
+      "Forensics": {
+        "Talents": ["DNA Analysis", "Crime Reconstruction", "Toxicology", "Pathology"],
+        "Classes": ["Lab Tech", "Investigator", "Analyst", "Truthseeker"]
+      },
+      "Psychology": {
+        "Talents": ["Counseling", "Manipulation", "Therapy", "Trauma Management"],
+        "Classes": ["Listener", "Therapist", "Analyst", "Mindbreaker"]
+      },
+      "Biotech": {
+        "Talents": ["Gene Therapy", "Regenerative Medicine", "Cybernetic Integration", "Experimental Biology"],
+        "Classes": ["Lab Assistant", "Biotechnician", "Geneticist", "Splicer"]
+      },
+      "Nanotech": {
+        "Talents": ["Nanomaterials", "Cybernetic Interface", "Medical Applications", "AI Integration"],
+        "Classes": ["Researcher", "Developer", "Nanomancer", "Architect"]
+      },
+      "Cybertech": {
+        "Talents": ["Cybernetic Design", "Implantation", "AI Sync", "Neural Overclocking"],
+        "Classes": ["Technician", "Engineer", "Cyberdoc", "Godmind"]
+      },
+      "Military Tech": {
+        "Talents": ["Ballistics", "Armor Systems", "Weapon Tuning", "Advanced Warfare Gear"],
+        "Classes": ["Technician", "Engineer", "Designer", "Warlord's Armorer"]
+      },
+      "Demolitions": {
+        "Talents": ["Charge Placement", "Blast Calculations", "Defusal", "Structural Demolition"],
+        "Classes": ["Saboteur", "Explosives Expert", "Demolitions Chief", "Shockwave"]
+      }
+    },
+    "Tactics": {
+      "Investigation": {
+        "Talents": ["Assessment", "Cognition", "Subtext", "Lip Reading", "Body Language", "Pattern Recognition"],
+        "Classes": ["Sleuth", "Analyst", "Profiler", "Shadow"]
+      },
+      "Cryptography": {
+        "Talents": ["Algorithms", "Decryption", "Implementation", "Obfuscation"],
+        "Classes": ["Code Monkey", "Cryptanalyst", "Ciphermaster", "Ghost"]
+      },
+      "Law": {
+        "Talents": ["Knowledge", "Argument", "Research", "Counseling", "Advocacy"],
+        "Classes": ["Clerk", "Litigator", "Prosecutor", "Magistrate"]
+      }
+    },
+    "Game Theory": {
+      "Management": {
+        "Talents": ["Logistics", "Scheduling", "Risk Assessment", "Efficiency Maximization"],
+        "Classes": ["Intern", "Supervisor", "Director", "Mastermind"]
+      },
+      "Gambling": {
+        "Talents": ["Bluffing", "Card Counting", "Luck Bending", "High-Stakes Play"],
+        "Classes": ["Hustler", "Card Shark", "Gambler", "Fate Dealer"]
+      },
+      "Economy": {
+        "Talents": ["Investment", "Speculation", "Insider Trading", "Corporate Takeovers"],
+        "Classes": ["Trader", "Investor", "Tycoon", "Kingpin"]
+      }
+    },
+    "Essential Skills": {
+      "Conditioning": {
+        "Talents": ["Endurance", "Pain Tolerance", "Environmental Resistance", "Recovery"],
+        "Classes": ["Survivor", "Endurer", "Ironbody", "Unbreakable"]
+      },
+      "Tracking": {
+        "Talents": ["Footprints", "Scent Identification", "Pattern Analysis", "Long-Term Pursuit"],
+        "Classes": ["Scout", "Tracer", "Bloodhound", "Ghost Hunter"]
+      },
+      "Stealth": {
+        "Talents": ["Silent Movement", "Camouflage", "Cover Utilization", "Escape Techniques"],
+        "Classes": ["Lurker", "Shadow", "Phantom", "Wraith"]
+      }
+    }
+  }
+}
+

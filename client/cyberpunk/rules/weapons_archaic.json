@@ -1,0 +1,85 @@
+{
+    "weapons": [
+        {
+            "Weapon": "English Longbow",
+            "Base PEN": 8,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -10,
+                "Long": -30,
+                "Extreme": -50
+            }
+        },
+        {
+            "Weapon": "Composite Bow",
+            "Base PEN": 10,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -5,
+                "Long": -25,
+                "Extreme": -45
+            }
+        },
+        {
+            "Weapon": "Recurve Bow",
+            "Base PEN": 9,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -10,
+                "Long": -30,
+                "Extreme": -50
+            }
+        },
+        {
+            "Weapon": "Japanese Yumi",
+            "Base PEN": 10,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -5,
+                "Long": -20,
+                "Extreme": -40
+            }
+        },
+        {
+            "Weapon": "Crossbow (Medieval)",
+            "Base PEN": 12,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -5,
+                "Long": -20,
+                "Extreme": -40
+            }
+        },
+        {
+            "Weapon": "Arbalest (Heavy Crossbow)",
+            "Base PEN": 14,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -5,
+                "Long": -15,
+                "Extreme": -30
+            }
+        },
+        {
+            "Weapon": "Repeating Crossbow (Chu-Ko-Nu)",
+            "Base PEN": 6,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -15,
+                "Long": -40,
+                "Extreme": -70
+            }
+        },
+        {
+            "Weapon": "Ballista (Small Siege Weapon)",
+            "Base PEN": 30,
+            "PEN Dip": {
+                "Close": 0,
+                "Effective": -5,
+                "Long": -10,
+                "Extreme": -20
+            }
+        }
+    ]
+}
+

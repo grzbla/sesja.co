@@ -1,0 +1,53 @@
+{
+    "ammunition_modifiers": {
+        "Round Ball (Lead)": {
+            "Close": 0,
+            "Effective": -5,
+            "Long": -10,
+            "Extreme": -15
+        },
+        "Minie Ball": {
+            "Close": 0,
+            "Effective": 0,
+            "Long": -5,
+            "Extreme": -10
+        },
+        "Full Metal Jacket (FMJ)": {
+            "Close": 0,
+            "Effective": 0,
+            "Long": 0,
+            "Extreme": 0
+        },
+        "Armor-Piercing (AP)": {
+            "Close": 5,
+            "Effective": 10,
+            "Long": 15,
+            "Extreme": 20
+        },
+        "Hollow Point": {
+            "Close": -5,
+            "Effective": -10,
+            "Long": -15,
+            "Extreme": -20
+        },
+        "Black Powder Shot": {
+            "Close": 0,
+            "Effective": -10,
+            "Long": -20,
+            "Extreme": -30
+        },
+        "Buckshot (Shotgun)": {
+            "Close": 0,
+            "Effective": -20,
+            "Long": -40,
+            "Extreme": -60
+        },
+        "Slug (Shotgun)": {
+            "Close": 0,
+            "Effective": -10,
+            "Long": -25,
+            "Extreme": -40
+        }
+    }
+}
+
