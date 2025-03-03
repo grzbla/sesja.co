@@ -1,0 +1,69 @@
+{
+    "Expanded Melee Weapons": [
+        {
+            "Weapon": "Longsword",
+            "PEN": 18
+        },
+        {
+            "Weapon": "Arming Sword",
+            "PEN": 16
+        },
+        {
+            "Weapon": "Greatsword",
+            "PEN": 22
+        },
+        {
+            "Weapon": "Claymore",
+            "PEN": 22
+        },
+        {
+            "Weapon": "Falchion",
+            "PEN": 15
+        },
+        {
+            "Weapon": "Rapier",
+            "PEN": 14
+        },
+        {
+            "Weapon": "Scimitar",
+            "PEN": 16
+        },
+        {
+            "Weapon": "Bastard Sword",
+            "PEN": 20
+        },
+        {
+            "Weapon": "Dagger",
+            "PEN": 6
+        },
+        {
+            "Weapon": "Dirk",
+            "PEN": 7
+        },
+        {
+            "Weapon": "Flail",
+            "PEN": 18
+        },
+        {
+            "Weapon": "Morning Star",
+            "PEN": 22
+        },
+        {
+            "Weapon": "Mace",
+            "PEN": 25
+        },
+        {
+            "Weapon": "Warhammer",
+            "PEN": 28
+        },
+        {
+            "Weapon": "Halberd",
+            "PEN": 21
+        },
+        {
+            "Weapon": "Poleaxe",
+            "PEN": 20
+        }
+    ]
+}
+

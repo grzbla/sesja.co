@@ -1,0 +1,61 @@
+{
+    "Expanded Melee Weapons": [
+        {
+            "Weapon": "Stone Axe",
+            "PEN": 8
+        },
+        {
+            "Weapon": "Flint Dagger",
+            "PEN": 5
+        },
+        {
+            "Weapon": "Obsidian Knife",
+            "PEN": 6
+        },
+        {
+            "Weapon": "Bronze Spear",
+            "PEN": 10
+        },
+        {
+            "Weapon": "Pilum",
+            "PEN": 14
+        },
+        {
+            "Weapon": "Gladius",
+            "PEN": 12
+        },
+        {
+            "Weapon": "Falcata",
+            "PEN": 14
+        },
+        {
+            "Weapon": "Xiphos",
+            "PEN": 12
+        },
+        {
+            "Weapon": "Spatha",
+            "PEN": 14
+        },
+        {
+            "Weapon": "Labrys",
+            "PEN": 16
+        },
+        {
+            "Weapon": "Khopesh",
+            "PEN": 12
+        },
+        {
+            "Weapon": "Trident",
+            "PEN": 11
+        },
+        {
+            "Weapon": "Macuahuitl",
+            "PEN": 15
+        },
+        {
+            "Weapon": "Cestus (Weighted Gloves)",
+            "PEN": 6
+        }
+    ]
+}
+

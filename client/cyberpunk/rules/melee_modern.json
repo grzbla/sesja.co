@@ -1,0 +1,65 @@
+{
+    "Expanded Melee Weapons": [
+        {
+            "Weapon": "Combat Knife",
+            "PEN": 9
+        },
+        {
+            "Weapon": "Machete",
+            "PEN": 12
+        },
+        {
+            "Weapon": "Kukri",
+            "PEN": 14
+        },
+        {
+            "Weapon": "Karambit",
+            "PEN": 10
+        },
+        {
+            "Weapon": "Expandable Baton",
+            "PEN": 6
+        },
+        {
+            "Weapon": "Shock Baton",
+            "PEN": 5
+        },
+        {
+            "Weapon": "Tactical Tomahawk",
+            "PEN": 14
+        },
+        {
+            "Weapon": "Spiked Baton",
+            "PEN": 14
+        },
+        {
+            "Weapon": "Bladed Tonfa",
+            "PEN": 12
+        },
+        {
+            "Weapon": "Mjolnir",
+            "PEN": 50
+        },
+        {
+            "Weapon": "Excalibur",
+            "PEN": 30
+        },
+        {
+            "Weapon": "Stormbreaker",
+            "PEN": 50
+        },
+        {
+            "Weapon": "Chainsword",
+            "PEN": 24
+        },
+        {
+            "Weapon": "Energy Blade",
+            "PEN": 40
+        },
+        {
+            "Weapon": "Vibroblade",
+            "PEN": 35
+        }
+    ]
+}
+

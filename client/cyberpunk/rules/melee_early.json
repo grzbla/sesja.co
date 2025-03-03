@@ -1,0 +1,49 @@
+{
+    "Expanded Melee Weapons": [
+        {
+            "Weapon": "Bayonet",
+            "PEN": 12
+        },
+        {
+            "Weapon": "Trench Club",
+            "PEN": 18
+        },
+        {
+            "Weapon": "Bowie Knife",
+            "PEN": 12
+        },
+        {
+            "Weapon": "Trench Knife",
+            "PEN": 10
+        },
+        {
+            "Weapon": "Push Dagger",
+            "PEN": 8
+        },
+        {
+            "Weapon": "Tomahawk",
+            "PEN": 16
+        },
+        {
+            "Weapon": "Ballistic Knife",
+            "PEN": 10
+        },
+        {
+            "Weapon": "Knuckle Duster",
+            "PEN": 8
+        },
+        {
+            "Weapon": "Tactical Hatchet",
+            "PEN": 17
+        },
+        {
+            "Weapon": "Military Ice Pick",
+            "PEN": 12
+        },
+        {
+            "Weapon": "E-tool (Entrenching Tool)",
+            "PEN": 15
+        }
+    ]
+}
+
