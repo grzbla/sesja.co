@@ -1,0 +1,155 @@
+{
+    "Projectile Weapons (2000+)": [
+        {
+            "Weapon": "M4 Carbine",
+            "Base PEN": "24",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -15, "Extreme": -30 },
+            "Description": "American lightweight, gas-operated, selective fire rifle, standard for U.S. military."
+        },
+        {
+            "Weapon": "AK-12",
+            "Base PEN": "22",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -55 },
+            "Description": "Russian assault rifle, modernized version of the AK-74, used in the Russian Armed Forces."
+        },
+        {
+            "Weapon": "FN SCAR",
+            "Base PEN": "23",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -55 },
+            "Description": "Belgian-made, modular assault rifle, designed for special forces and infantry."
+        },
+        {
+            "Weapon": "H&K G36C",
+            "Base PEN": "24",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -55 },
+            "Description": "German modular assault rifle, used by military and police forces."
+        },
+        {
+            "Weapon": "Tavor X95",
+            "Base PEN": "22",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -60 },
+            "Description": "Israeli bullpup assault rifle, compact and reliable, designed for close combat."
+        },
+        {
+            "Weapon": "Uzi Pro",
+            "Base PEN": "15",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -40, "Extreme": -75 },
+            "Description": "Compact Israeli submachine gun, known for its reliability and use in urban warfare."
+        },
+        {
+            "Weapon": "P90",
+            "Base PEN": "18",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -25, "Extreme": -50 },
+            "Description": "Belgian PDW, designed for close-quarters combat with a high-capacity magazine."
+        },
+        {
+            "Weapon": "Bizon-2",
+            "Base PEN": "14",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -40, "Extreme": -75 },
+            "Description": "Russian submachine gun with a high-capacity helical magazine, designed for close-range combat."
+        },
+        {
+            "Weapon": "Dragunov SVD",
+            "Base PEN": "30",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -25 },
+            "Description": "Soviet semi-automatic sniper rifle used in various conflicts and by special forces."
+        },
+        {
+            "Weapon": "Barrett M82A1",
+            "Base PEN": "55",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -30 },
+            "Description": "Heavy-duty anti-material sniper rifle used for long-range precision shooting and anti-tank roles."
+        },
+        {
+            "Weapon": "Remington M700",
+            "Base PEN": "45",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -30 },
+            "Description": "Bolt-action sniper rifle, used by military and police for long-range precision."
+        },
+        {
+            "Weapon": "Accuracy International AXMC",
+            "Base PEN": "50",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -25 },
+            "Description": "Multi-caliber sniper rifle used for extreme long-range engagements."
+        },
+        {
+            "Weapon": "McMillan TAC-50",
+            "Base PEN": "55",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -30 },
+            "Description": "Long-range sniper rifle used by military forces for precision shooting, capable of killing targets at extreme ranges."
+        },
+        {
+            "Weapon": "M249 SAW",
+            "Base PEN": "28",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -30 },
+            "Description": "Light machine gun used by the US military, known for its high rate of fire."
+        },
+        {
+            "Weapon": "M240B",
+            "Base PEN": "30",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -30 },
+            "Description": "General-purpose machine gun used by the US military, designed for both infantry and mounted roles."
+        },
+        {
+            "Weapon": "PKP Pecheneg",
+            "Base PEN": "30",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -30 },
+            "Description": "Russian general-purpose machine gun, designed for use in a wide range of combat scenarios."
+        },
+        {
+            "Weapon": "M60",
+            "Base PEN": "30",
+            "PEN Dip": { "Point Blank": 0, "Effective": -5, "Long": -10, "Extreme": -30 },
+            "Description": "American machine gun used from the 1960s to present, famous for its use in Vietnam."
+        },
+        {
+            "Weapon": "FGM-148 Javelin",
+            "Base PEN": "200",
+            "PEN Dip": { "Point Blank": 0, "Effective": 0, "Long": -5, "Extreme": -15 },
+            "Description": "Shoulder-fired anti-tank missile capable of defeating modern armored vehicles."
+        },
+        {
+            "Weapon": "RPG-7V2",
+            "Base PEN": "150",
+            "PEN Dip": { "Point Blank": 0, "Effective": 0, "Long": -10, "Extreme": -20 },
+            "Description": "Reusable, handheld anti-tank weapon used extensively by armed forces around the world."
+        },
+        {
+            "Weapon": "AT4",
+            "Base PEN": "150",
+            "PEN Dip": { "Point Blank": 0, "Effective": 0, "Long": -10, "Extreme": -20 },
+            "Description": "Anti-tank weapon designed for use by infantry to destroy tanks and armored vehicles."
+        },
+        {
+            "Weapon": "M9 Bazooka",
+            "Base PEN": "120",
+            "PEN Dip": { "Point Blank": 0, "Effective": 0, "Long": -5, "Extreme": -10 },
+            "Description": "One of the first anti-tank rocket launchers used during WWII and Korea."
+        },
+        {
+            "Weapon": "Milkor MGL",
+            "Base PEN": "10",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -60 },
+            "Description": "Multiple grenade launcher used for rapid deployment of explosive rounds."
+        },
+        {
+            "Weapon": "Desert Eagle",
+            "Base PEN": "19",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -60 },
+            "Description": "Heavy semi-automatic pistol known for its stopping power, used in law enforcement and by special forces."
+        },
+        {
+            "Weapon": "Colt 1911",
+            "Base PEN": "12",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -65 },
+            "Description": "Iconic American semi-automatic pistol, used as a standard sidearm for the U.S. military."
+        },
+        {
+            "Weapon": "Walther P99",
+            "Base PEN": "13",
+            "PEN Dip": { "Point Blank": 0, "Effective": -10, "Long": -30, "Extreme": -60 },
+            "Description": "Modern German semi-automatic pistol, known for its ergonomic design and reliability."
+        }
+    ]
+}
+

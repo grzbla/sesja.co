@@ -1,0 +1,24 @@
+{
+    "Ammunition Types and PEN Modifiers": [
+        {"Ammunition": "Full Metal Jacket (FMJ)", "PEN Modifier": "0%", "Description": "Standard round designed for general-purpose use, offers reliable performance without specialized characteristics."},
+        {"Ammunition": "Hollow Point (HP)", "PEN Modifier": "-15%", "Description": "Designed for maximum tissue damage, but loses penetration ability due to expansion on impact."},
+        {"Ammunition": "Armor-Piercing (AP)", "PEN Modifier": "+40%", "Description": "Specialized round designed to penetrate body armor and hard targets, increasing penetration capability."},
+        {"Ammunition": "Soft Point (SP)", "PEN Modifier": "-5%", "Description": "Designed to expand upon impact, providing a balance between tissue damage and penetration."},
+        {"Ammunition": "Tracer", "PEN Modifier": "-5%", "Description": "Round that leaves a visible trail, used to help with targeting, but slightly reduces penetration due to the added components."},
+        {"Ammunition": "Explosive", "PEN Modifier": "-25%", "Description": "Explosive rounds that prioritize damage over penetration, often used for area suppression or anti-materiel purposes."},
+        {"Ammunition": "High Velocity", "PEN Modifier": "+15%", "Description": "Ammunition designed with higher velocity to improve penetration at long ranges."},
+        {"Ammunition": "Incendiary", "PEN Modifier": "-12%", "Description": "Round designed to ignite upon impact, often used for causing fires or disabling equipment, but reduces penetration."},
+        {"Ammunition": "Full Metal Jacket Boat Tail (FMJBT)", "PEN Modifier": "+5%", "Description": "Enhanced FMJ with a boat-tail design, offering increased accuracy and range while slightly improving penetration."},
+        {"Ammunition": "Subsonic", "PEN Modifier": "-20%", "Description": "Lower velocity rounds designed for quiet shooting, resulting in reduced penetration but quieter operation."},
+        {"Ammunition": "Armor-Piercing Incendiary (API)", "PEN Modifier": "+30%", "Description": "Armor-piercing round with incendiary capabilities, offering increased penetration and fire-starting ability."},
+        {"Ammunition": "Explosive Armor-Piercing (EAP)", "PEN Modifier": "+25%", "Description": "Combination of armor-piercing and explosive effects, designed to penetrate and then cause internal explosions."},
+        {"Ammunition": "Shotgun Slugs", "PEN Modifier": "+10%", "Description": "Single projectile used in shotguns, capable of greater penetration compared to traditional shotguns pellets."},
+        {"Ammunition": "Flechette", "PEN Modifier": "+5%", "Description": "Small dart-like projectiles used for greater spread and penetration of soft targets."},
+        {"Ammunition": "High-Explosive Anti-Tank (HEAT)", "PEN Modifier": "+60%", "Description": "Highly specialized round designed for heavy armor penetration, often used against tanks and armored vehicles."},
+        {"Ammunition": "Dragon's Breath", "PEN Modifier": "-30%", "Description": "Shotgun shells that expel fire upon firing, with extreme reduction in penetration but effective for creating fire hazards."},
+        {"Ammunition": "Explosive Tip", "PEN Modifier": "-40%", "Description": "Designed for explosive damage at impact, sacrificing penetration ability for explosive effects."},
+        {"Ammunition": "Steel Core", "PEN Modifier": "+20%", "Description": "Ammunition with a hardened steel core designed to increase penetration, especially against soft armor."},
+        {"Ammunition": "Tungsten Core", "PEN Modifier": "+45%", "Description": "Ammunition with a tungsten core designed for extreme armor-piercing capability, often used in military applications."}
+    ]
+}
+

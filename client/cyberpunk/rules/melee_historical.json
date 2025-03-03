@@ -1,13 +1,21 @@
 {
-    "Medieval Weapons (Until 1900)": [
-        { "Weapon": "Longsword", "Base PEN": "18+T", "Description": "Versatile sword for cutting and thrusting, used by knights in medieval Europe." },
-        { "Weapon": "Greatsword", "Base PEN": "22+T", "Description": "Two-handed sword used in battle, designed for powerful strikes." },
+    "Antique Melee Weapons": [
+        { "Weapon": "Stone Axe", "Base PEN": "8+T", "Description": "Primitive, early tool for cutting and melee attacks." },
+        { "Weapon": "Flint Dagger", "Base PEN": "5+T", "Description": "Sharp cutting edge made from flint, effective in close quarters." },
+        { "Weapon": "Obsidian Knife", "Base PEN": "6+T", "Description": "Extremely sharp, made from volcanic glass, used in cutting and skinning." },
+        { "Weapon": "Bronze Spear", "Base PEN": "10+T", "Description": "Early spear with a bronze tip, effective at range." },
+        { "Weapon": "Pilum", "Base PEN": "11+T", "Description": "Roman throwing spear, designed to penetrate armor." },
+        { "Weapon": "Gladius", "Base PEN": "12+T", "Description": "Short Roman sword, designed for thrusting in close combat." },
+        { "Weapon": "Macuahuitl", "Base PEN": "15+T", "Description": "Aztec weapon with obsidian blades embedded in wood, capable of slashing and chopping." },
+        { "Weapon": "Labrys (Double Axe)", "Base PEN": "16+T", "Description": "Double-headed axe used in ancient cultures for both combat and ceremonial purposes." },
+        { "Weapon": "Longsword", "Base PEN": "18+T", "Description": "A versatile sword used by knights for cutting and thrusting in combat." },
+        { "Weapon": "Greatsword", "Base PEN": "22+T", "Description": "Large, two-handed sword with an emphasis on powerful strikes." },
         { "Weapon": "Claymore", "Base PEN": "22+T", "Description": "Scottish two-handed sword, used primarily for hacking and cleaving." },
         { "Weapon": "Falchion", "Base PEN": "15+T", "Description": "Single-edged sword, curved for efficient cutting and slashing." },
         { "Weapon": "Rapier", "Base PEN": "14+T", "Description": "Thin, pointed sword designed for thrusting attacks in duels." },
-        { "Weapon": "Warhammer", "Base PEN": "28+T", "Description": "Heavy hammer designed to break armor, used in medieval warfare." },
+        { "Weapon": "Warhammer", "Base PEN": "28+T", "Description": "Heavy hammer designed to break armor, often used in medieval warfare." },
         { "Weapon": "Halberd", "Base PEN": "21+T", "Description": "Pole weapon with an axe blade and spear point, used to dismount cavalry." },
-        { "Weapon": "Poleaxe", "Base PEN": "20+T", "Description": "Pole weapon designed for both cutting and thrusting, used by knights and infantry." },
+        { "Weapon": "Poleaxe", "Base PEN": "20+T", "Description": "A pole weapon designed for both cutting and thrusting, used by knights and infantry." },
         { "Weapon": "Glaive", "Base PEN": "19+T", "Description": "Long pole weapon with a curved blade, used for cutting from a distance." },
         { "Weapon": "Bardiche", "Base PEN": "20+T", "Description": "A long pole weapon with a broad axe-like blade, used in medieval battles." },
         { "Weapon": "Pike", "Base PEN": "16+T", "Description": "Long pole weapon used to keep enemies at bay and break formations." },
@@ -32,14 +40,6 @@
         { "Weapon": "Dirk", "Base PEN": "7+T", "Description": "Short stabbing weapon, similar to a large knife or dagger." },
         { "Weapon": "Stiletto", "Base PEN": "8+T", "Description": "Thin-bladed knife, designed for thrusting attacks." },
         { "Weapon": "Dagger", "Base PEN": "6+T", "Description": "Small, versatile weapon used for stabbing in close combat." },
-        { "Weapon": "Main Gauche", "Base PEN": "7+T", "Description": "Dagger used in combination with a longsword, typically for defense and parrying." },
-        { "Weapon": "Bowie Knife", "Base PEN": "12", "Description": "Large hunting knife with a crossguard, used in close combat." },
-        { "Weapon": "Trench Knife", "Base PEN": "10", "Description": "Military knife designed for fighting in the trenches during World War I." },
-        { "Weapon": "Combat Knife", "Base PEN": "9", "Description": "Standard issue military knife, designed for close combat." },
-        { "Weapon": "Trench Club", "Base PEN": "18", "Description": "Heavy club used in World War I trench warfare." },
-        { "Weapon": "Bayonet", "Base PEN": "12", "Description": "Long blade attached to a firearm for close-quarters combat." },
-        { "Weapon": "Expandable Baton", "Base PEN": "6", "Description": "Collapsible baton used by law enforcement for non-lethal subduing of opponents." },
-        { "Weapon": "Push Dagger", "Base PEN": "8", "Description": "A small, concealable blade designed for thrusting in close quarters." }
+        { "Weapon": "Main Gauche", "Base PEN": "7+T", "Description": "Dagger used in combination with a longsword, typically for defense and parrying." }
     ]
 }
-

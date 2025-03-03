@@ -1,755 +1,759 @@
 {
-  "skills": {
-    "Transport": {
-      "Car Nut": {
-        "Talents": [
-          "Street Racer",
-          "Stunt Driver",
-          "Getaway",
-          "Track Lizard"
-        ],
-        "Classes": [
-          "Hood Rat",
-          "Licensed Driver",
-          "Race Driver",
-          "Prototype Pilot"
-        ]
-      },
-      "Afterburner": {
-        "Talents": [
-          "Commercial",
-          "Industrial",
-          "Military",
-          "Aerospace",
-          "Antique Planes"
-        ],
-        "Classes": [
-          "Hobbyist",
-          "Licensed Pilot",
-          "Ace",
-          "Legend"
-        ]
-      },
-      "Waverider": {
-        "Talents": [
-          "Navigation",
-          "Maintenance",
-          "Command",
-          "Naval Tactics"
-        ],
-        "Classes": [
-          "Deckhand",
-          "Sailor",
-          "Captain",
-          "Admiral"
-        ]
-      },
-       "Exosuits": {
-        "Talents": [
-          "Mobility",
-          "Endurance",
-          "Power Control",
-          "Emergency Recovery"
-        ],
-        "Classes": [
-          "Loader",
-          "Operator",
-          "Exo Specialist",
-          "Titan"
-        ]
-      },
-      "Industrial": {
-        "Talents": [
-          "Crane Operation",
-          "Excavation",
-          "Precision Handling",
-          "Load Balancing"
-        ],
-        "Classes": [
-          "Apprentice",
-          "Machinist",
-          "Foreman",
-          "Overlord"
-        ]
-      },
-      "Vehicle Mechanics": {
-        "Talents": [
-          "Diagnostics",
-          "Engine Tuning",
-          "Emergency Repair",
-          "Customization"
-        ],
-        "Classes": [
-          "Grease Monkey",
-          "Mechanic",
-          "Engineer",
-          "Gearhead"
-        ]
-      },
-      "Commandeering": {
-        "Talents": [
-          "High-Speed Maneuvers",
-          "Lock Bypass",
-          "Defensive Driving",
-          "Vehicle Combat"
-        ],
-        "Classes": [
-          "Joyrider",
-          "Getaway Driver",
-          "Hijacker",
-          "Road King"
-        ]
-      },
-      "Riding": {
-        "Talents": [
-          "Animal Bonding",
-          "Combat Training",
-          "Speed Management",
-          "Recovery"
-        ],
-        "Classes": [
-          "Stablehand",
-          "Rider",
-          "Cavalier",
-          "Beastmaster"
-        ]
-      }
+  "Transport": {
+    "Car Nut": {
+      "Talents": [
+        "Street Racer",
+        "Stunt Driver",
+        "Getaway",
+        "Track Lizard",
+        "Patch",
+        "Diagnostics",
+        "Tuning"
+      ],
+      "Classes": [
+        "Hood Rat",
+        "Licensed Driver",
+        "Race Driver",
+        "Prototype Pilot"
+      ]
     },
-    "Negotiation": {
-      "Fixer": {
-        "Talents": [
-          "Streetwise",
-          "Leverage",
-          "Networking",
-          "Social Engineering",
-          "High-Stakes Play"
-        ],
-        "Classes": [
-          "Goon",
-          "Cred",
-          "Sought",
-          "Top"
-        ]
-      },
-      "Presence": {
-        "Talents": [
-          "Charisma",
-          "Confidence",
-          "Commanding Aura",
-          "Speechcraft",
-          "Seduction",
-           "Market Analysis"
-        ],
-        "Classes": [
-          "Nobody",
-          "Face",
-          "Persuader",
-          "Kingmaker"
-        ]
-      },
-      "Judgment": {
-        "Talents": [
-          "Intuition",
-          "Evaluation",
-          "Social Reading",
-          "Verdict"
-        ],
-        "Classes": [
-          "Observer",
-          "Arbitrator",
-          "Inquisitor",
-          "Judge"
-        ]
-      },
-            "Style": {
-        "Talents": [
-          "Wardrobe Coordination",
-          "Image Management",
-          "Trend Analysis",
-          "Personal Branding"
-        ],
-        "Classes": [
-          "Nobody",
-          "Fashionista",
-          "Icon",
-          "Trendsetter"
-        ]
-      },
-      "Chat": {
-        "Talents": [
-          "Small Talk",
-          "Storytelling",
-          "Improvisation",
-          "Adaptation"
-        ],
-        "Classes": [
-          "Listener",
-          "Conversationalist",
-          "Storyteller",
-          "Social Maven"
-        ]
-      },
-      "Forgery": {
-        "Talents": [
-          "Identification",
-          "Counterfeiting",
-          "Digital Replication",
-          "Authentication Bypass"
-        ],
-        "Classes": [
-          "Dabbler",
-          "Forger",
-          "Master Counterfeiter",
-          "Ghostwriter"
-        ]
-      }
+    "Afterburner": {
+      "Talents": [
+        "Commercial",
+        "Industrial",
+        "Military",
+        "Aerospace",
+        "Antique Planes"
+      ],
+      "Classes": [
+        "Hobbyist",
+        "Licensed Pilot",
+        "Ace",
+        "Legend"
+      ]
     },
-    "Combat": {
-      "Smoke": {
-        "Talents": [
-          "Sure Shot",
-          "Hip Shot",
-          "Barrel Anxiety",
-          "Trick Shot"
-        ],
-        "Classes": [
-          "Plinker",
-          "Marksman",
-          "Gunslinger",
-          "Deadeye"
-        ]
-      },
-      "CQC": {
-        "Talents": [
-          "Striking",
-          "Grappling",
-          "Disarming",
-          "Takedowns",
-          "Combat Flow"
-        ],
-        "Classes": [
-          "Brawler",
-          "Scrapper",
-          "Operator",
-          "Phantom"
-        ]
-      },
-      "Bodybuilding": {
-        "Talents": [
-          "Nutrition",
-          "Recovery",
-          "Endurance",
-          "Strength"
-        ],
-        "Classes": [
-          "Gym Rat",
-          "Powerlifter",
-          "Titan",
-          "Juggernaut"
-        ]
-      },
-      "Melee": {
-        "Talents": [
-          "Slashing",
-          "Stabbing",
-          "Smashing",
-          "Evasion",
-          "Parry",
-          "Combat"
-        ],
-        "Classes": [
-          "Duelist",
-          "Warrior",
-          "Blademaster",
-          "Warlord"
-        ]
-      },
-      "Martial Arts": {
-        "Talents": [
-          "Striking",
-          "Weapon Training",
-          "Evasion",
-          "Parry",
-          "Combat"
-        ],
-        "Classes": [
-          "Disciple",
-          "Fighter",
-          "Master",
-          "Grandmaster"
-        ]
-      },
-      "Assault": {
-        "Talents": [
-          "Combat",
-          "Breaching",
-          "Coordination",
-          "Strategy"
-        ],
-        "Classes": [
-          "Recruit",
-          "Shock Trooper",
-          "Commander",
-          "Warlord"
-        ]
-      }
+    "Waverider": {
+      "Talents": [
+        "Navigation",
+        "Maintenance",
+        "Command",
+        "Naval Tactics"
+      ],
+      "Classes": [
+        "Deckhand",
+        "Sailor",
+        "Captain",
+        "Admiral"
+      ]
     },
-    "Tactics": {
-      "Investigation": {
-        "Talents": [
-          "Assessment",
-          "Cognition",
-          "Subtext",
-          "Lip Reading",
-          "Body Language",
-          "Pattern Recognition"
-        ],
-        "Classes": [
-          "Sleuth",
-          "Analyst",
-          "Profiler",
-          "Shadow"
-        ]
-      },
-      "Cryptography": {
-        "Talents": [
-          "Algorithms",
-          "Decryption",
-          "Implementation",
-          "Obfuscation"
-        ],
-        "Classes": [
-          "Code Monkey",
-          "Cryptanalyst",
-          "Ciphermaster",
-          "Ghost"
-        ]
-      },
-      "Law": {
-        "Talents": [
-          "Knowledge",
-          "Argument",
-          "Research",
-          "Counseling",
-          "Advocacy"
-        ],
-        "Classes": [
-          "Clerk",
-          "Litigator",
-          "Prosecutor",
-          "Magistrate"
-        ]
-      },
-       "Combat Engineering": {
-        "Talents": [
-          "Ballistics",
-          "Armor Systems",
-          "Weapon Tuning",
-          "Advanced Warfare Gear"
-        ],
-        "Classes": [
-          "Technician",
-          "Engineer",
-          "Designer",
-          "Warlord's Armorer"
-        ]
-      },
-        "Demolitions": {
-        "Talents": [
-          "Charge Placement",
-          "Blast Calculations",
-          "Defusal",
-          "Structural Demolition"
-        ],
-        "Classes": [
-          "Saboteur",
-          "Explosives Expert",
-          "Demolitions Chief",
-          "Shockwave"
-        ]
-      }
+    "Exosuits": {
+      "Talents": [
+        "Mobility",
+        "Endurance",
+        "Power Control",
+        "Emergency Recovery",
+        "Customization",
+        "Maintenance",
+        "Operation",
+        "Combat"
+      ],
+      "Classes": [
+        "Loader",
+        "Operator",
+        "Exo Specialist",
+        "Titan",
+        "Pilot",
+        "Recycler",
+        "Ace"
+      ]
     },
-    "Medtech": {
-      "Paramedic": {
-        "Talents": [
-          "First Aid",
-          "Triage",
-          "Trauma Recovery",
-          "Field Surgery"
-        ],
-        "Classes": [
-          "Medic",
-          "EMT",
-          "Combat Medic",
-          "Lifeline"
-        ]
-      },
-      "Pharma": {
-        "Talents": [
-          "Dosage Control",
-          "Performance Enhancements",
-          "Synthesis",
-          "Addiction Management"
-        ],
-        "Classes": [
-          "Dispenser",
-          "Pharmacist",
-          "Chemist",
-          "Alchemist"
-        ]
-      },
-           "Firefighting": {
-        "Talents": [
-          "Fire Suppression",
-          "Structural Integrity",
-          "Rescue Operations",
-          "Chemical Safety"
-        ],
-        "Classes": [
-          "Recruit",
-          "Firefighter",
-          "Rescue Specialist",
-          "Inferno Tamer"
-        ]
-      },
-      "Forensics": {
-        "Talents": [
-          "DNA Analysis",
-          "Crime Reconstruction",
-          "Toxicology",
-          "Pathology"
-        ],
-        "Classes": [
-          "Lab Tech",
-          "Investigator",
-          "Analyst",
-          "Truthseeker"
-        ]
-      },
-      "Psychology": {
-        "Talents": [
-          "Counseling",
-          "Manipulation",
-          "Therapy",
-          "Trauma Management"
-        ],
-        "Classes": [
-          "Listener",
-          "Therapist",
-          "Analyst",
-          "Mindbreaker"
-        ]
-      },
-      "Biotech": {
-        "Talents": [
-          "Gene Therapy",
-          "Regenerative Medicine",
-          "Cybernetic Integration",
-          "Experimental Biology"
-        ],
-        "Classes": [
-          "Lab Assistant",
-          "Biotechnician",
-          "Geneticist",
-          "Splicer"
-        ]
-      },
-      "Nanotech": {
-        "Talents": [
-          "Nanomaterials",
-          "Cybernetic Interface",
-          "Medical Applications",
-          "AI Integration"
-        ],
-        "Classes": [
-          "Researcher",
-          "Developer",
-          "Nanomancer",
-          "Architect"
-        ]
-      },
-      "Cybertech": {
-        "Talents": [
-          "Cybernetic Design",
-          "Implantation",
-          "AI Sync",
-          "Neural Overclocking"
-        ],
-        "Classes": [
-          "Technician",
-          "Engineer",
-          "Cyberdoc",
-          "Godmind"
-        ]
-      }
+    "Industrial": {
+      "Talents": [
+        "Crane Operation",
+        "Excavation",
+        "Precision Handling",
+        "Load Balancing",
+        "Maintenance"
+      ],
+      "Classes": [
+        "Apprentice",
+        "Machinist",
+        "Foreman",
+        "Overlord",
+        "Boss",
+        "Grunt"
+      ]
     },
-    "Game Theory": {
-      "Management": {
-        "Talents": [
-          "Logistics",
-          "Scheduling",
-          "Risk Assessment",
-          "Efficiency Maximization"
-        ],
-        "Classes": [
-          "Intern",
-          "Supervisor",
-          "Director",
-          "Mastermind"
-        ]
-      },
-      "Gambling": {
-        "Talents": [
-          "Bluffing",
-          "Card Counting",
-          "Luck Bending",
-          "High-Stakes Play"
-        ],
-        "Classes": [
-          "Hustler",
-          "Card Shark",
-          "Gambler",
-          "Fate Dealer"
-        ]
-      },
-       "Economy": {
-        "Talents": [
-          "Investment",
-          "Speculation",
-          "Insider Trading",
-          "Corporate Takeovers"
-        ],
-        "Classes": [
-          "Trader",
-          "Investor",
-          "Tycoon",
-          "Kingpin"
-        ]
-      }
+    "Vehicle Mechanics": {
+      "Talents": [
+        "Diagnostics",
+        "Engine Tuning",
+        "Emergency Repair",
+        "Customization"
+      ],
+      "Classes": [
+        "Grease Monkey",
+        "Mechanic",
+        "Engineer",
+        "Gearhead"
+      ]
     },
-    "Essential Skills": {
-      "Conditioning": {
-        "Talents": [
-          "Endurance",
-          "Pain Tolerance",
-          "Environmental Resistance",
-          "Recovery"
-        ],
-        "Classes": [
-          "Survivor",
-          "Endurer",
-          "Ironbody",
-          "Unbreakable"
-        ]
-      },
-      "Tracking": {
-        "Talents": [
-          "Footprints",
-          "Scent Identification",
-          "Pattern Analysis",
-          "Long-Term Pursuit"
-        ],
-        "Classes": [
-          "Scout",
-          "Tracer",
-          "Bloodhound",
-          "Ghost Hunter"
-        ]
-      },
-      "Stealth": {
-        "Talents": [
-          "Silent Movement",
-          "Camouflage",
-          "Cover Utilization",
-          "Escape Techniques"
-        ],
-        "Classes": [
-          "Lurker",
-          "Shadow",
-          "Phantom",
-          "Wraith"
-        ]
-      }
+    "Commandeering": {
+      "Talents": [
+        "High-Speed Maneuvers",
+        "Lock Bypass",
+        "Defensive Driving",
+        "Vehicle Combat"
+      ],
+      "Classes": [
+        "Joyrider",
+        "Getaway Driver",
+        "Hijacker",
+        "Road King"
+      ]
     },
-    "Infrastructure": {
-      "Paveman": {
-        "Talents": [
-          "Lithology",
-          "Architecture",
-          "Engineering",
-          "Siege",
-          "Monumental",
-          "Masterwork",
-          "Artisanal"
-        ],
-        "Classes": [
-          "Handyman",
-          "Mason",
-          "Industrialist",
-          "Ruiner"
-        ]
-      },
-      "Gravel Monkey": {
-        "Talents": [
-          "Forging",
-          "Founding",
-          "Laying",
-          "Materialogy",
-          "Destructuring",
-          "Planning",
-          "Safety",
-          "Maintenance"
-        ],
-        "Classes": [
-          "Draper",
-          "Constructor",
-          "Infrastructuralist",
-          "Rebaron"
-        ]
-      },
-      "Engineering": {
-        "Grime Lord": {
-          "Talents": [
-            "Transport",
-            "Industrial",
-            "Aeronautics",
-            "Naval",
-            "Military",
-            "Cybernetics",
-            "Orbital"
-          ],
-          "Classes": [
-            "Repairman",
-            "Ratchet",
-            "Fabricator",
-            "Architect"
-          ]
-        }
-      },
-      "Electronics": {
-        "Tech Bro": {
-          "Talents": [
-            "Boards",
-            "Processing",
-            "Mechanics",
-            "Architecture"
-          ],
-          "Classes": [
-            "Tech Support",
-            "Wizard",
-            "Architect",
-            "Guru"
-          ]
-        }
-      }
+    "Riding": {
+      "Talents": [
+        "Animal Bonding",
+        "Combat Training",
+        "Speed Management",
+        "Recovery",
+        "Handling",
+        "Caretaking",
+        "Control",
+        "Bonding"
+      ],
+      "Classes": [
+        "Stablehand",
+        "Rider",
+        "Cavalier",
+        "Beastmaster",
+        "Whisperer"
+      ]
+    }
+  },
+  "Negotiation": {
+    "Fixer": {
+      "Talents": [
+        "Streetwise",
+        "Leverage",
+        "Networking",
+        "Social Engineering",
+        "High-Stakes Play"
+      ],
+      "Classes": [
+        "Goon",
+        "Cred",
+        "Sought",
+        "Top"
+      ]
     },
-    "Logistics": {
-      "Dead Drop": {
-        "Talents": [
-          "Planning",
-          "Coordination",
-          "Supply",
-          "Distribution"
-        ],
-        "Classes": [
-          "Porter",
-          "Coordinator",
-          "Quartermaster",
-          "Strategist"
-        ]
-      }
+    "Presence": {
+      "Talents": [
+        "Charisma",
+        "Confidence",
+        "Commanding Aura",
+        "Speechcraft",
+        "Seduction",
+        "Market Analysis"
+      ],
+      "Classes": [
+        "Nobody",
+        "Face",
+        "Persuader",
+        "Kingmaker"
+      ]
+    },
+    "Judgment": {
+      "Talents": [
+        "Intuition",
+        "Evaluation",
+        "Social Reading",
+        "Verdict"
+      ],
+      "Classes": [
+        "Observer",
+        "Arbitrator",
+        "Inquisitor",
+        "Judge"
+      ]
+    },
+    "Style": {
+      "Talents": [
+        "Wardrobe Coordination",
+        "Image Management",
+        "Trend Analysis",
+        "Personal Branding"
+      ],
+      "Classes": [
+        "Nobody",
+        "Fashionista",
+        "Icon",
+        "Trendsetter"
+      ]
+    },
+    "Chat": {
+      "Talents": [
+        "Small Talk",
+        "Storytelling",
+        "Improvisation",
+        "Adaptation"
+      ],
+      "Classes": [
+        "Listener",
+        "Conversationalist",
+        "Storyteller",
+        "Social Maven"
+      ]
+    },
+    "Forgery": {
+      "Talents": [
+        "Identification",
+        "Counterfeiting",
+        "Digital Replication",
+        "Authentication Bypass"
+      ],
+      "Classes": [
+        "Dabbler",
+        "Forger",
+        "Master Counterfeiter",
+        "Ghostwriter"
+      ]
+    },
+    "Docent": {
+      "Talents": [
+        "Language",
+        "Academics",
+        "Research",
+        "Economy",
+        "Management",
+        "Propaganda"
+      ],
+      "Classes": [
+        "Tutor",
+        "Lecturer",
+        "Scholar",
+        "Think Tank"
+      ]
+    }
+  },
+  "Combat": {
+    "Smoke": {
+      "Talents": [
+        "Sure Shot",
+        "Hip Shot",
+        "Barrel Anxiety",
+        "Trick Shot"
+      ],
+      "Classes": [
+        "Plinker",
+        "Marksman",
+        "Gunslinger",
+        "Deadeye"
+      ]
+    },
+    "CQC": {
+      "Talents": [
+        "Striking",
+        "Grappling",
+        "Disarming",
+        "Takedowns",
+        "Combat Flow"
+      ],
+      "Classes": [
+        "Brawler",
+        "Scrapper",
+        "Operator",
+        "Phantom"
+      ]
+    },
+    "Bodybuilding": {
+      "Talents": [
+        "Nutrition",
+        "Recovery",
+        "Endurance",
+        "Strength"
+      ],
+      "Classes": [
+        "Gym Rat",
+        "Powerlifter",
+        "Titan",
+        "Juggernaut"
+      ]
+    },
+    "Melee": {
+      "Talents": [
+        "Slashing",
+        "Stabbing",
+        "Smashing",
+        "Evasion",
+        "Parry",
+        "Combat"
+      ],
+      "Classes": [
+        "Duelist",
+        "Warrior",
+        "Blademaster",
+        "Warlord"
+      ]
+    },
+    "Martial Arts": {
+      "Talents": [
+        "Striking",
+        "Weapon Training",
+        "Evasion",
+        "Parry",
+        "Combat"
+      ],
+      "Classes": [
+        "Disciple",
+        "Fighter",
+        "Master",
+        "Grandmaster"
+      ]
+    },
+    "Assault": {
+      "Talents": [
+        "Combat",
+        "Breaching",
+        "Coordination",
+        "Strategy"
+      ],
+      "Classes": [
+        "Recruit",
+        "Shock Trooper",
+        "Commander",
+        "Warlord"
+      ]
+    }
+  },
+  "Tactics": {
+    "Investigation": {
+      "Talents": [
+        "Assessment",
+        "Cognition",
+        "Subtext",
+        "Lip Reading",
+        "Body Language",
+        "Pattern Recognition"
+      ],
+      "Classes": [
+        "Sleuth",
+        "Analyst",
+        "Profiler",
+        "Shadow"
+      ]
+    },
+    "Cryptography": {
+      "Talents": [
+        "Algorithms",
+        "Decryption",
+        "Implementation",
+        "Obfuscation"
+      ],
+      "Classes": [
+        "Code Monkey",
+        "Cryptanalyst",
+        "Ciphermaster",
+        "Ghost"
+      ]
+    },
+    "Law": {
+      "Talents": [
+        "Knowledge",
+        "Argument",
+        "Research",
+        "Counseling",
+        "Advocacy"
+      ],
+      "Classes": [
+        "Clerk",
+        "Litigator",
+        "Prosecutor",
+        "Magistrate"
+      ]
+    },
+    "Combat Engineering": {
+      "Talents": [
+        "Ballistics",
+        "Armor Systems",
+        "Weapon Tuning",
+        "Advanced Warfare Gear"
+      ],
+      "Classes": [
+        "Technician",
+        "Engineer",
+        "Designer",
+        "Warlord's Armorer"
+      ]
+    },
+    "Demolitions": {
+      "Talents": [
+        "Charge Placement",
+        "Blast Calculations",
+        "Defusal",
+        "Structural Demolition"
+      ],
+      "Classes": [
+        "Saboteur",
+        "Explosives Expert",
+        "Demolitions Chief",
+        "Shockwave"
+      ]
+    },
+    "Forensics": {
+      "Talents": [
+        "DNA Analysis",
+        "Crime Reconstruction",
+        "Toxicology",
+        "Pathology"
+      ],
+      "Classes": [
+        "Lab Tech",
+        "Investigator",
+        "Analyst",
+        "Truthseeker"
+      ]
+    }
+  },
+  "Medtech": {
+    "Paramedic": {
+      "Talents": [
+        "First Aid",
+        "Triage",
+        "Trauma Recovery",
+        "Field Surgery"
+      ],
+      "Classes": [
+        "Medic",
+        "EMT",
+        "Combat Medic",
+        "Lifeline"
+      ]
+    },
+    "Pharma": {
+      "Talents": [
+        "Dosage Control",
+        "Performance Enhancements",
+        "Synthesis",
+        "Addiction Management"
+      ],
+      "Classes": [
+        "Dispenser",
+        "Pharmacist",
+        "Chemist",
+        "Alchemist"
+      ]
+    },
+    "Firefighting": {
+      "Talents": [
+        "Fire Suppression",
+        "Structural Integrity",
+        "Rescue Operations",
+        "Chemical Safety"
+      ],
+      "Classes": [
+        "Recruit",
+        "Firefighter",
+        "Rescue Specialist",
+        "Inferno Tamer"
+      ]
+    },
+    "Psychology": {
+      "Talents": [
+        "Counseling",
+        "Manipulation",
+        "Therapy",
+        "Trauma Management"
+      ],
+      "Classes": [
+        "Listener",
+        "Therapist",
+        "Analyst",
+        "Mindbreaker"
+      ]
+    },
+    "Biotech": {
+      "Talents": [
+        "Gene Therapy",
+        "Regenerative Medicine",
+        "Cybernetic Integration",
+        "Experimental Biology"
+      ],
+      "Classes": [
+        "Lab Assistant",
+        "Biotechnician",
+        "Geneticist",
+        "Splicer"
+      ]
+    },
+    "Nanotech": {
+      "Talents": [
+        "Nanomaterials",
+        "Cybernetic Interface",
+        "Medical Applications",
+        "AI Integration"
+      ],
+      "Classes": [
+        "Researcher",
+        "Developer",
+        "Nanomancer",
+        "Architect"
+      ]
+    },
+    "Cybertech": {
+      "Talents": [
+        "Cybernetic Design",
+        "Implantation",
+        "AI Sync",
+        "Neural Overclocking"
+      ],
+      "Classes": [
+        "Technician",
+        "Engineer",
+        "Cyberdoc",
+        "Godmind"
+      ]
+    }
+  },
+  "Game Theory": {
+    "Management": {
+      "Talents": [
+        "Logistics",
+        "Scheduling",
+        "Risk Assessment",
+        "Efficiency Maximization"
+      ],
+      "Classes": [
+        "Intern",
+        "Supervisor",
+        "Director",
+        "Mastermind"
+      ]
+    },
+    "Dead Drop": {
+      "Talents": [
+        "Planning",
+        "Coordination",
+        "Supply",
+        "Distribution"
+      ],
+      "Classes": [
+        "Porter",
+        "Coordinator",
+        "Quartermaster",
+        "Strategist"
+      ]
+    },
+    "Aesthetic Ghoul": {
+      "Talents": [
+        "Acting",
+        "Writing",
+        "Music",
+        "Visual Art",
+        "Dance",
+        "Stylist"
+      ],
+      "Classes": [
+        "Busker",
+        "Talent",
+        "Headliner",
+        "Icon"
+      ]
+    },
+    "Gambling": {
+      "Talents": [
+        "Bluffing",
+        "Card Counting",
+        "Luck Bending",
+        "High-Stakes Play"
+      ],
+      "Classes": [
+        "Hustler",
+        "Card Shark",
+        "Gambler",
+        "Fate Dealer"
+      ]
+    },
+    "Economy": {
+      "Talents": [
+        "Investment",
+        "Speculation",
+        "Insider Trading",
+        "Corporate Takeovers"
+      ],
+      "Classes": [
+        "Trader",
+        "Investor",
+        "Tycoon",
+        "Kingpin"
+      ]
+    }
+  },
+  "Essential Skills": {
+    "Conditioning": {
+      "Talents": [
+        "Endurance",
+        "Pain Tolerance",
+        "Environmental Resistance",
+        "Recovery"
+      ],
+      "Classes": [
+        "Survivor",
+        "Endurer",
+        "Ironbody",
+        "Unbreakable"
+      ]
+    },
+    "Tracking": {
+      "Talents": [
+        "Footprints",
+        "Scent Identification",
+        "Pattern Analysis",
+        "Long-Term Pursuit"
+      ],
+      "Classes": [
+        "Scout",
+        "Tracer",
+        "Bloodhound",
+        "Ghost Hunter"
+      ]
+    },
+    "Stealth": {
+      "Talents": [
+        "Silent Movement",
+        "Camouflage",
+        "Cover Utilization",
+        "Escape Techniques"
+      ],
+      "Classes": [
+        "Lurker",
+        "Shadow",
+        "Phantom",
+        "Wraith"
+      ]
+    },
+    "Brick": {
+      "Talents": [
+        "Biking",
+        "Kayaking",
+        "Diving",
+        "Climbing",
+        "Lifting",
+        "Acrobatics",
+        "Gymnastics",
+        "Swimming",
+        "Running"
+      ],
+      "Classes": [
+        "School Athlete",
+        "Grinder",
+        "Champion",
+        "Olympic"
+      ]
+    }
+  },
+  "Industrial & Craftsmanship": {
+    "Paveman": {
+      "Talents": [
+        "Lithology",
+        "Architecture",
+        "Engineering",
+        "Siege",
+        "Monumental",
+        "Masterwork",
+        "Artisanal"
+      ],
+      "Classes": [
+        "Handyman",
+        "Mason",
+        "Industrialist",
+        "Ruiner"
+      ]
+    },
+    "Gravel Monkey": {
+      "Talents": [
+        "Forging",
+        "Founding",
+        "Laying",
+        "Materialogy",
+        "Destructuring",
+        "Planning",
+        "Safety",
+        "Maintenance"
+      ],
+      "Classes": [
+        "Draper",
+        "Constructor",
+        "Infrastructuralist",
+        "Rebaron"
+      ]
+    },
+    "Grime Lord": {
+      "Talents": [
+        "Transport",
+        "Industrial",
+        "Aeronautics",
+        "Naval",
+        "Military",
+        "Cybernetics",
+        "Orbital"
+      ],
+      "Classes": [
+        "Repairman",
+        "Ratchet",
+        "Fabricator",
+        "Architect"
+      ]
+    },
+    "Tech Bro": {
+      "Talents": [
+        "Boards",
+        "Processing",
+        "Mechanics",
+        "Architecture"
+      ],
+      "Classes": [
+        "Tech Support",
+        "Wizard",
+        "Architect",
+        "Guru"
+      ]
+    },
+    "Blacksmith": {
+      "Talents": [
+        "Armory",
+        "Mineralogy",
+        "Alloys",
+        "Refining",
+        "Casting",
+        "Batching",
+        "Artisanal",
+        "Masterwork",
+        "Improv"
+      ],
+      "Classes": [
+        "Smith",
+        "Forgemaster",
+        "Weaponsmith",
+        "Artificer"
+      ]
     },
     "Artisan": {
-      "Blacksmith": {
-        "Talents": [
-          "Armory",
-          "Mineralogy",
-          "Alloys",
-          "Refining",
-          "Casting",
-          "Batching",
-          "Artisanal",
-          "Masterwork",
-          "Improv"
-        ],
-        "Classes": [
-          "Smith",
-          "Forgemaster",
-          "Weaponsmith",
-          "Artificer"
-        ]
-      },
-      "Artisan": {
-        "Talents": [
-          "Forging",
-          "Founding",
-          "Carving",
-          "Sculpting",
-          "Ceramics",
-          "Knitting"
-        ],
-        "Classes": [
-          "Apprentice",
-          "Journeyman",
-          "Master",
-          "Visionary"
-        ]
-      }
-    },
-    "Cultural": {
-      "Aesthetic Ghoul": {
-        "Talents": [
-          "Acting",
-          "Writing",
-          "Music",
-          "Visual Art",
-          "Dance",
-          "Stylist"
-        ],
-        "Classes": [
-          "Busker",
-          "Talent",
-          "Headliner",
-          "Icon"
-        ]
-      },
-      "Docent": {
-        "Talents": [
-          "Language",
-          "Academics",
-          "Research",
-          "Economy",
-          "Management",
-          "Propaganda"
-        ],
-        "Classes": [
-          "Tutor",
-          "Lecturer",
-          "Scholar",
-          "Think Tank"
-        ]
-      }
-    },
-    "Athletics": {
-      "Brick": {
-        "Talents": [
-          "Biking",
-          "Kayaking",
-          "Diving",
-          "Climbing",
-          "Lifting",
-          "Acrobatics",
-          "Gymnastics",
-          "Swimming",
-          "Running"
-        ],
-        "Classes": [
-          "School Athlete",
-          "Grinder",
-          "Champion",
-          "Olympic"
-        ]
-      }
+      "Talents": [
+        "Forging",
+        "Founding",
+        "Carving",
+        "Sculpting",
+        "Ceramics",
+        "Knitting"
+      ],
+      "Classes": [
+        "Apprentice",
+        "Journeyman",
+        "Master",
+        "Visionary"
+      ]
     }
   }
 }

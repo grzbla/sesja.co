@@ -1,84 +1,95 @@
 {
-    "weapons": [
+    "Archaic Projectile Weapons": [
         {
-            "Weapon": "English Longbow",
-            "Base PEN": 8,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -10,
-                "Long": -30,
-                "Extreme": -50
-            }
+            "Weapon": "Sling",
+            "Base PEN": "6",
+            "PEN Dip": {"Point Blank": 0, "Effective": -10, "Long": -40, "Extreme": -70},
+            "Meters per Dip": {"Effective": "Up to 100m", "Long": "100-150m", "Extreme": "150-200m"},
+            "Description": "Stone projectiles with irregular trajectory, used for hunting and warfare."
         },
         {
-            "Weapon": "Composite Bow",
-            "Base PEN": 10,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -5,
-                "Long": -25,
-                "Extreme": -45
-            }
+            "Weapon": "Atlatl (Spear Thrower)",
+            "Base PEN": "7+T",
+            "PEN Dip": {"Point Blank": 0, "Effective": -5, "Long": -30, "Extreme": -60},
+            "Meters per Dip": {"Effective": "Up to 30m", "Long": "30-50m", "Extreme": "50-70m"},
+            "Description": "Increases the velocity and range of spears, used for hunting and battle."
         },
         {
-            "Weapon": "Recurve Bow",
-            "Base PEN": 9,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -10,
-                "Long": -30,
-                "Extreme": -50
-            }
+            "Weapon": "Javelin",
+            "Base PEN": "9+T",
+            "PEN Dip": {"Point Blank": 0, "Effective": -5, "Long": -30, "Extreme": -60},
+            "Meters per Dip": {"Effective": "Up to 25m", "Long": "25-50m", "Extreme": "50-70m"},
+            "Description": "Lightweight spear used for throwing, effective in battle and hunting."
         },
         {
-            "Weapon": "Japanese Yumi",
-            "Base PEN": 10,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -5,
-                "Long": -20,
-                "Extreme": -40
-            }
+            "Weapon": "Pilum",
+            "Base PEN": "11+T",
+            "PEN Dip": {"Point Blank": 0, "Effective": -5, "Long": -25, "Extreme": -55},
+            "Meters per Dip": {"Effective": "Up to 10m", "Long": "10-20m", "Extreme": "20-30m"},
+            "Description": "Roman throwing spear designed to penetrate enemy shields and armor."
         },
         {
-            "Weapon": "Crossbow (Medieval)",
-            "Base PEN": 12,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -5,
-                "Long": -20,
-                "Extreme": -40
-            }
+            "Weapon": "Chakram",
+            "Base PEN": "8",
+            "PEN Dip": {"Point Blank": 0, "Effective": -10, "Long": -40, "Extreme": -80},
+            "Meters per Dip": {"Effective": "Up to 15m", "Long": "15-30m", "Extreme": "30-50m"},
+            "Description": "Circular blade thrown with high velocity, used for cutting and distraction."
         },
         {
-            "Weapon": "Arbalest (Heavy Crossbow)",
-            "Base PEN": 14,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -5,
-                "Long": -15,
-                "Extreme": -30
-            }
+            "Weapon": "Boomerang",
+            "Base PEN": "6",
+            "PEN Dip": {"Point Blank": 0, "Effective": -15, "Long": -40, "Extreme": -75},
+            "Meters per Dip": {"Effective": "Up to 25m", "Long": "25-50m", "Extreme": "50-80m"},
+            "Description": "Used for hunting, it returns to the thrower, with limited penetration effect."
         },
         {
-            "Weapon": "Repeating Crossbow (Chu-Ko-Nu)",
-            "Base PEN": 6,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -15,
-                "Long": -40,
-                "Extreme": -70
-            }
+            "Weapon": "Bolas",
+            "Base PEN": "5",
+            "PEN Dip": {"Point Blank": 0, "Effective": -20, "Long": -50, "Extreme": -80},
+            "Meters per Dip": {"Effective": "Up to 15m", "Long": "15-30m", "Extreme": "30-50m"},
+            "Description": "A set of weights on cords used to entangle targets, primarily non-lethal."
         },
         {
-            "Weapon": "Ballista (Small Siege Weapon)",
-            "Base PEN": 30,
-            "PEN Dip": {
-                "Close": 0,
-                "Effective": -5,
-                "Long": -10,
-                "Extreme": -20
-            }
+            "Weapon": "Francisca (Throwing Axe)",
+            "Base PEN": "12",
+            "PEN Dip": {"Point Blank": 0, "Effective": -10, "Long": -40, "Extreme": -75},
+            "Meters per Dip": {"Effective": "Up to 20m", "Long": "20-40m", "Extreme": "40-60m"},
+            "Description": "Heavy throwing axe used by the Franks and Vikings, capable of penetrating shields."
+        },
+        {
+            "Weapon": "Rungu (Throwing Club)",
+            "Base PEN": "7",
+            "PEN Dip": {"Point Blank": 0, "Effective": -15, "Long": -50, "Extreme": -85},
+            "Meters per Dip": {"Effective": "Up to 10m", "Long": "10-25m", "Extreme": "25-40m"},
+            "Description": "Used by African warriors, designed to break bones and disable opponents."
+        },
+        {
+            "Weapon": "Hunga Munga",
+            "Base PEN": "6+T",
+            "PEN Dip": {"Point Blank": 0, "Effective": -10, "Long": -35, "Extreme": -70},
+            "Meters per Dip": {"Effective": "Up to 20m", "Long": "20-40m", "Extreme": "40-60m"},
+            "Description": "A multi-bladed weapon, effective at short to medium range for cutting and striking."
+        },
+        {
+            "Weapon": "Shuriken",
+            "Base PEN": "2",
+            "PEN Dip": {"Point Blank": 0, "Effective": -20, "Long": -60, "Extreme": -90},
+            "Meters per Dip": {"Effective": "Up to 10m", "Long": "10-20m", "Extreme": "20-40m"},
+            "Description": "Small throwing blades, typically used as distractions or for causing light wounds."
+        },
+        {
+            "Weapon": "Kunai",
+            "Base PEN": "5",
+            "PEN Dip": {"Point Blank": 0, "Effective": -15, "Long": -50, "Extreme": -80},
+            "Meters per Dip": {"Effective": "Up to 10m", "Long": "10-25m", "Extreme": "25-40m"},
+            "Description": "Multi-purpose tool used as a throwing weapon by ninjas, also used in close combat."
+        },
+        {
+            "Weapon": "Dart Frog Blowgun",
+            "Base PEN": "0",
+            "PEN Dip": {"Point Blank": 0, "Effective": -30, "Long": -80, "Extreme": -100},
+            "Meters per Dip": {"Effective": "Up to 10m", "Long": "10-20m", "Extreme": "20-30m"},
+            "Description": "Non-penetrative weapon used to deliver poison, causing paralysis or death."
         }
     ]
 }
