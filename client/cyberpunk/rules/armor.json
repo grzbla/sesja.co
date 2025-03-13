@@ -1,0 +1,17 @@
+{
+    "armor": [
+        {"name": "Kevlar Vest (NIJ Level II)", "DIS": 6},
+        {"name": "Kevlar Vest (NIJ Level IIIA)", "DIS": 8},
+        {"name": "Ballistic Plate (NIJ Level III)", "DIS": 10},
+        {"name": "Ceramic Plate (NIJ Level IV)", "DIS": 12},
+        {"name": "Ballistic Shield (NIJ Level III+)", "DIS": 15},
+        {"name": "Military Body Armor (Composite + Soft Layer)", "DIS": 18},
+        {"name": "Heavy Riot Armor (Soft Shell + Trauma Plates)", "DIS": 20},
+        {"name": "Exoskeletal Shell (Bio-Ceramic or Titanium)", "DIS": 25},
+        {"name": "Titan-Class Power Armor", "DIS": 35},
+        {"name": "Tank Armor (RHA, Composite)", "DIS": 50},
+        {"name": "Bunker Wall (Reinforced Concrete)", "DIS": 60},
+        {"name": "Advanced Military Composite (Reactive, Adaptive)", "DIS": 80}
+    ]
+}
+

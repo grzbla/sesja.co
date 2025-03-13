@@ -1,0 +1,125 @@
+{
+    "pistols": [
+        {
+            "name": "Baby Browning / Beretta 950 (.25 ACP)",
+            "PEN": 3,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 10, "PEN dip": "-12%"},
+                {"name": "Medium", "range_meters": 25, "PEN dip": "-24%"},
+                {"name": "Long", "range_meters": 50, "PEN dip": "-44%"}
+            ]
+        },
+        {
+            "name": "Ruger Mark IV / Walther P22 (.22 LR Pistol)",
+            "PEN": 4,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 15, "PEN dip": "-12%"},
+                {"name": "Medium", "range_meters": 30, "PEN dip": "-24%"},
+                {"name": "Long", "range_meters": 60, "PEN dip": "-44%"}
+            ]
+        },
+        {
+            "name": "Walther PP / Kel-Tec P32 (.32 ACP)",
+            "PEN": 5,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 20, "PEN dip": "-13%"},
+                {"name": "Medium", "range_meters": 40, "PEN dip": "-25%"},
+                {"name": "Long", "range_meters": 75, "PEN dip": "-45%"}
+            ]
+        },
+        {
+            "name": "Glock 42 / Sig P238 (.380 ACP)",
+            "PEN": 6,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 25, "PEN dip": "-14%"},
+                {"name": "Medium", "range_meters": 50, "PEN dip": "-27%"},
+                {"name": "Long", "range_meters": 90, "PEN dip": "-46%"}
+            ]
+        },
+        {
+            "name": "Glock 17 / MP5 / Beretta 92FS (9mm FMJ)",
+            "PEN": 7,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 30, "PEN dip": "-14%"},
+                {"name": "Medium", "range_meters": 70, "PEN dip": "-27%"},
+                {"name": "Long", "range_meters": 120, "PEN dip": "-46%"}
+            ]
+        },
+        {
+            "name": "Sig P229 / Glock 31 (.357 SIG)",
+            "PEN": 8,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 35, "PEN dip": "-15%"},
+                {"name": "Medium", "range_meters": 80, "PEN dip": "-28%"},
+                {"name": "Long", "range_meters": 140, "PEN dip": "-48%"}
+            ]
+        },
+        {
+            "name": "Colt 1911 / Glock 21 (.45 ACP FMJ)",
+            "PEN": 9,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 25, "PEN dip": "-16%"},
+                {"name": "Medium", "range_meters": 60, "PEN dip": "-29%"},
+                {"name": "Long", "range_meters": 110, "PEN dip": "-49%"}
+            ]
+        },
+        {
+            "name": "Glock 20 / Colt Delta Elite (10mm Auto)",
+            "PEN": 10,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 40, "PEN dip": "-17%"},
+                {"name": "Medium", "range_meters": 90, "PEN dip": "-30%"},
+                {"name": "Long", "range_meters": 150, "PEN dip": "-50%"}
+            ]
+        },
+        {
+            "name": "S&W Model 686 / Ruger GP100 (.357 Magnum)",
+            "PEN": 11,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 50, "PEN dip": "-18%"},
+                {"name": "Medium", "range_meters": 100, "PEN dip": "-31%"},
+                {"name": "Long", "range_meters": 175, "PEN dip": "-52%"}
+            ]
+        },
+        {
+            "name": "Desert Eagle / S&W Model 29 (.44 Magnum)",
+            "PEN": 13,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 60, "PEN dip": "-20%"},
+                {"name": "Medium", "range_meters": 120, "PEN dip": "-34%"},
+                {"name": "Long", "range_meters": 200, "PEN dip": "-54%"}
+            ]
+        },
+        {
+            "name": "Desert Eagle .50 / LAR Grizzly (.50 AE)",
+            "PEN": 14,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 65, "PEN dip": "-21%"},
+                {"name": "Medium", "range_meters": 130, "PEN dip": "-36%"},
+                {"name": "Long", "range_meters": 225, "PEN dip": "-56%"}
+            ]
+        },
+        {
+            "name": "S&W 500 Revolver (.500 S&W Magnum)",
+            "PEN": 16,
+            "ranges": [
+                {"name": "Point Blank", "range_meters": 0, "PEN dip": "-0%"},
+                {"name": "Effective", "range_meters": 75, "PEN dip": "-22%"},
+                {"name": "Medium", "range_meters": 150, "PEN dip": "-38%"},
+                {"name": "Long", "range_meters": 250, "PEN dip": "-58%"}
+            ]
+        }
+    ]
+}
+
