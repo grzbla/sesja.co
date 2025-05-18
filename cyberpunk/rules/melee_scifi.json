@@ -1,0 +1,101 @@
+{
+  "Sci-Fi Cyberpunk Melee Weapons": [
+    {
+      "Weapon": "Energy Sword",
+      "Base PEN": "45",
+      "Damage": "50",
+      "Reach": "1.5m",
+      "Weight": "2kg",
+      "Description": "A blade of pure energy capable of slicing through most materials with ease, commonly used by cybernetic warriors and assassins in futuristic settings."
+    },
+    {
+      "Weapon": "Vibroblade",
+      "Base PEN": "35",
+      "Damage": "40",
+      "Reach": "1m",
+      "Weight": "1.5kg",
+      "Description": "A melee weapon that vibrates at a high frequency to enhance cutting power. It is effective in close-quarters combat and is favored by stealth operatives."
+    },
+    {
+      "Weapon": "Plasma Whip",
+      "Base PEN": "30",
+      "Damage": "45",
+      "Reach": "4m",
+      "Weight": "2.5kg",
+      "Description": "A whip made of plasma energy, capable of slashing and ensnaring targets from a distance. Common in cyberpunk duels and executions."
+    },
+    {
+      "Weapon": "Monomolecular Knife",
+      "Base PEN": "50",
+      "Damage": "60",
+      "Reach": "0.5m",
+      "Weight": "0.3kg",
+      "Description": "A knife with a monomolecular edge that can cut through almost any material, used by assassins, spies, and elite agents in cyberpunk dystopias."
+    },
+    {
+      "Weapon": "Power Fist",
+      "Base PEN": "30+T",
+      "Damage": "70",
+      "Reach": "N/A",
+      "Weight": "6kg",
+      "Description": "A cybernetic-enhanced gauntlet that significantly amplifies the user's punch force. Used for overwhelming opponents in brutal hand-to-hand combat."
+    },
+    {
+      "Weapon": "Pulse Hammer",
+      "Base PEN": "40",
+      "Damage": "80",
+      "Reach": "1m",
+      "Weight": "4.5kg",
+      "Description": "A high-tech hammer that releases pulses of energy on impact, capable of breaking through armored vehicles and heavy barriers."
+    },
+    {
+      "Weapon": "Electro-Blade",
+      "Base PEN": "38",
+      "Damage": "45",
+      "Reach": "1.2m",
+      "Weight": "2kg",
+      "Description": "A blade with an electric edge capable of delivering powerful shocks upon contact, disrupting cybernetic augmentations and causing severe burns."
+    },
+    {
+      "Weapon": "Nano-Edge Katana",
+      "Base PEN": "45",
+      "Damage": "60",
+      "Reach": "1.5m",
+      "Weight": "1.2kg",
+      "Description": "A sleek katana with a nano-tech edge, offering unparalleled sharpness and effectiveness in cutting through armored and unarmored targets alike."
+    },
+    {
+      "Weapon": "Taser Baton",
+      "Base PEN": "12",
+      "Damage": "25 (Electric)",
+      "Reach": "1m",
+      "Weight": "1kg",
+      "Description": "A baton capable of delivering debilitating electric shocks, designed for law enforcement or non-lethal combat situations in cyberpunk dystopias."
+    },
+    {
+      "Weapon": "Pulse Gauntlet",
+      "Base PEN": "35",
+      "Damage": "50",
+      "Reach": "N/A",
+      "Weight": "3kg",
+      "Description": "A cybernetic arm gauntlet that emits powerful pulses of concussive energy, ideal for disarming or stunning opponents in close-range combat."
+    },
+    {
+      "Weapon": "Holo-Staff",
+      "Base PEN": "25",
+      "Damage": "35",
+      "Reach": "2m",
+      "Weight": "2.3kg",
+      "Description": "A staff equipped with holographic technology, allowing the wielder to create temporary illusions or light-based barriers for both combat and defense."
+    },
+    {
+      "Weapon": "Graviton Blade",
+      "Base PEN": "42",
+      "Damage": "55",
+      "Reach": "1.2m",
+      "Weight": "1.8kg",
+      "Description": "A high-tech sword that manipulates gravity, allowing it to strike with enhanced force or cut through dense materials by increasing the blade's gravitational pull."
+    }
+  ]
+}
+

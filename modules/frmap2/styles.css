@@ -1,0 +1,1906 @@
+/* Fantasy Modern Blend Theme */
+:root {
+    --fantasy-primary: #3A2E39;      /* Deep plum - primary background */
+    --fantasy-secondary: #5E4C5A;    /* Muted purple - secondary background */
+    --fantasy-accent: #8D7B88;       /* Dusty lavender - accents */
+    --fantasy-highlight: #C1A5A9;    /* Muted rose - highlights */
+    
+    --modern-primary: #2A3B4C;       /* Deep navy - modern primary */
+    --modern-secondary: #4A6680;     /* Steel blue - modern secondary */
+    --modern-accent: #94B0C2;        /* Light steel blue - modern accent */
+    --modern-highlight: #E8F1F5;     /* Ice blue - modern highlight */
+    
+    --text-primary: #F5E9E2;         /* Off-white - primary text */
+    --text-secondary: #D8C3BC;       /* Light tan - secondary text */
+    --text-dark: #2C2127;            /* Dark brown - dark text */
+    
+    --gold-accent: #BF9D5E;          /* Antique gold - special accents */
+    --copper-accent: #924C32;        /* Rich copper - line color */
+    
+    --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.3);
+    --shadow-hard: 0 8px 16px rgba(0, 0, 0, 0.4);
+    
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-full: 50%;
+}
+
+/* Base Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Color Picker Popup Styles */
+.color-picker-popup .leaflet-popup-content-wrapper {
+    background: transparent;
+    box-shadow: none;
+}
+
+
+.leaflet-popup.fantasy-popup.leaflet-zoom-animated > .leaflet-popup-tip-container
+{
+    left: -10px !important; 
+    top: 50% !important;
+    rotate: 90deg !important;
+}
+
+.color-picker-popup .leaflet-popup-tip-container {
+    display: none;
+}
+
+.color-picker-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fantasy Popup Styles */
+.fantasy-popup {
+    margin-bottom: 42px;
+}
+
+.fantasy-popup .leaflet-popup-content-wrapper {
+    background: linear-gradient(135deg, var(--fantasy-primary), var(--modern-primary));
+    border: 2px solid var(--gold-accent);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-medium);
+}
+
+.fantasy-popup .leaflet-popup-tip {
+    background: var(--fantasy-primary);
+    border: 1px solid var(--gold-accent);
+    box-shadow: var(--shadow-soft);
+
+}
+
+.fantasy-popup .leaflet-popup-content {
+    color: var(--text-primary);
+    margin: 14px;
+}
+
+/* Editor Button Styles */
+#close-editor-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-full);
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid var(--gold-accent);
+    background: linear-gradient(135deg, var(--modern-secondary), var(--fantasy-secondary));
+    color: var(--text-primary);
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s ease;
+}
+
+#close-editor-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-hard);
+    background: linear-gradient(135deg, var(--fantasy-accent), var(--modern-accent));
+}
+
+.close-editor-btn {
+    text-align: center;
+    position: relative;
+    margin: 10px auto 30px auto;
+}
+
+/* Marker Editor Styles */
+.marker-editor {
+    background: linear-gradient(to bottom, var(--fantasy-primary), var(--modern-primary));
+    border-radius: var(--border-radius-md);
+    color: var(--text-primary);
+}
+
+.marker-editor input[type="text"] {
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+}
+
+.editor-toolbar {
+    background-color: var(--fantasy-secondary);
+    border: 1px solid var(--gold-accent);
+}
+
+.editor-toolbar button {
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    transition: all 0.2s ease;
+}
+
+.editor-toolbar button:hover {
+    background-color: var(--gold-accent);
+    color: var(--text-dark);
+}
+
+.editor-content {
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+}
+
+.image-dropzone {
+    border-color: var(--gold-accent) !important;
+}
+
+.image-dropzone:hover {
+    border-color: var(--copper-accent) !important;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Distance Line Styles */
+.distance-label {
+    background: linear-gradient(to bottom, var(--fantasy-secondary), var(--modern-secondary));
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    padding: 5px 6px;
+    font-size: 19px;
+    line-height: 18px;
+    text-align: center;
+}
+
+/* Placeholder Styles for Contenteditable */
+[contenteditable=true]:empty:before {
+    content: attr(data-placeholder);
+    color: var(--text-secondary);
+    font-style: italic;
+    opacity: 0.7;
+    cursor: text;
+}
+
+/* Drag Highlight States */
+.drag-highlight {
+    box-shadow: inset 0 0 50px rgba(191, 157, 94, 0.5); /* Gold accent with opacity */
+}
+
+.drag-over {
+    border-color: var(--copper-accent) !important;
+    box-shadow: inset 0 0 10px var(--gold-accent);
+}
+
+/* GrapeJS Editor CSS Fixes */
+
+/* Fix for GrapeJS editor styles - ensure proper scoping */
+.gjs-editor {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* Ensure GrapeJS content is properly styled */
+.gjs-editor-cont {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix for GrapeJS canvas and frame */
+.gjs-cv-canvas {
+    background-color: var(--modern-highlight) !important;
+    height: 100% !important;
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    position: absolute !important;
+}
+
+/* Fix editor frame display */
+.gjs-frame-wrapper {
+    background-color: var(--modern-highlight) !important;
+    padding: 20px !important;
+}
+
+.gjs-frame {
+    border: 1px solid var(--gold-accent) !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+    background-color: #FFFFFF !important;
+}
+
+/* Fix UI buttons and controls */
+.gjs-pn-btn {
+    background-color: var(--modern-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    margin: 0 5px !important;
+    padding: 5px 10px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    transition: all 0.2s ease !important;
+}
+
+.gjs-pn-btn:hover {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+}
+
+.gjs-pn-btn.gjs-pn-active {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Fix block styling and functionality */
+.gjs-block {
+    cursor: grab !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    margin: 10px !important;
+    min-height: 80px !important;
+    max-width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: var(--modern-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    box-shadow: var(--shadow-soft) !important;
+}
+
+.gjs-block:active {
+    cursor: grabbing !important;
+}
+
+.gjs-block:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--copper-accent) !important;
+}
+
+/* Fix block label display */
+.gjs-block-label {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 10px !important;
+    font-size: 12px !important;
+}
+
+.gjs-block-label i {
+    font-size: 28px !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+    color: var(--gold-accent) !important;
+}
+
+/* Fix block categories styling */
+.gjs-block-category {
+    margin-bottom: 15px !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    overflow: hidden !important;
+    background-color: var(--fantasy-secondary) !important;
+}
+
+.gjs-block-category.gjs-open {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.gjs-title {
+    background-color: var(--fantasy-primary) !important;
+    color: var(--text-primary) !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--gold-accent) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.gjs-title::before {
+    content: '\f107' !important;
+    font-family: 'FontAwesome' !important;
+    margin-right: 10px !important;
+    transition: transform 0.3s !important;
+}
+
+.gjs-open .gjs-title::before {
+    transform: rotate(180deg) !important;
+}
+
+.gjs-blocks-c {
+    padding: 10px !important;
+    background-color: var(--fantasy-secondary) !important;
+}
+
+/* Fix panel tabs */
+.panel-tabs {
+    display: flex !important;
+    background-color: var(--fantasy-primary) !important;
+    border-bottom: 2px solid var(--gold-accent) !important;
+}
+
+.panel-tab {
+    flex: 1 !important;
+    padding: 10px !important;
+    text-align: center !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+}
+
+.panel-tab.active {
+    background-color: var(--fantasy-secondary) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 2px solid var(--copper-accent) !important;
+}
+
+.panel-tab:hover:not(.active) {
+    background-color: var(--modern-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Fix sidebar panels */
+.sidebar-panel {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    background-color: var(--fantasy-secondary) !important;
+    min-height: 200px !important;
+    display: none !important;
+}
+
+.sidebar-panel.active,
+.panel-tab.active[id="blocks-tab"] ~ #blocks-panel,
+.panel-tab.active[id="styles-tab"] ~ #styles-panel {
+    display: block !important;
+}
+
+/* Fix Typography in Style Manager */
+.gjs-sm-sector-title {
+    background-color: var(--fantasy-primary) !important;
+    color: var(--text-primary) !important;
+    font-weight: bold !important;
+    padding: 12px 15px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-bottom: 1px solid var(--gold-accent) !important;
+}
+
+.gjs-sm-sector-title::after {
+    content: '\f107' !important;
+    font-family: 'FontAwesome' !important;
+    font-size: 16px !important;
+    transition: transform 0.3s !important;
+}
+
+.gjs-sm-sector.gjs-sm-open .gjs-sm-sector-title::after {
+    transform: rotate(180deg) !important;
+}
+
+.gjs-sm-sector {
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    margin-bottom: 15px !important;
+    overflow: hidden !important;
+    transition: box-shadow 0.3s ease !important;
+}
+
+.gjs-sm-properties {
+    padding: 10px 15px !important;
+    background-color: var(--modern-secondary) !important;
+}
+
+.gjs-sm-property {
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--fantasy-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.gjs-sm-label {
+    font-weight: bold !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+    display: block !important;
+}
+
+/* Fix input fields in style manager */
+.gjs-field {
+    background-color: var(--modern-primary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    color: var(--text-primary) !important;
+    min-height: 32px !important;
+    padding: 5px 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    font-size: 14px !important;
+}
+
+.gjs-field input,
+.gjs-field select,
+.gjs-field textarea {
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--text-primary) !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* Fix color picker */
+.gjs-field-color {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.gjs-field-color-picker {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: var(--border-radius-sm) !important;
+    border: 1px solid var(--gold-accent) !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease !important;
+    padding: 0 !important;
+}
+
+/* Fix radio buttons */
+.gjs-sm-property .gjs-radio-items {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+}
+
+.gjs-sm-property .gjs-radio-item {
+    border: 1px solid var(--gold-accent) !important;
+    background-color: var(--modern-primary) !important;
+    color: var(--text-primary) !important;
+    padding: 5px 8px !important;
+    border-radius: var(--border-radius-sm) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    flex: 1 !important;
+    min-width: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.gjs-sm-property .gjs-radio-item.gjs-radio-item-active {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--copper-accent) !important;
+}
+
+/* Fix RTE toolbar */
+.gjs-rte-toolbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 5px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+    margin-bottom: 10px !important;
+    position: absolute !important;
+    z-index: 10 !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+
+.gjs-rte-actionbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+
+.gjs-rte-action {
+    margin: 2px !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-color: var(--modern-primary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--fantasy-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+}
+
+.gjs-rte-action i {
+    font-size: 14px !important;
+}
+
+.gjs-rte-action:hover {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+}
+
+.gjs-rte-active {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Fix editor toolbar */
+.gjs-toolbar {
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 5px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+    margin: 0 !important;
+    position: absolute !important;
+    z-index: 10 !important;
+}
+
+/* Fix component highlighting */
+.gjs-selected {
+    outline: 2px solid var(--gold-accent) !important;
+    box-shadow: 0 0 10px rgba(191, 157, 94, 0.3) !important;
+}
+
+.gjs-hovered {
+    outline: 1px dashed var(--copper-accent) !important;
+}
+
+/* Fix editor sidebar layout */
+.editor-sidebar {
+    width: 280px !important;
+    background-color: var(--fantasy-secondary) !important;
+    border-left: 2px solid var(--gold-accent) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+/* Fix editor area */
+.gjs-editor-area {
+    display: flex !important;
+    height: calc(100% - 43px) !important;
+    overflow: hidden !important;
+}
+
+/* Fix styles panel visibility */
+#styles-panel {
+    padding: 10px !important;
+    background-color: var(--fantasy-secondary) !important;
+    overflow-y: auto !important;
+    height: 100% !important;
+}
+
+/* Fix blocks panel visibility */
+#blocks-panel {
+    padding: 10px !important;
+    background-color: var(--fantasy-secondary) !important;
+    overflow-y: auto !important;
+    height: 100% !important;
+}
+
+/* Fix font family dropdown */
+.gjs-field-select select {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 8px !important;
+    border: none !important;
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    font-size: 14px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23F5E9E2' d='M0 0l4 4 4-4H0z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 10px center !important;
+    cursor: pointer !important;
+}
+
+/* Fix font size input */
+.gjs-field-integer input {
+    text-align: center !important;
+}
+
+/* Ensure padding for all style properties */
+.gjs-sm-property {
+    padding: 10px !important;
+}
+
+/* Fix slider inputs */
+.gjs-field-slider {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.gjs-field-slider input[type=range] {
+    flex: 1 !important;
+    margin-right: 8px !important;
+}
+
+.gjs-field-integer input[type=number] {
+    width: 50px !important;
+}
+
+/* Fix units dropdown */
+.gjs-field-units select {
+    width: 40px !important;
+    padding: 0 !important;
+    text-align: center !important;
+    border-left: 1px solid var(--gold-accent) !important;
+}
+
+/* Fix clearfix for style options */
+.gjs-sm-clear {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 3px 6px !important;
+    font-size: 11px !important;
+    cursor: pointer !important;
+    margin-left: 5px !important;
+}
+
+/* Fix main gjs container */
+#gjs {
+    border: 2px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    background-color: white !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) !important;
+    height: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* Default styles for content when inside editor */
+.gjs-editor h1, .gjs-editor h2, .gjs-editor h3, .gjs-editor h4, .gjs-editor h5, .gjs-editor h6 {
+    color: var(--text-dark) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    margin-bottom: 0.5em !important;
+    margin-top: 0.5em !important;
+}
+
+.gjs-editor p {
+    color: var(--text-dark) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    margin-bottom: 1em !important;
+    margin-top: 0 !important;
+    line-height: 1.5 !important;
+}
+
+/* Fix style panel content */
+.gjs-sm-sector-title, 
+.gjs-sm-property, 
+.gjs-sm-label, 
+.gjs-field, 
+.gjs-sm-clear {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+/* Fix body when editor is open */
+body.editor-open {
+    overflow: hidden !important;
+}
+
+/* Fix for Safari */
+@supports (-webkit-overflow-scrolling: touch) {
+    .gjs-field input, .gjs-field select {
+        font-size: 16px !important;
+    }
+}
+
+/* Editor fullscreen overlay */
+.editor-fullscreen-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: white !important;
+    z-index: 10000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Make sure all styling applies to the frame as well */
+.gjs-frame {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.gjs-frame h1, .gjs-frame h2, .gjs-frame h3, .gjs-frame h4, .gjs-frame h5, .gjs-frame h6 {
+    color: var(--text-dark) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+.gjs-frame p {
+    color: var(--text-dark) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    line-height: 1.5 !important;
+}
+
+/* GrapeJS Editor Custom Styles */
+.editor-fullscreen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background: linear-gradient(to right, var(--fantasy-primary), var(--modern-primary));
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+.close-editor-btn, .save-editor-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.close-editor-btn {
+    background-color: var(--fantasy-secondary);
+    color: var(--text-primary);
+}
+
+.close-editor-btn:hover {
+    background-color: var(--fantasy-accent);
+}
+
+.save-editor-btn {
+    background-color: var(--gold-accent);
+    color: var(--text-dark);
+}
+
+.save-editor-btn:hover {
+    background-color: var(--copper-accent);
+    color: var(--text-primary);
+}
+
+.close-editor-btn svg, .save-editor-btn svg {
+    margin-right: 8px;
+}
+
+/* GrapeJS Custom Panel Styles */
+.gjs-cv-canvas {
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.gjs-pn-panel {
+    position: relative;
+    border-top: 2px solid var(--gold-accent);
+    background-color: var(--fantasy-primary);
+    color: var(--text-primary);
+}
+
+.gjs-pn-views-container {
+    box-shadow: var(--shadow-medium);
+}
+
+.gjs-block {
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    margin: 5px;
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.2s;
+}
+
+.gjs-block:hover {
+    background-color: var(--fantasy-accent);
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+/* Style the editor canvas frame */
+.gjs-frame-wrapper {
+    background-color: var(--modern-highlight);
+    padding: 15px;
+}
+
+/* Custom styles for GrapeJS components */
+#marker-name-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    background-color: white;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+#marker-name-input:focus {
+    outline: none;
+    border-color: var(--copper-accent);
+    box-shadow: 0 0 5px var(--gold-accent);
+}
+
+#marker-img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--gold-accent);
+    box-shadow: var(--shadow-soft);
+}
+
+/* Override GrapeJS default blue highlights with our theme colors */
+.gjs-selected {
+    outline: 2px solid var(--gold-accent) !important;
+}
+
+.gjs-hovered {
+    outline: 1px solid var(--copper-accent) !important;
+}
+
+/* Editor Container Styles */
+.editor-container {
+    display: flex;
+    height: calc(100% - 50px); /* Subtract header height */
+    overflow: hidden;
+}
+
+.metadata-section {
+    width: 300px;
+    background-color: var(--fantasy-secondary);
+    border-right: 2px solid var(--gold-accent);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.metadata-container {
+    max-width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.marker-name-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    background-color: var(--modern-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.marker-name-input:focus {
+    outline: none;
+    border-color: var(--copper-accent);
+    box-shadow: 0 0 5px var(--gold-accent);
+}
+
+.image-container {
+    position: relative;
+    border: 2px solid var(--gold-accent);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.image-container.drag-over {
+    border-color: var(--copper-accent);
+    box-shadow: 0 0 15px var(--gold-accent);
+}
+
+.marker-image {
+    width: 100%;
+    display: block;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.image-upload-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(58, 46, 57, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-drop-message {
+    background-color: var(--modern-primary);
+    color: var(--text-primary);
+    padding: 8px 15px;
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--gold-accent);
+    text-align: center;
+    font-weight: bold;
+}
+
+.image-container:hover .image-upload-overlay {
+    opacity: 1;
+}
+
+.description-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--modern-primary);
+}
+
+.description-header {
+    margin: 0;
+    padding: 15px 20px;
+    background-color: var(--fantasy-primary);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--gold-accent);
+}
+
+.gjs-panels-container {
+    background-color: var(--fantasy-secondary);
+    border-bottom: 2px solid var(--gold-accent);
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#gjs {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.save-close-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    margin-left: auto;
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    background-color: var(--gold-accent);
+    color: var(--text-dark);
+}
+
+.save-close-btn:hover {
+    background-color: var(--copper-accent);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.save-close-btn svg {
+    margin-right: 8px;
+}
+
+/* GrapeJS Editor Additional Styles */
+.gjs-toolbar {
+    background-color: var(--fantasy-secondary);
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+.gjs-toolbar .gjs-toolbar-item {
+    margin-right: 5px;
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.gjs-toolbar .gjs-toolbar-item:hover {
+    background-color: var(--gold-accent);
+    color: var(--text-dark);
+}
+
+.gjs-editor-area {
+    display: flex;
+    height: calc(100% - 43px); /* Subtract toolbar height */
+    overflow: hidden;
+}
+
+.editor-sidebar {
+    width: 280px;
+    background-color: var(--fantasy-secondary);
+    border-left: 2px solid var(--gold-accent);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-tabs {
+    display: flex;
+    background-color: var(--fantasy-primary);
+    border-bottom: 2px solid var(--gold-accent);
+}
+
+.panel-tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.panel-tab.active {
+    background-color: var(--fantasy-secondary);
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--copper-accent);
+}
+
+.panel-tab:hover:not(.active) {
+    background-color: var(--modern-primary);
+    color: var(--text-primary);
+}
+
+.sidebar-panel {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.layers-container {
+    display: none;
+}
+
+.panel-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+}
+
+.panel-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 16px;
+    background-color: var(--copper-accent);
+    margin-right: 8px;
+    border-radius: var(--border-radius-sm);
+}
+
+/* GrapeJS Built-in Component Overrides */
+.gjs-block {
+    background-color: var(--modern-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--gold-accent);
+    margin-bottom: 10px;
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.gjs-block:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--copper-accent);
+}
+
+.gjs-block-label {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    padding: 10px !important;
+}
+
+.gjs-block-label i {
+    font-size: 24px !important;
+    margin-bottom: 8px !important;
+    margin-right: 0 !important;
+}
+
+.gjs-layer {
+    display: flex !important;
+    align-items: center !important;
+    padding: 5px 8px !important;
+    margin-bottom: 2px !important;
+    border-radius: var(--border-radius-sm) !important;
+    overflow: hidden !important;
+    width: calc(100% - 10px) !important;
+    box-sizing: border-box !important;
+}
+
+.gjs-layer-title {
+    flex-grow: 1 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-right: 5px !important;
+    font-size: 12px !important;
+}
+
+.gjs-layer-count {
+    padding: 2px 5px !important;
+    background-color: var(--fantasy-primary) !important;
+    border-radius: 3px !important;
+    font-size: 10px !important;
+    margin-right: 5px !important;
+}
+
+.gjs-layer-vis {
+    margin-right: 5px !important;
+}
+
+.gjs-layer-caret {
+    margin-right: 5px !important;
+}
+
+#layers-panel {
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    padding: 5px !important;
+    background-color: var(--fantasy-secondary) !important;
+    border-radius: var(--border-radius-sm) !important;
+    border: 1px solid var(--gold-accent) !important;
+}
+
+/* Fix styles panel display and activation */
+#styles-panel {
+    height: 100% !important;
+    overflow-y: auto !important;
+    background-color: var(--fantasy-secondary) !important;
+    padding: 10px !important;
+    border-radius: var(--border-radius-sm) !important;
+}
+
+.gjs-sm-sector {
+    margin-bottom: 15px !important;
+    background-color: var(--fantasy-primary) !important;
+    border-radius: var(--border-radius-sm) !important;
+    overflow: hidden !important;
+    border: 1px solid var(--gold-accent) !important;
+}
+
+.gjs-sm-sector-title {
+    background-color: var(--fantasy-primary) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--gold-accent) !important;
+    padding: 10px !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+}
+
+.gjs-sm-sector-title:hover {
+    background-color: var(--modern-primary) !important;
+}
+
+.gjs-sm-properties {
+    padding: 10px !important;
+    background-color: var(--fantasy-secondary) !important;
+}
+
+.gjs-sm-property {
+    margin-bottom: 8px !important;
+    padding: 8px !important;
+    background-color: var(--modern-secondary) !important;
+    border-radius: var(--border-radius-sm) !important;
+    border: 1px solid var(--fantasy-accent) !important;
+}
+
+.gjs-sm-property:hover {
+    border-color: var(--gold-accent) !important;
+}
+
+/* Property labels */
+.gjs-sm-label {
+    color: var(--text-primary) !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    margin-bottom: 5px !important;
+}
+
+/* Field inputs */
+.gjs-field {
+    background-color: var(--modern-primary) !important;
+    border-radius: var(--border-radius-sm) !important;
+    border: 1px solid var(--gold-accent) !important;
+    color: var(--text-primary) !important;
+}
+
+.gjs-field input,
+.gjs-field select,
+.gjs-field textarea {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+}
+
+/* Color picker styles */
+.gjs-field-color {
+    border-radius: var(--border-radius-sm) !important;
+    overflow: hidden !important;
+}
+
+.gjs-field-color-picker {
+    background-color: var(--modern-primary) !important;
+    border: 1px solid var(--gold-accent) !important;
+}
+
+/* Radio style buttons */
+.gjs-sm-property .gjs-radio-item {
+    margin-right: 5px !important;
+    background-color: var(--modern-primary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+}
+
+.gjs-sm-property .gjs-radio-item.gjs-radio-item-active {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+}
+
+/* Additional button styles */
+.gjs-sm-clear {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 3px 5px !important;
+}
+
+.gjs-sm-clear:hover {
+    background-color: var(--fantasy-accent) !important;
+}
+
+/* Make sure active styles tab works properly */
+.panel-tab.active[id="styles-tab"] ~ #styles-panel {
+    display: block !important;
+}
+
+/* Add transition for smoother panel switching */
+#styles-panel, #blocks-panel {
+    transition: all 0.3s ease !important;
+}
+
+/* RTE editor styles for text formatting */
+.gjs-rte-toolbar {
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 5px !important;
+}
+
+.gjs-rte-action {
+    background-color: var(--modern-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--fantasy-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    margin: 0 2px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.gjs-rte-action:hover {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+}
+
+.gjs-rte-action.gjs-rte-active {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Improve block appearance in sidebar */
+.gjs-block-category {
+    margin-bottom: 15px !important;
+    border-radius: var(--border-radius-sm) !important;
+    overflow: hidden !important;
+}
+
+/* Fix styles-panel display issues */
+.sidebar-panel {
+    display: none;
+}
+
+.sidebar-panel:first-of-type, 
+.sidebar-panel.active,
+#blocks-tab.active ~ #blocks-panel,
+#styles-tab.active ~ #styles-panel {
+    display: block !important;
+}
+
+/* Additional styles to improve FontAwesome icons in blocks */
+.fa, .fas, .far, .fab {
+    font-size: inherit !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.gjs-block .fa, 
+.gjs-block .fas, 
+.gjs-block .far, 
+.gjs-block .fab {
+    font-size: 24px !important;
+}
+
+/* Additional GrapeJS editor improvements */
+#gjs {
+    border: 1px solid var(--gold-accent) !important;
+    background-color: var(--modern-highlight) !important;
+}
+
+.gjs-cv-canvas {
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: var(--modern-highlight) !important;
+}
+
+.gjs-frame {
+    background-color: white !important;
+    box-shadow: 0px 0px 5px var(--gold-accent) !important;
+}
+
+/* Style manager improvements */
+.gjs-sm-sector {
+    background-color: var(--fantasy-secondary) !important;
+    border-bottom: 1px solid var(--gold-accent) !important;
+}
+
+.gjs-sm-sector-title {
+    background-color: var(--fantasy-primary) !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--copper-accent) !important;
+    padding: 10px !important;
+    font-weight: bold !important;
+}
+
+.gjs-sm-property {
+    padding: 8px 5px !important;
+    border-bottom: 1px solid var(--fantasy-accent) !important;
+    background-color: transparent !important;
+}
+
+.gjs-sm-label {
+    color: var(--text-primary) !important;
+    font-size: 13px !important;
+}
+
+/* Block manager improvements */
+.gjs-block-category {
+    background-color: var(--fantasy-secondary) !important;
+}
+
+.gjs-block-category.gjs-open {
+    border-bottom: 2px solid var(--copper-accent) !important;
+}
+
+.gjs-category-title {
+    background-color: var(--fantasy-primary) !important;
+    color: var(--text-primary) !important;
+    padding: 8px 10px !important;
+    border-top: 1px solid var(--gold-accent) !important;
+    border-bottom: 1px solid var(--gold-accent) !important;
+    font-weight: bold !important;
+}
+
+/* Layers panel improvements */
+.gjs-layer {
+    background-color: transparent !important;
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--fantasy-accent) !important;
+    transition: all 0.2s ease !important;
+}
+
+.gjs-layer.gjs-selected {
+    background-color: var(--modern-primary) !important;
+    border-left: 3px solid var(--gold-accent) !important;
+}
+
+.gjs-layer.gjs-hovered {
+    background-color: rgba(94, 76, 90, 0.5) !important;
+}
+
+.gjs-layer-name {
+    font-size: 13px !important;
+}
+
+.gjs-layer-vis {
+    color: var(--text-primary) !important;
+}
+
+/* Toolbar button improvements */
+.gjs-pn-btn {
+    background-color: var(--modern-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    margin-right: 5px !important;
+    transition: all 0.2s ease !important;
+}
+
+.gjs-pn-btn:hover {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+}
+
+.gjs-pn-btn.gjs-pn-active {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Nested layers styling */
+.gjs-layer .gjs-layer {
+    margin-left: 10px !important;
+    width: calc(100% - 20px) !important;
+}
+
+.gjs-layer .gjs-layer .gjs-layer {
+    margin-left: 10px !important;
+    width: calc(100% - 30px) !important;
+}
+
+.gjs-layer-children {
+    margin-top: 5px !important;
+    padding-left: 10px !important;
+    border-left: 1px dashed var(--gold-accent) !important;
+}
+
+/* Ensure hover states work well */
+.gjs-layer:hover {
+    background-color: rgba(94, 76, 90, 0.5) !important;
+}
+
+/* Make the components in the layer panel more identifiable */
+.gjs-layer-name {
+    font-size: 12px !important;
+    color: var(--text-primary) !important;
+}
+
+/* Re-add description preview styles that were accidentally removed */
+.description-preview {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+/* Block rendering improvements */
+.gjs-block {
+    cursor: grab !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    margin-bottom: 12px !important;
+    min-height: 80px !important;
+    max-width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.gjs-block:active {
+    cursor: grabbing !important;
+}
+
+.gjs-block:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+    border-color: var(--copper-accent) !important;
+}
+
+.gjs-block-label {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 8px 5px !important;
+}
+
+.gjs-block-label i {
+    font-size: 28px !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+    color: var(--gold-accent) !important;
+}
+
+/* Style categories improvements */
+.gjs-block-category {
+    margin-bottom: 15px !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    overflow: hidden !important;
+}
+
+.gjs-block-category.gjs-open {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.gjs-title {
+    background-color: var(--fantasy-primary) !important;
+    color: var(--text-primary) !important;
+    font-weight: bold !important;
+    padding: 10px !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid var(--gold-accent) !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.gjs-title::before {
+    content: '\f107' !important;
+    font-family: 'FontAwesome' !important;
+    margin-right: 10px !important;
+    transition: transform 0.3s !important;
+}
+
+.gjs-open .gjs-title::before {
+    transform: rotate(180deg) !important;
+}
+
+.gjs-title:hover {
+    background-color: var(--modern-primary) !important;
+}
+
+.gjs-blocks-c {
+    padding: 10px !important;
+    background-color: var(--fantasy-secondary) !important;
+}
+
+/* RTE toolbar improvements */
+.gjs-rte-toolbar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 5px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+    margin-bottom: 10px !important;
+}
+
+.gjs-rte-action {
+    margin: 2px !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-color: var(--modern-primary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--fantasy-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.gjs-rte-action:hover {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+    transform: translateY(-2px) !important;
+}
+
+.gjs-rte-active {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Style manager improvements */
+.gjs-sm-sector {
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    margin-bottom: 15px !important;
+    overflow: hidden !important;
+    transition: box-shadow 0.3s ease !important;
+}
+
+.gjs-sm-sector:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.gjs-sm-sector-title {
+    background-color: var(--fantasy-primary) !important;
+    color: var(--text-primary) !important;
+    font-weight: bold !important;
+    padding: 12px 15px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.gjs-sm-sector-title::after {
+    content: '\f107' !important;
+    font-family: 'FontAwesome' !important;
+    font-size: 16px !important;
+    transition: transform 0.3s !important;
+}
+
+.gjs-sm-sector.gjs-sm-open .gjs-sm-sector-title::after {
+    transform: rotate(180deg) !important;
+}
+
+.gjs-sm-sector-title:hover {
+    background-color: var(--modern-primary) !important;
+}
+
+.gjs-sm-properties {
+    padding: 10px 15px !important;
+    background-color: var(--modern-secondary) !important;
+}
+
+.gjs-sm-property {
+    background-color: var(--fantasy-secondary) !important;
+    border: 1px solid var(--fantasy-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 10px !important;
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.gjs-sm-property:hover {
+    border-color: var(--gold-accent) !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.gjs-sm-label {
+    font-weight: bold !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 8px !important;
+    font-size: 13px !important;
+}
+
+.gjs-field {
+    background-color: var(--modern-primary) !important;
+    border: 1px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    color: var(--text-primary) !important;
+    min-height: 32px !important;
+    padding: 5px 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.gjs-field:focus-within {
+    border-color: var(--copper-accent) !important;
+    box-shadow: 0 0 0 2px rgba(146, 76, 50, 0.3) !important;
+}
+
+.gjs-field input,
+.gjs-field select {
+    color: var(--text-primary) !important;
+    font-size: 14px !important;
+}
+
+/* Color field improvements */
+.gjs-field-color {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.gjs-field-color-picker {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: var(--border-radius-sm) !important;
+    border: 1px solid var(--gold-accent) !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease !important;
+}
+
+.gjs-field-color-picker:hover {
+    transform: scale(1.1) !important;
+    border-color: var(--copper-accent) !important;
+}
+
+/* Radio buttons for text alignment */
+.gjs-sm-property .gjs-radio-items {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+}
+
+.gjs-sm-property .gjs-radio-item {
+    border: 1px solid var(--gold-accent) !important;
+    background-color: var(--modern-primary) !important;
+    color: var(--text-primary) !important;
+    padding: 5px 8px !important;
+    border-radius: var(--border-radius-sm) !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    flex: 1 !important;
+    min-width: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.gjs-sm-property .gjs-radio-item:hover {
+    background-color: var(--fantasy-accent) !important;
+    transform: translateY(-2px) !important;
+}
+
+.gjs-sm-property .gjs-radio-item.gjs-radio-item-active {
+    background-color: var(--gold-accent) !important;
+    color: var(--text-dark) !important;
+    border-color: var(--copper-accent) !important;
+}
+
+/* Clear property button */
+.gjs-sm-clear {
+    background-color: var(--copper-accent) !important;
+    color: var(--text-primary) !important;
+    border: none !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 3px 6px !important;
+    font-size: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.gjs-sm-clear:hover {
+    background-color: var(--fantasy-accent) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Slider improvements */
+.gjs-field-range input {
+    width: 100% !important;
+}
+
+.gjs-field-range-unit {
+    color: var(--text-primary) !important;
+    background-color: var(--copper-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 0 5px !important;
+}
+
+/* Canvas component styling */
+#gjs {
+    border: 2px solid var(--gold-accent) !important;
+    border-radius: var(--border-radius-sm) !important;
+    background-color: white !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Improve canvas component selection */
+.gjs-selected {
+    outline: 2px solid var(--gold-accent) !important;
+    box-shadow: 0 0 8px rgba(191, 157, 94, 0.5) !important;
+}
+
+.gjs-hovered {
+    outline: 1px dashed var(--copper-accent) !important;
+}
+
+/* Improve editor UI responsiveness */
+@media (max-width: 768px) {
+    .editor-container {
+        flex-direction: column;
+    }
+    
+    .metadata-section {
+        width: 100%;
+        max-height: 300px;
+        border-right: none;
+        border-bottom: 2px solid var(--gold-accent);
+    }
+    
+    .editor-sidebar {
+        width: 100%;
+        max-height: 300px;
+    }
+}
+
+/* Fix tab switching visibility - important for style panel functionality */
+.panel-tab.active#styles-tab ~ #styles-panel {
+    display: block !important;
+}
+
+.panel-tab.active#blocks-tab ~ #blocks-panel {
+    display: block !important;
+}
+
+/* Fix positioning of panels */
+.sidebar-panel {
+    padding: 10px !important;
+    position: relative !important;
+}
+
+/* Fix for Safari browser compatibility */
+@supports (-webkit-overflow-scrolling: touch) {
+    .gjs-field input, 
+    .gjs-field select {
+        font-size: 16px !important; /* Prevent auto-zoom on iOS */
+    }
+} 

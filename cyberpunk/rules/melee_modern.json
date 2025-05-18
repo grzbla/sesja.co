@@ -1,0 +1,29 @@
+{
+    "Modern Melee Weapons": [
+        { "Weapon": "Combat Knife", "Base PEN": "9+T", "Description": "Standard issue military knife, designed for close combat." },
+        { "Weapon": "Machete", "Base PEN": "12+T", "Description": "Large knife used for hacking through dense vegetation or combat." },
+        { "Weapon": "Karambit", "Base PEN": "10+T", "Description": "Curved knife known for rapid slashing and defensive techniques." },
+        { "Weapon": "Fairbairn-Sykes Dagger", "Base PEN": "8+T", "Description": "Specialized combat dagger, favored in WW2 and modern tactical applications." },
+        { "Weapon": "Tactical Tomahawk", "Base PEN": "14+T", "Description": "Small axe for versatile combat, useful for both cutting and throwing." },
+        { "Weapon": "Push Dagger", "Base PEN": "8+T", "Description": "A small, concealable blade designed for thrusting in close quarters." },
+        { "Weapon": "Bayonet", "Base PEN": "12", "Description": "Long blade attached to a firearm for close-quarters combat." },
+        { "Weapon": "Trench Knife", "Base PEN": "10", "Description": "Military knife designed for fighting in the trenches during World War I." },
+        { "Weapon": "Bowie Knife", "Base PEN": "12", "Description": "Large hunting knife with a crossguard, used in close combat." },
+        { "Weapon": "Trench Club", "Base PEN": "18", "Description": "Heavy club used in World War I trench warfare." },
+        { "Weapon": "E-tool (Entrenching Tool)", "Base PEN": "15", "Description": "A military spade used as a digging tool, also effective as a melee weapon." },
+        { "Weapon": "Expandable Baton", "Base PEN": "6", "Description": "Collapsible baton used by law enforcement for non-lethal subduing of opponents." },
+        { "Weapon": "Shock Baton", "Base PEN": "5", "Description": "Baton with an electrical charge, used to incapacitate targets." },
+        { "Weapon": "Knuckle Duster", "Base PEN": "8", "Description": "A metal weapon worn over the knuckles, used to deliver powerful punches." },
+        { "Weapon": "Tomahawk", "Base PEN": "16+T", "Description": "Small axe that can be used for throwing, chopping, or as a melee weapon." },
+        { "Weapon": "Ballistic Knife", "Base PEN": "10", "Description": "Knife designed to be fired from a launcher, used by special forces." },
+        { "Weapon": "Tactical Hatchet", "Base PEN": "17+T", "Description": "Small axe used in close-quarters combat and for survival purposes." },
+        { "Weapon": "Riot Baton", "Base PEN": "8", "Description": "Used by law enforcement for crowd control, designed to strike with force." },
+        { "Weapon": "Bladed Tonfa", "Base PEN": "12", "Description": "Tonfa with an attached blade, used for blocking and attacking." },
+        { "Weapon": "Energy Blade", "Base PEN": "40", "Description": "A futuristic blade that uses energy to cut through materials." },
+        { "Weapon": "Vibroblade", "Base PEN": "35", "Description": "Futuristic blade that vibrates at high frequency to enhance its cutting power." },
+        { "Weapon": "Plasma Whip", "Base PEN": "30", "Description": "A whip made of plasma, capable of cutting and lashing at a distance." },
+        { "Weapon": "Power Fist", "Base PEN": "30+T", "Description": "A powered melee weapon that enhances the user's punching force." },
+        { "Weapon": "Monomolecular Knife", "Base PEN": "45", "Description": "Knife with a monomolecular edge capable of cutting through nearly any material." }
+    ]
+}
+

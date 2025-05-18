@@ -1,0 +1,142 @@
+<script src="https://cdn.jsdelivr.net/gh/localforage/localforage/dist/localforage.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@6.65.7/lib/codemirror.min.js"></script>
+<script src="diagnostics.js"></script>
+<script src="base.js"></script>
+<script src="mock/test.js"></script>
+<script src="mock/attributes.js"></script>
+<script src="elements.js"></script>
+<script src="init.js"></script>
+<script type="text/javascript">
+
+
+    let batch = new Batch({
+        "name": "testboi",
+        "tags": ["main"],
+        "target": [{ "functor": "pool" }, { "shit": "variable" }],
+        "functors": [new Functor({"name": "first test", "language": "js", "target": [{"logic": "pool" }], "params": ["local", "global", "fecal"],
+                    "source": ["console.log(local); console.log(global); console.log(fecal); console.log(arguments)"]}),
+                    new Functor({"name": "second test", "language": "js", "target": [{"another": "poOOoool" }], "params": ["local", "global", "pisual"],
+                                "source": ["console.log(local); console.log(global); console.log(pisual); console.log(arguments)"]})]
+    })
+
+    let sequencer = new Sequencer({'batches': {"test": batch, "test2": batch}})
+    sequencer.dispatch(["test", "test2"])
+</script>
+
+<style media="screen">
+:root
+{
+    --side-width: 50px;
+    --highlight1: #ffffff07;
+    --highlight2: #ffffff15;
+    --highlight3: #ffffff22;
+    --bg-color: #232323;
+
+    background-color: var(--bg-color);
+    color: #dcdcdc;
+}
+body
+{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+[hidden]
+{
+    display: none;
+}
+[invisible]
+{
+    opacity: 0;
+}
+div[panel]
+{
+    width: 100%;
+    height: 100%;
+}
+[panel] > [left],
+[panel] > [right]
+{
+    top: 0;
+    position: absolute;
+    width: 5%;
+    min-width: var(--side-width);
+    height: 100%;
+    background-color: var(--highlight1);
+    transition: background 0.3s ease-out;
+}
+[panel] > [left]:hover,
+[panel] > [right]:hover
+{
+    cursor: pointer;
+    background-color: var(--highlight2);
+}
+[panel] > [left]:active,
+[panel] > [right]:active
+{
+    background-color: var(--highlight3);
+}
+[panel] > [right]
+{
+    right: 0;
+}
+[panel] > attribute-list
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+attribute-list > attribute-card
+{
+    flex: 1;
+    height: 100%;
+    min-height: 350px;
+    max-height: 800px;
+    border: 1px solid white;
+    transition: background 0.3s ease-out, flex 0.15s ease-out, max-height 0.15s ease-out;
+}
+attribute-list > attribute-card:hover
+{
+    cursor: pointer;
+    flex: 1.5;
+    max-height: 100%;
+    background-color: var(--highlight1);
+
+}
+attribute-list > attribute-card:active
+{
+    flex: 2;
+    background-color: var(--highlight3);
+}
+attribute-list > attribute-card[open]
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+    background-color: var(--bg-color);
+    transition: background 0.3s ease-out, flex 0.15s ease-out, max-height 0.15s ease-out, border 0.15s ease-out;
+}
+</style>
+<system-diagnostics></system-diagnostics>
+<div panel>
+    <div left></div>
+    <attribute-list for='Examplarnold Testenegger'>
+        <attribute-card athlete></attribute-card>
+        <attribute-card cognition></attribute-card>
+        <attribute-card officer></attribute-card>
+        <attribute-card streetwise></attribute-card>
+        <attribute-card sharpshooter></attribute-card>
+        <attribute-card peacekeeper></attribute-card>
+        <attributes-selector shortname></attributes-selector>
+    </attribute-list>
+    <div right></div>
+</div>

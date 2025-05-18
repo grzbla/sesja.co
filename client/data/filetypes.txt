@@ -1,7 +1,0 @@
-char
-  skill
-  
-world
-  property
-story
-  

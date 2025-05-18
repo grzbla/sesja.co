@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HoMM3 Town Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --container-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --border-color: #444;
+            --hover-color: #3d3d3d;
+            --accent-color: #4a69bd;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--container-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .drop-zone {
+            border: 2px dashed var(--border-color);
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            background: var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            background: var(--hover-color);
+            border-color: var(--accent-color);
+        }
+
+        .town-container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .structure {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .structure:hover {
+            transform: scale(1.05);
+            z-index: 1000;
+        }
+
+        .structure img {
+            display: block;
+            image-rendering: pixelated;
+        }
+
+        .structure.hidden {
+            opacity: 0.5;
+        }
+
+        .structure.outline {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        .structure-info {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--container-bg);
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            display: none;
+            z-index: 1001;
+        }
+
+        .structure-info.visible {
+            display: block;
+        }
+
+        .controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--container-bg);
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            z-index: 1001;
+        }
+
+        .controls button {
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .controls button:hover {
+            opacity: 0.9;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .status.error {
+            background: #5c2626;
+            color: #ff9999;
+        }
+
+        .status.info {
+            background: #2c3e50;
+            color: #89c4f4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Heroes of Might and Magic III - Town Viewer</h1>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+            Drop your LOD file here or click to select
+            <input type="file" id="fileInput" accept=".lod">
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div class="town-container" id="townContainer"></div>
+        <div class="structure-info" id="structureInfo"></div>
+    </div>
+
+    <div class="controls">
+        <button id="toggleHidden">Toggle Hidden</button>
+        <button id="toggleUpgrades">Toggle Upgrades</button>
+    </div>
+
+    <script src="homm3-unpacker.js"></script>
+    <script>
+        let structures = null;
+        let structureElements = {};
+        let showHidden = false;
+        let showUpgrades = false;
+        let activeUpgrades = new Set();
+
+        // Load structures from JSON file
+        async function loadStructures() {
+            try {
+                const response = await fetch('castle.json');
+                const data = await response.json();
+                structures = data.structures;
+            } catch (err) {
+                console.error('Error loading structures:', err);
+                showStatus('Error loading structure definitions', true);
+            }
+        }
+
+        // LOD Reader API
+        class LODReader {
+            constructor() {
+                if (!window["homm3-unpacker"]) {
+                    throw new Error('Required modules not found');
+                }
+                const { unpackLOD, unpackDEF, unpackPCX } = window["homm3-unpacker"];
+                this.unpackLOD = unpackLOD;
+                this.unpackDEF = unpackDEF;
+                this.unpackPCX = unpackPCX;
+                this.currentLod = null;
+            }
+
+            async loadFromFile(file) {
+                const buffer = await file.arrayBuffer();
+                this.currentLod = this.unpackLOD(buffer);
+                return this.getFileList();
+            }
+
+            getFileList() {
+                if (!this.currentLod) return [];
+                return Object.keys(this.currentLod.files);
+            }
+
+            extractImages(filename) {
+                if (!this.currentLod || !this.currentLod.files[filename]) {
+                    throw new Error('File not found in archive');
+                }
+
+                const fileData = this.currentLod.files[filename];
+                const ext = filename.split('.').pop().toLowerCase();
+                
+                if (ext === 'pcx') {
+                    const pcx = this.unpackPCX(fileData, { 
+                        format: 'png',
+                        transparency: [
+                            {r: 255, g: 0, b: 255},
+                            {r: 254, g: 0, b: 254},
+                            {r: 255, g: 1, b: 255}
+                        ]
+                    });
+                    return { [filename]: pcx.data };
+                }
+                else if (ext === 'def') {
+                    const def = this.unpackDEF(fileData, { format: 'png' });
+                    const images = {};
+                    for (const [imgName, imgData] of Object.entries(def.images)) {
+                        images[imgName] = imgData.data;
+                    }
+                    return images;
+                }
+                return null;
+            }
+        }
+
+        function showStatus(message, isError = false) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.style.display = 'block';
+            status.className = 'status ' + (isError ? 'error' : 'info');
+        }
+
+        function createStructureElement(name, structure, images) {
+            const div = document.createElement('div');
+            div.className = 'structure';
+            div.style.left = structure.x + 'px';
+            div.style.top = structure.y + 'px';
+            div.style.zIndex = structure.z || 0;
+
+            if (structure.hidden) {
+                div.classList.add('hidden');
+            }
+
+            const img = document.createElement('img');
+            const imageData = images[Object.keys(images)[0]];
+            const blob = new Blob([imageData], { type: 'image/png' });
+            const url = URL.createObjectURL(blob);
+            img.src = url;
+            img.onload = () => URL.revokeObjectURL(url);
+
+            div.appendChild(img);
+
+            // Add hover outline
+            div.addEventListener('mouseover', () => {
+                div.classList.add('outline');
+                structureInfo.textContent = name;
+                structureInfo.classList.add('visible');
+            });
+
+            div.addEventListener('mouseout', () => {
+                div.classList.remove('outline');
+                structureInfo.classList.remove('visible');
+            });
+
+            // Add click handler for upgrades
+            div.addEventListener('click', () => {
+                if (structure.upgrades) {
+                    toggleUpgrades(name, structure.upgrades);
+                }
+            });
+
+            return div;
+        }
+
+        function toggleUpgrades(baseName, upgrades) {
+            const baseElement = structureElements[baseName];
+            if (!baseElement) return;
+
+            // Toggle all upgrades
+            upgrades.forEach(upgradeName => {
+                const upgradeElement = structureElements[upgradeName];
+                if (upgradeElement) {
+                    if (activeUpgrades.has(upgradeName)) {
+                        upgradeElement.style.display = 'none';
+                        activeUpgrades.delete(upgradeName);
+                    } else {
+                        upgradeElement.style.display = 'block';
+                        activeUpgrades.add(upgradeName);
+                    }
+                }
+            });
+        }
+
+        function updateStructureVisibility() {
+            for (const [name, element] of Object.entries(structureElements)) {
+                const structure = structures[name];
+                const isUpgrade = structure.upgrades;
+                const isHidden = structure.hidden;
+                
+                if (isUpgrade && !showUpgrades) {
+                    element.style.display = 'none';
+                } else if (isHidden && !showHidden) {
+                    element.style.display = 'none';
+                } else {
+                    element.style.display = 'block';
+                    if (isHidden) {
+                        element.classList.add('hidden');
+                    } else {
+                        element.classList.remove('hidden');
+                    }
+                }
+            }
+        }
+
+        async function handleFile(file) {
+            try {
+                await reader.loadFromFile(file);
+                townContainer.innerHTML = '';
+                structureInfo.classList.remove('visible');
+                structureElements = {};
+                activeUpgrades.clear();
+
+                for (const [name, structure] of Object.entries(structures)) {
+                    try {
+                        const images = reader.extractImages(structure.animation);
+                        if (images) {
+                            const element = createStructureElement(name, structure, images);
+                            townContainer.appendChild(element);
+                            structureElements[name] = element;
+                        }
+                    } catch (err) {
+                        console.error(`Error loading structure ${name}:`, err);
+                    }
+                }
+
+                updateStructureVisibility();
+                showStatus(`Successfully loaded ${file.name}`, false);
+            } catch (err) {
+                console.error(err);
+                showStatus(`Error loading file: ${err.message}`, true);
+            }
+        }
+
+        // Initialize
+        const reader = new LODReader();
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const townContainer = document.getElementById('townContainer');
+        const structureInfo = document.getElementById('structureInfo');
+        const toggleHiddenBtn = document.getElementById('toggleHidden');
+        const toggleUpgradesBtn = document.getElementById('toggleUpgrades');
+
+        // Load structures before setting up event listeners
+        loadStructures().then(() => {
+            // Event listeners
+            dropZone.addEventListener('click', () => fileInput.click());
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('drag-over');
+            });
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('drag-over');
+            });
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('drag-over');
+                const file = e.dataTransfer.files[0];
+                if (file) handleFile(file);
+            });
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) handleFile(file);
+            });
+
+            toggleHiddenBtn.addEventListener('click', () => {
+                showHidden = !showHidden;
+                toggleHiddenBtn.textContent = showHidden ? 'Hide Hidden' : 'Show Hidden';
+                updateStructureVisibility();
+            });
+
+            toggleUpgradesBtn.addEventListener('click', () => {
+                showUpgrades = !showUpgrades;
+                toggleUpgradesBtn.textContent = showUpgrades ? 'Hide Upgrades' : 'Show Upgrades';
+                updateStructureVisibility();
+            });
+        });
+    </script>
+</body>
+</html> 

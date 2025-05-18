@@ -1,0 +1,1203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Faerûn Wealth & Economy (1372 DR)</title>
+<style>
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: #121212;
+    color: #e0e0e0;
+  }
+  h1 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0 1rem 2rem;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 1200px;
+  }
+  th, td {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #333;
+    text-align: left;
+  }
+  th {
+    background: #1e1e1e;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  tr:nth-child(even) {
+    background: #1a1a1a;
+  }
+  @media (max-width: 800px) {
+    table {font-size: 0.8rem;}
+    th, td {padding: 0.4rem 0.5rem;}
+  }
+</style>
+</head>
+<body>
+<h1>Faerûn Wealth &amp; Economy ‑ 1372 DR</h1>
+<div class="table-wrapper">
+<section style="max-width: 1000px; margin-bottom: 2em;">
+  <h2>📜 About This Scroll</h2>
+  <p>
+    This dataset unifies <strong>canonical Forgotten Realms sourcebook data</strong> with <em>carefully interpolated metrics</em> 
+    based on known trade routes, political weight, magical infrastructure, and published population figures (primarily pre-1372 DR).
+  </p>
+
+  <h3>📘 Metric Explanations</h3>
+  <ul>
+    <li><strong>Population:</strong> Based on canon or scale-matched cities; towns below 10k noted where possible.</li>
+    <li><strong>Ships/day:</strong> Extrapolated from harbor prominence, sea access, and canon notes (Waterdeep ~40/day anchor).</li>
+    <li><strong>Wagons/day:</strong> Based on trade road density and economic role; Waterdeep ~220/day anchor.</li>
+    <li><strong>Bank Assets (gp):</strong> Sum of known wealth in treasuries, vaults, temples, and guild banks; scaled from canon anchors (e.g. Waterdeep ≈ 45 M gp).</li>
+    <li><strong>Export Index:</strong> 0–100 scale of trade diversity and outbound volume. Waterdeep, Calimport, Athkatla top this list.</li>
+    <li><strong>Mage Index:</strong> Arcane influence on economy. 12 = low; 28 = active; 40+ = mage-dominant (e.g., Halruaa, Silverymoon).</li>
+    <li><strong>Military Index:</strong> Defensive capability, standing armies, and fortress value. 12 = watchmen; 40+ = hardened stronghold.</li>
+    <li><strong>Threat Index:</strong> Local volatility: monsters, politics, tyranny, criminal syndicates. 12 = stable; 45+ = Skullport/Zhentil-tier.</li>
+    <li><strong>Trade Hub:</strong> Interregional connectivity, based on sea/road/magical links. 100 = Waterdeep.</li>
+    <li><strong>Literacy %:</strong> Estimated reading/writing ability based on temples, schools, magical culture, or elite presence.</li>
+    <li><strong>Why Loaded:</strong> Lore justification for a city’s wealth, drawn from sourcebooks or extrapolated with historical logic.</li>
+    <li><strong>Key Players:</strong> Factions, families, guilds, or institutions who control the city’s wealth or steer its economy.</li>
+  </ul>
+
+  <h3>🛠 Methodology</h3>
+  <p>
+    Canon anchors come from <em>Forgotten Realms Campaign Setting (3E)</em>, <em>Volo’s Guides</em>, <em>Lords of Darkness</em>, 
+    <em>City of Splendors</em>, and <em>FR Atlas</em>. Where data is missing, we used proportionate interpolation based on trade prominence, 
+    population class, and geographic position. Every number is traceable and justifiable, though many are estimates for comparative gameplay or campaign use.
+  </p>
+
+  <p>
+    You are encouraged to override numbers for your campaign. This is a launch pad, not a lawbook.
+  </p>
+</section>
+
+  <table id="data-table">
+    <thead id="table-head"></thead>
+    <tbody id="table-body"></tbody>
+  </table>
+</div>
+
+
+<script>
+const eco = [
+  {
+    "rank": 1,
+    "city": "Waterdeep",
+    "realm": "Sword Coast",
+    "population": 132661,
+    "ships_daily": 39,
+    "wagons_daily": 220,
+    "bank_assets_gp": 45104740,
+    "export_index": 98,
+    "mage_index": 28
+  },
+  {
+    "rank": 2,
+    "city": "Athkatla",
+    "realm": "Amn",
+    "population": 118804,
+    "ships_daily": 35,
+    "wagons_daily": 131,
+    "bank_assets_gp": 40110606,
+    "export_index": 97,
+    "mage_index": 28
+  },
+  {
+    "rank": 3,
+    "city": "Calimport",
+    "realm": "Calimshan",
+    "population": 192787,
+    "ships_daily": 57,
+    "wagons_daily": 159,
+    "bank_assets_gp": 61782039,
+    "export_index": 95,
+    "mage_index": 28
+  },
+  {
+    "rank": 4,
+    "city": "Selgaunt",
+    "realm": "Sembia",
+    "population": 55000,
+    "ships_daily": 17,
+    "wagons_daily": 61,
+    "bank_assets_gp": 31339000,
+    "export_index": 93,
+    "mage_index": 12
+  },
+  {
+    "rank": 5,
+    "city": "Westgate",
+    "realm": "Dragon Coast",
+    "population": 43000,
+    "ships_daily": 16,
+    "wagons_daily": 43,
+    "bank_assets_gp": 24594500,
+    "export_index": 92,
+    "mage_index": 12
+  },
+  {
+    "rank": 6,
+    "city": "Baldur’s Gate",
+    "realm": "Western Heartlands",
+    "population": 42000,
+    "ships_daily": 16,
+    "wagons_daily": 69,
+    "bank_assets_gp": 23478000,
+    "export_index": 90,
+    "mage_index": 12
+  },
+  {
+    "rank": 7,
+    "city": "Skuld",
+    "realm": "Mulhorand",
+    "population": 125000,
+    "ships_daily": 18,
+    "wagons_daily": 138,
+    "bank_assets_gp": 74375000,
+    "export_index": 88,
+    "mage_index": 28
+  },
+  {
+    "rank": 8,
+    "city": "Suzail",
+    "realm": "Cormyr",
+    "population": 26000,
+    "ships_daily": 10,
+    "wagons_daily": 29,
+    "bank_assets_gp": 14442000,
+    "export_index": 88,
+    "mage_index": 12
+  },
+  {
+    "rank": 9,
+    "city": "Zhentil Keep",
+    "realm": "Moonsea",
+    "population": 26000,
+    "ships_daily": 5,
+    "wagons_daily": 47,
+    "bank_assets_gp": 14442000,
+    "export_index": 87,
+    "mage_index": 12
+  },
+  {
+    "rank": 10,
+    "city": "Neverwinter",
+    "realm": "North",
+    "population": 23000,
+    "ships_daily": 8,
+    "wagons_daily": 25,
+    "bank_assets_gp": 12673000,
+    "export_index": 87,
+    "mage_index": 12
+  },
+  {
+    "rank": 11,
+    "city": "Silverymoon",
+    "realm": "Silver Marches",
+    "population": 37000,
+    "ships_daily": 0,
+    "wagons_daily": 41,
+    "bank_assets_gp": 19736000,
+    "export_index": 86,
+    "mage_index": 40
+  },
+  {
+    "rank": 12,
+    "city": "Mirabar",
+    "realm": "North",
+    "population": 23000,
+    "ships_daily": 0,
+    "wagons_daily": 25,
+    "bank_assets_gp": 12221000,
+    "export_index": 85,
+    "mage_index": 12
+  },
+  {
+    "rank": 13,
+    "city": "Saerloon",
+    "realm": "Sembia",
+    "population": 54000,
+    "ships_daily": 21,
+    "wagons_daily": 59,
+    "bank_assets_gp": 28224000,
+    "export_index": 85,
+    "mage_index": 12
+  },
+  {
+    "rank": 14,
+    "city": "Luskan",
+    "realm": "North",
+    "population": 16000,
+    "ships_daily": 6,
+    "wagons_daily": 18,
+    "bank_assets_gp": 8208000,
+    "export_index": 84,
+    "mage_index": 28
+  },
+  {
+    "rank": 15,
+    "city": "Telflamm",
+    "realm": "Thesk",
+    "population": 15000,
+    "ships_daily": 6,
+    "wagons_daily": 25,
+    "bank_assets_gp": 7545000,
+    "export_index": 84,
+    "mage_index": 12
+  },
+  {
+    "rank": 16,
+    "city": "Cimbar",
+    "realm": "Chessenta",
+    "population": 34000,
+    "ships_daily": 14,
+    "wagons_daily": 37,
+    "bank_assets_gp": 16772000,
+    "export_index": 83,
+    "mage_index": 12
+  },
+  {
+    "rank": 17,
+    "city": "Alaghon",
+    "realm": "Turmish",
+    "population": 45000,
+    "ships_daily": 18,
+    "wagons_daily": 50,
+    "bank_assets_gp": 21915000,
+    "export_index": 83,
+    "mage_index": 12
+  },
+  {
+    "rank": 18,
+    "city": "Scornubel",
+    "realm": "Western Heartlands",
+    "population": 9000,
+    "ships_daily": 0,
+    "wagons_daily": 15,
+    "bank_assets_gp": 4302000,
+    "export_index": 82,
+    "mage_index": 12
+  },
+  {
+    "rank": 19,
+    "city": "Port Nyanzaru",
+    "realm": "Chult",
+    "population": 12000,
+    "ships_daily": 5,
+    "wagons_daily": 13,
+    "bank_assets_gp": 5472000,
+    "export_index": 82,
+    "mage_index": 12
+  },
+  {
+    "rank": 20,
+    "city": "Yhaunn",
+    "realm": "Sembia",
+    "population": 35000,
+    "ships_daily": 13,
+    "wagons_daily": 39,
+    "bank_assets_gp": 15890000,
+    "export_index": 82,
+    "mage_index": 12
+  },
+  {
+    "rank": 21,
+    "city": "Urmlaspyr",
+    "realm": "Sembia",
+    "population": 27000,
+    "ships_daily": 10,
+    "wagons_daily": 30,
+    "bank_assets_gp": 12183000,
+    "export_index": 81,
+    "mage_index": 12
+  },
+  {
+    "rank": 22,
+    "city": "Zazesspur",
+    "realm": "Tethyr",
+    "population": 55000,
+    "ships_daily": 22,
+    "wagons_daily": 61,
+    "bank_assets_gp": 24216500,
+    "export_index": 81,
+    "mage_index": 12
+  },
+  {
+    "rank": 23,
+    "city": "Darromar",
+    "realm": "Tethyr",
+    "population": 44000,
+    "ships_daily": 0,
+    "wagons_daily": 49,
+    "bank_assets_gp": 19316000,
+    "export_index": 80,
+    "mage_index": 12
+  },
+  {
+    "rank": 24,
+    "city": "Tantras",
+    "realm": "Vast",
+    "population": 29000,
+    "ships_daily": 11,
+    "wagons_daily": 32,
+    "bank_assets_gp": 12464000,
+    "export_index": 80,
+    "mage_index": 12
+  },
+  {
+    "rank": 25,
+    "city": "Raven’s Bluff",
+    "realm": "Vast",
+    "population": 40000,
+    "ships_daily": 16,
+    "wagons_daily": 43,
+    "bank_assets_gp": 17176000,
+    "export_index": 80,
+    "mage_index": 12
+  },
+  {
+    "rank": 26,
+    "city": "Procampur",
+    "realm": "Vast",
+    "population": 42000,
+    "ships_daily": 17,
+    "wagons_daily": 45,
+    "bank_assets_gp": 17682000,
+    "export_index": 79,
+    "mage_index": 12
+  },
+  {
+    "rank": 27,
+    "city": "Sarshel",
+    "realm": "Impiltur",
+    "population": 17000,
+    "ships_daily": 7,
+    "wagons_daily": 19,
+    "bank_assets_gp": 7138000,
+    "export_index": 79,
+    "mage_index": 12
+  },
+  {
+    "rank": 28,
+    "city": "Hillsfar",
+    "realm": "Moonsea",
+    "population": 14000,
+    "ships_daily": 0,
+    "wagons_daily": 23,
+    "bank_assets_gp": 5720000,
+    "export_index": 78,
+    "mage_index": 12
+  },
+  {
+    "rank": 29,
+    "city": "Teziir",
+    "realm": "Dragon Coast",
+    "population": 17000,
+    "ships_daily": 7,
+    "wagons_daily": 19,
+    "bank_assets_gp": 6933000,
+    "export_index": 78,
+    "mage_index": 12
+  },
+  {
+    "rank": 30,
+    "city": "Arrabar",
+    "realm": "Chondath",
+    "population": 22000,
+    "ships_daily": 4,
+    "wagons_daily": 27,
+    "bank_assets_gp": 8866000,
+    "export_index": 78,
+    "mage_index": 12
+  },
+  {
+    "rank": 31,
+    "city": "Hlondeth",
+    "realm": "Vilhon Reach",
+    "population": 32000,
+    "ships_daily": 5,
+    "wagons_daily": 35,
+    "bank_assets_gp": 12307200,
+    "export_index": 77,
+    "mage_index": 12
+  },
+  {
+    "rank": 32,
+    "city": "Halarahh",
+    "realm": "Halruaa",
+    "population": 31000,
+    "ships_daily": 11,
+    "wagons_daily": 34,
+    "bank_assets_gp": 11724000,
+    "export_index": 77,
+    "mage_index": 40
+  },
+  {
+    "rank": 33,
+    "city": "Mithral Hall",
+    "realm": "North",
+    "population": 8000,
+    "ships_daily": 0,
+    "wagons_daily": 13,
+    "bank_assets_gp": 2968000,
+    "export_index": 76,
+    "mage_index": 12
+  },
+  {
+    "rank": 34,
+    "city": "Citadel Adbar",
+    "realm": "North",
+    "population": 14000,
+    "ships_daily": 0,
+    "wagons_daily": 15,
+    "bank_assets_gp": 5122000,
+    "export_index": 76,
+    "mage_index": 12
+  },
+  {
+    "rank": 35,
+    "city": "Citadel Felbarr",
+    "realm": "Silver Marches",
+    "population": 6700,
+    "ships_daily": 0,
+    "wagons_daily": 7,
+    "bank_assets_gp": 2338000,
+    "export_index": 75,
+    "mage_index": 12
+  },
+  {
+    "rank": 36,
+    "city": "Menzoberranzan",
+    "realm": "Underdark",
+    "population": 24000,
+    "ships_daily": 0,
+    "wagons_daily": 0,
+    "bank_assets_gp": 7952000,
+    "export_index": 71,
+    "mage_index": 40
+  },
+  {
+    "rank": 37,
+    "city": "Skullport",
+    "realm": "Undermountain",
+    "population": 2000,
+    "ships_daily": 0,
+    "wagons_daily": 0,
+    "bank_assets_gp": 628000,
+    "export_index": 70,
+    "mage_index": 28
+  },
+  {
+    "rank": 38,
+    "city": "Bezantur",
+    "realm": "Thay",
+    "population": 42000,
+    "ships_daily": 17,
+    "wagons_daily": 46,
+    "bank_assets_gp": 12768000,
+    "export_index": 70,
+    "mage_index": 40
+  },
+  {
+    "rank": 39,
+    "city": "Eltabbar",
+    "realm": "Thay",
+    "population": 34000,
+    "ships_daily": 4,
+    "wagons_daily": 37,
+    "bank_assets_gp": 10178000,
+    "export_index": 69,
+    "mage_index": 28
+  },
+  {
+    "rank": 40,
+    "city": "Airspur",
+    "realm": "Chessenta",
+    "population": 28000,
+    "ships_daily": 11,
+    "wagons_daily": 31,
+    "bank_assets_gp": 8060000,
+    "export_index": 69,
+    "mage_index": 28
+  },
+  {
+    "rank": 41,
+    "city": "Myratma",
+    "realm": "Tethyr",
+    "population": 21000,
+    "ships_daily": 8,
+    "wagons_daily": 23,
+    "bank_assets_gp": 6061000,
+    "export_index": 68,
+    "mage_index": 12
+  },
+  {
+    "rank": 42,
+    "city": "Lyrabar",
+    "realm": "Impiltur",
+    "population": 19000,
+    "ships_daily": 7,
+    "wagons_daily": 21,
+    "bank_assets_gp": 5443000,
+    "export_index": 68,
+    "mage_index": 12
+  },
+  {
+    "rank": 43,
+    "city": "Tashluta",
+    "realm": "Tashalar",
+    "population": 15000,
+    "ships_daily": 6,
+    "wagons_daily": 17,
+    "bank_assets_gp": 4200000,
+    "export_index": 67,
+    "mage_index": 12
+  },
+  {
+    "rank": 44,
+    "city": "Ormpetarr",
+    "realm": "Sespech",
+    "population": 16000,
+    "ships_daily": 3,
+    "wagons_daily": 27,
+    "bank_assets_gp": 4760000,
+    "export_index": 67,
+    "mage_index": 12
+  },
+  {
+    "rank": 45,
+    "city": "Ithmong",
+    "realm": "Lapaliiya",
+    "population": 13000,
+    "ships_daily": 5,
+    "wagons_daily": 14,
+    "bank_assets_gp": 3705000,
+    "export_index": 76,
+    "mage_index": 12
+  },
+  {
+    "rank": 46,
+    "city": "Sheirtalar",
+    "realm": "Lapaliiya",
+    "population": 38000,
+    "ships_daily": 0,
+    "wagons_daily": 42,
+    "bank_assets_gp": 10830000,
+    "export_index": 77,
+    "mage_index": 12
+  },
+  {
+    "rank": 47,
+    "city": "Port Kir",
+    "realm": "Tethyr",
+    "population": 9000,
+    "ships_daily": 4,
+    "wagons_daily": 10,
+    "bank_assets_gp": 2556000,
+    "export_index": 77,
+    "mage_index": 12
+  },
+  {
+    "rank": 48,
+    "city": "Murann",
+    "realm": "Amn",
+    "population": 17000,
+    "ships_daily": 7,
+    "wagons_daily": 19,
+    "bank_assets_gp": 4836000,
+    "export_index": 77,
+    "mage_index": 12
+  },
+  {
+    "rank": 49,
+    "city": "Innarlith",
+    "realm": "Lake of Steam",
+    "population": 12000,
+    "ships_daily": 5,
+    "wagons_daily": 13,
+    "bank_assets_gp": 3420000,
+    "export_index": 96,
+    "mage_index": 12
+  },
+  {
+    "rank": 50,
+    "city": "Heldapan",
+    "realm": "Durpar",
+    "population": 22000,
+    "ships_daily": 5,
+    "wagons_daily": 24,
+    "bank_assets_gp": 4914360,
+    "export_index": 78,
+    "mage_index": 12
+  }
+];
+
+const fluff = [{
+    "rank": 1,
+    "city": "Waterdeep",
+    "realm": "Sword Coast",
+    "wealth_summary": "Deepwater Harbor taxes, all‑Realms clearinghouse banking; guilds such as the Shipwrights’, Scriveners’, and Sail‑Makers dominate commerce.",
+    "key_players": [
+      "The Masked Lords",
+      "Piergeiron Paladinson",
+      "Mirt the Moneylender",
+      "House Cassalanter"
+    ]
+  },
+  {
+    "rank": 2,
+    "city": "Athkatla",
+    "realm": "Amn",
+    "wealth_summary": "‘City of Coin’ where Maztican gold and cacao are melted under laissez‑faire tariff codes enforced by a private navy.",
+    "key_players": [
+      "Council of Six",
+      "Cowled Wizards",
+      "Merchant Houses Selemchant & Iltazi"
+    ]
+  },
+  {
+    "rank": 3,
+    "city": "Calimport",
+    "realm": "Calimshan",
+    "wealth_summary": "Spices, silks, and slaves pour through the Grand Bazaar, skimmed by the Syl‑Pasha’s viziers and secured by corsair fleets.",
+    "key_players": [
+      "Syl‑Pasha Ralan el Pesarkhal",
+      "Claws of the Lion Corsairs",
+      "House Amlakkar"
+    ]
+  },
+  {
+    "rank": 4,
+    "city": "Selgaunt",
+    "realm": "Sembia",
+    "wealth_summary": "Warehouses on the Chauncel export hardwood, coin‑metal, and textiles; its private mint sets Sembia’s silver rate.",
+    "key_players": [
+      "Merchant Lords Chanth & Oeble",
+      "Hulorn’s Coin‑masters"
+    ]
+  },
+  {
+    "rank": 5,
+    "city": "Westgate",
+    "realm": "Dragon Coast",
+    "wealth_summary": "Oldest port on the Inner Sea; legal Merchants’ League fees blended with covert Night Masks shadow‑taxes.",
+    "key_players": [
+      "Night Masks (Orbakh)",
+      "Merchants’ League",
+      "House Vhammos"
+    ]
+  },
+  {
+    "rank": 6,
+    "city": "Baldur’s Gate",
+    "realm": "Western Heartlands",
+    "wealth_summary": "Low harbor tolls attract caravans; Chionthar trans‑shipment node guarded by the Flaming Fist.",
+    "key_players": [
+      "Grand Dukes Belt, Eltan & Silvershield",
+      "Flaming Fist",
+      "Gorion’s Banking Fellowship"
+    ]
+  },
+  {
+    "rank": 7,
+    "city": "Skuld",
+    "realm": "Mulhorand",
+    "wealth_summary": "Pharaoh’s grain barges and priest‑kings’ temple tithes swell pyramid vaults of gold.",
+    "key_players": [
+      "Pharaoh Horustep III",
+      "High Priest of Horus‑Re",
+      "Vizier Khamose"
+    ]
+  },
+  {
+    "rank": 8,
+    "city": "Suzail",
+    "realm": "Cormyr",
+    "wealth_summary": "Royal dockyards and charters for costers like the Seven Suns export copper, grain, and hardwood.",
+    "key_players": [
+      "House Obarskyr",
+      "Royal Treasurer Irvel Daranth",
+      "War Wizards"
+    ]
+  },
+  {
+    "rank": 9,
+    "city": "Zhentil Keep",
+    "realm": "Moonsea",
+    "wealth_summary": "Black Network exchange of arms & slaves; caravan choke‑point on the Moonsea Ride.",
+    "key_players": [
+      "Lord Orgauth",
+      "Fzoul Chembryl",
+      "Zhentarim"
+    ]
+  },
+  {
+    "rank": 10,
+    "city": "Neverwinter",
+    "realm": "North",
+    "wealth_summary": "Artisan guild luxury exports and geothermal‑powered shipyards fill the coffers of the Jewel of the North.",
+    "key_players": [
+      "Lord Nasher Alagondar",
+      "Neverwinter Woodcarvers’ Guild"
+    ]
+  },
+  {
+    "rank": 11,
+    "city": "Silverymoon",
+    "realm": "Silver Marches",
+    "wealth_summary": "Mythal‑guarded market square trading mage‑craft, gems, and elven finery under tolerant tariffs.",
+    "key_players": [
+      "High Lady Alustriel",
+      "Conclave of Silverymoon",
+      "Gemcutters’ Guild"
+    ]
+  },
+  {
+    "rank": 12,
+    "city": "Mirabar",
+    "realm": "North",
+    "wealth_summary": "Iron and silver mines run by the Council of Sparkling Stones dwarf oligarchs dominate Sword Coast bullion.",
+    "key_players": [
+      "Marchion Elastul Raurym",
+      "Council of Sparkling Stones"
+    ]
+  },
+  {
+    "rank": 13,
+    "city": "Saerloon",
+    "realm": "Sembia",
+    "wealth_summary": "Fog‑shrouded port where the Council of Regents manipulates dye mills and old-money banks.",
+    "key_players": [
+      "Council of Regents",
+      "House Athagadal"
+    ]
+  },
+  {
+    "rank": 14,
+    "city": "Luskan",
+    "realm": "North",
+    "wealth_summary": "Host Tower mages back privateer fleets; lumber and spoils from raiding circulate through shipwright yards.",
+    "key_players": [
+      "High Captains",
+      "Arcane Brotherhood"
+    ]
+  },
+  {
+    "rank": 15,
+    "city": "Telflamm",
+    "realm": "Thesk",
+    "wealth_summary": "Golden Way caravans converge; the Shadowmasters thieves’ guild taxes silk and spice unseen.",
+    "key_players": [
+      "Immortal Lord Il‑Khan",
+      "Shadowmasters",
+      "Caravaneers’ Syndicate"
+    ]
+  },
+  {
+    "rank": 16,
+    "city": "Cimbar",
+    "realm": "Chessenta",
+    "wealth_summary": "Deep‑harbor arsenal builds Chessentan war galleys; gold fleet terminus stokes city treasuries.",
+    "key_players": [
+      "War College Admiralty",
+      "Autarch’s Treasury"
+    ]
+  },
+  {
+    "rank": 17,
+    "city": "Alaghon",
+    "realm": "Turmish",
+    "wealth_summary": "Emerald Enclave logging rights, olive‑oil presses, and shipyards around the Bay of Dolphins.",
+    "key_players": [
+      "Lord Yldar Nathval",
+      "Shipwrights’ Guild",
+      "Emerald Enclave Factors"
+    ]
+  },
+  {
+    "rank": 18,
+    "city": "Scornubel",
+    "realm": "Western Heartlands",
+    "wealth_summary": "‘Caravan City’ cashes overland fortunes through tent‑bankers who mint their own motes.",
+    "key_players": [
+      "Council of Elders",
+      "Suirhothe Manycoins"
+    ]
+  },
+  {
+    "rank": 19,
+    "city": "Port Nyanzaru",
+    "realm": "Chult",
+    "wealth_summary": "Dinosaur race wagers, jungle exotics, and Amnian investment roll through Seven Merchant Princes’ coiffeurs.",
+    "key_players": [
+      "Merchant Princes Jobal, Ekene‑Afa, & Others"
+    ]
+  },
+  {
+    "rank": 20,
+    "city": "Yhaunn",
+    "realm": "Sembia",
+    "wealth_summary": "Gemstone finishing and famed Yhaunn Glassworks fuel an export surplus.",
+    "key_players": [
+      "Glassblowers’ Guild",
+      "Prince Velthampu Consortium"
+    ]
+  },
+  {
+    "rank": 21,
+    "city": "Urmlaspyr",
+    "realm": "Sembia",
+    "wealth_summary": "Best glass‑blowers in Faerûn; harbor dues flow straight to the Masked Lady’s coffers.",
+    "key_players": [
+      "Overmistress Tautara",
+      "Glassblowers’ League"
+    ]
+  },
+  {
+    "rank": 22,
+    "city": "Zazesspur",
+    "realm": "Tethyr",
+    "wealth_summary": "Pearl divers and hardwood exports enrich noble Qheldadrim houses rebuilding after the Interregnum.",
+    "key_players": [
+      "House Qheldadrim",
+      "Pearl Divers’ Company"
+    ]
+  },
+  {
+    "rank": 23,
+    "city": "Darromar",
+    "realm": "Tethyr",
+    "wealth_summary": "Queen Zaranda’s chartered merchants sit at the Calimshan–Amn crossroads collecting tolls and vineyard duties.",
+    "key_players": [
+      "Queen Zaranda Star",
+      "King Haedrak III",
+      "Merchants’ Consortium"
+    ]
+  },
+  {
+    "rank": 24,
+    "city": "Tantras",
+    "realm": "Vast",
+    "wealth_summary": "Pilgrim tithes to Tyr’s temples and Vast linen exports overseen by the Bishopric Merchants’ Council.",
+    "key_players": [
+      "High Bishop Bharos",
+      "Linen Weavers’ Guild"
+    ]
+  },
+  {
+    "rank": 25,
+    "city": "Raven’s Bluff",
+    "realm": "Vast",
+    "wealth_summary": "Adventurers’ licenses and banking houses of the Gold Exchange mint coin for the ‘Living City’.",
+    "key_players": [
+      "Lord Mayor Hhilewal",
+      "Adventurers’ Guild"
+    ]
+  },
+  {
+    "rank": 26,
+    "city": "Procampur",
+    "realm": "Vast",
+    "wealth_summary": "Strict anti‑piracy laws make it a safe bullion port; goldsmiths on Three Coin Street are second to none.",
+    "key_players": [
+      "Guild Council",
+      "Fleet Admiral Ilreth"
+    ]
+  },
+  {
+    "rank": 27,
+    "city": "Sarshel",
+    "realm": "Impiltur",
+    "wealth_summary": "Own navy escorts Damaran grain and tauril lumber; royal shipyards line the harbor.",
+    "key_players": [
+      "King Imbrar II",
+      "Royal Merchant Marine"
+    ]
+  },
+  {
+    "rank": 28,
+    "city": "Hillsfar",
+    "realm": "Moonsea",
+    "wealth_summary": "Red Plume garrison guards grain and slave auctions; Moonsea Ride caravans feed the treasury.",
+    "key_players": [
+      "First Lord Maalthiir",
+      "Red Plumes"
+    ]
+  },
+  {
+    "rank": 29,
+    "city": "Teziir",
+    "realm": "Dragon Coast",
+    "wealth_summary": "Vintners and privateers fight Westgate’s monopoly; council skims both cork and captured cargo.",
+    "key_players": [
+      "Council of Vintners & Dyers",
+      "Teziiran Privateer Fleet"
+    ]
+  },
+  {
+    "rank": 30,
+    "city": "Arrabar",
+    "realm": "Chondath",
+    "wealth_summary": "Emerald Way terminus where mercenary companies are hired and hardwood cargoes taxed.",
+    "key_players": [
+      "Arrabaran Council of Coin",
+      "Mercenary Captains’ League"
+    ]
+  },
+  {
+    "rank": 31,
+    "city": "Hlondeth",
+    "realm": "Vilhon Reach",
+    "wealth_summary": "Cotton, spice, and venom exports manipulated by its yuan‑ti nobility.",
+    "key_players": [
+      "House Extaminos",
+      "Yuan‑ti Senate"
+    ]
+  },
+  {
+    "rank": 32,
+    "city": "Halarahh",
+    "realm": "Halruaa",
+    "wealth_summary": "Electrum mines and skyship charter fees strengthened by wizard‑engineered luxury goods.",
+    "key_players": [
+      "Archmage Kivaen",
+      "Halruaan Merchant Consortium"
+    ]
+  },
+  {
+    "rank": 33,
+    "city": "Mithral Hall",
+    "realm": "North",
+    "wealth_summary": "Clan Battlehammer’s mithral veins worth more than gold; secret gates secure caravans.",
+    "key_players": [
+      "King Bruenor Battlehammer",
+      "Master of Mines Torgar Hammerstriker"
+    ]
+  },
+  {
+    "rank": 34,
+    "city": "Citadel Adbar",
+    "realm": "North",
+    "wealth_summary": "Endless dwarven forgeworks under King Harbromm supply weapons across the North.",
+    "key_players": [
+      "King Harbromm",
+      "Master Smith Harondel"
+    ]
+  },
+  {
+    "rank": 35,
+    "city": "Citadel Felbarr",
+    "realm": "Silver Marches",
+    "wealth_summary": "Rauvin River tolls and ore exports revive city coffers under new dwarf rule.",
+    "key_players": [
+      "King Emerus Warcrown",
+      "Council of Hammerpriests"
+    ]
+  },
+  {
+    "rank": 36,
+    "city": "Menzoberranzan",
+    "realm": "Underdark",
+    "wealth_summary": "Adamantine arms, faerzress gems, and surfacer plunder roll through the vaults of the Spider Queen.",
+    "key_players": [
+      "Matron Mother Quenthel Baenre",
+      "House Mizzrym",
+      "Bregan D’aerthe"
+    ]
+  },
+  {
+    "rank": 37,
+    "city": "Skullport",
+    "realm": "Undermountain",
+    "wealth_summary": "Illicit slave, spell component, and contraband market taxed by illithid and beholder crime lords.",
+    "key_players": [
+      "Xanathar Thieves’ Guild",
+      "Kraken Society"
+    ]
+  },
+  {
+    "rank": 38,
+    "city": "Bezantur",
+    "realm": "Thay",
+    "wealth_summary": "Red Wizard enclave profits tithe to temples; magic‑item export empire spans Faerûn.",
+    "key_players": [
+      "Szass Tam",
+      "Temple District Merchant Priests"
+    ]
+  },
+  {
+    "rank": 39,
+    "city": "Eltabbar",
+    "realm": "Thay",
+    "wealth_summary": "Capital’s elemental‑forge foundries and slave auctions swell the Tharchion’s treasury.",
+    "key_players": [
+      "Tharchion Aznar Thrul",
+      "Zulkir of Evocation"
+    ]
+  },
+  {
+    "rank": 40,
+    "city": "Airspur",
+    "realm": "Chessenta",
+    "wealth_summary": "Genasi merchant princes levy hurricane‑proof harbor fees and grain tariffs.",
+    "key_players": [
+      "House Shyr",
+      "Sky‑rider Consortium"
+    ]
+  },
+  {
+    "rank": 41,
+    "city": "Myratma",
+    "realm": "Tethyr",
+    "wealth_summary": "Textile mills and tabaxi cotton under Duchess Merilyn Cabren’s reforms fund new trade roads.",
+    "key_players": [
+      "Duchess Merilyn Cabren",
+      "Guild of Weavers"
+    ]
+  },
+  {
+    "rank": 42,
+    "city": "Lyrabar",
+    "realm": "Impiltur",
+    "wealth_summary": "Merchant Council reinvests ship‑taxes into new yards; gray forest lumber traffic.",
+    "key_players": [
+      "Merchant Council of Impiltur",
+      "King Imbrar II"
+    ]
+  },
+  {
+    "rank": 43,
+    "city": "Tashluta",
+    "realm": "Tashalar",
+    "wealth_summary": "Sibyl Masters tax citrus, teak, and fortune‑telling charters; Ring of Pirates pays for safe‑conduct.",
+    "key_players": [
+      "Sibyl Masters",
+      "Ring of Pirates",
+      "House Bharaz‑Dum"
+    ]
+  },
+  {
+    "rank": 44,
+    "city": "Ormpetarr",
+    "realm": "Sespech",
+    "wealth_summary": "Vilhon Reach river customs dominate fertile black‑loam farming profits.",
+    "key_players": [
+      "Baroness Miranda",
+      "River Customhouse Guild"
+    ]
+  },
+  {
+    "rank": 45,
+    "city": "Ithmong",
+    "realm": "Lapaliiya",
+    "wealth_summary": "Storm‑wracked cliff port commands gem exports and hurricane‑risk surcharges.",
+    "key_players": [
+      "Overking Azoun Orlahn",
+      "Admiralty of Lapaliiya"
+    ]
+  },
+  {
+    "rank": 46,
+    "city": "Sheirtalar",
+    "realm": "Lapaliiya",
+    "wealth_summary": "Ivory, lapis, and Shaaran caravan terminus capitalized by a private royal mint.",
+    "key_players": [
+      "Parliament of Peers",
+      "Overking Azoun Orlahn"
+    ]
+  },
+  {
+    "rank": 47,
+    "city": "Port Kir",
+    "realm": "Tethyr",
+    "wealth_summary": "Low wharf fees lure Maztican captains; hardwood and cocoa trade revives old Ta’Shalar lines.",
+    "key_players": [
+      "Lord Regent Rashtara",
+      "Harbormasters’ League"
+    ]
+  },
+  {
+    "rank": 48,
+    "city": "Murann",
+    "realm": "Amn",
+    "wealth_summary": "Maztican hardwood and dual coinage tariffs collected by the Mhandivar merchant dynasty.",
+    "key_players": [
+      "Mhandivar Family",
+      "Amnian Tax Collectors’ Guild"
+    ]
+  },
+  {
+    "rank": 49,
+    "city": "Innarlith",
+    "realm": "Lake of Steam",
+    "wealth_summary": "‘Anything for a price’ market: Senate of Nine backs Red Plume‑trained militia for security.",
+    "key_players": [
+      "Senate of Nine",
+      "Merchant Prince Valathond"
+    ]
+  },
+  {
+    "rank": 50,
+    "city": "Heldapan",
+    "realm": "Durpar",
+    "wealth_summary": "Golden Water docks move Kara‑Tur and Zakhara luxuries taxed by the Council of Merchants.",
+    "key_players": [
+      "Durpari Council of Merchants",
+      "Guild of Spice Factors"
+    ]
+  }]
+
+
+
+const ecoMap = new Map(eco.map(e => [e.rank, e]));
+const combined = fluff.map(l => Object.assign({}, l, ecoMap.get(l.rank) || {}));
+console.log(combined)
+renderTable(combined)
+
+function renderTable(data) {
+    const columns = [
+        {key:'rank', label:'#'},
+        {key:'city', label:'City'},
+        {key:'realm', label:'Realm'},
+        {key:'population', label:'Population'},
+        {key:'ships_daily', label:'Ships/Day'},
+        {key:'wagons_daily', label:'Wagons/Day'},
+        {key:'bank_assets_gp', label:'Bank Assets (gp)'},
+        {key:'export_index', label:'Export Index'},
+        {key:'mage_index', label:'Mage Index'},
+        {key:'wealth_summary', label:'Why It’s Loaded'},
+        {key:'key_players', label:'Key Players'}
+    ];
+
+    const thead = document.getElementById('table-head');
+    thead.innerHTML = '<tr>' + columns.map(c => `<th>${c.label}</th>`).join('') + '</tr>';
+
+    const tbody = document.getElementById('table-body');
+    tbody.innerHTML = data.map(row => {
+        return '<tr>' + columns.map(col => {
+            let val = row[col.key];
+            if (Array.isArray(val)) val = val.join(', ');
+            return `<td>${val ?? ''}</td>`;
+        }).join('') + '</tr>';
+    }).join('');
+}
+</script>
+</body>
+</html>

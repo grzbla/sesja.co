@@ -1,0 +1,210 @@
+{
+    "combat_system": {
+        "scaling": {
+            "description": "1 PEN = 1 DIS = 1 Skill Level. Human DIS = 4. PEN - (DIS + Movement Bonus) = effective PEN compared to DIS 4.",
+            "damage_mechanics": "If effective PEN exceeds DIS, target dies. If equal, target is wounded but alive.",
+            "survival": "Skill level (DIS 4 unarmored) determines max survivable damage. Armor, cover, and movement prevent death."
+        },
+        "movement_modifiers": {
+            "Standing Still": { "DIS_bonus": 0, "accuracy_penalty": 0 },
+            "Walking": { "DIS_bonus": 3, "accuracy_penalty": -1 },
+            "Jogging": { "DIS_bonus": 6, "accuracy_penalty": -3 },
+            "Sprinting": { "DIS_bonus": 10, "accuracy_penalty": "No aiming" },
+            "Diving for Cover": { "DIS_bonus": 15, "accuracy_penalty": -3 },
+            "Sliding Into Cover": { "DIS_bonus": 8, "accuracy_penalty": -2 }
+        },
+        "weapons": {
+            "handguns": {
+                ".22 LR": { "ammo_type": ".22 LR FMJ", "PEN": 6 },
+                ".25 ACP": { "ammo_type": ".25 ACP FMJ", "PEN": 7 },
+                ".32 ACP": { "ammo_type": ".32 ACP FMJ", "PEN": 8 },
+                ".380 ACP": { "ammo_type": ".380 ACP FMJ", "PEN": 9 },
+                "9mm Parabellum": { "ammo_type": "9mm FMJ", "PEN": 12 },
+                ".40 S&W": { "ammo_type": ".40 S&W FMJ", "PEN": 13 },
+                ".45 ACP": { "ammo_type": ".45 ACP FMJ", "PEN": 14 },
+                ".357 Magnum": { "ammo_type": ".357 Mag JHP", "PEN": 15 },
+                ".44 Magnum": { "ammo_type": ".44 Mag JSP", "PEN": 18 },
+                ".50 Action Express": { "ammo_type": ".50 AE JSP", "PEN": 24 },
+                "Matchlock Pistol": { "ammo_type": "Lead Ball", "PEN": 5 },
+                "Flintlock Pistol": { "ammo_type": "Lead Ball", "PEN": 6 },
+                "Derringer": { "ammo_type": ".41 Rimfire", "PEN": 7 }
+            },
+            "submachine_guns": {
+                "MP5": { "ammo_type": "9mm FMJ", "PEN": 12 },
+                "Uzi": { "ammo_type": "9mm FMJ", "PEN": 12 },
+                "MAC-10": { "ammo_type": ".45 ACP FMJ", "PEN": 14 },
+                "Thompson SMG": { "ammo_type": ".45 ACP FMJ", "PEN": 14 },
+                "PP-90": { "ammo_type": "9x18mm Makarov", "PEN": 10 },
+                "Sten Gun": { "ammo_type": "9mm FMJ", "PEN": 12 },
+                "P90": { "ammo_type": "5.7x28mm AP", "PEN": 15 }
+            },
+            "shotguns": {
+                "12-Gauge Buckshot": { "ammo_type": "00 Buckshot", "PEN_per_pellet": 6, "pellets": 8 },
+                "12-Gauge Slug": { "ammo_type": "1 oz Slug", "PEN": 20 },
+                "20-Gauge Buckshot": { "ammo_type": "00 Buckshot", "PEN_per_pellet": 5, "pellets": 6 },
+                "10-Gauge Buckshot": { "ammo_type": "00 Buckshot", "PEN_per_pellet": 7, "pellets": 10 },
+                "Flintlock Blunderbuss": { "ammo_type": "Lead Shot", "PEN_per_pellet": 4, "pellets": 6 },
+                "Sawed-Off Shotgun": { "ammo_type": "12-Gauge Buckshot", "PEN_per_pellet": 6, "pellets": 8 },
+                "Dragon’s Breath": { "ammo_type": "Incendiary Shot", "PEN_per_pellet": 5, "pellets": 6 }
+            },
+            "rifles": {
+                "Matchlock Musket": { "ammo_type": "Lead Ball (~1 oz)", "PEN": 8 },
+                "Flintlock Musket": { "ammo_type": "Lead Ball (~1 oz)", "PEN": 10 },
+                "Brown Bess Musket": { "ammo_type": "Lead Ball (0.68 oz)", "PEN": 15 },
+                "Spencer Rifle": { "ammo_type": ".52 Caliber Rimfire", "PEN": 18 },
+                "M1 Garand": { "ammo_type": ".30-06 Springfield", "PEN": 30 },
+                "M4 Carbine": { "ammo_type": "5.56mm M855", "PEN": 22 },
+                "AK-47": { "ammo_type": "7.62x39mm M43", "PEN": 25 },
+                "FN FAL": { "ammo_type": "7.62x51mm NATO", "PEN": 28 },
+                "AR-10": { "ammo_type": ".308 Win FMJ", "PEN": 30 },
+                ".338 Lapua Magnum": { "ammo_type": ".338 LM AP", "PEN": 40 }
+            },
+            "machine_guns": {
+                "Maxim Gun": { "ammo_type": ".303 British", "PEN": 25 },
+                "MG42": { "ammo_type": "7.92x57mm Mauser", "PEN": 28 },
+                "M249 SAW": { "ammo_type": "5.56mm NATO", "PEN": 22 },
+                "M60": { "ammo_type": "7.62x51mm NATO", "PEN": 28 },
+                "M2 Browning": { "ammo_type": ".50 BMG FMJ", "PEN": 50 },
+                "Minigun (M134)": { "ammo_type": "7.62x51mm NATO", "PEN": 28 },
+                "Vickers Gun": { "ammo_type": ".303 British", "PEN": 25 }
+            },
+            "sniper_rifles": {
+                "M40": { "ammo_type": ".308 Win AP", "PEN": 35 },
+                "Barrett M82": { "ammo_type": ".50 BMG FMJ", "PEN": 50 },
+                ".338 Lapua Magnum": { "ammo_type": ".338 LM AP", "PEN": 40 },
+                "Mosin-Nagant": { "ammo_type": "7.62x54mmR", "PEN": 30 },
+                "SVD Dragunov": { "ammo_type": "7.62x54mmR", "PEN": 30 },
+                "CheyTac M200": { "ammo_type": ".408 CheyTac", "PEN": 45 },
+                "Lee-Enfield": { "ammo_type": ".303 British", "PEN": 25 }
+            },
+            "heavy_weapons": {
+                "RPG-7": { "ammo_type": "85mm HEAT", "PEN": 60 },
+                "Carl Gustav M4": { "ammo_type": "84mm HEAT", "PEN": 80 },
+                "Javelin Missile": { "ammo_type": "Top-Attack HEAT", "PEN": 150 },
+                "TOW Missile": { "ammo_type": "Wire-Guided HEAT", "PEN": 120 },
+                "M72 LAW": { "ammo_type": "66mm HEAT", "PEN": 40 },
+                "Flamethrower (M2)": { "ammo_type": "Napalm Stream", "PEN": 20 },
+                "AT4": { "ammo_type": "84mm HEAT", "PEN": 90 }
+            },
+            "aircraft_guns": {
+                "20mm Cannon (M61)": { "ammo_type": "20mm HE", "PEN": 40 },
+                "30mm Cannon (GAU-8)": { "ammo_type": "30mm DU/AP", "PEN": 60 },
+                "25mm Cannon (M242)": { "ammo_type": "25mm APFSDS", "PEN": 50 },
+                "12.7mm MG (M2)": { "ammo_type": ".50 BMG FMJ", "PEN": 50 },
+                "37mm Cannon (M4)": { "ammo_type": "37mm HE", "PEN": 45 }
+            },
+            "missiles": {
+                "Stinger Missile": { "ammo_type": "IR-Guided HE", "PEN": 80 },
+                "Hellfire Missile": { "ammo_type": "AGM-114 HEAT", "PEN": 140 },
+                "Sidewinder": { "ammo_type": "AIM-9 HE", "PEN": 70 },
+                "Tomahawk Missile": { "ammo_type": "TLAM HE", "PEN": 100 },
+                "Maverick Missile": { "ammo_type": "AGM-65 HEAT", "PEN": 130 }
+            },
+            "artillery": {
+                "75mm Howitzer (M1)": { "ammo_type": "75mm HE", "PEN": 40 },
+                "105mm Howitzer (M119)": { "ammo_type": "105mm HE", "PEN": 60 },
+                "155mm Howitzer (M777)": { "ammo_type": "155mm HE", "PEN": 90 },
+                "120mm Mortar": { "ammo_type": "120mm HE", "PEN": 70 },
+                "88mm Flak Gun": { "ammo_type": "88mm AP", "PEN": 50 },
+                "16-inch Naval Gun": { "ammo_type": "406mm AP", "PEN": 120 },
+                "25-pounder": { "ammo_type": "87.6mm HE", "PEN": 45 }
+            },
+            "mines_explosives": {
+                "M67 Grenade": { "ammo_type": "Fragmentation", "PEN": 30 },
+                "Claymore Mine": { "ammo_type": "Directional Shrapnel", "PEN": 40 },
+                "Anti-Personnel Mine (M14)": { "ammo_type": "Blast", "PEN": 20 },
+                "Anti-Tank Mine (TM-46)": { "ammo_type": "HEAT", "PEN": 80 },
+                "C4 (1 kg)": { "ammo_type": "Plastic Explosive", "PEN": 50 },
+                "Molotov Cocktail": { "ammo_type": "Incendiary", "PEN": 10 },
+                "IED (Roadside)": { "ammo_type": "Improvised HE", "PEN": 60 }
+            },
+            "melee_weapons": {
+                "Knife": { "type": "Stabbing", "PEN": 3 },
+                "Dagger": { "type": "Stabbing", "PEN": 4 },
+                "Sword (Longsword)": { "type": "Slashing/Stabbing", "PEN": 6 },
+                "Axe (Battle Axe)": { "type": "Chopping", "PEN": 8 },
+                "Mace": { "type": "Blunt", "PEN": 5 },
+                "Spear": { "type": "Piercing", "PEN": 7 },
+                "Katana": { "type": "Slashing", "PEN": 7 },
+                "Warhammer": { "type": "Blunt", "PEN": 6 },
+                "Flail": { "type": "Blunt/Chain", "PEN": 5 },
+                "Bayonet (Attached)": { "type": "Stabbing", "PEN": 4 },
+                "Club": { "type": "Blunt", "PEN": 3 }
+            }
+        },
+        "armor": {
+            "soft_armors": {
+                "Cloth Clothing": { "description": "Cotton/Fabric", "DIS": 1 },
+                "Leather Jacket": { "description": "Thick Leather", "DIS": 2 },
+                "NIJ Level I": { "NIJ": "I", "DIS": 6 },
+                "NIJ Level II": { "NIJ": "II", "DIS": 15 },
+                "NIJ Level IIIA": { "NIJ": "IIIA", "DIS": 18 }
+            },
+            "hard_armors": {
+                "NIJ Level III": { "NIJ": "III", "DIS": 25 },
+                "NIJ Level IV": { "NIJ": "IV", "DIS": 30 },
+                "Ballistic Shield": { "NIJ": "III+", "DIS": 35 }
+            },
+            "heavy_gear": {
+                "Light Exosuit": { "description": "Reinforced Fabric", "DIS": 8, "effect": "Boosts movement" },
+                "Combat Exosuit": { "description": "Tactical Armor", "DIS": 20, "effect": "Moderate protection" },
+                "Power Armor": { "description": "Full-Body Composite", "DIS": 30, "effect": "Heavy, stops rifles" },
+                "Riot Armor": { "description": "NIJ IIIA+", "DIS": 20, "effect": "Enhanced soft armor" }
+            }
+        },
+        "environmentals": {
+            "cover": {
+                "Glass Window": { "material": "Standard Glass", "DIS": 1 },
+                "Wooden Door": { "material": "Solid Oak, 1 inch", "DIS": 5 },
+                "Drywall": { "material": "Plywood/Sheetrock", "DIS": 4 },
+                "Car Door": { "material": "Thin Steel, ~2 mm", "DIS": 8 },
+                "Brick Wall": { "material": "Red Brick, ~10 cm", "DIS": 15 },
+                "Concrete Wall": { "material": "Reinforced, ~15 cm", "DIS": 25 },
+                "Steel Beam": { "material": "Hardened Steel, ~5 cm", "DIS": 30 },
+                "Sandbags (1 layer)": { "material": "Packed Sand, ~30 cm", "DIS": 20 },
+                "Bulletproof Glass": { "material": "Laminated, ~2 cm", "DIS": 15 },
+                "Trash Dumpster": { "material": "Sheet Metal + Fill", "DIS": 10 }
+            }
+        },
+        "vehicles": {
+            "light_vehicles": {
+                "Armored SUV": { "material": "Steel-Plated, ~10 mm", "DIS": 15, "weak_spot": "Windshield" },
+                "Police Riot Truck": { "material": "Layered Steel, ~15 mm", "DIS": 20, "weak_spot": "Tires" },
+                "Humvee (Unarmored)": { "material": "Light Steel, ~5 mm", "DIS": 10, "weak_spot": "Windows" },
+                "Jeep (Military)": { "material": "Thin Steel, ~3 mm", "DIS": 8, "weak_spot": "Engine" },
+                "MRAP (Light)": { "material": "Reinforced Steel", "DIS": 25, "weak_spot": "Underbelly" }
+            },
+            "military_vehicles": {
+                "M1 Abrams": { "material": "Composite Armor", "DIS": 80, "weak_spot": "Rear" },
+                "T-34": { "material": "Hardened Steel, ~45 mm", "DIS": 30, "weak_spot": "Turret" },
+                "Leopard 2": { "material": "Composite Armor", "DIS": 75, "weak_spot": "Engine" },
+                "Bradley IFV": { "material": "Ceramic-Reinforced", "DIS": 40, "weak_spot": "Tracks" },
+                "BMP-2": { "material": "Steel, ~33 mm", "DIS": 35, "weak_spot": "Rear" },
+                "Challenger 2": { "material": "Chobham Armor", "DIS": 85, "weak_spot": "Rear" },
+                "Stryker": { "material": "Steel + Ceramic", "DIS": 30, "weak_spot": "Wheels" }
+            }
+        },
+        "aircraft": {
+            "military_aircraft": {
+                "F-16 Fighting Falcon": { "material": "Aluminum/Composite", "DIS": 25, "weak_spot": "Engine" },
+                "Attack Helicopter": { "material": "Light Armor, ~10 mm", "DIS": 20, "weak_spot": "Rotor Assembly" },
+                "Stealth Drone": { "material": "Composite, ~5 mm", "DIS": 15, "weak_spot": "Sensors" },
+                "A-10 Thunderbolt II": { "material": "Titanium Tub, ~20 mm", "DIS": 35, "weak_spot": "Wings" },
+                "MiG-29": { "material": "Aluminum/Steel", "DIS": 25, "weak_spot": "Cockpit" },
+                "AH-64 Apache": { "material": "Reinforced, ~15 mm", "DIS": 30, "weak_spot": "Tail Rotor" },
+                "B-52 Stratofortress": { "material": "Heavy Aluminum", "DIS": 40, "weak_spot": "Bomb Bay" }
+            }
+        },
+        "ships": {
+            "naval_vessels": {
+                "Patrol Boat": { "material": "Steel, ~10 mm", "DIS": 20, "weak_spot": "Engine" },
+                "Frigate": { "material": "Steel, ~25 mm", "DIS": 50, "weak_spot": "Bridge" },
+                "Destroyer": { "material": "Steel, ~50 mm", "DIS": 70, "weak_spot": "Engine Room" },
+                "Battleship": { "material": "Armor Plate, ~300 mm", "DIS": 100, "weak_spot": "Deck Armor" },
+                "Aircraft Carrier": { "material": "Steel/Composite, ~100 mm", "DIS": 90, "weak_spot": "Flight Deck" },
+                "Submarine (Surfaced)": { "material": "Steel Hull, ~30 mm", "DIS": 60, "weak_spot": "Conning Tower" },
+                "Corvette": { "material": "Light Steel, ~15 mm", "DIS": 35, "weak_spot": "Radar Mast" }
+            }
+        }
+    }
+}

@@ -1,0 +1,1930 @@
+{
+    "Background": {
+        "description": "The world of Faerun is diverse and culturally rich. You must learn to interact with people from various lands and races, or you might meet your end in a simple misunderstanding. Your homeland determines your native language. In Faerun, Common is spoken by almost everyone, but you likely also know another language you learned in your youth. After determining your general cultural region, choose one of the languages from the list adjacent to your cultural region. You begin with 4 points in that Language Skill. There are countless languages spoken across Faerun, but for our purposes here, we've listed the most commonly spoken languages in each region. If you want your Character to speak a language that isn't represented, you can choose that language instead of one of the listed languages.",
+        "options": [
+            {
+                "name": "Spine of the World",
+                "includes": "Icewind Dale, Ten-Towns, Luskan, Mirabar, dwarven delves, orc tribes, Ice Lakes, Kelvin's Cairn, Ironmaster, Bryn Shander",
+                "fluff": "Frostbitten frontier. Wolves wear names. The wind is older than kings. Dwarves mine in silence below the rock while frost giants chant on the peaks. Luskan\u2019s captains send black-sailed ships north, crewed by criminals who fear the sea less than the noose. The auroras are said to be the spirits of fallen tribes, still dancing across the night.",
+                "languages": [
+                    "Common",
+                    "Dwarvish",
+                    "Giant",
+                    "Illuskan",
+                    "Orc",
+                    "Terastrin",
+                    "Uluik",
+                    "Yeti dialect"
+                ],
+                "canon_facts": [
+                    "Ten-Towns is a loose confederation of frontier towns in Icewind Dale, surviving on fishing and scrimshaw trade.",
+                    "Mithral Hall is the ancestral home of Clan Battlehammer, reclaimed from duergar.",
+                    "Luskan is ruled by the Arcane Brotherhood, mages competing for dominance.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "Auril, the Frostmaiden, is worshipped in secret by those who vanish in the storm.",
+                    "Wulfgar of Icewind Dale once shattered a frost giant's skull with Aegis-fang beneath Kelvin\u2019s Cairn.",
+                    "The Wyrmdoom Crag hides the skull of an ancient white wyrm said to contain a frozen star.",
+                    "Auril\u2019s breath is strongest here; her worshippers gather storms and sacrifice wanderers.",
+                    "The Battle of Icehollow Ridge saw frost giants and barbarians clash in a blizzard that raged for ten days.",
+                    "A buried dwarven vault sealed by Moradin himself is said to contain a hammer that can awaken mountains.",
+                    "Ironmaster is a secretive dwarven hold that shuns outsiders, even kin."
+                ]
+            },
+            {
+                "name": "The North",
+                "includes": "Waterdeep, Neverwinter, trade routes, bardic colleges, trollbark paths, Longsaddle, Triboar, Yartar, Red Larch, Everlund",
+                "fluff": "Blade-sharp cities ringed by wild gods and older trees. Magic lives in the bricks. Waterdeep\u2019s towers scrape the sky with spell-lit glass, while Neverwinter basks in the warmth of a secret fire beneath its streets. In the gaps between cities lie troll-haunted fens and ancient barrows no one dares map. The harp of the Harpers still echoes from moonlit rooftops.",
+                "languages": [
+                    "Chondathan",
+                    "Common",
+                    "Draconic",
+                    "Druidic",
+                    "Dwarvish",
+                    "Elvish",
+                    "Giant",
+                    "Illuskan"
+                ],
+                "canon_facts": [
+                    "Waterdeep is the City of Splendors and seat of masked lords.",
+                    "Neverwinter is heated by elemental fire and known as the Jewel of the North.",
+                    "Trade routes from here lead across the Sword Coast and into the mountains.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Harpers keep secret caches beneath Silverymoon\u2019s wards, each keyed to a bard\u2019s last song.",
+                    "Khelben \u2018Blackstaff\u2019 Arunsun ruled Waterdeep\u2019s magical underground and mentored heroes in secret.",
+                    "Deep below the High Moor lies a shattered moonstone gate that once opened to Arvandor.",
+                    "Sel\u00fbne\u2019s tears fall in this region more often than anywhere else\u2014harbingers of fate and change.",
+                    "The orc horde known as the Broken Bone nearly razed Silverymoon before being turned back by the Moonsilver Shield.",
+                    "The Singing Sword of Neverwinter, once lost in the cataclysm, now weeps beneath Castle Never.",
+                    "Longsaddle is home to the eccentric Harpell family of wizards."
+                ]
+            },
+            {
+                "name": "Western Heartlands",
+                "includes": "Baldur\u2019s Gate, Candlekeep, Beregost, Iriaebor, Greenfields, Greenest, Scornubel, Elturel, Soubar, Hill\u2019s Edge",
+                "fluff": "Every deal, every duel, every lie meets here. Heroes die in the margins. The Cloud Peaks cradle old tombs and outlaw dreams. Candlekeep guards its books like dragons hoard gold, and no one leaves without losing something. Traders here carry secrets in locked chests, but the land remembers everything.",
+                "languages": [
+                    "Auran",
+                    "Celestial",
+                    "Chondathan",
+                    "Common",
+                    "Dwarvish",
+                    "Elvish",
+                    "Halfling"
+                ],
+                "canon_facts": [
+                    "Baldur\u2019s Gate is ruled by a Council of Four and sits astride the Chionthar River.",
+                    "Candlekeep requires a book not in its library for entry.",
+                    "The region connects the Sword Coast to inland trade through the River Chionthar.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The fallen celestial Durlag once walked these lands, his tomb hidden behind fire and shadow.",
+                    "The Iron Throne\u2019s fall began in Baldur\u2019s Gate, when assassins turned on their own for gold.",
+                    "The Candlekeep Catacombs contain a book that writes itself only during eclipses.",
+                    "Mystra\u2019s weave is thick and tangled in Candlekeep\u2014wizards who stay too long dream her face.",
+                    "The Fields of the Dead are named for the countless battles waged there, each staining the soil deeper.",
+                    "It is said that one of Candlekeep\u2019s deepest tomes contains a spell to rewrite a year of time\u2014if read in blood.",
+                    "Elturel was once protected by a divine light that vanished mysteriously."
+                ]
+            },
+            {
+                "name": "Amn",
+                "includes": "Athkatla, Crimmor, Esmeltaran, Troll Mountains, Murann, Purskul, Imnescar, Eshpurta, Trademeet, Torbold",
+                "fluff": "Streets paved in silver tongues. Poisoned cups, smiling lips. Merchant princes play at war with ledgers and assassins. The Council of Five rules behind glass mirrors, seeing all and saying nothing. Trolls and monsters infest the southern wilds, kept at bay by paid steel and fire.",
+                "languages": [
+                    "Alzhedo",
+                    "Chondathan",
+                    "Common",
+                    "Halfling",
+                    "Maztican"
+                ],
+                "canon_facts": [
+                    "Amn is governed by the Council of Five merchant houses.",
+                    "It has strained ties with the Cowled Wizards who enforce magical regulation.",
+                    "Maztica was colonized by Amn for trade and conquest.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Shadow Thieves once ruled the underworld until a divine purge scorched their secrets into the stone.",
+                    "The Maztican Wars drained Amn\u2019s coffers and left its merchant lords more desperate and vicious.",
+                    "A sleeping beholder hive stirs beneath the Ogre\u2019s Teeth, sealed by forgotten dwarves.",
+                    "Waukeen\u2019s temples still hide vaults untouched since the Time of Troubles; none can open them now.",
+                    "The Sythillisian Empire\u2019s monstrous invasion left scars on Amn\u2019s southern cities that still haven\u2019t healed.",
+                    "The Crimson Coin, a cursed currency said to bankrupt nations, is passed between merchant houses in secret.",
+                    "Murann is a key port constantly contested by pirates and foreign navies."
+                ]
+            },
+            {
+                "name": "Tethyr",
+                "includes": "Zazesspur, Velen, Ithal Pass, Tethir Forest, Ithmong, Saradush, Mosstone, Toril's Watch, Castle Daggerdale, Leth",
+                "fluff": "Kingdom built on bones. The crowns whisper still. Elven ruins slumber beneath the Tethir Forest, guarded by dreams and regrets. Old rebels polish crowns they bled to win. The ghosts of the Weeping War are said to rise on moonless nights to whisper judgment.",
+                "languages": [
+                    "Common",
+                    "Draconic",
+                    "Elvish",
+                    "Halfling",
+                    "Shaaran",
+                    "Sylvan"
+                ],
+                "canon_facts": [
+                    "Tethyr recently emerged from a civil war that lasted decades.",
+                    "It borders elven lands and contains ancient ruins from the Weeping War.",
+                    "The royal line was restored by Zaranda Star, a former adventurer.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Weeping War\u2019s final echoes can be heard at the Forest Edge on quiet mornings.",
+                    "The Forest of Tethir shelters the last hidden blades of the Queen\u2019s Vengeance.",
+                    "The Spectral Court of Saelmur rides once a century, seeking a monarch who never was crowned.",
+                    "The bones of the god Myrkul are said to rest beneath the haunted ruins of Castle Mir.",
+                    "Tethyr\u2019s Rebellion decimated noble houses, leaving many castles abandoned or haunted.",
+                    "A treant grove hidden in the Tethir Forest keeps vigil over a portal to the Feywild, opened once every thousand years.",
+                    "Mosstone stands as a border between forest folk and noble intrigues."
+                ]
+            },
+            {
+                "name": "Calimshan",
+                "includes": "Calimport, Memnon, Marching Mountains, Shoonach ruins, Almraiven, Schamedar, Volothamp, Djenaal, Qassan, Lhest",
+                "fluff": "Heat-hung city of marble masks. Smoke rises from old wishes. Efreeti once ruled from thrones of flame and brass. Their bones lie beneath the sand, and their bargains still echo. Shoonach rots under shifting dunes, a city of undead and spell traps older than most kingdoms.",
+                "languages": [
+                    "Abyssal",
+                    "Alzhedo",
+                    "Common",
+                    "Elvish",
+                    "Ignan",
+                    "Midani",
+                    "Shaaran"
+                ],
+                "canon_facts": [
+                    "Calimshan was once ruled by djinn and efreet empires.",
+                    "Calimport is a sprawling, ancient city of intrigue.",
+                    "The Shoon Imperium once controlled much of southwest Faer\u00fbn.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Genie Lord Calim\u2019s sword is said to remain buried beneath the Marching Mountains, still humming.",
+                    "The Night Wars between vampires and thieves carved half of Calimport into dark tunnels and forbidden zones.",
+                    "A brass ring in Memnon is said to summon a bound marid who forgets nothing and forgives less.",
+                    "Planar breaches in the Marching Mountains echo with fire and water, remnants of genie wars.",
+                    "The Shoon Wars fractured the region into feuding factions for generations.",
+                    "Calimport\u2019s lowest level houses an ever-burning flame no wizard can extinguish, fed by lost names.",
+                    "Almraiven trains mages under strict, silent brotherhoods."
+                ]
+            },
+            {
+                "name": "Anauroch",
+                "includes": "High Ice, Bedine tribes, Netherese tombs, Shade Enclave, Phaerimms\u2019 Pit, Shoonach Wastes, Anauril, Spellhold Crater, Vaelanthal, Thultanthar Remnants",
+                "fluff": "The wind cuts. The sky kills. But the stars still fall. Bedine ride like wind on their long-legged horses, carrying tales and blades. The Shades have returned, cities flying on shadow and silence. In the desert\u2019s heart lies the Black Rift, where ancient Netherese spells still churn.",
+                "languages": [
+                    "Bedine dialect",
+                    "Common",
+                    "Draconic",
+                    "Loross",
+                    "Midani",
+                    "Netherese",
+                    "Undercommon"
+                ],
+                "canon_facts": [
+                    "The desert was created by the fall of Netheril.",
+                    "The Bedine are nomads descended from survivors of Netheril.",
+                    "The Shade Enclave returned from the Plane of Shadow and now floats above Anauroch.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Nether Scrolls, source of all arcane knowledge, may be hidden beneath the Black Rift.",
+                    "Shade warriors ride on dark wind, seeking relics lost when Netheril fell beneath its own ambition.",
+                    "The Sunken Enclave of Sakkors floats within a storm of shadow and grief, anchored to no world.",
+                    "Shar\u2019s shadow lingers deep in the desert\u2014stars dim unnaturally at its heart.",
+                    "The Fall of Netheril destroyed entire cities in a single night and reshaped the heavens.",
+                    "The Watchers of the Dust track sky-fallen stars said to be messages from lost Netherese gods.",
+                    "The Phaerimm war left magical scars still pulsing under Anauroch\u2019s sand."
+                ]
+            },
+            {
+                "name": "Cormyr",
+                "includes": "Suzail, Arabel, Hullack Forest, Tilverton ruins, Dhedluk, Eveningstar, Marsember, Wheloon, Tilverton Scar, Thunderstone",
+                "fluff": "Polished steel in velvet gloves. Dragons once ruled; maybe they still do. Dragons once called this land their roost, and some still do in secret. Purple Dragons march in glittering ranks, defending throne and tradition. The King\u2019s Forest hides druids older than the crown they kneel to.",
+                "languages": [
+                    "Celestial",
+                    "Chondathan",
+                    "Common",
+                    "Elvish",
+                    "Giant"
+                ],
+                "canon_facts": [
+                    "Cormyr is a human kingdom ruled by House Obarskyr.",
+                    "The Purple Dragons are the elite military force.",
+                    "It has constant conflict along its borders with Sembia, the Stonelands, and orcs.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "A buried dragon egg sleeps beneath Suzail, guarded by generations of silent monks.",
+                    "Gondegal, the Lost King of Arabel, still draws rebels and madmen to his vanished banner.",
+                    "The Verdigris Crown, said to grow moss while worn, vanished with a prince swallowed by the Hullack.",
+                    "Oghma\u2019s library priests whisper of a buried song in Suzail that, when sung, will crown a true heir.",
+                    "The Goblin Wars saw the crown nearly fall before Suzail\u2019s walls were reclaimed by dragonfire.",
+                    "A green dragon sleeps beneath the Stormhorns, bound by seven royal oaths and a forgotten name.",
+                    "Marsember is a canal-threaded city known as the Venice of Faer\u00fbn."
+                ]
+            },
+            {
+                "name": "Dalelands",
+                "includes": "Shadowdale, Mistledale, Featherdale, Daggerdale, Myth Drannor\u2019s rim, Battledale, Deepingdale, Harrowdale, Essembra, Ashabenford",
+                "fluff": "Every tree has a ghost. Every man has a sword. Every dale holds a dozen old grudges and a hundred hidden shrines. Heroes rise here like mushrooms\u2014suddenly, and usually after rain. Myth Drannor's bones still bleed magic into the roots.",
+                "languages": [
+                    "Chondathan",
+                    "Common",
+                    "Elvish",
+                    "Gnomish",
+                    "Goblin",
+                    "Halfling",
+                    "Sylvan"
+                ],
+                "canon_facts": [
+                    "The Dales Compact allows for peaceful coexistence with the elves of Cormanthor.",
+                    "Shadowdale is home to powerful mages like Elminster.",
+                    "Myth Drannor was once the greatest elven city in Faer\u00fbn.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "Elminster\u2019s tower appears in different places depending on the stars and who\u2019s watching.",
+                    "Storm Silverhand once sang a city back from ruin beneath the boughs of Cormanthor.",
+                    "The Watcher in the Roots still guards the Dreaming Pool, where past heroes sleep in branches.",
+                    "Corellon\u2019s grace clings to the ruins of Myth Drannor\u2014non-elves sometimes weep without knowing why.",
+                    "The Dales suffered brutal occupation during the Time of Troubles, when gods walked the land.",
+                    "An elven ghost army marches once every Shieldmeet beneath the stars, leaving no tracks\u2014only silence.",
+                    "Battledale\u2019s Standing Stone marks the birth of Dalereckoning."
+                ]
+            },
+            {
+                "name": "Vilhon Reach",
+                "includes": "Hlondeth, Chondath, Turmish, Vilhon Delta, Reth, Iljak, Chavyondat, Surkh, Nun, Arrabar",
+                "fluff": "Trade glides on green waters. Gods still bite. Snakes crawl in the walls of Hlondeth\u2019s temples, and some wear skin well. Turmish swordsmen duel in markets while priests debate in blood. The Green Lady\u2019s breath rolls in with every fog.",
+                "languages": [
+                    "Abyssal",
+                    "Chondathan",
+                    "Common",
+                    "Draconic",
+                    "Shaaran",
+                    "Yuan-ti"
+                ],
+                "canon_facts": [
+                    "Hlondeth is ruled by a yuan-ti bloodline and has serpent cults.",
+                    "Turmish is a powerful trade nation and military force.",
+                    "The Emerald Enclave was founded here to preserve nature.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "A serpent-headed idol speaks riddles in a temple beneath the harbor at Hlondeth.",
+                    "The Rotting Man once tried to raise a god of decay from beneath the Vilhon, and nearly succeeded.",
+                    "A petrified kraken under the bay murmurs spells into the dreams of coastal children.",
+                    "Savras is worshipped in private in Turmish, where seers wear veils soaked in dreamwine.",
+                    "The Rotting War nearly wiped out Chondath, leaving forests of bone to the west.",
+                    "A kraken once bargained with the priest-kings of Turmish; their descendants still bear the pact.",
+                    "Reth boasts the best shipwrights in the southern Inner Sea."
+                ]
+            },
+            {
+                "name": "The Vast",
+                "includes": "Procampur, Tantras, Tsurlagol, Sembian frontier, Ravens Bluff, Calaunt, Ironfang Keep, Darmshall, Gracklstugh (fringe contact), Hlintar",
+                "fluff": "A half-built land waiting to burn or rise. Orcs from Thar raid by night, leaving only iron fetishes and fear. Tantras weeps for a god slain in the skies above. The coast offers freedom\u2014if pirates don\u2019t take you first.",
+                "languages": [
+                    "Common",
+                    "Damaran",
+                    "Gnomish",
+                    "Orc",
+                    "Tethyrian",
+                    "Tharian"
+                ],
+                "canon_facts": [
+                    "Procampur and Tantras were saved by divine intervention during the Time of Troubles.",
+                    "The Vast is rich in minerals and ruins from past empires.",
+                    "Frequent orc invasions come from Thar.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "Tantras bears the crater where Torm battled Bane, and divine essence still seeps into the ground.",
+                    "The Last Battle of the Tantras Triangle still scorches the land where gods clashed and died.",
+                    "A lost dwarven vault in the Earthfast Mountains hums with a forge-light that never dims.",
+                    "A fragment of Torm\u2019s fallen essence glows beneath Tantras, sometimes visible in sacred oil fires.",
+                    "A red dragon razed Tsurlagol centuries ago\u2014only its harbor remained.",
+                    "Beneath Tantras lies an unsealed divine gate, scarred by the god Tyr\u2019s dying breath.",
+                    "Ravens Bluff holds a vibrant artist's quarter and vigilant adventuring guilds."
+                ]
+            },
+            {
+                "name": "The Cold Lands",
+                "includes": "Damara, Vaasa, Narfell, Impiltur, Soravia, Bloodstone Village, Palischuk, Castle Perilous, Felbarr (interborder), Tenblades",
+                "fluff": "Blood freezes but curses don\u2019t. Steel sings best in snow. Bloodstone passes feed no army but the dead. Vaasa\u2019s Black Ice is cursed to crack only under heroes\u2019 boots. Demons sealed in barrows hum lullabies when the snow falls right.",
+                "languages": [
+                    "Celestial",
+                    "Common",
+                    "Damaran",
+                    "Infernal",
+                    "Rashemi",
+                    "Tanar\u2019ri"
+                ],
+                "canon_facts": [
+                    "Damara was once ruled by the Witch-King Zhengyi, a powerful lich.",
+                    "Vaasa is a bleak land where demons and undead roam.",
+                    "Bloodstone Pass is a strategic route fought over for centuries.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Lair of the Witch-King still pulses with necromantic echoes, sealed in blackstone.",
+                    "Baron Gareth Dragonsbane of Damara rode into the Abyss itself to end Zhengyi's black reign.",
+                    "The Banner of Doomguides flutters untouched atop a mountain that no one remembers climbing.",
+                    "Helm once stood here against the demons of the East, his gauntlets still mark the battleplain.",
+                    "Damara\u2019s War of the Witch-King devastated the land and left fiendish taint across the North.",
+                    "A glacier-carved monolith near Damara sings during eclipses in a language no one alive remembers.",
+                    "Palischuk is an orc city striving toward peaceful coexistence."
+                ]
+            },
+            {
+                "name": "Easting Reach",
+                "includes": "Aglarond, Thesk, Ashanath, Wizard\u2019s Reach, Nethentir, Escalant, Laothkund, Thazalhar, Delhumide, Lake Umber",
+                "fluff": "Witches in the trees. Trade under siege. Spies at every inn. Aglarond's Yuirwood hums with secrets and half-remembered names. Thesk\u2019s caravan cities choke on spice and spies. Ashanath burns with the fire of ambition\u2014red-robed and hungry.",
+                "languages": [
+                    "Celestial",
+                    "Common",
+                    "Damaran",
+                    "Elvish",
+                    "Mulhorandi",
+                    "Rashemi",
+                    "Yuir dialect"
+                ],
+                "canon_facts": [
+                    "Aglarond\u2019s Simbul is one of the most powerful living spellcasters.",
+                    "Thesk trades heavily with Kara-Tur and Rashemen.",
+                    "Ashanath has a growing population of refugees and rebels.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Yuirwood holds gates to ancient elven homelands lost to time and song.",
+                    "The Red Wizards once besieged Aglarond and were turned back by wild magic and living forest.",
+                    "An orb of crystal in Alagh\u00f4n's ruins reflects not faces, but possible futures.",
+                    "Mystra\u2019s Chosen once crossed Aglarond in secret, leaving wards only the wind understands.",
+                    "Aglarond fought off multiple Thayan invasions using weather, witchcraft, and guerrilla tactics.",
+                    "A pact between Aglarond\u2019s druids and a primordial dragon keeps the Yuirwood from consuming cities whole.",
+                    "Laothkund is riddled with hidden tunnels from the last Thayan war."
+                ]
+            },
+            {
+                "name": "Thay",
+                "includes": "Thaymount, Tharchs, wizard enclaves, slave-cities, Eltabbar, Bezantur, Surcross, Thazalhar, Thasrit, Nethjet",
+                "fluff": "Undeath is power. Magic is law. You are property. Red Wizards shape flesh like potters mold clay. Tharchions rule like demigods in silk and shadow. Soul-bound slaves smile in chains because they were taught to.",
+                "languages": [
+                    "Abyssal",
+                    "Common",
+                    "Damaran",
+                    "Draconic",
+                    "Infernal",
+                    "Mulhorandi",
+                    "Thayan"
+                ],
+                "canon_facts": [
+                    "Ruled by the Red Wizards under Szass Tam, a lich.",
+                    "Necromancy is state-sanctioned and widespread.",
+                    "Slavery is legal and forms the backbone of labor.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "Szass Tam has written his soul into the land\u2014should he fall, the earth may die with him.",
+                    "The Dread Ring remains an unfinished lattice of undeath near Thaymount, pulsing with dark energy.",
+                    "In the Black Academy, there\u2019s a mirror that shows the viewer as a god\u2014and what they would destroy first.",
+                    "Bane\u2019s cult operates beneath the nose of Szass Tam\u2014some say with his permission.",
+                    "The Great Rebellion of the Tharchs nearly toppled Szass Tam, but ended in mass executions.",
+                    "A secret cabal within the Red Wizards plans to betray Szass Tam using a ritual stolen from the City of Brass.",
+                    "Eltabbar is built around the bindings of the demon lord Eltab."
+                ]
+            },
+            {
+                "name": "Old Empires",
+                "includes": "Mulhorand, Unther, Chessenta, Skuld, Messemprar, Luthcheq, Mordulkin, Unthalass, Airspur, Unther's Rise",
+                "fluff": "Bloodlines glow like embers. Thrones never go cold. Mulhorand\u2019s pyramids rise over cities where gods still walk in mortal guise. Unther rots under tyranny and rebellion. Chessenta drowns its glories in amphorae and bloodsport.",
+                "languages": [
+                    "Celestial",
+                    "Common",
+                    "Draconic",
+                    "Midani",
+                    "Mulhorandi",
+                    "Untheric"
+                ],
+                "canon_facts": [
+                    "Mulhorand and Unther were founded by god-kings from another world.",
+                    "Chessenta prizes personal glory and warfare.",
+                    "Divine magic remains common in everyday life.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "Mulhorand\u2019s gods once ruled openly, their temples still warm with divine memory.",
+                    "The Mulhorandi pantheon returned to mortal flesh after the Time of Troubles, reshaping faith.",
+                    "The Spear of Gilgeam is said to bleed when Unther\u2019s throne is falsely claimed.",
+                    "Set's breath curls through Unther's ruins; his temples breathe and devour in the dark.",
+                    "Unther fell to Mulhorandi invasion and rebelled centuries later in a war of liberation.",
+                    "The Labyrinth of Skuld shifts at night and is said to contain the heart of an unborn god.",
+                    "Luthcheq bans all arcane magic and burns wizardkind at stake."
+                ]
+            },
+            {
+                "name": "Chultan Peninsula",
+                "includes": "Port Nyanzaru, Omu, Chult, Jahaka Bay, Fort Beluarian, M'bala, Kir Sabal, Ataaz Muhahah, Lake Luo, Wakanga Hold",
+                "fluff": "The jungle eats time. Gold glitters on every corpse. Dinosaurs thunder through the jungle like storms with teeth. Port Nyanzaru spins fortunes on the backs of the brave and the dead. Every vine might be a noose, every idol a trap.",
+                "languages": [
+                    "Aarakocra",
+                    "Chultan",
+                    "Common",
+                    "Draconic",
+                    "Halfling",
+                    "Tabaxi dialects"
+                ],
+                "canon_facts": [
+                    "Chult is a land of lost cities, dinosaurs, and undead.",
+                    "Port Nyanzaru is ruled by merchant princes.",
+                    "Omu was once a great city fallen to dark god worship.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Heart of Ubtao pulses beneath Omu, said to shape the jungle's will.",
+                    "The Soulmonger fed on the dead and nearly unmade resurrection until it was destroyed beneath Omu.",
+                    "A tyrannosaurus covered in silver runes wanders the jungle, unaging and bound to no master.",
+                    "Ubtao\u2019s spirit walks the jungle, wearing different skins and leaving no tracks.",
+                    "The Spellplague devastated Chult, sinking cities and corrupting magic in the jungle.",
+                    "An undead king made of obsidian and fire sleeps beneath Mezro, stirring whenever the moon bleeds.",
+                    "Fort Beluarian is operated by Baldurian mercantile interests."
+                ]
+            },
+            {
+                "name": "Maztica",
+                "includes": "Nexal, Payit, Kultaka, Mount Firefinger, Ulatos, Maztapan, Far Payit, Cuztaxal, Zazalgul, Nexal's Basin",
+                "fluff": "Obsidian blood runs hot. The gods here scream. Golden temples pierce jungle canopies, echoing with chants to obsidian gods. Conquerors came in fire and steel, and some were swallowed whole. Payit\u2019s rivers run red during the moon rites.",
+                "languages": [
+                    "Alzhedo",
+                    "Chondathan",
+                    "Common",
+                    "Nexalan"
+                ],
+                "canon_facts": [
+                    "Maztica was colonized by Faer\u00fbnians from Amn.",
+                    "Payit and Kultaka resist foreign rule.",
+                    "Gold and jade are abundant and often fought over.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The golden sun-mask of Zaltec was lost in blood sacrifice, and the jungle hungers for its return.",
+                    "The Feathered Serpent Qotal once walked openly through Nexal, offering peace before fire fell.",
+                    "A pyramid deep in the smoking jungle hums with divine rage each equinox\u2014none know why.",
+                    "Pluma spirits stir the trees; gods of wind and war still battle overhead, unseen but heard.",
+                    "The Golden Armada\u2019s landing in Maztica caused generations of war and resistance.",
+                    "Deep within the jungle, the jade-eyed jaguar watches all who cross its domain\u2014it has not blinked in centuries.",
+                    "Ulatos is now a mixing bowl of Faer\u00fbnian and native cultures."
+                ]
+            },
+            {
+                "name": "Shining South",
+                "includes": "Halruaa, Dambrath, Tashalar, Luiren, Shoun, Kormul, Sammaresh, Vaelen, The Dustwall, Spellhaven",
+                "fluff": "Magic isn't power here\u2014it\u2019s birthright. Halruaa floats on dreams of wizardry and paranoia. Dambrath\u2019s priestesses rule with whip and will. Tashalar feasts like every meal is its last before the jungle reclaims all.",
+                "languages": [
+                    "Celestial",
+                    "Common",
+                    "Draconic",
+                    "Gnomish",
+                    "Halruaan",
+                    "Luiric",
+                    "Shaaran",
+                    "Tashalan"
+                ],
+                "canon_facts": [
+                    "Halruaa is a magocracy with flying ships and sky fortresses.",
+                    "Dambrath is ruled by half-drow priestesses called Crinti.",
+                    "Tashalar is known for fine wines and hidden serpent cults.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "Halruaa\u2019s skies hide a floating citadel that fell once from the stars, and now waits.",
+                    "Skyships fell in storms of magic during the fall of Halruaa, their wrecks still buried in the jungle.",
+                    "The Storm Spire in Halruaa broadcasts dreams to spellcasters across the world during starfalls.",
+                    "Mystra's spellwinds lace Halruaa\u2019s skies, thickest during midsummer starfall.",
+                    "The Skyfire War between Halruaa and archwizards of the north nearly shattered the Weave itself.",
+                    "A sunken skyship crewed by living constructs lies lost beneath the Halruaan cliffs, humming spells in sleep.",
+                    "Shoun holds the halfling council that governs Luiren\u2019s three city-states."
+                ]
+            },
+            {
+                "name": "Moonsea",
+                "includes": "Zhentil Keep, Mulmaster, Phlan, Thar, Moonsea Ride, Hillsfar, Sulasspryn, Thentia, Fort Haalruuan, Ravensdeep",
+                "fluff": "Blade meets throat. No one dies innocent. The Black Network casts shadows longer than cities. Dragons once ruled here and still hunger in the hills. War never ends\u2014it only changes banners.",
+                "languages": [
+                    "Common",
+                    "Damaran",
+                    "Dwarvish",
+                    "Giant",
+                    "Goblin",
+                    "Orcish",
+                    "Thayan"
+                ],
+                "canon_facts": [
+                    "Zhentil Keep is a stronghold of the Zhentarim.",
+                    "Mulmaster is a city of corruption and arcane control.",
+                    "Ruins of ancient civilizations lie beneath the lake.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Pool of Radiance below Phlan warps magic and memory; it is never dry.",
+                    "The god Bane rose again in the Moonsea after his death, and his priests never left.",
+                    "Below Zhentil Keep lies a chained abomination made of godflesh and hatred.",
+                    "Cyric's whispers still echo from the depths of the ruined temple beneath Zhentil Keep.",
+                    "The Moonsea War saw Zhentil Keep rise and fall under waves of tyranny and fire.",
+                    "Every seven years, the Moonsea tides reveal a submerged city with lights still flickering beneath the black water.",
+                    "Thentia is known for arcane freedom and sky-faring towers."
+                ]
+            },
+            {
+                "name": "Border Kingdoms",
+                "includes": "Lake Halruaa fringe, Lhesper, Derlusk, monarchs-by-murder, Yallasch, Harlaton, Ashvale, Blackflame Steppes, Greenharp, Ulrass",
+                "fluff": "Power lasts as long as your last duel. Monarchs rise on rumors and die by breakfast. Magic saturates the soil; nothing stays buried. The gods laugh louder here\u2014and often in person.",
+                "languages": [
+                    "All",
+                    "Chondathan",
+                    "Common",
+                    "Gnoll",
+                    "Illuskan",
+                    "Regional dialects",
+                    "Tabaxi"
+                ],
+                "canon_facts": [
+                    "Dozens of micro-kingdoms rise and fall within months.",
+                    "Wizards and warlords often experiment with rule here.",
+                    "It borders the Lake of Steam and sees heavy caravan traffic.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The bones of a fallen god were ground into the mortar of a now-forgotten castle.",
+                    "Adventurers are outlawed in seven cities for collapsing governments just by arriving.",
+                    "A sword stuck in a nameless well whispers to those who peer too long into its water.",
+                    "Leira\u2019s lies took root here; some towns exist only on certain days, and no map agrees.",
+                    "The Mage Purges ignited mass destruction as magical tyrants were overthrown by coalitions of common folk.",
+                    "A throne carved from a dead celestial\u2019s bones is passed from warlord to warlord, never questioned.",
+                    "Derlusk borders the Lake of Steam and is a haven for smugglers."
+                ]
+            },
+            {
+                "name": "Shaar",
+                "includes": "Endless plains, Firesteap Mountains, nomad trails, Omlarandin Mountains, Shaarmid, Azulduth, Skuldaskar, Ravaged Watch, Centaur Rise, Thalaba",
+                "fluff": "Wind sings, grass cuts, and the sky stretches forever. Nomads carve poetry into bone and smoke it to remember. Ghost herds gallop under moonlight. The lions here speak, and their words sting like truth.",
+                "languages": [
+                    "Centaur dialect",
+                    "Common",
+                    "Damaran",
+                    "Elvish",
+                    "Shaaran",
+                    "Sylvan"
+                ],
+                "canon_facts": [
+                    "The Shaar is home to nomadic tribes and great lion herds.",
+                    "The Watchwall was once a dwarven defensive line.",
+                    "Beast cults flourish in hidden valleys.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "A lion-headed comet crosses the sky once a generation and alters fates beneath it.",
+                    "The Nar tribes cursed the Shaar with a demonstorm that has never entirely passed.",
+                    "When the red rains fall, the statues walk\u2014ancient guardians awaiting a king born under a broken moon.",
+                    "The stars fall faster here. Many believe the gods watch closer from above these plains.",
+                    "The War of the Lions saw tribal confederacies split and fall to foreign blades and spells.",
+                    "The wind of the Shaar carries names from the future, and shamans speak them only in dreams.",
+                    "Shaarmid is a nomad-run trade city built around an oasis fed by magic."
+                ]
+            },
+            {
+                "name": "Great Glacier",
+                "includes": "Sossal, Endless Ice, Ulutiun tribes, Kanchamalak, Glacier of the White Worm, Iulutiun camps, Mount Vilhon, Frozen Gate, Kelvund Ice, Whitedeep Reach",
+                "fluff": "Ice is silence. The silence remembers. Ulutiun shamans wear the names of the wind and trade memories for warmth. Sossal trades with ghosts and expects better manners. Cold here isn\u2019t absence\u2014it\u2019s a presence.",
+                "languages": [
+                    "Celestial",
+                    "Common",
+                    "Elemental Ice Tongue",
+                    "Giant",
+                    "Rashemi",
+                    "Uluik"
+                ],
+                "canon_facts": [
+                    "The Great Glacier is inhabited by Ulutiun tribes.",
+                    "Sossal is a reclusive realm that trades rarely with outsiders.",
+                    "Old ice sometimes yields forgotten artifacts.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "An ancient white wyrm lies frozen in prayer within the glacier, perfectly preserved.",
+                    "The Ice Hunter tribes believe the glacier itself is a slumbering god dreaming the world cold.",
+                    "Northern lights form runes in the sky once every hundred years\u2014no one who reads them survives unchanged.",
+                    "Tempus\u2019s red mist rises sometimes from forgotten battlefields frozen in place beneath the ice.",
+                    "The Ice Wyrm Urothmar froze a dozen settlements in one night before vanishing beneath the ice.",
+                    "An ancient Ulutiun prophecy foretells a child of snow who will freeze time itself.",
+                    "Glacier of the White Worm is rumored to hold a primordial beast in sleep."
+                ]
+            },
+            {
+                "name": "Unapproachable East",
+                "includes": "Rashemen, Aglarond, Thesk, Ashanath, Urlingwood, Mulptan, Bezil, Rashemaar Holds, Beregost's Fall, Lake Thaylambar",
+                "fluff": "Your ancestors still walk beside you. So do your enemies. The witches of Rashemen drink prophecy like wine. Aglarond sings with elven sadness. The Old Ones stir beneath Thesk\u2019s wheat.",
+                "languages": [
+                    "Common",
+                    "Damaran",
+                    "Elvish",
+                    "Rashemi",
+                    "Spirit-tongue",
+                    "Sylvan"
+                ],
+                "canon_facts": [
+                    "Rashemen is protected by the Witches of Rashemen.",
+                    "Aglarond\u2019s Yuirwood is half-merged with the Feywild.",
+                    "Thesk is the battleground between Thay and resistance forces.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The spirits of Rashemen's berserkers do not die\u2014they merely change hosts.",
+                    "The Simbul once burned a Red Wizard army to cinders with a word and vanished laughing.",
+                    "A grove in the Yuirwood sings with children's voices on nights when no stars are visible.",
+                    "Lurue\u2019s spirit still rides the skies above Rashemen, glimpsed by children in winter storms.",
+                    "Rashemen\u2019s witches repelled a full-scale Thayan invasion with storms and summoned beasts.",
+                    "The berserker masks of Rashemen hold ancestral spirits that can awaken in battle\u2014and remember old wars.",
+                    "Mulptan is an ancient Rashemaar temple-city buried beneath earth and oath."
+                ]
+            },
+            {
+                "name": "High Forest",
+                "includes": "Silverymoon, Evereska roads, Star Mounts, Grandfather Tree, Nameless Dungeon, Forgotten Glade, Tree Ghost Lodge, Runetree Basin, The Deeping Crown, Everspring",
+                "fluff": "The trees remember when the sky cracked. So do you. Silverymoon glows like a poem written in starlight and steel. Dryads debate laws older than empires. The Star Mounts hum with power no one dares name.",
+                "languages": [
+                    "Ancient Elvish",
+                    "Chondathan",
+                    "Common",
+                    "Draconic",
+                    "Druidic",
+                    "Elvish",
+                    "Sylvan"
+                ],
+                "canon_facts": [
+                    "Home to treants, centaurs, and the ancient Grandfather Tree.",
+                    "The Star Mounts may house portals to other planes.",
+                    "Silverymoon, though nearby, aligns more with forest guardians than coastal cities.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "The Grandfather Tree dreams of the Time Before Time and whispers prophecy in root-tongue.",
+                    "The green dragon Elaacrimalicros ruled the north woods for centuries, whispering lies into trees.",
+                    "The Star Mounts' shadow once birthed a godling made of comet flame and owl feathers.",
+                    "Labelas Enoreth\u2019s time-lost shrine is said to age backward with each passing moon.",
+                    "The Crown Wars between elves left scars that bleed magic and sorrow still.",
+                    "A floating monolith in the Star Mounts whispers the names of those fated to die under moonlight.",
+                    "The Nameless Dungeon shifts position and appears only under eclipses."
+                ]
+            },
+            {
+                "name": "Nelanther Isles",
+                "includes": "Pirate isles, sunken cities, sea-hag covens, Skaug, Orlumbor, Iniarv's Tower, Wreckers\u2019 Rock, Isle of Whispers, Netherpool, Farsea\u2019s Cut",
+                "fluff": "No laws. No land. Just teeth and tide. Shipwrecks build cities here. Sahuagin hunt above and below. Every reef remembers a murder.",
+                "languages": [
+                    "Aquan",
+                    "Common",
+                    "Deep Speech",
+                    "Illuskan",
+                    "Orc",
+                    "Sahuagin"
+                ],
+                "canon_facts": [
+                    "A pirate haven dotted with shipwrecks and secret coves.",
+                    "The sea hags of the isles bargain in dreams.",
+                    "Sahuagin raids are frequent and feared.",
+                    "Local legends speak of a forgotten power slumbering beneath the land.",
+                    "A drowned archmage sings to the storms, commanding waves in a dead tongue.",
+                    "Captain Redbeard\u2019s ghost fleet returns every century to collect the blood-debt of pirates past.",
+                    "A coral tower sinks deeper each year, drawing the dreams of sea creatures into strange shapes.",
+                    "Umberlee\u2019s laughter cracks the sky over the isles; ship captains spill wine in her name or die.",
+                    "The Pirate King\u2019s War turned isle against isle, and krakens still feast on the wreckage below.",
+                    "The shipwrecked flagship of a Waterdhavian armada is said to sail only during black storms\u2014crewed by its drowned.",
+                    "Skaug is a pirate haven where mutiny is resolved by blood duels."
+                ]
+            }
+        ]
+    },
+    "Personality": {
+        "options": [
+            {
+                "Description": "Reserved and secretive"
+            },
+            {
+                "Description": "Defiant, solitary, and fierce"
+            },
+            {
+                "Description": "Haughty, dignified, and distant"
+            },
+            {
+                "Description": "Temperamental, impulsive, and bold"
+            },
+            {
+                "Description": "Particular, meticulous, and anxious"
+            },
+            {
+                "Description": "Steady and earnest"
+            },
+            {
+                "Description": "Whimsical and scatterbrained"
+            },
+            {
+                "Description": "Cunning and sly"
+            },
+            {
+                "Description": "Scholarly and dispassionate"
+            },
+            {
+                "Description": "Amiable and sociable"
+            }
+        ]
+    },
+    "Motivations": {
+        "options": [
+            {
+                "Value": "Coin",
+                "Feeling": "I stay neutral."
+            },
+            {
+                "Value": "Valor",
+                "Feeling": "I stay neutral."
+            },
+            {
+                "Value": "Oath",
+                "Feeling": "I like almost everyone."
+            },
+            {
+                "Value": "Candor",
+                "Feeling": "I hate almost everyone."
+            },
+            {
+                "Value": "Lore",
+                "Feeling": "People are tools. Use them for your own goals then discard them."
+            },
+            {
+                "Value": "Retribution",
+                "Feeling": "Every person is a valuable individual."
+            },
+            {
+                "Value": "Affection",
+                "Feeling": "People are obstacles to be destroyed if they cross me."
+            },
+            {
+                "Value": "Dominion",
+                "Feeling": "People are untrustworthy. Don't depend on anyone."
+            },
+            {
+                "Value": "Kin",
+                "Feeling": "Wipe 'em all out and let the cockroaches take over."
+            },
+            {
+                "Value": "Camaraderie",
+                "Feeling": "People are wonderful!"
+            }
+        ]
+    },
+    "Most Valued Person": {
+        "options": [
+            {
+                "Person": "A sire or dam"
+            },
+            {
+                "Person": "A kin or kin-sister"
+            },
+            {
+                "Person": "A consort"
+            },
+            {
+                "Person": "A companion"
+            },
+            {
+                "Person": "Thyself"
+            },
+            {
+                "Person": "A familiar"
+            },
+            {
+                "Person": "A sage or tutor"
+            },
+            {
+                "Person": "A known figure"
+            },
+            {
+                "Person": "A chosen champion"
+            },
+            {
+                "Person": "No soul"
+            }
+        ]
+    },
+    "Most Valued Possession": {
+        "options": [
+            {
+                "Possession": "A blade"
+            },
+            {
+                "Possession": "An implement"
+            },
+            {
+                "Possession": "A garb"
+            },
+            {
+                "Possession": "A painting"
+            },
+            {
+                "Possession": "A tome or journal"
+            },
+            {
+                "Possession": "A memory crystal"
+            },
+            {
+                "Possession": "A lute or flute"
+            },
+            {
+                "Possession": "A trinket"
+            },
+            {
+                "Possession": "A plaything"
+            },
+            {
+                "Possession": "A missive"
+            }
+        ]
+    },
+    "Childhood Environment": {
+        "options": [
+            {
+                "Environment": "Roamed the streets, with no adult supervision."
+            },
+            {
+                "Environment": "Lived in a protected noble quarter, shielded from the city's dangers."
+            },
+            {
+                "Environment": "Traveled with a nomadic tribe, moving from place to place."
+            },
+            {
+                "Environment": "Lived with a nomadic caravan, specializing in transport by wagons or ships."
+            },
+            {
+                "Environment": "Resided in a decaying, once affluent district, now fighting off bandits to survive."
+            },
+            {
+                "Environment": "Survived in the heart of a lawless zone, living in a ruined building or other squat."
+            },
+            {
+                "Environment": "Inhabited a massive castle or fortress controlled by a noble house or organization."
+            },
+            {
+                "Environment": "Lived in the ruins of a deserted town or city reclaimed by settlers."
+            },
+            {
+                "Environment": "Resided in a floating city (Drift Nation) that is a melting pot for all kinds of people."
+            },
+            {
+                "Environment": "Lived in a luxurious magician tower, high above the rest of the common folk."
+            }
+        ]
+    },
+    "Family Crisis": {
+        "options": [
+            {
+                "Background": "Your noble lineage was dismantled by treachery."
+            },
+            {
+                "Background": "Your house fell into ruin due to poor stewardship."
+            },
+            {
+                "Background": "Your kin were exiled or driven from their ancestral lands."
+            },
+            {
+                "Background": "Your family is imprisoned; you alone escaped."
+            },
+            {
+                "Background": "Your family mysteriously vanished; you are the sole heir."
+            },
+            {
+                "Background": "Your kin were slaughtered; you are the lone survivor."
+            },
+            {
+                "Background": "Your house is embroiled in a long-standing conspiracy, guild, or secret society."
+            },
+            {
+                "Background": "Your family was scattered by the winds of misfortune."
+            },
+            {
+                "Background": "Your lineage is cursed by a hereditary feud that has spanned generations."
+            },
+            {
+                "Background": "You are the bearer of a family debt; you must settle this debt before forging your own path."
+            }
+        ]
+    },
+    "Friends": {
+        "description": "Roll 1d10 and subtract 7 (minimum 0) to see how many friends you've made so far in your life. For each friend, roll on the table below.",
+        "options": [
+            {
+                "Relationship": "Like an elder sibling to you."
+            },
+            {
+                "Relationship": "Like a younger sibling to you."
+            },
+            {
+                "Relationship": "A tutor or mentor."
+            },
+            {
+                "Relationship": "A comrade or guild member."
+            },
+            {
+                "Relationship": "A past paramour."
+            },
+            {
+                "Relationship": "A long-time foe."
+            },
+            {
+                "Relationship": "Like a parent to you."
+            },
+            {
+                "Relationship": "A childhood companion."
+            },
+            {
+                "Relationship": "An acquaintance from the alleys."
+            },
+            {
+                "Relationship": "Someone sharing a mutual interest or pursuit."
+            }
+        ]
+    },
+    "Enemies": {
+        "description": "First, roll 1d10 and subtract 7 (minimum 0) to determine how many enemies you've made. Then, for each one, decide who was the injured party and roll once on each of the columns below. Once you have determined what your enemy is like, go to the Sweet Revenge table to see how the offended party will act if the two of you ever meet again.",
+        "options": [
+            {
+                "Enemy": "Ex-friend",
+                "Cause": "Caused the other to lose honor or standing.",
+                "Throw": "Just themselves, and they won't go out of their way."
+            },
+            {
+                "Enemy": "Ex-paramour",
+                "Cause": "Caused the loss of a beloved, friend, or kin.",
+                "Throw": "Just themselves."
+            },
+            {
+                "Enemy": "Estranged kin",
+                "Cause": "Caused a major public disgrace.",
+                "Throw": "Just themselves and a trusted confidant."
+            },
+            {
+                "Enemy": "Childhood foe",
+                "Cause": "Accused the other of cowardice or another grave personal flaw.",
+                "Throw": "Themselves and a few (1d6/2) companions."
+            },
+            {
+                "Enemy": "Underling",
+                "Cause": "Deserted or betrayed the other.",
+                "Throw": "Themselves and a few (1d6/2) companions."
+            },
+            {
+                "Enemy": "Superior",
+                "Cause": "Rejected the other's offer of alliance or romance.",
+                "Throw": "An entire band (at least 10 + 5 members)."
+            },
+            {
+                "Enemy": "Comrade or guild member",
+                "Cause": "You just dislike each other.",
+                "Throw": "The local watch or other enforcers."
+            },
+            {
+                "Enemy": "Noble or merchant lord",
+                "Cause": "One of you was a romantic rival.",
+                "Throw": "A powerful gang leader or small merchant consortium."
+            },
+            {
+                "Enemy": "Government official",
+                "Cause": "One of you was a trade rival.",
+                "Throw": "A powerful merchant consortium."
+            },
+            {
+                "Enemy": "Street thug",
+                "Cause": "One of you framed the other for a crime they didn't commit.",
+                "Throw": "An entire city or government agency."
+            }
+        ]
+    },
+    "Revenge": {
+        "options": [
+            {
+                "Action": "Avoid the scum."
+            },
+            {
+                "Action": "Go into a murderous rage and try to physically rip their face off."
+            },
+            {
+                "Action": "Backstab them indirectly."
+            },
+            {
+                "Action": "Verbally attack them."
+            },
+            {
+                "Action": "Set them up for a crime or other transgression they didn't commit."
+            },
+            {
+                "Action": "Set out to murder or maim them."
+            }
+        ]
+    },
+    "Love Affair": {
+        "description": "Roll 1d10 and subtract 7 (minimum 0) to see how many tragic love affairs you've had, then use the table below to see how each ended.",
+        "options": [
+            {
+                "What Happened?": "Your lover died in an accident."
+            },
+            {
+                "What Happened?": "Your lover mysteriously vanished."
+            },
+            {
+                "What Happened?": "It just didn't work out."
+            },
+            {
+                "What Happened?": "A personal goal or vendetta came between you and your lover."
+            },
+            {
+                "What Happened?": "Your lover was kidnapped."
+            },
+            {
+                "What Happened?": "Your lover went insane or was cursed."
+            },
+            {
+                "What Happened?": "Your lover committed suicide."
+            },
+            {
+                "What Happened?": "Your lover was killed in a fight."
+            },
+            {
+                "What Happened?": "A rival stole your lover's affection."
+            },
+            {
+                "What Happened?": "Your lover was imprisoned or exiled."
+            }
+        ]
+    },
+    "Life Goals": {
+        "options": [
+            {
+                "Life Goal": "Shed a tarnished reputation."
+            },
+            {
+                "Life Goal": "Amass power and dominion."
+            },
+            {
+                "Life Goal": "Escape a life of hardship at any cost."
+            },
+            {
+                "Life Goal": "Inflict torment on those who oppose you."
+            },
+            {
+                "Life Goal": "Bury the past and seek solace from its shadows."
+            },
+            {
+                "Life Goal": "Track down and exact vengeance on those who wronged you."
+            },
+            {
+                "Life Goal": "Claim what is rightfully yours."
+            },
+            {
+                "Life Goal": "Rescue and protect loved ones entangled in your past."
+            },
+            {
+                "Life Goal": "Achieve renown and glory."
+            },
+            {
+                "Life Goal": "Inspire fear and command respect."
+            }
+        ]
+    },
+    "Role Lifepaths": {
+        "Bard": {
+            "description": "Follow the flowchart to uncover the details about your Bardic journey.",
+            "options": [
+                {
+                    "step": "What Kind of Bard are You?",
+                    "instruction": "Roll 1d10 or choose one.",
+                    "options": [
+                        "Minstrel",
+                        "Skald",
+                        "Street Performer",
+                        "Dramatist",
+                        "Jester",
+                        "Orator",
+                        "Herald",
+                        "Balladeer",
+                        "Drummer",
+                        "Enchanter"
+                    ]
+                },
+                {
+                    "step": "Are You in a Troupe or a Solo Act?",
+                    "instruction": "Choose either Troupe or Solo Act.",
+                    "options": [
+                        "Troupe",
+                        "Solo"
+                    ]
+                },
+                {
+                    "step": "Were You Once in a Troupe?",
+                    "instruction": "Have you ever been part of a troupe, or have you always been a solo act? Choose one.",
+                    "options": [
+                        "Yes",
+                        "No"
+                    ]
+                },
+                {
+                    "step": "Why Did You Leave?",
+                    "instruction": "Why did you leave? Roll 1d6 or choose one.",
+                    "options": [
+                        "Your arrogance led the rest of the troupe to oust you.",
+                        "You were caught in an affair with another member’s beloved.",
+                        "The rest of the troupe met a tragic end.",
+                        "The troupe was slain or scattered by foes.",
+                        "Creative differences tore the troupe apart.",
+                        "You chose to pursue a solo career."
+                    ]
+                },
+                {
+                    "step": "Who’s Gunning for You/Your Troupe?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "A former troupe member who feels betrayed.",
+                        "A rival troupe or bard seeking your audience.",
+                        "Powerful enemies displeased with your message.",
+                        "A critic or influencer aiming to tarnish your reputation.",
+                        "An elder bard who sees you as a threat.",
+                        "A spurned lover or influential person seeking revenge."
+                    ]
+                },
+                {
+                    "step": "Where Do You Perform?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "Quaint Taverns",
+                        "Private Feasts",
+                        "Seedy Inns",
+                        "Guerrilla Performances",
+                        "Festhalls across the City",
+                        "Magical Networks"
+                    ]
+                }
+            ]
+        },
+        "Sell-Sword": {
+            "description": "Follow the flowchart to determine the details about your Sell-Sword character.",
+            "options": [
+                {
+                    "step": "What Kind of Sell-Sword are You?",
+                    "instruction": "Roll 1d6 or work with your Dungeon Master to choose one.",
+                    "options": [
+                        "Guardian-for-Hire",
+                        "Street Brawler for Coin",
+                        "Noble House Enforcer who takes secret assignments",
+                        "Guild or Freelance Black Ops Agent",
+                        "Local Vigilante for Hire",
+                        "Assassin/Hitman for Hire"
+                    ]
+                },
+                {
+                    "step": "What's Your Moral Compass Like?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "Always striving for good, seeking to vanquish the wicked.",
+                        "Always spare the innocent (elderly, women, children, pets).",
+                        "Will occasionally slip and do unethical or questionable deeds, but it's rare.",
+                        "Ruthless and coin-driven; you will work for anyone, take any job for the gold.",
+                        "Willing to bend the rules (and the law) to achieve your goals.",
+                        "Totally evil. You engage in unlawful, immoral work all the time; in fact, you revel in it."
+                    ]
+                },
+                {
+                    "step": "Who's Hunting You?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "A Noble House you have wronged.",
+                        "A street gang you may have crossed.",
+                        "Corrupt Watchmen or Watchmen who mistakenly believe you're guilty of a crime.",
+                        "A rival Sell-Sword from another Guild.",
+                        "A Merchant who sees you as a threat.",
+                        "A rival Sell-Sword who views you as their arch-enemy."
+                    ]
+                },
+                {
+                    "step": "What's Your Operational Territory?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "A Noble District",
+                        "Conflict Zones",
+                        "The entire City",
+                        "The domain of a single Noble House",
+                        "The domain of a particular Merchant or contact",
+                        "Wherever the coin leads you"
+                    ]
+                }
+            ]
+        },
+        "Arcanist": {
+            "description": "Follow the flowchart to determine the details about your Arcanist character.",
+            "steps": [
+                {
+                    "step": "What Kind of Arcanist are You?",
+                    "instruction": "Roll 1d6 or work with your Dungeon Master to choose one.",
+                    "options": [
+                        "Freelancer who will steal magical items for hire.",
+                        "Arcane Guild operative who pilfers secrets for the Lords.",
+                        "Magic-Rebel interested in breaching wards and exposing secrets.",
+                        "Simply enjoy breaking wards and stealing for the thrill of it.",
+                        "Part of a regular crew of freelancers.",
+                        "Steal magical artifacts for a Sage, noble, or Lawkeeper who hires you as needed."
+                    ]
+                },
+                {
+                    "step": "If You Have a Partner, Who Are They?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "Family member",
+                        "Old friend",
+                        "Potential romantic partner as well",
+                        "Secret partner who might be a sentient construct. Might.",
+                        "Secret partner with underworld connections",
+                        "Secret partner with Arcane Guild connections"
+                    ]
+                },
+                {
+                    "step": "What's Your Hideout Like?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "There are runes and scrolls everywhere.",
+                        "It looks better in the Weave, you swear.",
+                        "It's a cluttered room filled with pilfered arcane items.",
+                        "Arcane Guild approved, modular, and utilitarian.",
+                        "Minimalist, clean, and organized.",
+                        "It's taken over your entire dwelling."
+                    ]
+                },
+                {
+                    "step": "Who are Some of Your Other Clients?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "Local Fixers who send you jobs.",
+                        "Local rogues who also protect your hideout while you secure magical loot.",
+                        "Guildmasters who use you for 'black scroll' jobs.",
+                        "Local Sell-Swords or other combat types who use you to keep their personal wards secure.",
+                        "Local Wanderers and Fixers who use you to keep their family's wards secure.",
+                        "You work for yourself and sell whatever magical artifacts you can find in the Weave."
+                    ]
+                },
+                {
+                    "step": "Where Do You Get Your Spells and Tools?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "Scavenge in old abandoned Arcane Towers.",
+                        "Steal them from other Arcanists you outwit.",
+                        "Have a local Fixer supply spells and tools in exchange for theft work.",
+                        "Guildmasters supply you with spells and tools in exchange for your services.",
+                        "You have secret access to a few Arcane Guild libraries.",
+                        "You visit the Black Markets and acquire spells and tools whenever you can."
+                    ]
+                },
+                {
+                    "step": "Who's Hunting You?",
+                    "instruction": "Roll 1d6 or choose one.",
+                    "options": [
+                        "You suspect it might be a rogue spell or a Weave Wraith. Either way, it’s perilous.",
+                        "Rival Arcanists who simply don’t like you.",
+                        "Guilds who want you to work for them exclusively.",
+                        "Lawkeepers who consider you an illegal 'black wizard' and want to capture you.",
+                        "Former clients who think you betrayed them.",
+                        "Fixer or another client who wants your services exclusively."
+                    ]
+                }
+            ]
+        },
+    "Artificer": {
+        "description": "Follow the flowchart to determine the details about your Artificer character.",
+        "steps": [{
+                "step": "What Kind of Artificer are You?",
+                "instruction": "Roll 1d10 or choose one.",
+                "options": [
+                    "Enchanter of Wondrous Items",
+                    "Wagon and Carriage Mechanic",
+                    "Jack of All Trades",
+                    "Small Apparatus Specialist",
+                    "Weaponsmith",
+                    "Mad Inventor",
+                    "Golem and Construct Mechanic",
+                    "Heavy Machinery Mechanic",
+                    "Scavenger",
+                    "Shipwright"
+                ]
+            },
+            {
+                "step": "What's Your Workshop Like?",
+                "instruction": "Roll 1d6 or choose one.",
+                "options": [
+                    "A mess strewn with parchment and blueprints.",
+                    "Everything is color-coded, but it's still chaotic.",
+                    "Totally organized with enchanted backups.",
+                    "You design everything in your spellbook.",
+                    "You keep everything just in case you need it later.",
+                    "Only you understand your filing system."
+                ]
+            },
+            {
+                "step": "If You Have a Partner, Who are They?",
+                "instruction": "Roll 1d6 or choose one.",
+                "options": [
+                    "Family member",
+                    "Old friend",
+                    "Potential romantic partner as well",
+                    "Mentor",
+                    "Secret partner with underworld connections",
+                    "Secret partner with Noble House connections"
+                ]
+            },
+            {
+                "step": "Who are Your Main Clients?",
+                "instruction": "Roll 1d6 or choose one.",
+                "options": [
+                    "Local Fixers who send you clients.",
+                    "Local rogues who also protect your workshop.",
+                    "Noble Lords who use you for 'black scroll' work.",
+                    "Local Sell-Swords or other combat types who use you for weapon upkeep.",
+                    "Local Wanderers and Fixers who bring you 'found' magical items to repair.",
+                    "You work for yourself and sell what you invent/repair."
+                ]
+            },
+            {
+                "step": "Where Do You Get Your Supplies?",
+                "instruction": "Roll 1d6 or choose one.",
+                "options": [
+                    "Scavenge the remnants you find in old ruins.",
+                    "Strip gear from fallen foes.",
+                    "Have a local Fixer bring you supplies in exchange for repair work.",
+                    "Noble Lords supply you with materials in exchange for your services.",
+                    "You have secret access to a few Noble House storerooms.",
+                    "You visit the Black Markets and acquire deals whenever you can."
+                ]
+            },
+            {
+                "step": "Who's Hunting You?",
+                "instruction": "Roll 1d6 or choose one.",
+                "options": [
+                    "Street thugs who want you to work for them exclusively.",
+                    "Rival Artificer trying to steal your customers.",
+                    "Noble Lords who want you to work for them exclusively.",
+                    "Larger guild trying to bring you down because your inventions are a threat.",
+                    "Old client who thinks you betrayed them.",
+                    "Rival Artificer trying to outdo you for resources and parts."
+                ]
+            }
+        ]
+    },
+    {
+    "Cleric": {
+        "description": "Follow the flowchart to determine the details about your Cleric character.",
+        "steps": [{
+                "step": "What Kind of Cleric are You?",
+                "instruction": "Roll 1d10 or choose one.",
+                "options": [
+                    "Sanctified Rejuvenator",
+                    "Village Healer",
+                    "Battlefield Chirurgeon",
+                    "Mind Healer",
+                    "Exorcist",
+                    "Herbalist",
+                    "Rejuvenator",
+                    "Alchemist",
+                    "Consecrator",
+                    "Diviner"
+                ]
+            },
+            {
+                "step": "Tell Us About Your Partner(s).",
+                "instruction": "Roll 1d6 or choose one.",
+                "options": [
+                    "Temple Fellowship",
+                    "Old friend",
+                    "Potential romantic partner as well",
+                    "Family member",
+                    "Secret partner with underworld connections",
+                    "Secret partner with Noble House connections"
+                ]
+            },
+            {
+                "step": "What's Your Sanctuary Like?",
+                "instruction": "Roll 1d6 or choose one.",
+                "options": [
+                    "Purified daily with sacred rituals.",
+                    "It's not the finest anymore, but it's comfortable to you.",
+                    "The altar is a place where you make drinks.",
+                    "Everything possible is single-use and stored compacted until needed.",
+                    "Not as clean as many of your patients may have hoped.",
+                    "Meticulously organized, blessed, and purified."
+                ]
+            },
+            {
+                "step": "Who are Your Main Patients?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Local contacts who send you those in need."
+                    },
+                    {
+                        "who": "Local rogues who also protect your sanctuary in exchange for healing."
+                    },
+                    {
+                        "who": "Noble Lords who use you for 'divine intervention' healing work."
+                    },
+                    {
+                        "who": "Local Sell-Swords or other combat types who use you for divine aid."
+                    },
+                    {
+                        "who": "Local Wanderers and brokers who bring you wounded clients."
+                    },
+                    {
+                        "who": "Temple or Guild healing work."
+                    }
+                ]
+            },
+            {
+                "step": "Where Do You Get Your Supplies?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "where": "Scavenge sacred herbs and relics you find in ancient ruins."
+                    },
+                    {
+                        "where": "Strip parts from fallen foes after battles."
+                    },
+                    {
+                        "where": "Have a local broker bring you supplies in exchange for healing work."
+                    },
+                    {
+                        "where": "Noble Lords or Temple supply you with materials in exchange for your services."
+                    },
+                    {
+                        "where": "You have a backdoor into a few Noble House or Temple storerooms."
+                    },
+                    {
+                        "where": "You visit the Black Markets and acquire deals whenever you can."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+    "Herald": {
+        "steps": [{
+                "step": "What Kind of Herald are You?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "type": "Town Crier"
+                    },
+                    {
+                        "type": "Scribe (Books)"
+                    },
+                    {
+                        "type": "Bard"
+                    },
+                    {
+                        "type": "Chronicler"
+                    },
+                    {
+                        "type": "Investigative Scribe"
+                    },
+                    {
+                        "type": "Street Scribe"
+                    }
+                ]
+            },
+            {
+                "step": "How Does Your Work Reach the Public?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "how": "Monthly broadsheet"
+                    },
+                    {
+                        "how": "Personal Scrolls"
+                    },
+                    {
+                        "how": "Mainstream bardic performances"
+                    },
+                    {
+                        "how": "News proclamations"
+                    },
+                    {
+                        "how": "\"Book\" sales"
+                    },
+                    {
+                        "how": "Handbills"
+                    }
+                ]
+            },
+            {
+                "step": "How Ethical are You?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "ethics": "Fair, honest reporting, strong ethical practices. You only report the verifiable truth."
+                    },
+                    {
+                        "ethics": "Fair and honest reporting, but willing to go on hearsay and rumor if that's what it takes."
+                    },
+                    {
+                        "ethics": "Will occasionally slip and do unethical things, but it's rare. You have some standards."
+                    },
+                    {
+                        "ethics": "Willing to bend any rules to get the bad guys. But only the bad guys."
+                    },
+                    {
+                        "ethics": "Ruthless and determined to make it big, even if it means breaking the law. You're a muckraker."
+                    },
+                    {
+                        "ethics": "Totally corrupt. You take bribes, engage in illegal, unethical reporting all the time. Your pen is for hire to the highest bidder."
+                    }
+                ]
+            },
+            {
+                "step": "What Types of Stories Do You Want to Tell?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "stories": "Political Intrigue"
+                    },
+                    {
+                        "stories": "Ecological Impact"
+                    },
+                    {
+                        "stories": "Noble Gossip"
+                    },
+                    {
+                        "stories": "Guild Takedowns"
+                    },
+                    {
+                        "stories": "Editorials"
+                    },
+                    {
+                        "stories": "Propaganda"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+    "Guildmaster": {
+        "steps": [{
+                "step": "Where is Your Guild Based?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "where": "One city"
+                    },
+                    {
+                        "where": "Several cities"
+                    },
+                    {
+                        "where": "Throughout a region"
+                    },
+                    {
+                        "where": "Nationwide"
+                    },
+                    {
+                        "where": "International, with guildhouses in a few major cities"
+                    },
+                    {
+                        "where": "International, with guildhouses everywhere"
+                    }
+                ]
+            },
+            {
+                "step": "Who's Targeting Your Guild?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Rival guild in the same trade."
+                    },
+                    {
+                        "who": "The local militia is keeping an eye on you."
+                    },
+                    {
+                        "who": "Local Heralds want to expose your secrets."
+                    },
+                    {
+                        "who": "Different factions within your own guild are at odds."
+                    },
+                    {
+                        "who": "The local lord is wary of your guild."
+                    },
+                    {
+                        "who": "International guilds are eyeing you for a hostile takeover."
+                    }
+                ]
+            },
+            {
+                "step": "Current State with Your Patron",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "current_state": "Your Patron mentors you but beware of their enemies."
+                    },
+                    {
+                        "current_state": "Your Patron gives you a free hand and doesn't want to know the details."
+                    },
+                    {
+                        "current_state": "Your Patron is a micromanager who interferes with your work."
+                    },
+                    {
+                        "current_state": "Your Patron is erratic with unpredictable outbursts and quiet paranoia."
+                    },
+                    {
+                        "current_state": "Your Patron is supportive and watches your back against rivals."
+                    },
+                    {
+                        "current_state": "Your Patron is threatened by your swift rise and is plotting against you."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+    "Lawkeeper": {
+        "steps": [{
+                "step": "What is Your Position in the Order?",
+                "description": "Roll 1d6 or work with your Dungeon Master to choose one.",
+                "options": [{
+                        "position": "Town Guard"
+                    },
+                    {
+                        "position": "Patrol Guard"
+                    },
+                    {
+                        "position": "Investigator"
+                    },
+                    {
+                        "position": "Special Weapons and Tactics"
+                    },
+                    {
+                        "position": "Mounted Patrol"
+                    },
+                    {
+                        "position": "Internal Affairs"
+                    }
+                ]
+            },
+            {
+                "step": "How Wide is Your Order's Jurisdiction?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "jurisdiction": "Noble Districts"
+                    },
+                    {
+                        "jurisdiction": "City Patrol Zones"
+                    },
+                    {
+                        "jurisdiction": "Conflict Zones"
+                    },
+                    {
+                        "jurisdiction": "Outer City"
+                    },
+                    {
+                        "jurisdiction": "Recovery Zones"
+                    },
+                    {
+                        "jurisdiction": "Trade Roads"
+                    }
+                ]
+            },
+            {
+                "step": "How Corrupt is Your Order?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "corruption": "Fair, honest policing, strong ethical practices."
+                    },
+                    {
+                        "corruption": "Fair and honest policing, but hard on lawbreakers."
+                    },
+                    {
+                        "corruption": "Will occasionally slip and do unethical things, but it's rare."
+                    },
+                    {
+                        "corruption": "Willing to bend any rules to get the bad guys."
+                    },
+                    {
+                        "corruption": "Ruthless and determined to control the streets, even if it means breaking the law."
+                    },
+                    {
+                        "corruption": "Totally corrupt. You take bribes, engage in illegal, and unethical business all the time."
+                    }
+                ]
+            },
+            {
+                "step": "Who's Gunning for Your Order?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Organized Crime"
+                    },
+                    {
+                        "who": "Thieves' Guilds"
+                    },
+                    {
+                        "who": "Public Accountability Groups"
+                    },
+                    {
+                        "who": "Corrupt Nobles"
+                    },
+                    {
+                        "who": "Smugglers"
+                    },
+                    {
+                        "who": "Street Gangs"
+                    }
+                ]
+            },
+            {
+                "step": "Who is Your Order's Major Target?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Organized Crime"
+                    },
+                    {
+                        "who": "Thieves' Guilds"
+                    },
+                    {
+                        "who": "Drug Runners"
+                    },
+                    {
+                        "who": "Corrupt Nobles"
+                    },
+                    {
+                        "who": "Smugglers"
+                    },
+                    {
+                        "who": "Street Crime"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+    "Broker": {
+        "steps": [{
+                "step": "What Kind of Broker are You?",
+                "description": "Roll 1d10 or work with your Dungeon Master to choose one.",
+                "options": [{
+                        "type": "Negotiate deals between rival factions."
+                    },
+                    {
+                        "type": "Procure rare or atypical resources for exclusive clientele."
+                    },
+                    {
+                        "type": "Specialize in brokering Mercenary or Artificer services as an agent."
+                    },
+                    {
+                        "type": "Supply a regular resource for the Night Markets, like food, potions, or herbs."
+                    },
+                    {
+                        "type": "Procure highly illegal resources, like illicit substances or enchanted weapons."
+                    },
+                    {
+                        "type": "Supply resources for Artificers and Healers, like parts and medical supplies."
+                    },
+                    {
+                        "type": "Operate several successful Night Markets, although not as owner."
+                    },
+                    {
+                        "type": "Broker use contracts for heavy machinery, war wagons, and magical constructs."
+                    },
+                    {
+                        "type": "Broker deals as a fence for scavengers raiding ruins or battlefields."
+                    },
+                    {
+                        "type": "Act as an exclusive agent for a Bard, Minstrel, or a Caravan."
+                    }
+                ]
+            },
+            {
+                "step": "Got a Partner? Who?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Family member"
+                    },
+                    {
+                        "who": "Old friend"
+                    },
+                    {
+                        "who": "Possible romantic partner as well"
+                    },
+                    {
+                        "who": "Mentor"
+                    },
+                    {
+                        "who": "Secret partner with underworld connections"
+                    },
+                    {
+                        "who": "Secret partner with Noble House connections"
+                    }
+                ]
+            },
+            {
+                "step": "What's Your \"Office\" Like?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "office": "You don't have one. You like to keep it mobile."
+                    },
+                    {
+                        "office": "A booth in a local tavern."
+                    },
+                    {
+                        "office": "All messages sent via magical means and anonymous dead drops."
+                    },
+                    {
+                        "office": "Spare room in a warehouse, shop, or clinic."
+                    },
+                    {
+                        "office": "An otherwise abandoned building."
+                    },
+                    {
+                        "office": "The lobby of a modest inn."
+                    }
+                ]
+            },
+            {
+                "step": "Who are Your Side Clients?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Local Bards or Heralds who use you to get them gigs or contacts."
+                    },
+                    {
+                        "who": "Local rogues who also protect your work area or home."
+                    },
+                    {
+                        "who": "Noble Lords who use you for 'black scroll' procurement work."
+                    },
+                    {
+                        "who": "Local Sell-Swords or other combat types who use you to get them jobs or contacts."
+                    },
+                    {
+                        "who": "Local Wanderers and Brokers who use you to set up transactions or deals."
+                    },
+                    {
+                        "who": "Local politicos or Nobles who depend on you for finding out information."
+                    }
+                ]
+            },
+            {
+                "step": "Who's Gunning for You?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Combat Zone rogues who want you to work for them exclusively."
+                    },
+                    {
+                        "who": "Rival Brokers trying to steal your clients."
+                    },
+                    {
+                        "who": "Nobles who want you to work for them exclusively."
+                    },
+                    {
+                        "who": "Enemy of a former client who wants to clean up 'loose ends'—like you."
+                    },
+                    {
+                        "who": "Old client who thinks you betrayed them."
+                    },
+                    {
+                        "who": "Rival Broker trying to beat you out for resources and parts."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+    "Wanderer": {
+        "steps": [{
+                "step": "What Do You Do for Your Caravan?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "type": "Scout (negotiator)"
+                    },
+                    {
+                        "type": "Outrider (protection, weapons)"
+                    },
+                    {
+                        "type": "Transport driver"
+                    },
+                    {
+                        "type": "Loadmaster (large cargo mover, hauler)"
+                    },
+                    {
+                        "type": "Solo smuggler"
+                    },
+                    {
+                        "type": "Procurement (supplies, mounts, etc.)"
+                    }
+                ]
+            },
+            {
+                "step": "What's Your Caravan's Overall Philosophy?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "philosophy": "Always working for good; your Caravan accepts others, just wants to get along."
+                    },
+                    {
+                        "philosophy": "It's more like a family business. Operates as a fair and honest concern."
+                    },
+                    {
+                        "philosophy": "Will occasionally slip and do unethical things, but it's rare."
+                    },
+                    {
+                        "philosophy": "Willing to bend the rules whenever they get in the way to get what the Caravan needs."
+                    },
+                    {
+                        "philosophy": "Ruthless and self-centered, willing to do some bad things if it will get the Caravan ahead."
+                    },
+                    {
+                        "philosophy": "Totally evil. You rage up and down the trade routes, killing, looting, and terrorizing everyone."
+                    }
+                ]
+            },
+            {
+                "step": "Who's Gunning for Your Caravan?",
+                "description": "Roll 1d6 or choose one.",
+                "options": [{
+                        "who": "Organized Crime"
+                    },
+                    {
+                        "who": "Bandit Gangs"
+                    },
+                    {
+                        "who": "Smugglers"
+                    },
+                    {
+                        "who": "Corrupt Nobles"
+                    },
+                    {
+                        "who": "Rival Caravans in the same businesses"
+                    },
+                    {
+                        "who": "Corrupt Guards"
+                    }
+                ]
+            }
+        ]
+    }
+}

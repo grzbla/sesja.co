@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Creation Journey - Dark Mode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #ffcc00;
+            margin-bottom: 40px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            margin: 0 -20px 20px -20px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .hero {
+            background-color: #252525;
+            padding: 10px;
+            border-left: 5px solid #1976d2;
+        }
+        .avowed {
+            background-color: #333;
+            padding: 10px;
+            border-left: 5px solid #ffcc00;
+        }
+        .highlight {
+            background-color: #ffcc00;
+            color: #000;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Character Creation Journey</h1>
+
+        <div class="section">
+            <div class="message hero">
+                <strong>Hero:</strong> char step by step
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Very well, let us begin crafting thy hero's story, piece by piece. Shall we start with selecting a cultural region, to determine where they hail from?
+                <br><br>
+                From Faerûn's vast expanses, here are a few regions you may choose from:
+                <ul>
+                    <li><strong>Western Heartlands</strong> – Known for bustling cities and open trade routes.</li>
+                    <li><strong>Amn and Tethyr</strong> – Regions rich in mercantile power and intrigue.</li>
+                    <li><strong>Calimshan</strong> – Hot desert lands, famed for ancient empires.</li>
+                    <li><strong>The North</strong> – Cold, rugged, with hardy folk and adventurers.</li>
+                    <li><strong>The Dalelands</strong> – Pastoral lands, home to independent peoples.</li>
+                    <li><strong>The Great Dale and Narfell</strong> – Wild and untamed, where magic and mystery reign.</li>
+                    <li><strong>Unther and Mulhorand</strong> – Lands of ancient gods and shifting powers.</li>
+                    <li class="highlight"><strong>The Shining South</strong> – Tropical lands filled with riches and wonder.</li>
+                    <li><strong>The Moonsea</strong> – A harsh and dangerous region where ambition rules.</li>
+                    <li><strong>The Sea of Fallen Stars</strong> – Known for trade, seafaring, and coastal kingdoms.</li>
+                </ul>
+                Which of these lands does thy hero call home, or dost thou desire another to be chosen at random?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> more info about each
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Of course! Here is more about each region of Faerûn to guide thee:
+                <ul>
+                    <li><strong>Western Heartlands</strong>: A land of open plains, forests, and bustling cities. Known for its trade routes and as the crossroad of civilizations.</li>
+                    <li><strong>Amn and Tethyr</strong>: Amn is a mercantile powerhouse, and Tethyr, to the south, has a rich history of fallen monarchies and resurgence under new leadership.</li>
+                    <li><strong>Calimshan</strong>: A hot desert region filled with ancient ruins, djinni, and lingering remnants of powerful empires.</li>
+                    <li><strong>The North</strong>: A cold, rugged frontier where hardy folk and adventurers test their mettle against the wilds.</li>
+                    <li><strong>The Dalelands</strong>: A pastoral region of farmlands and forests, home to independent and proud folk.</li>
+                    <li><strong>The Great Dale and Narfell</strong>: A wild, untamed land where magic and ancient secrets thrive.</li>
+                    <li><strong>Unther and Mulhorand</strong>: Lands steeped in the ancient worship of powerful gods and old empires.</li>
+                    <li class="highlight"><strong>The Shining South</strong>: A lush and tropical region, filled with riches, trade, and diverse cultures.</li>
+                    <li><strong>The Moonsea</strong>: A lawless, dangerous land where power and ambition rule.</li>
+                    <li><strong>The Sea of Fallen Stars</strong>: Known for its vast coastal cities and seafaring peoples.</li>
+                </ul>
+                Thou may choose where thy hero hails from.
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> 8
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Ah, the <span class="highlight">Shining South</span>—a land of exotic riches and vibrant cultures. Thy character hails from a place teeming with life and beauty, where music and dance fill the air and the wealth of the land flows freely.
+                <br><br>
+                <strong>Commodities</strong>: Exotic fruits, textiles, ivory.
+                <br><strong>Ores</strong>: Jade, gold, silver.
+                <br><strong>Religions</strong>: Sharess (Goddess of Pleasure), Shaundakul (God of the Wind), Ubtao (God of Jungles).
+                <br><strong>Cultural Quirks</strong>: Music and dance are central to social life, magic is embraced openly, and guests are treated lavishly.
+                <br><br>
+                How will this colorful backdrop shape thy hero's path? Wouldst thou like to continue with the next step?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> ok?
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> The <span class="highlight">Shining South</span> indeed offers rich potential for thy character's story. With its vibrant culture, exotic goods, and mystical traditions, thy hero’s journey could be shaped by wealth, the arts, or deep reverence for the jungle's ancient gods.
+                <br><br>
+                Shall we now select a <strong>personality</strong> to define their inner nature?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> yes please
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Let us mold thy hero's spirit! Here are possible personalities:
+                <ul>
+                    <li><strong>Reserved and secretive</strong> – Quiet, keeping motives close.</li>
+                    <li><strong>Defiant, solitary, and fierce</strong> – Relies on none but themselves.</li>
+                    <li><strong>Haughty, dignified, and distant</strong> – Proud of status and abilities.</li>
+                    <li><strong>Temperamental, impulsive, and bold</strong> – Driven by emotions, acting before thinking.</li>
+                    <li><strong>Particular, meticulous, and anxious</strong> – A perfectionist, fretting over details.</li>
+                    <li><strong>Steady and earnest</strong> – Calm, unshaken by adversity.</li>
+                    <li class="highlight"><strong>Whimsical and scatterbrained</strong> – Unpredictable and prone to wandering thoughts.</li>
+                    <li><strong>Cunning and sly</strong> – Prefers subtlety and wit.</li>
+                    <li><strong>Scholarly and dispassionate</strong> – Detached, pursuing knowledge above all.</li>
+                    <li><strong>Amiable and sociable</strong> – Friendly, easily making connections.</li>
+                </ul>
+                Shall I roll the die for thee, or dost thou prefer to choose?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> roll d10
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Thy roll is <span class="highlight">7: Whimsical and scatterbrained</span>.
+                <br><br>
+                Thy hero is unpredictable, driven by fleeting thoughts and emotions. Shall we now explore their <strong>motivations</strong>?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> yes
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Let us dive into thy hero's **motivations**—what fuels their actions and ambitions:
+                <ul>
+                    <li><strong>Coin</strong> – The pursuit of wealth drives them forward.</li>
+                    <li><strong>Valor</strong> – They seek honor and glory in their deeds.</li>
+                    <li><strong>Oath</strong> – Bound by promises, they are loyal and dependable.</li>
+                    <li><strong>Candor</strong> – They despise deceit and uphold truth.</li>
+                    <li class="highlight"><strong>Retribution</strong> – They hold onto grievances, believing justice must be done.</li>
+                    <li><strong>Affection</strong> – Bonds of love or loyalty drive them.</li>
+                    <li><strong>Dominion</strong> – They crave control and power.</li>
+                    <li><strong>Kin</strong> – Family and lineage are everything to them.</li>
+                    <li><strong>Camaraderie</strong> – They thrive on friendship and loyalty.</li>
+                </ul>
+                Shall we continue defining their motivations or move forward?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> 6
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Thy hero is driven by <span class="highlight">Retribution</span>. They seek to right wrongs, pursuing vengeance with a focused intensity.
+                <br><br>
+                With a whimsical nature and driven by retribution, thy hero's path is one of unexpected twists and justice.
+                <br><br>
+                Shall we now define thy hero's <strong>most valued person</strong>?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> yes
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Now, let us determine thy hero's <strong>most valued person</strong>. Here are some possibilities:
+                <ul>
+                    <li><strong>A sire or dam</strong> – A parent who shaped their life.</li>
+                    <li><strong>A kin or kin-sister</strong> – A sibling bound by blood.</li>
+                    <li><strong>A consort</strong> – A lover or romantic partner.</li>
+                    <li class="highlight"><strong>A companion</strong> – A trusted ally or friend.</li>
+                    <li><strong>Thyself</strong> – They value no one more than themselves.</li>
+                    <li><strong>A familiar</strong> – A magical or animal companion.</li>
+                    <li><strong>A sage or tutor</strong> – A mentor who imparted wisdom.</li>
+                    <li><strong>A known figure</strong> – Someone famous or powerful they admire.</li>
+                    <li><strong>A chosen champion</strong> – A hero they handpicked to follow.</li>
+                    <li><strong>No soul</strong> – They care for no one above all else.</li>
+                </ul>
+                Who is this person in thy hero’s life, or shall I roll for thee?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> 4
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Thy hero values <span class="highlight">a companion</span>—a trusted ally from their past, someone who stood by their side through trials and triumphs.
+                <br><br>
+                Wouldst thou now choose thy hero's <strong>most valued possession</strong>?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> yes
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Now we turn to thy hero’s **most valued possession**. Here are a few possibilities:
+                <ul>
+                    <li><strong>A blade</strong> – A weapon of strength or past battles.</li>
+                    <li><strong>An implement</strong> – A tool tied to their profession.</li>
+                    <li><strong>A garb</strong> – A piece of clothing or armor of significance.</li>
+                    <li><strong>A painting</strong> – A work of art that speaks to their soul.</li>
+                    <li class="highlight"><strong>A tome or journal</strong> – A book filled with knowledge or memories.</li>
+                    <li><strong>A memory crystal</strong> – An item that holds cherished recollections.</li>
+                    <li><strong>A lute or flute</strong> – A musical instrument.</li>
+                    <li><strong>A trinket</strong> – A sentimental item.</li>
+                    <li><strong>A plaything</strong> – A toy or artifact from their youth.</li>
+                    <li><strong>A missive</strong> – A letter or message of importance.</li>
+                </ul>
+                What possession is most valuable to thy hero, or shall I roll the die for thee?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> 5
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Thy hero treasures <span class="highlight">a tome or journal</span> filled with **arcane secrets** and **forbidden lore**. It is a relic of immense power, though its full potential is yet untapped.
+                <br><br>
+                Shall we explore this tome further, or move to the next step?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> priceless alien knowledge
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Thy hero's tome contains **priceless alien knowledge**—forbidden secrets of arcane magic and lore from realms beyond mortal understanding. The tome is ancient, filled with cryptic symbols and diagrams, holding secrets to otherworldly power.
+                <br><br>
+                It is both a **blessing** and a **curse**—its power may be the key to greatness or lead to tragic corruption.
+                <br><br>
+                Shall we continue with the next step in thy hero’s creation?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> next step
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Let us now shape thy hero's **childhood environment**. Where did they grow up?
+                <ul>
+                    <li><strong>Roamed the streets</strong> – Survived without supervision.</li>
+                    <li><strong>Lived in a noble quarter</strong> – Raised in privilege.</li>
+                    <li><strong>Traveled with a nomadic tribe</strong> – Constantly moving.</li>
+                    <li><strong>Lived with a caravan</strong> – A life on the road or sea.</li>
+                    <li class="highlight"><strong>Lived in the ruins of a deserted town</strong> – Part of a group reclaiming a fallen city.</li>
+                    <li><strong>Survived in a lawless zone</strong> – Grew up in chaos.</li>
+                    <li><strong>Inhabited a castle or fortress</strong> – Raised in protection.</li>
+                    <li><strong>Lived in a deserted town</strong> – Inhabitants left long ago.</li>
+                    <li><strong>Resided in a floating city</strong> – Cosmopolitan upbringing.</li>
+                    <li><strong>Lived in a magician’s tower</strong> – Raised among arcane lore.</li>
+                </ul>
+                Which environment did thy hero experience, or shall I roll?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> 8
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Thy hero grew up in the <span class="highlight">ruins of a deserted town</span>, surrounded by crumbling structures and remnants of an ancient world. This gave them resilience and resourcefulness, fostering their fascination with lost secrets and forbidden knowledge.
+                <br><br>
+                Shall we now find **specific ruins** for their upbringing, or move on?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> next step
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Next, we shall define the **family crisis** that shaped thy hero’s life. Here are potential crises:
+                <ul>
+                    <li><strong>Noble lineage dismantled by treachery</strong> – Family fell due to betrayal.</li>
+                    <li><strong>House fell into ruin due to poor stewardship</strong> – Mismanagement led to collapse.</li>
+                    <li><strong>Kin were exiled or driven from ancestral lands</strong> – Forced to wander.</li>
+                    <li><strong>Family imprisoned, and thy hero alone escaped</strong> – Thy hero is the only one free.</li>
+                    <li class="highlight"><strong>Family mysteriously vanished</strong> – Thy hero is the sole heir of a lost lineage.</li>
+                    <li><strong>Kin were slaughtered</strong> – Thy hero is the last survivor of a massacre.</li>
+                    <li><strong>House embroiled in conspiracy</strong> – A secret society’s dark dealings.</li>
+                    <li><strong>Family scattered by misfortune</strong> – Thy hero’s kin are spread far and wide.</li>
+                    <li><strong>Lineage cursed by a hereditary feud</strong> – A bitter blood feud haunts the family.</li>
+                    <li><strong>Bearer of a family debt</strong> – Thy hero carries a heavy debt.</li>
+                </ul>
+                Shall I roll to determine thy hero's family crisis, or wouldst thou choose?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> random please
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Fate has spoken! Thy hero's family **mysteriously vanished**, leaving them the sole heir to whatever legacy or secrets were left behind. Their disappearance may be tied to the dark powers of the tome thy hero now holds. This event has shaped much of their outlook, driving them toward retribution and knowledge.
+                <br><br>
+                Wouldst thou like to explore more of this crisis, or proceed to the next step in their tale?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> next step
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Now, we turn to thy hero’s **friends**. Despite their trials, thy hero may have forged bonds along the way. Here are possible friendships:
+                <ul>
+                    <li><strong>Like an elder sibling</strong> – A protective figure.</li>
+                    <li><strong>Like a younger sibling</strong> – Someone they protect.</li>
+                    <li><strong>A tutor or mentor</strong> – Someone who imparts wisdom.</li>
+                    <li class="highlight"><strong>A childhood companion</strong> – Someone who grew up with them.</li>
+                    <li><strong>A comrade or guild member</strong> – A reliable ally.</li>
+                    <li><strong>A past paramour</strong> – A former lover.</li>
+                    <li><strong>A long-time foe</strong> – A rival turned reluctant ally.</li>
+                    <li><strong>Like a parent</strong> – A figure who provides guidance.</li>
+                    <li><strong>An acquaintance from the alleys</strong> – Someone from their rougher years.</li>
+                    <li><strong>Someone with a shared interest</strong> – A friend with a common goal.</li>
+                </ul>
+                Shall I roll to determine their closest friend, or dost thou wish to choose?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> random
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Fate decrees that thy hero’s closest friend is a <span class="highlight">childhood companion</span>—someone who shared their early experiences, exploring the ruins of Oreme and uncovering ancient mysteries. This companion has likely seen many of the same dangers thy hero has, and they may still remain close, even as both have changed over time.
+                <br><br>
+                Shall we now move on to define thy hero’s enemies, or explore this friendship further?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> next
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Next, we shall delve into thy hero’s **enemies**—those who stand against them. Here are possible foes:
+                <ul>
+                    <li><strong>Ex-friend</strong> – Once close, now bitter enemies.</li>
+                    <li><strong>Ex-paramour</strong> – A lover turned foe.</li>
+                    <li><strong>Estranged kin</strong> – A family member with whom they have a fierce grudge.</li>
+                    <li class="highlight"><strong>Childhood foe</strong> – Someone from their early years, now a lasting adversary.</li>
+                    <li><strong>Underling</strong> – A former follower who turned against them.</li>
+                    <li><strong>Superior</strong> – An authority figure who wronged or disrespected them.</li>
+                    <li><strong>Comrade or guild member</strong> – Someone from their professional life who became an enemy.</li>
+                    <li><strong>Noble or merchant lord</strong> – A powerful figure who seeks to ruin them.</li>
+                    <li><strong>Government official</strong> – Someone with influence who seeks to control them.</li>
+                    <li><strong>Street thug</strong> – A dangerous rogue who holds a grudge against them.</li>
+                </ul>
+                Who is thy hero’s greatest foe, or shall I roll to determine?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> random, and put fluff on top of it
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Thy hero’s greatest enemy is a <span class="highlight">childhood foe</span>, someone they encountered in their youth within the ruins of Oreme. This rivalry, once over simple competition for resources or influence, grew darker over time. Now, their foe may seek to claim the **arcane tome** for themselves, believing its power belongs to them.
+                <br><br>
+                The tome’s **corruption** may have driven them both apart, turning what was once a petty rivalry into a bitter struggle for control over its forbidden knowledge. Thy hero, burdened by loss, knows they must confront their foe, though the path may lead to tragedy.
+                <br><br>
+                Shall we explore more of this tragic enmity, or move to the next step in thy hero’s tale?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> the tome corrupts and it's a tragic story of loss beyond control
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Ah, the tale darkens—a story of **corruption and tragic loss**. The tome, once a shared curiosity, became the wedge between thy hero and their childhood foe. Its **arcane power** has twisted their minds, leading both down a path of conflict.
+                <br><br>
+                Thy hero watched helplessly as their friend fell deeper into the tome’s influence, losing themselves to the forbidden knowledge. Now, both are **consumed by the struggle**—one seeks redemption, while the other embraces the darkness fully.
+                <br><br>
+                This **tragic rivalry** shall be the defining battle of their lives, a tale of bitter loss.
+                <br><br>
+                Shall we continue to the next step of thy hero’s creation?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> next step
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> The next step explores thy hero’s **desire for revenge**. Here are potential ways thy hero might pursue vengeance:
+                <ul>
+                    <li><strong>Avoid the scum</strong> – Distance themselves from the conflict.</li>
+                    <li><strong>Go into a murderous rage</strong> – Seek to destroy their enemy with unrestrained fury.</li>
+                    <li><strong>Backstab them indirectly</strong> – Work from the shadows to bring them down.</li>
+                    <li><strong>Verbally attack them</strong> – Use words as weapons, ruining their enemy’s reputation.</li>
+                    <li><strong>Set them up for a crime</strong> – Frame their foe for something they did not do.</li>
+                    <li class="highlight"><strong>Set out to murder or maim</strong> – Seek to end their enemy’s life.</li>
+                </ul>
+                How does thy hero's desire for **retribution** manifest, or shall I roll the die to decide their approach?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> random
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Fate decrees that thy hero shall <span class="highlight">set out to murder or maim</span> their foe. The loss of their childhood companion, consumed by the tome’s corruption, has driven thy hero to a **murderous wrath**. They see no other path but to end their foe’s life, believing it is the only way to sever the tome’s dark influence.
+                <br><br>
+                This tragic story will conclude in **bloodshed**, a battle not only for survival, but for the very soul of thy hero.
+                <br><br>
+                Shall we move to the final step of thy hero’s creation?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> continue
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> The final step is to define thy hero’s **life goals**. Here are possible goals that drive them:
+                <ul>
+                    <li><strong>Shed a tarnished reputation</strong> – Restore their name and honor.</li>
+                    <li><strong>Amass power and dominion</strong> – Seek to control others.</li>
+                    <li><strong>Escape a life of hardship</strong> – Flee from their troubled past.</li>
+                    <li><strong>Inflict torment on enemies</strong> – Make foes suffer for their wrongdoings.</li>
+                    <li><strong>Bury the past</strong> – Leave behind the painful memories.</li>
+                    <li class="highlight"><strong>Exact vengeance on those who wronged you</strong> – Seek justice or revenge.</li>
+                    <li><strong>Claim what is rightfully yours</strong> – Recover what was stolen or denied.</li>
+                    <li><strong>Rescue loved ones</strong> – Protect those entangled in the past.</li>
+                    <li><strong>Achieve renown and glory</strong> – Become celebrated and honored.</li>
+                    <li><strong>Inspire fear and command respect</strong> – Rule through intimidation.</li>
+                </ul>
+                What life goal drives thy hero forward, or shall I roll for thee?
+            </div>
+
+            <div class="message hero">
+                <strong>Hero:</strong> roll for me please
+            </div>
+
+            <div class="message avowed">
+                <strong>One of the Avowed:</strong> Fate has determined that thy hero's **life goal** is to <span class="highlight">exact vengeance on those who wronged them</span>. Their journey is driven by a singular focus: to **track down and destroy** those who played a role in their suffering—chief among them, their corrupted childhood companion.
+                <br><br>
+                This quest for revenge will shape their every action, but whether it leads to peace or tragedy is yet to be determined.
+                <br><br>
+                Thy hero is now fully formed. Wouldst thou like to explore anything further, or dost thou wish to begin their journey?
+            </div>
+        </div>
+    </div>
+</body>
+</html>

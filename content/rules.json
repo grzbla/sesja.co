@@ -1,0 +1,345 @@
+{
+    "skill": {
+        "level": {
+            "proven": "2",
+            "solid": "3",
+            "professional": "4",
+            "olympic": "5",
+            "stunt": "6",
+            "extreme": "7"
+        },
+        "memory": "didn't do that in a while",
+        "improv": "let's wing it",
+        "expertise": {
+            "sense": "can instinctually sense basic information about the thing",
+            "knowledge": "knows about the thing",
+            "history": "knows about the past of the thing",
+            "theory": "knows theories not yet implemented or validated",
+            "lore": "knows myths and legends about the thing"
+        },
+        "preference": {
+            "homeworker": "prefers to work in his own place",
+            "expert": "pefer to work with someone else's resources",
+            "journeyman": "enjoy work in travel conditions",
+            "traditional": "carries the techniques and tools of previous generations",
+            "pragmatic": "use most commonly available materials and techniques",
+            "spiritual": "prefers someone else to do the heavy lifting",
+            "lifestyle": "it's not just about the grind, let me tell you something brother...",
+            "progressive": "prefers to work regularly refining methods and tools",
+            "mentor": "prefers to develop before reaching the goal post"
+        },
+        "quirk": {
+            "base": "that's how it always been, my way is natural",
+            "cringe": "convinced it's imperative for everyone to know as much as possible about this thing",
+            "creep": "have preference about this one thing which would break most people and they feel it",
+            "toxic": "have preference about this one thing which would break most people and is frontal about it",
+            "nerd": "overly focused on this one thing",
+            "geek": "very excited by this one thing",
+            "nut": "openly believes only this one thing exists and rest is irrelevant",
+            "lead": "enjoys moving goal posts before reaching them",
+            "faux": "knows someone who can do this one thing but takes the credit for it",
+            "hack": "tendency to try new things introducing trial and error",
+            "packie": "does this one thing only when everyone else does it",
+            "leech": "does this one thing exclusively for monetary gains to continue doing this one thing",
+            "crony": "does this one thing only with close associates",
+            "goon": "does this one thing because of protective environment",
+            "simp": "does this one thing with intention of absorbing as much scraps as possible",
+            "sigma": "does this one thing with a habit to create a queue of other like-minded individuals just right behind themselves",
+            "beta": "does this one thing by following self-proclaimed leaders in the discipline",
+            "woke": "loves the reason for action more than the action itself",
+            "sheepl": "ideologically motivated to do this one thing"
+        },
+        "perk": {
+            "mah daddy": "you continue or usurp legacy of someone who passed.",
+            "know a guy": "you know a guy who can do affiliated thing as well as you do.",
+        }
+        "luck": {
+            "Beginner's Luck": ["For the purpose of this roll, your total dice points is 3."],
+            "Intermediate's Luck": ["For the purpose of this roll, your total dice points is 5."],
+            "Pro Luck": ["For the purpose of this roll, your total dice points is increased by 3."]
+        },
+        "craft/habit/instinct": {},
+        "skills": {
+            "car nut":
+            {
+
+            },
+            "mechanic": "",
+            "engineer": "",
+            "aviator": "",
+            "moonwalker": "",
+            "sailor": "",
+            "seafarer": "",
+
+            "rogue":
+            {
+                "talents": {
+                    "no stranger": {
+                        "description": "give off that street vibe that u not a snitch"
+                    },
+                    "unassuming": {
+                        "description": "Evades elevated attention."
+                    },
+                    "unnotticed": {
+                        "description": "Slip unnotticed when Assumed Suspicious. Exploit gaps in Awareness and Cognition."
+                    }
+            },
+            "gangster": {
+                "description": "managing attention, suspicion and guilt"
+
+                    "slippery": {
+                        "description": "Move when Assumed Guilty."
+                    },
+                    "leverage": {
+                        "description": "Reclaim freedom when Apprehended."
+                    },
+                    "admired": {
+                        "description": "your fans and enemies always obscure operations against you."
+                    }
+                }
+            },
+            "equestrian": {
+                "talents": {
+                    "caretaking": {
+                        "description": "handle ailments, provide optimal nutrition, entertainment and excercise"
+                    },
+                    "recovery": {
+                        "description": "can recover from being knocked off the mount"
+                    },
+                    "handling": {
+                        "description": "can handle mount when it gets emotional"
+                    },
+                    "control": {
+                        "description": "can push mount to it's limits"
+                    },
+                    "bonding": {
+                        "description": "can communicate intention with mount with body language and imitation sounds"
+                    }
+                }
+            },
+            "explorer":
+            {
+                "cruising": {"description": "Ability to travel tuned off."},
+                "navigation": {},
+                "endurance": {}
+            },
+            "blacksmith": {
+                "talents": {
+                    "armory": "crafting weapons and armor",
+                    "mineralogy": "knowledge of materials outside of your work experience",
+                    "alloys": "melding stuffs",
+                    "refining": "removing impurities",
+                    "casting": "metal casting usually for utility crafting",
+                    "batching": "do same thing in large quantities",
+                    "artisanal": "make it pretty n shit",
+                    "masterwork": "produce as high quality as possible",
+                    "improvisation": "can work with substitute materials and tools"
+                }
+            },
+            "carpenter": {
+                "dendrology": "knowledge of wood outside of your work experience",
+                "architecture": "can make plans for others. good plans good bonuses",
+                "artisanal": "fancy shmancy",
+                "masterwork": "produce as high quality as possible",
+                "engineering": "can build things that move",
+                "bowmaking": "and arrowmaking",
+                "foraging": "can find your own materials in the wild"
+            },
+            "mason": {
+                "architecture": "plannen",
+                "lithology": "rocks",
+                "artisanal": "handsome rocks",
+                "engineering": "can build things that move or enable movement",
+                "siege": "build things which break other things or resist being broken by things which break other things",
+                "monumental": "make big things which make people go 'ooh'",
+                "masterwork": "make one of a kind thing"
+            },
+            "farmer": {
+                "cultivation": {},
+                "geology": {},
+                "management": {}
+            },
+            "mechanic":
+            {
+                "naval": {},
+                "aeronautics": {},
+                "transport": {},
+                "industrial": {},
+                "military": {},
+                "cybernetics": {},
+                "orbital": {}
+            },
+            "athletics": {
+                    "biking": {},
+                    "kayaking": {},
+                    "diving": {},
+                    "climbing": {},
+                    "lifting": {},
+                    "acrobatics": {},
+                    "gymnastics": {},
+                    "swimming": {},
+                    "running": {}
+            },
+            "investigation":
+            {
+                "assessment": { "description": "Reading the room, situation assessment." },
+                "cognition": {},
+                "subtext": {},
+                "lip reading": {},
+                "body language": {},
+                "recognition": {}
+            },
+            "playbook":
+            {
+                "medical": { "description": "Medical Unit ties to put people together into one piece whenever possible." },
+                "prevention": { "description": "Crime Prevention Unit is tasked with keeping society orderly and catching preps anything disorderly it happens." },
+                "penal": { "description": "Penal Unit takes care of punishing those who outstep the hard rules of society." },
+                "containment": { "description": "Disaster Containment Unit is responsible for Firefighting and rescue missions." },
+                "trooper": { "description": "Part of storm trooper squad intented at tackling down larger problems with overwhelming numbers." },
+                "intelligence": { "description": "Investigation Unit tasked with untangling most challenging cases to solve." }
+            },
+            "enforcer":
+            {
+                "law": {},
+                "composure": {},
+                "coaching": {},
+                "logistics": {},
+                "strategy": {},
+                "forensics": {},
+                "rehabilitation": {}
+            },
+            "constructor":
+            {
+                "forging": {},
+                "founding": {},
+                "laying": {},
+                "destructuring": {},
+                "materialogy": {}
+            },
+            "artisan":
+            {
+                "forging": {},
+                "founding": {},
+                "carving": {},
+                "scuplting": {},
+                "ceramics" :{}
+            },
+            "educator":
+            {
+                "language": {},
+                "academics": {},
+                "research": {},
+                "economy": {},
+                "management": {},
+                "propaganda": {}
+            },
+            "electronics":
+            {
+                "boards": {},
+                "processing": {},
+                "boards": {},
+                "processing": {},
+                "mechanics": {},
+                "design": {}
+            },
+            "engineer":
+            {
+                "siege": {},
+                "naval": {},
+                "aeronautics": {},
+                "transport": {},
+                "industrial": {},
+                "military": {},
+                "cybernetics": {},
+                "orbital": {},
+                "solar": {}
+            },
+            "entertainer":
+            {
+                "acting": {},
+                "writing": {},
+                "music": {},
+                "visual artistry": {},
+                "dance": {},
+                "stylist": {}
+            },
+            "gatherer":
+            {
+                "woodcutting": {},
+                "mining": {},
+                "foraging": {},
+                "endurance": {}
+            },
+            "hunter":
+            {
+                "sure shot": {},
+                "trailing": {},
+                "endurance": {},
+                "swimming": {}
+            },
+            "mechanic":
+            {
+                "naval": {},
+                "aeronautics": {},
+                "transport": {},
+                "industrial": {},
+                "military": {},
+                "cybernetics": {},
+                "orbital": {}
+            },
+            "operator":
+            {
+                "transport": {},
+                "industrial": {},
+                "naval": {},
+                "aeronautics": {},
+                "military": {},
+                "cybernetics": {},
+                "orbital": {},
+                "solar": {}
+            },
+        },
+        "talents":
+        {
+
+        }
+    },
+    "rep": {
+        "recognized": "you give second thoughts to others",
+        "magnetic": {
+            "description": "you find friends in least expected places."
+        },
+        "inspirating": {
+            "description": "others follow your footsteps"
+        },
+        "idolized": {
+            "description": "your actions lead to local progress"
+        },
+        "legendary": {
+            "description": "facts and fiction become undistinguishable, you can write your own story"
+        }
+    },
+
+    "labels cp": {
+        "base": "does this one thing in popular, established, run of the mill manner.",
+        "woke": "prefers to do this one thing under the pretense of higher purpose. bliss",
+        "cringe": "convinced this one thing is most important for everyone to know as much as possible about",
+        "creep": "have preference about this one thing which would break most people and the feel it",
+        "toxic": "have preference about this one thing which would break most people and is vocal about it",
+        "nerd": "overly focused on this one thing he knows how to do",
+        "geek": "very excited by this one thing he enjoys a lot",
+        "nut": "openly believes there's only this one thing he knows a lot about and rest is secondary",
+        "faux": "knows someone who can do this one thing but takes the credit for it",
+        "lead": "can do this one thing but prefers to walk someone else through doing it instead",
+        "hack": "tendency to try new things introducing trial and error",
+        "trad": "knows how to do it, but it lacks finesse",
+        "packie": "does this one thing only when everyone else does it",
+        "leech": "does this one thing exclusively for monetary gains to continue doing this one thing",
+        "crony": "does this one thing only with close associates",
+        "goon": "does this one thing because of protective environment",
+        "simp": "does this one thing with intention of absorbing as much as possible. blind love",
+        "sigma": "does this one thing with a habit to create a queue of other like-minded individuals just right behind themselves",
+        "beta": "does this one thing by following self-perceived leaders in the discipline",
+        "sheepl": "ideologically motivated to do this one thing"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "medieval_armor": [
+        {"name": "Padded Gambeson", "DIS": 6},
+        {"name": "Mail Hauberk (Chainmail)", "DIS": 8},
+        {"name": "Brigandine", "DIS": 10},
+        {"name": "Coat of Plates", "DIS": 12},
+        {"name": "Scale Armor", "DIS": 9},
+        {"name": "Lamellar Armor", "DIS": 11},
+        {"name": "Banded Armor", "DIS": 10},
+        {"name": "Full Plate Armor", "DIS": 16},
+        {"name": "Reinforced Plate (Late Medieval)", "DIS": 18},
+        {"name": "Partial Plate (Breastplate + Mail)", "DIS": 14},
+        {"name": "Great Helm + Mail", "DIS": 14},
+        {"name": "Kettle Helm + Chainmail Coif", "DIS": 11},
+        {"name": "Pavise Shield", "DIS": 18},
+        {"name": "Heater Shield", "DIS": 12},
+        {"name": "Kite Shield", "DIS": 14},
+        {"name": "Buckler", "DIS": 8},
+        {"name": "Steel-Reinforced Pavise", "DIS": 22},
+        {"name": "Heavy Tournament Plate", "DIS": 22},
+        {"name": "Steel-Treated Buckler", "DIS": 10},
+        {"name": "Knight’s Siege Armor", "DIS": 20}
+    ]
+}
+

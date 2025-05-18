@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple BAM Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #dropzone {
+            border: 3px dashed #666;
+            border-radius: 10px;
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #dropzone:hover, #dropzone.dragover {
+            border-color: #4dadf7;
+            background-color: rgba(77, 173, 247, 0.1);
+        }
+        
+        #output {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        canvas {
+            margin: 10px;
+            display: inline-block;
+            background-color: #333;
+            image-rendering: pixelated;
+        }
+        
+        /* Connector system styles */
+        .connector-element {
+          position: relative;
+          border: 2px solid #666;
+          padding: 10px;
+          margin: 10px;
+          background: #222;
+          cursor: move;
+          user-select: none;
+        }
+        
+        .connector-element::before {
+          content: '';
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          right: -20px;
+          bottom: -20px;
+          z-index: -1;
+        }
+        
+        .connector-dot {
+          position: absolute;
+          width: 18px;
+          height: 18px;
+          background-color: #0ff;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 100;
+          cursor: crosshair;
+          opacity: 0.8;
+          box-shadow: 0 0 8px #0ff;
+          display: none;
+          pointer-events: auto;
+        }
+        
+        .connection-line {
+          pointer-events: none;
+          position: absolute;
+          background-color: #0ff;
+          height: 2px;
+          transform-origin: left center;
+          z-index: 50;
+        }
+        
+        #connector-container {
+          position: relative;
+          width: 100%;
+          height: 600px;
+          border: 1px solid #444;
+          overflow: hidden;
+          background-color: #1a1a1a;
+          margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple BAM Viewer</h1>
+    
+    <div id="dropzone">Drop a .bam file here</div>
+    
+    <div id="output"></div>
+    
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const output = document.getElementById('output');
+        
+        // Register drag and drop events
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropzone.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropzone.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropzone.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropzone.classList.add('dragover');
+        }
+        
+        function unhighlight() {
+            dropzone.classList.remove('dragover');
+        }
+        
+        // Handle dropped file
+        dropzone.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                const file = files[0];
+                
+                if (file.name.toLowerCase().endsWith('.bam')) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(event) {
+                        const buffer = event.target.result;
+                        try {
+                            output.innerHTML = '<p>Processing BAM file...</p>';
+                            
+                            // Parse BAM and display it
+                            const bamData = parseBAM(buffer);
+                            displayAllFrames(bamData);
+                            
+                        } catch (err) {
+                            console.error('Error:', err);
+                            output.innerHTML = `<p style="color: red;">Error processing BAM: ${err.message}</p>`;
+                        }
+                    };
+                    
+                    reader.onerror = function() {
+                        output.innerHTML = `<p style="color: red;">Error reading file</p>`;
+                    };
+                    
+                    reader.readAsArrayBuffer(file);
+                } else {
+                    output.innerHTML = '<p style="color: red;">Please drop a .bam file!</p>';
+                }
+            }
+        }
+        
+        // BAM Parser
+        function parseBAM(buffer) {
+            const view = new DataView(buffer);
+            const signature = String.fromCharCode(view.getUint8(0), view.getUint8(1), view.getUint8(2), view.getUint8(3));
+            
+            if (signature !== 'BAM ') throw new Error('Not a BAM file');
+            
+            const version = String.fromCharCode(view.getUint8(4), view.getUint8(5), view.getUint8(6), view.getUint8(7));
+            
+            if (version === 'V1  ' || version === 'V1 ') {
+                return parseBAMV1(buffer, view);
+            } else if (version === 'V2  ' || version === 'V2 ') {
+                return parseBAMV2(buffer, view);
+            } else {
+                throw new Error(`Unknown BAM version: ${version}`);
+            }
+        }
+        
+        function parseBAMV1(buffer, view) {
+            const frameCount = view.getUint16(8, true);
+            const cycleCount = view.getUint8(10, true);
+            const compressedColor = view.getUint8(11, true);
+            const frameEntriesOffset = view.getUint32(12, true);
+            const paletteOffset = view.getUint32(16, true);
+            const frameLookupTableOffset = view.getUint32(20, true);
+            
+            // Read palette
+            const palette = [];
+            let transparencyIndex = 0;
+            
+            // Find transparency index (first RGB(0,255,0) or index 0)
+            for (let i = 0; i < 256; i++) {
+                if (paletteOffset + i * 4 + 3 < buffer.byteLength) {
+                    const offset = paletteOffset + i * 4;
+                    const b = view.getUint8(offset);
+                    const g = view.getUint8(offset + 1);
+                    const r = view.getUint8(offset + 2);
+                    
+                    if (r === 0 && g === 255 && b === 0) {
+                        transparencyIndex = i;
+                        break;
+                    }
+                }
+            }
+            
+            // Read the palette with proper transparency
+            for (let i = 0; i < 256; i++) {
+                if (paletteOffset + i * 4 + 3 < buffer.byteLength) {
+                    const offset = paletteOffset + i * 4;
+                    const b = view.getUint8(offset);
+                    const g = view.getUint8(offset + 1);
+                    const r = view.getUint8(offset + 2);
+                    
+                    const alpha = (i === transparencyIndex || i === 0) ? 0 : 255;
+                    palette.push({r, g, b, a: alpha});
+                } else {
+                    palette.push({r: 0, g: 0, b: 0, a: 0});
+                }
+            }
+            
+            // Read frame entries
+            const frames = [];
+            for (let i = 0; i < frameCount; i++) {
+                const entryOffset = frameEntriesOffset + i * 12;
+                
+                if (entryOffset + 12 > buffer.byteLength) {
+                    console.error(`Frame entry ${i} out of bounds`);
+                    continue;
+                }
+                
+                const width = view.getUint16(entryOffset, true);
+                const height = view.getUint16(entryOffset + 2, true);
+                const centerX = view.getInt16(entryOffset + 4, true);
+                const centerY = view.getInt16(entryOffset + 6, true);
+                
+                const frameDataField = view.getUint32(entryOffset + 8, true);
+                const isUncompressed = (frameDataField & 0x80000000) !== 0;
+                const frameDataIndex = frameDataField & 0x7FFFFFFF;
+                
+                frames.push({
+                    width,
+                    height,
+                    centerX,
+                    centerY,
+                    dataIndex: frameDataIndex,
+                    isUncompressed
+                });
+            }
+            
+            // Read frame lookup table
+            const frameLUT = [];
+            for (let i = 0; i < 1024; i++) {
+                if (frameLookupTableOffset + i * 2 >= buffer.byteLength) {
+                    break;
+                }
+                frameLUT.push(view.getUint16(frameLookupTableOffset + i * 2, true));
+            }
+            
+            // Read cycle entries
+            const cycles = [];
+            let cycleEntriesOffset = frameEntriesOffset + frameCount * 12;
+            
+            for (let i = 0; i < cycleCount; i++) {
+                if (cycleEntriesOffset + 4 > buffer.byteLength) {
+                    console.error(`Cycle entry ${i} out of bounds`);
+                    break;
+                }
+                
+                const count = view.getUint16(cycleEntriesOffset, true);
+                const firstIndex = view.getUint16(cycleEntriesOffset + 2, true);
+                
+                const frameIndices = [];
+                for (let j = 0; j < count; j++) {
+                    if (firstIndex + j < frameLUT.length) {
+                        frameIndices.push(frameLUT[firstIndex + j]);
+                    }
+                }
+                
+                cycles.push({ frameIndices });
+                cycleEntriesOffset += 4;
+            }
+            
+            // Decode frame data
+            for (let frameIdx = 0; frameIdx < frames.length; frameIdx++) {
+                const frame = frames[frameIdx];
+                
+                // Create pixel array filled with transparent
+                const pixels = new Uint8Array(frame.width * frame.height).fill(0);
+                
+                // Skip empty frames
+                if (frame.dataIndex === 0xFFFFFFFF || frame.width === 0 || frame.height === 0) {
+                    frame.pixels = pixels;
+                    continue;
+                }
+                
+                try {
+                    const frameDataOffset = frame.dataIndex;
+                    
+                    // Debug the values to help diagnose issues
+                    console.log(`Frame ${frameIdx}: width=${frame.width}, height=${frame.height}, dataIndex=0x${frame.dataIndex.toString(16)}, offset=0x${frameDataOffset.toString(16)}`);
+                    
+                    if (frameDataOffset >= buffer.byteLength) {
+                        console.error(`Frame ${frameIdx} data offset out of bounds`);
+                        frame.pixels = pixels;
+                        continue;
+                    }
+                    
+                    if (frame.isUncompressed) {
+                        // Uncompressed data - add careful bounds checking
+                        const pixelCount = frame.width * frame.height;
+                        
+                        if (frameDataOffset + pixelCount <= buffer.byteLength) {
+                            for (let i = 0; i < pixelCount; i++) {
+                                const pixelValue = view.getUint8(frameDataOffset + i);
+                                pixels[i] = pixelValue;
+                            }
+                        } else {
+                            console.warn(`Frame ${frameIdx} extends beyond buffer, partial read`);
+                            const availablePixels = Math.max(0, buffer.byteLength - frameDataOffset);
+                            for (let i = 0; i < availablePixels; i++) {
+                                pixels[i] = view.getUint8(frameDataOffset + i);
+                            }
+                        }
+                    } else {
+                        // RLE compressed data - completely revised approach
+                        let pixelIndex = 0;
+                        let dataIndex = frameDataOffset;
+                        
+                        // Read and decompress until done
+                        while (pixelIndex < pixels.length && dataIndex < buffer.byteLength) {
+                            const byte = view.getUint8(dataIndex++);
+                            
+                            if (byte === compressedColor) {
+                                // This is a compressed run
+                                if (dataIndex < buffer.byteLength) {
+                                    const runLength = view.getUint8(dataIndex++) + 1;
+                                    
+                                    // Fill with the transparent color
+                                    for (let i = 0; i < runLength && pixelIndex < pixels.length; i++) {
+                                        pixels[pixelIndex++] = 0; // Use 0 for transparency
+                                    }
+                                } else {
+                                    break; // End of buffer
+                                }
+                            } else {
+                                // Normal pixel
+                                pixels[pixelIndex++] = byte;
+                            }
+                        }
+                    }
+                } catch (err) {
+                    console.error(`Error decoding frame ${frameIdx}:`, err);
+                }
+                
+                frame.pixels = pixels;
+            }
+            
+            return {
+                signature: 'BAM ',
+                version: 'V1 ',
+                frameCount,
+                cycleCount,
+                palette,
+                frames,
+                cycles
+            };
+        }
+        
+        function parseBAMV2(buffer, view) {
+            const frameEntryCount = view.getUint32(8, true);
+            const cycleCount = view.getUint32(12, true);
+            const blockCount = view.getUint32(16, true);
+            const dataBlockOffset = view.getUint32(20, true);
+            const frameEntryOffset = view.getUint32(24, true);
+            const cycleEntryOffset = view.getUint32(28, true);
+            const paletteOffset = view.getUint32(32, true);
+            
+            // Read frame entries
+            const frames = [];
+            for (let i = 0; i < frameEntryCount; i++) {
+                const entryOffset = frameEntryOffset + i * 12;
+                
+                if (entryOffset + 12 > buffer.byteLength) {
+                    console.error(`Frame entry ${i} out of bounds`);
+                    continue;
+                }
+                
+                const frameWidth = view.getUint16(entryOffset, true);
+                const frameHeight = view.getUint16(entryOffset + 2, true);
+                const frameCenterX = view.getInt16(entryOffset + 4, true);
+                const frameCenterY = view.getInt16(entryOffset + 6, true);
+                const frameBlockIndex = view.getUint16(entryOffset + 8, true);
+                const frameBlockCount = view.getUint16(entryOffset + 10, true);
+                
+                frames.push({
+                    width: frameWidth,
+                    height: frameHeight,
+                    centerX: frameCenterX,
+                    centerY: frameCenterY,
+                    blockIndex: frameBlockIndex,
+                    blockCount: frameBlockCount
+                });
+            }
+            
+            // Read cycle entries
+            const cycles = [];
+            for (let i = 0; i < cycleCount; i++) {
+                const entryOffset = cycleEntryOffset + i * 8;
+                
+                if (entryOffset + 8 > buffer.byteLength) {
+                    console.error(`Cycle entry ${i} out of bounds`);
+                    continue;
+                }
+                
+                const cycleFrameCount = view.getUint16(entryOffset, true);
+                const cycleFrameIndex = view.getUint16(entryOffset + 2, true);
+                
+                const frameIndices = [];
+                for (let j = 0; j < cycleFrameCount; j++) {
+                    if (cycleFrameIndex + j < frameEntryCount) {
+                        frameIndices.push(cycleFrameIndex + j);
+                    }
+                }
+                
+                cycles.push({ frameIndices });
+            }
+            
+            // Read data blocks
+            const dataBlocks = [];
+            for (let i = 0; i < blockCount; i++) {
+                const blockInfoOffset = dataBlockOffset + i * 12;
+                
+                if (blockInfoOffset + 12 > buffer.byteLength) {
+                    console.error(`Data block ${i} info out of bounds`);
+                    continue;
+                }
+                
+                const dataSourceX = view.getUint16(blockInfoOffset, true);
+                const dataSourceY = view.getUint16(blockInfoOffset + 2, true);
+                const dataWidth = view.getUint16(blockInfoOffset + 4, true);
+                const dataHeight = view.getUint16(blockInfoOffset + 6, true);
+                const dataOffset = view.getUint32(blockInfoOffset + 8, true);
+                
+                dataBlocks.push({
+                    sourceX: dataSourceX,
+                    sourceY: dataSourceY,
+                    width: dataWidth,
+                    height: dataHeight,
+                    offset: dataOffset
+                });
+            }
+            
+            // Read palette
+            let palette = [];
+            if (paletteOffset > 0 && paletteOffset + 12 < buffer.byteLength) {
+                const paletteSignature = String.fromCharCode(
+                    view.getUint8(paletteOffset),
+                    view.getUint8(paletteOffset + 1),
+                    view.getUint8(paletteOffset + 2),
+                    view.getUint8(paletteOffset + 3)
+                );
+                
+                if (paletteSignature === 'PGET') {
+                    const paletteSize = view.getUint32(paletteOffset + 8, true);
+                    const colorEntries = Math.min(paletteSize, 256);
+                    
+                    for (let i = 0; i < colorEntries; i++) {
+                        const colorOffset = paletteOffset + 12 + i * 4;
+                        
+                        if (colorOffset + 4 <= buffer.byteLength) {
+                            const b = view.getUint8(colorOffset);
+                            const g = view.getUint8(colorOffset + 1);
+                            const r = view.getUint8(colorOffset + 2);
+                            const a = view.getUint8(colorOffset + 3);
+                            
+                            palette.push({ r, g, b, a: a === 0 ? 0 : 255 });
+                        } else {
+                            palette.push({ r: 0, g: 0, b: 0, a: 0 });
+                        }
+                    }
+                } else {
+                    palette = createDefaultPalette();
+                }
+            } else {
+                palette = createDefaultPalette();
+            }
+            
+            // Process frame data
+            for (let frameIdx = 0; frameIdx < frames.length; frameIdx++) {
+                const frame = frames[frameIdx];
+                
+                try {
+                    const pixels = new Uint8Array(frame.width * frame.height).fill(0);
+                    
+                    if (frame.width === 0 || frame.height === 0) {
+                        frame.pixels = pixels;
+                        continue;
+                    }
+                    
+                    for (let i = 0; i < frame.blockCount; i++) {
+                        const blockIdx = frame.blockIndex + i;
+                        
+                        if (blockIdx >= dataBlocks.length) {
+                            continue;
+                        }
+                        
+                        const block = dataBlocks[blockIdx];
+                        
+                        if (block.offset >= buffer.byteLength) {
+                            continue;
+                        }
+                        
+                        const copyWidth = Math.min(block.width, frame.width - block.sourceX);
+                        const copyHeight = Math.min(block.height, frame.height - block.sourceY);
+                        
+                        if (block.sourceX < 0 || block.sourceY < 0 || copyWidth <= 0 || copyHeight <= 0) {
+                            continue;
+                        }
+                        
+                        for (let y = 0; y < copyHeight; y++) {
+                            const destY = block.sourceY + y;
+                            
+                            if (destY >= frame.height) continue;
+                            
+                            for (let x = 0; x < copyWidth; x++) {
+                                const destX = block.sourceX + x;
+                                
+                                if (destX >= frame.width) continue;
+                                
+                                const destIndex = destY * frame.width + destX;
+                                const sourceOffset = block.offset + y * block.width + x;
+                                
+                                if (sourceOffset < buffer.byteLength && destIndex < pixels.length) {
+                                    const colorIndex = view.getUint8(sourceOffset);
+                                    pixels[destIndex] = colorIndex;
+                                }
+                            }
+                        }
+                    }
+                    
+                    frame.pixels = pixels;
+                } catch (err) {
+                    console.error(`Error processing frame ${frameIdx}:`, err);
+                    frame.pixels = new Uint8Array(frame.width * frame.height).fill(0);
+                }
+            }
+            
+            return {
+                signature: 'BAM ',
+                version: 'V2 ',
+                frameCount: frameEntryCount,
+                cycleCount,
+                palette,
+                frames,
+                cycles
+            };
+        }
+        
+        function createDefaultPalette() {
+            const palette = [];
+            
+            // First entry is transparent
+            palette.push({ r: 0, g: 255, b: 0, a: 0 });
+            
+            // Rest is grayscale
+            for (let i = 1; i < 256; i++) {
+                palette.push({ r: i, g: i, b: i, a: 255 });
+            }
+            
+            return palette;
+        }
+        
+        function displayAllFrames(bamData) {
+            output.innerHTML = '';
+            
+            // Start with file info
+            const fileInfo = document.createElement('div');
+            fileInfo.innerHTML = `
+                <h2>BAM File: ${bamData.frameCount} Frames, ${bamData.cycleCount} Cycles</h2>
+                <p>Version: ${bamData.version}, Transparent color: ${bamData.palette.findIndex(c => c.r === 0 && c.g === 255 && c.b === 0)}</p>
+            `;
+            output.appendChild(fileInfo);
+            
+            // Create a debug button to log data to console
+            const debugBtn = document.createElement('button');
+            debugBtn.textContent = "Debug BAM Data";
+            debugBtn.onclick = () => {
+                console.log("BAM Data:", bamData);
+                alert("BAM data logged to console. Check developer tools.");
+            };
+            debugBtn.style.margin = "10px";
+            debugBtn.style.padding = "5px 10px";
+            output.appendChild(debugBtn);
+            
+            // For each cycle
+            for (let c = 0; c < bamData.cycles.length; c++) {
+                const cycle = bamData.cycles[c];
+                
+                const cycleDiv = document.createElement('div');
+                cycleDiv.style.marginBottom = '30px';
+                cycleDiv.style.padding = '10px';
+                cycleDiv.style.borderTop = '1px solid #666';
+                
+                const cycleTitle = document.createElement('h3');
+                cycleTitle.textContent = `Cycle ${c} (${cycle.frameIndices.length} frames)`;
+                cycleDiv.appendChild(cycleTitle);
+                
+                // Create grid for frames
+                const frameGrid = document.createElement('div');
+                frameGrid.style.display = 'flex';
+                frameGrid.style.flexWrap = 'wrap';
+                frameGrid.style.gap = '15px';
+                frameGrid.style.justifyContent = 'center';
+                
+                for (let f = 0; f < cycle.frameIndices.length; f++) {
+                    const frameIndex = cycle.frameIndices[f];
+                    const frame = bamData.frames[frameIndex];
+                    
+                    if (!frame || !frame.width || !frame.height || !frame.pixels) {
+                        continue; // Skip invalid frames
+                    }
+                    
+                    // Create a container with border for each frame
+                    const frameContainer = document.createElement('div');
+                    frameContainer.style.display = 'inline-block';
+                    frameContainer.style.padding = '10px';
+                    frameContainer.style.background = '#2a2a2a';
+                    frameContainer.style.border = '1px solid #555';
+                    frameContainer.style.borderRadius = '4px';
+                    frameContainer.style.textAlign = 'center';
+                    
+                    // Create a scale factor slider for this frame
+                    const scaleControl = document.createElement('div');
+                    scaleControl.style.marginBottom = '5px';
+                    
+                    const scaleSlider = document.createElement('input');
+                    scaleSlider.type = 'range';
+                    scaleSlider.min = '1';
+                    scaleSlider.max = '8';
+                    scaleSlider.value = '2'; // Default 2x scale
+                    scaleSlider.style.width = '100px';
+                    
+                    const scaleLabel = document.createElement('span');
+                    scaleLabel.textContent = ' 2x';
+                    
+                    scaleControl.appendChild(document.createTextNode('Zoom: '));
+                    scaleControl.appendChild(scaleSlider);
+                    scaleControl.appendChild(scaleLabel);
+                    
+                    frameContainer.appendChild(scaleControl);
+                    
+                    // Create base canvas - we'll scale this up for display
+                    const baseCanvas = document.createElement('canvas');
+                    baseCanvas.width = frame.width;
+                    baseCanvas.height = frame.height;
+                    
+                    // Display canvas with scaling
+                    const displayCanvas = document.createElement('canvas');
+                    displayCanvas.width = frame.width * 2; // Start with 2x
+                    displayCanvas.height = frame.height * 2;
+                    displayCanvas.style.border = '1px solid #777';
+                    displayCanvas.style.backgroundColor = '#000';
+                    displayCanvas.style.imageRendering = 'pixelated';
+                    
+                    // Function to redraw with scaling
+                    const redrawScaled = (scale) => {
+                        displayCanvas.width = frame.width * scale;
+                        displayCanvas.height = frame.height * scale;
+                        const ctx = displayCanvas.getContext('2d');
+                        ctx.imageSmoothingEnabled = false;
+                        ctx.drawImage(baseCanvas, 0, 0, displayCanvas.width, displayCanvas.height);
+                        
+                        // Draw center point if within frame
+                        if (frame.centerX >= 0 && frame.centerX < frame.width && 
+                            frame.centerY >= 0 && frame.centerY < frame.height) {
+                            
+                            // Draw crosshair at center point
+                            ctx.strokeStyle = 'rgba(255, 0, 0, 0.8)';
+                            ctx.lineWidth = Math.max(1, Math.floor(scale / 2));
+                            
+                            const cx = frame.centerX * scale;
+                            const cy = frame.centerY * scale;
+                            const size = Math.max(4, scale * 2);
+                            
+                            // Horizontal line
+                            ctx.beginPath();
+                            ctx.moveTo(cx - size, cy);
+                            ctx.lineTo(cx + size, cy);
+                            ctx.stroke();
+                            
+                            // Vertical line
+                            ctx.beginPath();
+                            ctx.moveTo(cx, cy - size);
+                            ctx.lineTo(cx, cy + size);
+                            ctx.stroke();
+                            
+                            // Draw center point
+                            ctx.fillStyle = 'rgba(255, 0, 0, 0.8)';
+                            ctx.beginPath();
+                            ctx.arc(cx, cy, Math.max(2, scale), 0, Math.PI * 2);
+                            ctx.fill();
+                        }
+                        
+                        scaleLabel.textContent = ` ${scale}x`;
+                    };
+                    
+                    // Handle scale changes
+                    scaleSlider.oninput = () => {
+                        redrawScaled(parseInt(scaleSlider.value));
+                    };
+                    
+                    // Render the actual pixel data to the base canvas
+                    const ctx = baseCanvas.getContext('2d');
+                    const imageData = ctx.createImageData(frame.width, frame.height);
+                    const data = imageData.data;
+                    
+                    // Find transparency index
+                    let transparentIndex = 0;
+                    for (let i = 0; i < bamData.palette.length; i++) {
+                        if (bamData.palette[i].r === 0 && bamData.palette[i].g === 255 && bamData.palette[i].b === 0) {
+                            transparentIndex = i;
+                            break;
+                        }
+                    }
+                    
+                    // Draw each pixel
+                    for (let y = 0; y < frame.height; y++) {
+                        for (let x = 0; x < frame.width; x++) {
+                            const pixelIndex = y * frame.width + x;
+                            const dataIndex = pixelIndex * 4;
+                            
+                            if (pixelIndex < frame.pixels.length) {
+                                const colorIndex = frame.pixels[pixelIndex];
+                                
+                                if (colorIndex < bamData.palette.length) {
+                                    if (colorIndex === 0 || colorIndex === transparentIndex) {
+                                        // Transparent pixel
+                                        data[dataIndex] = 0;
+                                        data[dataIndex + 1] = 0;
+                                        data[dataIndex + 2] = 0;
+                                        data[dataIndex + 3] = 0;
+                                    } else {
+                                        // Colored pixel
+                                        const color = bamData.palette[colorIndex];
+                                        data[dataIndex] = color.r;
+                                        data[dataIndex + 1] = color.g;
+                                        data[dataIndex + 2] = color.b;
+                                        data[dataIndex + 3] = 255;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    // Put pixel data on base canvas
+                    ctx.putImageData(imageData, 0, 0);
+                    
+                    // Initial draw at 2x scale
+                    redrawScaled(2);
+                    
+                    // Add frame info
+                    const info = document.createElement('div');
+                    info.innerHTML = `
+                        <div style="font-weight: bold; margin-top: 5px; font-size: 13px;">Frame ${f}</div>
+                        <div style="color: #aaa; font-size: 11px;">
+                            Size: ${frame.width}×${frame.height}<br>
+                            Center: (${frame.centerX}, ${frame.centerY})
+                        </div>
+                    `;
+                    
+                    frameContainer.appendChild(displayCanvas);
+                    frameContainer.appendChild(info);
+                    frameGrid.appendChild(frameContainer);
+                }
+                
+                cycleDiv.appendChild(frameGrid);
+                output.appendChild(cycleDiv);
+            }
+        }
+        
+        // Connector System
+        document.addEventListener('DOMContentLoaded', () => {
+          setupConnectorSystem();
+        });
+        
+        function setupConnectorSystem() {
+          // Create a demo container
+          const container = document.createElement('div');
+          container.id = 'connector-container';
+          document.body.appendChild(container);
+          
+          // Create some demo elements
+          for (let i = 0; i < 4; i++) {
+            const element = document.createElement('div');
+            element.className = 'connector-element';
+            element.style.position = 'absolute';
+            element.style.left = `${Math.random() * 60 + 10}%`;
+            element.style.top = `${Math.random() * 60 + 10}%`;
+            element.style.width = `${Math.random() * 100 + 150}px`;
+            element.style.height = `${Math.random() * 80 + 80}px`;
+            element.innerHTML = `<h3>Evidence #${i+1}</h3><p>This is a draggable element that can be connected.</p>`;
+            
+            // Make it draggable
+            makeDraggable(element);
+            
+            // Add connector functionality
+            makeConnectable(element);
+            
+            container.appendChild(element);
+          }
+        }
+        
+        function makeDraggable(element) {
+          let isDragging = false;
+          let startX, startY, startLeft, startTop;
+          
+          element.addEventListener('mousedown', (e) => {
+            if (e.target === element || e.target.parentNode === element) {
+              isDragging = true;
+              startX = e.clientX;
+              startY = e.clientY;
+              startLeft = parseInt(element.style.left) || 0;
+              startTop = parseInt(element.style.top) || 0;
+              
+              // Bring to front
+              element.style.zIndex = '10';
+            }
+          });
+          
+          document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            const newLeft = startLeft + e.clientX - startX;
+            const newTop = startTop + e.clientY - startY;
+            
+            element.style.left = `${newLeft}px`;
+            element.style.top = `${newTop}px`;
+            
+            // Update any connections
+            updateConnections();
+          });
+          
+          document.addEventListener('mouseup', () => {
+            if (isDragging) {
+              isDragging = false;
+              element.style.zIndex = '1';
+            }
+          });
+        }
+
+        let activeConnector = null;
+        let connections = [];
+        let tempLine = null;
+
+        function makeConnectable(element) {
+          const connectorDot = document.createElement('div');
+          connectorDot.className = 'connector-dot';
+          element.appendChild(connectorDot);
+          
+          // Store the element on the dot for reference
+          connectorDot.parentElement = element;
+          
+          // Helper function to position dot along the visible border
+          function positionDotAlongBorder(clientX, clientY) {
+            const rect = element.getBoundingClientRect();
+            
+            // Calculate mouse position relative to element
+            const x = clientX - rect.left;
+            const y = clientY - rect.top;
+            
+            // Extended hit area - check if within outer detection zone
+            const outerZone = 20; // Size of invisible detection area
+            if (
+              x >= -outerZone && x <= rect.width + outerZone &&
+              y >= -outerZone && y <= rect.height + outerZone
+            ) {
+              // Find closest border of the VISIBLE element
+              const distToVisibleTop = y;
+              const distToVisibleBottom = rect.height - y;
+              const distToVisibleLeft = x;
+              const distToVisibleRight = rect.width - x;
+              
+              // Find minimum distance to visible border
+              const minDist = Math.min(
+                distToVisibleTop, 
+                distToVisibleBottom, 
+                distToVisibleLeft, 
+                distToVisibleRight
+              );
+              
+              let dotX, dotY, border;
+              
+              // Position dot at the VISIBLE border
+              if (minDist === distToVisibleTop && y <= outerZone) {
+                // Top border: x follows mouse horizontally, y is fixed at 0
+                dotX = Math.max(9, Math.min(rect.width - 9, x));
+                dotY = 0;
+                border = 'top';
+                connectorDot.style.display = 'block';
+              } else if (minDist === distToVisibleBottom && y >= rect.height - outerZone) {
+                // Bottom border: x follows mouse horizontally, y is fixed at bottom
+                dotX = Math.max(9, Math.min(rect.width - 9, x));
+                dotY = rect.height;
+                border = 'bottom';
+                connectorDot.style.display = 'block';
+              } else if (minDist === distToVisibleLeft && x <= outerZone) {
+                // Left border: x is fixed at 0, y follows mouse vertically
+                dotX = 0;
+                dotY = Math.max(9, Math.min(rect.height - 9, y));
+                border = 'left';
+                connectorDot.style.display = 'block';
+              } else if (minDist === distToVisibleRight && x >= rect.width - outerZone) {
+                // Right border: x is fixed at right edge, y follows mouse vertically
+                dotX = rect.width;
+                dotY = Math.max(9, Math.min(rect.height - 9, y));
+                border = 'right';
+                connectorDot.style.display = 'block';
+              } else {
+                // Mouse is in extended area but not close to any visible border
+                connectorDot.style.display = 'none';
+                return;
+              }
+              
+              // Update connector dot position
+              connectorDot.style.left = `${dotX}px`;
+              connectorDot.style.top = `${dotY}px`;
+              
+              // Store position data for connection lines
+              connectorDot.position = { x: dotX, y: dotY };
+              connectorDot.border = border;
+            } else {
+              // Outside of extended hit area
+              connectorDot.style.display = 'none';
+            }
+          }
+          
+          // Use document-level mousemove to track when mouse is near element
+          document.addEventListener('mousemove', (e) => {
+            // Only process this if we're not actively dragging a connection
+            if (!activeConnector) {
+              positionDotAlongBorder(e.clientX, e.clientY);
+            }
+          });
+          
+          // Hide dot when we know the mouse has moved far away
+          document.addEventListener('mousemove', (e) => {
+            if (!activeConnector) {
+              const rect = element.getBoundingClientRect();
+              const farDistance = 50; // Distance in pixels beyond which we definitely hide the dot
+              
+              if (
+                e.clientX < rect.left - farDistance ||
+                e.clientX > rect.right + farDistance ||
+                e.clientY < rect.top - farDistance ||
+                e.clientY > rect.bottom + farDistance
+              ) {
+                connectorDot.style.display = 'none';
+              }
+            }
+          }, { passive: true });
+          
+          // Start connection when clicking on connector dot
+          connectorDot.addEventListener('mousedown', (e) => {
+            e.stopPropagation(); // Prevent element dragging
+            
+            // Start a new connection
+            activeConnector = connectorDot;
+            activeConnector.style.backgroundColor = '#ff00ff';
+            
+            // Create temporary line for visual feedback
+            tempLine = document.createElement('div');
+            tempLine.className = 'connection-line';
+            document.getElementById('connector-container').appendChild(tempLine);
+            
+            // Initial line position
+            const rect = element.getBoundingClientRect();
+            const startX = rect.left + connectorDot.position.x;
+            const startY = rect.top + connectorDot.position.y;
+            
+            tempLine.style.left = `${startX}px`;
+            tempLine.style.top = `${startY}px`;
+            tempLine.style.width = '0px';
+            tempLine.style.transform = 'rotate(0deg)';
+            
+            // Track the mouse for line drawing
+            document.addEventListener('mousemove', drawTempLineAndShowTargetDot);
+            document.addEventListener('mouseup', finishConnection);
+          });
+          
+          // Combined function to draw temp line and show potential target dots
+          function drawTempLineAndShowTargetDot(e) {
+            if (!activeConnector || !tempLine) return;
+            
+            const sourceElement = activeConnector.parentElement;
+            const sourceRect = sourceElement.getBoundingClientRect();
+            const startX = sourceRect.left + activeConnector.position.x;
+            const startY = sourceRect.top + activeConnector.position.y;
+            
+            let endX = e.clientX;
+            let endY = e.clientY;
+            let targetDot = null;
+            
+            // Find potential target element
+            const elements = document.querySelectorAll('.connector-element');
+            for (const el of elements) {
+              if (el !== sourceElement) {
+                const rect = el.getBoundingClientRect();
+                
+                // Extended hit area for target detection
+                const extended = 20;
+                
+                // Check if mouse is over element or its extended area
+                if (
+                  e.clientX >= rect.left - extended && 
+                  e.clientX <= rect.right + extended && 
+                  e.clientY >= rect.top - extended && 
+                  e.clientY <= rect.bottom + extended
+                ) {
+                  // Position target dot on visible border closest to mouse
+                  const x = e.clientX - rect.left;
+                  const y = e.clientY - rect.top;
+                  
+                  const distToVisibleTop = y;
+                  const distToVisibleBottom = rect.height - y;
+                  const distToVisibleLeft = x;
+                  const distToVisibleRight = rect.width - x;
+                  
+                  const distances = [
+                    { dist: distToVisibleTop, border: 'top' },
+                    { dist: distToVisibleBottom, border: 'bottom' },
+                    { dist: distToVisibleLeft, border: 'left' },
+                    { dist: distToVisibleRight, border: 'right' }
+                  ];
+                  
+                  // Sort by distance (ascending)
+                  distances.sort((a, b) => a.dist - b.dist);
+                  
+                  let dotX, dotY, border;
+                  
+                  // Use the closest border
+                  border = distances[0].border;
+                  
+                  if (border === 'top') {
+                    dotX = Math.max(9, Math.min(rect.width - 9, x));
+                    dotY = 0;
+                  } else if (border === 'bottom') {
+                    dotX = Math.max(9, Math.min(rect.width - 9, x));
+                    dotY = rect.height;
+                  } else if (border === 'left') {
+                    dotX = 0;
+                    dotY = Math.max(9, Math.min(rect.height - 9, y));
+                  } else { // right
+                    dotX = rect.width;
+                    dotY = Math.max(9, Math.min(rect.height - 9, y));
+                  }
+                  
+                  // Show target dot
+                  const dot = el.querySelector('.connector-dot');
+                  if (dot) {
+                    dot.style.left = `${dotX}px`;
+                    dot.style.top = `${dotY}px`;
+                    dot.style.display = 'block';
+                    dot.style.backgroundColor = '#ffaa00';
+                    dot.position = { x: dotX, y: dotY };
+                    dot.border = border;
+                    
+                    // Update end coordinates for the line
+                    endX = rect.left + dotX;
+                    endY = rect.top + dotY;
+                    targetDot = dot;
+                  }
+                  
+                  break;
+                }
+              }
+            }
+            
+            // If we're not over a target, hide all dots except the active one
+            if (!targetDot) {
+              elements.forEach(el => {
+                if (el !== sourceElement) {
+                  const dot = el.querySelector('.connector-dot');
+                  if (dot) {
+                    dot.style.display = 'none';
+                    dot.style.backgroundColor = '#0ff';
+                  }
+                }
+              });
+            }
+            
+            // Calculate distance and angle
+            const dx = endX - startX;
+            const dy = endY - startY;
+            const length = Math.sqrt(dx * dx + dy * dy);
+            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+            
+            // Update line properties
+            tempLine.style.left = `${startX}px`;
+            tempLine.style.top = `${startY}px`;
+            tempLine.style.width = `${length}px`;
+            tempLine.style.transform = `rotate(${angle}deg)`;
+          }
+          
+          // Function to finalize connection
+          function finishConnection(e) {
+            if (!activeConnector || !tempLine) return;
+            
+            // Find target element and dot
+            const elements = document.querySelectorAll('.connector-element');
+            let targetElement = null;
+            let targetDot = null;
+            
+            for (const el of elements) {
+              if (el !== activeConnector.parentElement) {
+                const rect = el.getBoundingClientRect();
+                if (
+                  e.clientX >= rect.left && 
+                  e.clientX <= rect.right && 
+                  e.clientY >= rect.top && 
+                  e.clientY <= rect.bottom
+                ) {
+                  const dot = el.querySelector('.connector-dot');
+                  if (dot && dot.style.display === 'block') {
+                    targetElement = el;
+                    targetDot = dot;
+                    break;
+                  }
+                }
+              }
+            }
+            
+            // If a valid target was found, create permanent connection
+            if (targetElement && targetDot) {
+              const connection = {
+                source: {
+                  element: activeConnector.parentElement,
+                  position: { ...activeConnector.position },
+                  border: activeConnector.border
+                },
+                target: {
+                  element: targetElement,
+                  position: { ...targetDot.position },
+                  border: targetDot.border
+                },
+                line: document.createElement('div')
+              };
+              
+              // Create permanent line
+              connection.line.className = 'connection-line';
+              connection.line.style.cursor = 'pointer';
+              document.getElementById('connector-container').appendChild(connection.line);
+              
+              // Add connection to the list
+              connections.push(connection);
+              
+              // Update connection line
+              updateConnection(connection);
+              
+              // Add double-click listener to remove connection
+              connection.line.addEventListener('dblclick', () => {
+                connection.line.remove();
+                connections = connections.filter(c => c !== connection);
+              });
+            }
+            
+            // Clean up
+            tempLine.remove();
+            tempLine = null;
+            
+            // Reset dot colors and visibility
+            elements.forEach(el => {
+              const dot = el.querySelector('.connector-dot');
+              if (dot) {
+                dot.style.display = 'none';
+                dot.style.backgroundColor = '#0ff';
+              }
+            });
+            
+            activeConnector = null;
+            
+            // Remove event listeners
+            document.removeEventListener('mousemove', drawTempLineAndShowTargetDot);
+            document.removeEventListener('mouseup', finishConnection);
+          }
+        }
+        
+        function updateConnections() {
+          connections.forEach(updateConnection);
+        }
+        
+        function updateConnection(connection) {
+          const sourceRect = connection.source.element.getBoundingClientRect();
+          const targetRect = connection.target.element.getBoundingClientRect();
+          
+          // Calculate absolute positions
+          const startX = sourceRect.left + connection.source.position.x;
+          const startY = sourceRect.top + connection.source.position.y;
+          const endX = targetRect.left + connection.target.position.x;
+          const endY = targetRect.top + connection.target.position.y;
+          
+          // Calculate distance and angle
+          const dx = endX - startX;
+          const dy = endY - startY;
+          const length = Math.sqrt(dx * dx + dy * dy);
+          const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+          
+          // Update line properties
+          connection.line.style.left = `${startX}px`;
+          connection.line.style.top = `${startY}px`;
+          connection.line.style.width = `${length}px`;
+          connection.line.style.transform = `rotate(${angle}deg)`;
+        }
+    </script>
+</body>
+</html>

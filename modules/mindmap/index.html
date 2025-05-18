@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyberpunk Word Bubbles</title>
+<style>
+  body {
+    margin: 0;
+    background: #0d0d0d;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  #tag-list:not(:empty) {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #00ffff;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    z-index: 1000;
+  }
+
+  .bubble {
+    position: absolute;
+    padding: 10px 20px;
+    background: rgba(0, 255, 255, 0.15);
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    color: #00ffff;
+    border-radius: 999px;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    animation: float 20s linear infinite;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .bubble:active {
+    transform: scale(1.2);
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-200px) translateX(100px);
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="tag-list"></div>
+
+<script>
+  const words = [
+    "Jack", "Crash", "Burn", "Score", "Clip", "Spike",
+    "Drift", "Scrap", "Crack", "Bleed", "Glitch", "Snatch",
+    "Ghost", "Grind", "Switch", "Chain", "Wire", "Slam",
+    "Shiv", "Graft"
+  ];
+
+  const tagList = document.getElementById('tag-list');
+  const selectedTags = [];
+
+  words.forEach(word => {
+    const bubble = document.createElement('div');
+    bubble.className = 'bubble';
+    bubble.innerText = word;
+
+    bubble.style.left = Math.random() * 90 + 'vw';
+    bubble.style.animationDuration = (15 + Math.random() * 10) + 's';
+    bubble.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
+
+    bubble.addEventListener('click', () => {
+      if (!selectedTags.includes(word)) {
+        selectedTags.push(word);
+        tagList.innerText = selectedTags.join(', ');
+      }
+      bubble.remove();
+    });
+
+    document.body.appendChild(bubble);
+  });
+</script>
+
+</body>
+</html>

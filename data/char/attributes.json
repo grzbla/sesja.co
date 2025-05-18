@@ -1,0 +1,488 @@
+{
+    "attributes": {
+        "athletics": {
+            "name": "Athletics",
+            "description": "Trained athletic abilities.",
+            "skills": [
+                "biking",
+                "sailing",
+                "diving",
+                "climbing",
+                "lifting",
+                "acrobatics",
+                "gymnastics",
+                "swimming",
+                "running"
+            ]
+        },
+        "cognition": {
+            "name": "Cognition",
+            "description": "Exceptional cognitive abilities.",
+            "skills": [
+                "assessment",
+                "investigate",
+                "subtext",
+                "lip reading",
+                "body language",
+                "pattern recognition"
+            ]
+        },
+        "officer": {
+            "name": "Commanding",
+            "description": "Career making commanding abilities.",
+            "skills": [
+                "playbook",
+                "composure",
+                "gaslighting",
+                "coaching",
+                "logistics",
+                "strategy"
+            ]
+        },
+        "constructor": {
+            "name": "Construction",
+            "description": "Professional construction experience.",
+            "skills": [
+                "founding",
+                "laying",
+                "destructuring",
+                "materialogy"
+            ]
+        },
+        "craftsman": {
+            "skills": [
+                "forging",
+                "jewlery",
+                "founding",
+                "carving",
+                "scuplting",
+                "ceramics"
+            ]
+        },
+        "educator": {
+            "skills": [
+                "language",
+                "academics",
+                "research",
+                "economy",
+                "management",
+                "propaganda"
+            ]
+        },
+        "electronics": {
+            "skills": [
+                "boards",
+                "processing",
+                "mechanics",
+                "design"
+            ]
+        },
+        "engineer": {
+            "skills": [
+                "siege",
+                "naval",
+                "aeronautics",
+                "transport",
+                "industrial",
+                "military",
+                "cybernetics",
+                "orbital",
+                "solar"
+            ]
+        },
+        "entertainer": {
+            "skills": [
+                "acting",
+                "writing",
+                "music",
+                "visual artistry",
+                "dance",
+                "stylist"
+            ]
+        },
+        "farmer": {
+            "skills": [
+                "cultivation",
+                "hydroponics",
+                "geotechnics",
+                "management"
+            ]
+        },
+        "gatherer": {
+            "skills": [
+                "woodcutting",
+                "mining",
+                "foraging",
+                "endurance"
+            ]
+        },
+        "hunter": {
+            "skills": [
+                "sure shot",
+                "trailing",
+                "endurance",
+                "swimming"
+            ]
+        },
+        "mechanic": {
+            "skills": [
+                "naval",
+                "aeronautics",
+                "transport",
+                "industrial",
+                "military",
+                "cybernetics",
+                "orbital"
+            ]
+        },
+        "operator": {
+            "skills": [
+                "industry",
+                "driving",
+                "cruising",
+                "navigation",
+                "endurance"
+            ]
+        },
+        "peacekeeper": {
+            "skills": [
+                "force",
+                "forensics",
+                "law",
+                "rehabilitation"
+            ]
+        },
+        "personality": {
+            "skills": [
+                "presence",
+                "style",
+                "judgement",
+                "pitch",
+                "chat"
+            ]
+        },
+        "martial arts": {
+            "skills": [
+                "melee",
+                "cqc",
+                "motorics"
+            ]
+        },
+        "sharpshooter": {
+            "skills": [
+                "expertise",
+                "sure shot",
+                "quick shot",
+                "trick shot",
+                "barrel anxiety"
+            ]
+        },
+        "sportsman": {
+            "skills": [
+                "discipline"
+            ]
+        },
+        "streetwise": {
+            "skills": [
+                "barter",
+                "area expert",
+                "gambling",
+                "forgery",
+                "meshing"
+            ]
+        },
+        "survivor": {
+            "skills": [
+                "foraging",
+                "grassrooting",
+                "caretaking",
+                "med aid"
+            ]
+=======
+    "athlete":
+    {
+        "name": "Athletics",
+        "description": "Trained athletic abilities.",
+        "talents":
+        {
+            "biking": {},
+            "kayaking": {},
+            "diving": {},
+            "climbing": {},
+            "lifting": {},
+            "acrobatics": {},
+            "gymnastics" : {},
+            "swimming": {},
+            "running": {}
+        }
+    },
+    "cognition":
+    {
+        "name": "Cognition",
+        "description": "Exceptional cognitive abilities.",
+        "talents":
+        {
+            "assessment": { "description": "Reading the room, situation assessment." },
+            "investigate": {},
+            "subtext": {},
+            "lip reading": {},
+            "body language": {},
+            "recognition": {}
+        }
+    },
+    "officer":
+    {
+        "name": "Commanding",
+        "description": "Career making commanding abilities.",
+        "talents":
+        {
+            "playbook":
+            {
+                "military": { "description": "Knowledge how to keep your unit in optimal shape, along with rules of enemy engagement." },
+                "stock": {},
+                "underground": {},
+                "capitalist": {},
+                "oligarch": {}
+            },
+            "composure": {},
+            "coaching": {},
+            "logistics": {},
+            "strategy": {}
+        }
+    },
+    "constructor":
+    {
+        "name": "Construction",
+        "description": "Professional construction experience.",
+        "talents":
+        {
+            "forging": {},
+            "founding": {},
+            "laying": {},
+            "destructuring": {},
+            "materialogy": {}
+        }
+    },
+    "craftsman":
+    {
+        "talents":
+        {
+            "forging": {},
+            "founding": {},
+            "carving": {},
+            "scuplting": {},
+            "ceramics" :{}
+        }
+    },
+    "educator":
+    {
+        "talents":
+        {
+            "language": {},
+            "academics": {},
+            "research": {},
+            "economy": {},
+            "management": {},
+            "propaganda": {}
+        }
+    },
+    "electronics":
+    {
+        "talents":
+        {
+            "boards": {},
+            "processing": {},
+            "boards": {},
+            "processing": {},
+            "mechanics": {},
+            "design": {}
+        }
+    },
+    "engineer":
+    {
+        "talents":
+        {
+            "siege": {},
+            "naval": {},
+            "aeronautics": {},
+            "transport": {},
+            "industrial": {},
+            "military": {},
+            "cybernetics": {},
+            "orbital": {},
+            "solar": {}
+        }
+    },
+    "entertainer":
+    {
+        "talents":
+        {
+            "acting": {},
+            "writing": {},
+            "music": {},
+            "visual artistry": {},
+            "dance": {},
+            "stylist": {}
+        }
+    },
+    "farmer":
+    {
+        "talents":
+        {
+            "cultivation": {},
+            "geology": {},
+            "management": {}
+        }
+    },
+    "gatherer":
+    {
+        "talents":
+        {
+            "woodcutting": {},
+            "mining": {},
+            "foraging": {},
+            "endurance": {}
+        }
+    },
+    "hunter":
+    {
+        "talents":
+        {
+            "sure shot": {},
+            "trailing": {},
+            "endurance": {},
+            "swimming": {}
+        }
+    },
+    "mechanic":
+    {
+        "talents":
+        {
+            "naval": {},
+            "aeronautics": {},
+            "transport": {},
+            "industrial": {},
+            "military": {},
+            "cybernetics": {},
+            "orbital": {}
+        }
+    },
+    "operator":
+    {
+        "talents":
+        {
+            "industry":
+            {
+                "transport": {},
+                "industrial": {},
+                "naval": {},
+                "aeronautics": {},
+                "military": {},
+                "cybernetics": {},
+                "orbital": {},
+                "solar": {}
+            },
+            "driving": {"description": "Focused driving skill."},
+            "cruising": {"description": "Ability to travel tuned off."},
+            "navigation": {},
+            "endurance": {}
+        }
+    },
+    "peacekeeper":
+    {
+        "talents":
+        {
+            "force":
+            {
+                "medical": { "description": "Medical Unit ties to put people together into one piece whenever possible." },
+                "containment": { "description": "Disaster Containment Unit is responsible for Firefighting and rescue missions." },
+                "prevention": { "description": "Crime Prevention Unit is tasked with keeping society orderly and catching preps anything disorderly it happens." },
+                "penal": { "description": "Penal Unit takes care of punishing those who outstep the hard rules of society." },
+                "detective": { "description": "Investigation Unit tasked with untangling most challenging cases to solve." },
+                "trooper": { "description": "Part of storm trooper squad intented at tackling down larger problems with overwhelming numbers." }
+            },
+            "forensics": {},
+            "law": {},
+            "rehabilitation": {}
+        }
+    },
+    "personality":
+    {
+        "talents":
+        {
+            "presence": {},
+            "style": {},
+            "judgement": {},
+            "pitch": {},
+            "chat": {}
+        }
+    "martial arts":
+    {
+        "melee": {},
+        "cqc": {},
+        "motorics":
+        {
+            "athletics": {}
+        }
+    },
+    "sharpshooter":
+    {
+        "talents":
+        {
+            "expertise":
+            {
+                "bows": {},
+                "crossbows": {},
+                "throwing": {},
+                "handguns": {},
+                "smgs": {},
+                "assault": {},
+                "rifles": {},
+                "heavy": {},
+                "explosives": {},
+                "integrated": {}
+            },
+            "sure shot": { "description": "Well planned and aimed shot, intented to be a hit." },
+            "quick shot": { "description": "Quick instinctual shot intented at hitting targets nearby." },
+            "trick shot": { "description": "Rare shot possible only in specific circumstance, usually allowing to reach targets conventionally unreachable." },
+            "barrel anxiety": { "description": "You don't want to be in front of a gun barrel at all times, leading to a habit of trying to find a spot with least probability of being shot." }
+        }
+
+    },
+    "sportsman":
+    {
+        "talents":
+        {
+            "discipline":
+            {
+                "american football": {}
+                "european football": {}
+                "baseball": {}
+                "basketball": {}
+                "hockey": {}
+                "golf": {}
+            }
+        }
+    },
+    "streetwise":
+    {
+        "talents":
+        {
+            "barter": {},
+            "area expert": {},
+            "gambling": {},
+            "forgery": {},
+            "meshing": {}
+        }
+    },
+    "survivor":
+    {
+        "talents":
+        {
+            "foraging": {},
+            "grassrooting": {},
+            "caretaking": {},
+            "med aid": {}
+        }
+    }
+}

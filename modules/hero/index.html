@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Character Viewer</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #1a1a1a;
+      font-family: sans-serif;
+      color: white;
+    }
+    #root {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 1rem;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      overflow-y: auto;
+    }
+    .card {
+      flex: 1 1 auto;
+      height: clamp(300px, 70vh, 600px);
+      background-size: cover;
+      background-position: center;
+      border: 4px solid rgba(255,255,255,0.25);
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+    @media (orientation: portrait) {
+      .card {
+        width: clamp(90%, 98%, 100%);
+      }
+    }
+    @media (orientation: landscape) {
+      .card {
+        width: clamp(200px, 30vw, 400px);
+      }
+    }
+    .info-container {
+      position: absolute;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      cursor: move;
+      max-width: 90%;
+      max-height: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    const characters = [
+      "Thamior Greenglade", "Varra Goldglen", "Dornal Battleborn", "Elaris Moondream",
+      "Kelgan Vorlund", "Marissa Dyervale", "Barthen Orlav", "Yllana Stormwake",
+      "Torric Bellwatch", "Selunarra Flamehair", "Grent Oldboot", "Isolde Drelthorn",
+      "Rurik Hammerdeep", "Melira Skybough", "Drenwin Slate", "Tavia Greenmead",
+      "Lurien Frostmantle", "Olinda Brookwhistle", "Zarnak Coil", "Fayla Silvernote"
+    ].map((name, i) => {
+      const data = [
+        ["Silverymoon", "Apothecary of Twilight Elixirs", "Mirror of Falling Stars", "Battle of Moonrise Hollow"],
+        ["Daggerford", "The Gilded Spoon Inn", "Locket of the Lost Flame", "The Second Sundering"],
+        ["Citadel Adbar", "Master Smith of Fireforge Hall", "Hammer of Endless Echoes", "Siege of Mithral Hall"],
+        ["Evereska", "Crystal Vellum Scriptorium", "Moonlace Quill", "Fall of Cormanthyr"],
+        ["Procampur", "Wanderer’s Oddments & Gear", "Gloves of the Silent Step", "Duel of Broken Runes"],
+        ["Arabel", "Glassheart Jewels", "Necklace of Bitter Memory", "Plaguefire Riots"],
+        ["Tethyr", "Barthen’s Farm & Feed", "Horn of Verdant Wake", "Spring of the Wild Roots"],
+        ["Calimport", "Stormwake Perfumeries", "Flask of Bottled Tides", "Flooding of Alaghôn"],
+        ["Waterdeep", "Bellwatch Curios", "Pocketwatch of Neverlate", "Disaster at the Deep Harbor Clock"],
+        ["Thay", "Red Ember Flamewrights", "Charcoal of Elemental Binding", "Firewalk of Surabar"],
+        ["Scornubel", "Oldboot Repairs & Salvage", "Button of Second Chances", "Night of Collapsing Beams"],
+        ["Suzail", "Drelthorn's Rare Texts", "Lens of Lucid Dreams", "Haunting of the Cormyrian Archives"],
+        ["Ironmaster", "Deepdelve Trading Company", "Coin of the Grudge-Oath", "Trade Wars of the Silver Marches"],
+        ["High Forest", "Skybough Herbal Remedies", "Feather of the Last Roc", "Awakening of the Wilds"],
+        ["Neverwinter", "Slate Masonry Guild", "Chisel of Unbreaking Stone", "Shaping of the Vaulted Square"],
+        ["Amn", "Greenmead Honey & Herb", "Amulet of Buzzing Rest", "Swarm Season in Murann"],
+        ["Icewind Dale", "Frostmantle Trading Post", "Shard of Silent Chill", "Avalanche of the White Spine"],
+        ["Beregost", "Brookwhistle's Cozy Tea", "Cup of Shared Peace", "Tea Truce of the Bhaalites"],
+        ["Skullport", "Coil’s Contraptions", "Goggle of the Many Lenses", "The Vault Breach"],
+        ["Baldur's Gate", "Silvernote Music House", "Flute of the Forgotten Refrain", "Melody of the Mind Plague"]
+      ][i];
+
+      const bio = `Once a ${data[1].toLowerCase()} from ${data[0]}, ${name} gained recognition for their role in the ${data[3].toLowerCase()} and for their possession of the ${data[2].toLowerCase()}. They are known throughout the region for their unique skills and unshakable resolve.`;
+
+      return {
+        name,
+        birthplace: data[0],
+        business: data[1],
+        artifact: data[2],
+        event: data[3],
+        bio,
+        image: `https://picsum.photos/seed/${name.replace(/\s+/g, '')}/300/600`
+      };
+    });
+
+    const root = document.getElementById('root');
+
+    characters.forEach(char => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.backgroundImage = `url(${char.image})`;
+
+      const info = document.createElement('div');
+      info.className = 'info-container';
+      info.innerHTML = `
+        <h3>${char.name}</h3>
+        <p><strong>From:</strong> ${char.birthplace}</p>
+        <p><strong>Excels At:</strong> ${char.business}</p>
+        <p><strong>In Possession Of:</strong> ${char.artifact}</p>
+        <p><strong>Known For:</strong> ${char.event}</p>
+        <p>${char.bio}</p>
+      `;
+      info.style.top = '5%';
+      info.style.left = '5%';
+
+      let offsetX, offsetY, isDragging = false;
+      info.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.offsetX;
+        offsetY = e.offsetY;
+      });
+      window.addEventListener('mouseup', () => isDragging = false);
+      window.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const rect = card.getBoundingClientRect();
+        let x = e.clientX - rect.left - offsetX;
+        let y = e.clientY - rect.top - offsetY;
+        x = Math.max(0, Math.min(x, card.clientWidth - info.clientWidth));
+        y = Math.max(0, Math.min(y, card.clientHeight - info.clientHeight));
+        info.style.left = `${(x / card.clientWidth) * 100}%`;
+        info.style.top = `${(y / card.clientHeight) * 100}%`;
+      });
+
+      card.appendChild(info);
+      root.appendChild(card);
+    });
+  </script>
+</body>
+</html>
+

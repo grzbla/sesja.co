@@ -1,0 +1,50 @@
+{
+  "Archaic Ammunition Types": [
+    {
+      "Ammunition": "Stone Projectiles",
+      "PEN Modifier": "0%",
+      "Description": "Basic projectiles used in slings and other early weapons. Limited in penetration but useful for hunting and defense."
+    },
+    {
+      "Ammunition": "Lead Shot",
+      "PEN Modifier": "-5%",
+      "Description": "Lead projectiles used in early firearms, offering basic penetration but inferior compared to modern ammunition."
+    },
+    {
+      "Ammunition": "Iron Shot",
+      "PEN Modifier": "+5%",
+      "Description": "Iron projectiles designed for higher penetration, especially against soft targets."
+    },
+    {
+      "Ammunition": "Hardened Lead",
+      "PEN Modifier": "-10%",
+      "Description": "Lead shot hardened to improve penetration, but still significantly weaker than modern alternatives."
+    },
+    {
+      "Ammunition": "Bronze Arrowheads",
+      "PEN Modifier": "+10%",
+      "Description": "Early arrowheads made from bronze, capable of inflicting damage but limited in penetrating armor."
+    },
+    {
+      "Ammunition": "Iron Arrowheads",
+      "PEN Modifier": "+15%",
+      "Description": "Iron arrowheads, more durable and effective against armor, used with bows and crossbows in medieval times."
+    },
+    {
+      "Ammunition": "Iron Balls (for Cannons)",
+      "PEN Modifier": "+20%",
+      "Description": "Round iron balls used in early cannons, designed for siege warfare and capable of damaging structures and infantry."
+    },
+    {
+      "Ammunition": "Stone Slingshots",
+      "PEN Modifier": "0%",
+      "Description": "Primitive ammunition used with slings, typically stone or clay, with irregular trajectories."
+    },
+    {
+      "Ammunition": "Early Gunpowder Rounds",
+      "PEN Modifier": "+5%",
+      "Description": "Gunpowder-based rounds used in early firearms, providing more penetration than earlier ammunition but still lacking power compared to modern rounds."
+    }
+  ]
+}
+

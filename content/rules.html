@@ -1,0 +1,108 @@
+<style media="screen">
+stat-description
+{
+    display: block;
+    color: white;
+    margin: 7px 0 7px 0;
+}
+</style>
+<script type="text/javascript">
+function maek(type, tags) {
+    let element = document.createElement(type ? type : 'div')
+    if (tags) tags.forEach(t => { tag(element, t)})
+    return element
+}
+function tag(element, t) { element.setAttribute(t, '')}
+function untag(element, t) { try { element.removeAttribute(t) } catch {} }
+const rules =
+{
+    map:
+    {
+        0: ["Can only be taken care of."],
+        1: ["Can survive in equitable utopian society.", //circl icon
+            "Confused when operating on binary level."],
+        2: ["Able to survive in generous and forgiving environment.", //triangl
+            "Capable of operating on binary level: yes/no, right/wrong, left/right",
+            "Unconscious incompetence"],
+        3: ["Will prosper with lifetime worth of inheritance.",//square
+            "Capable of producing words to back up own stance.",
+            "Conscious incompetence"],
+        4: ["Could achieve a livable standard in free and fair environment.",//d8
+            "Can form indeptendent opinions.",
+            "conscious competence"],
+        5: ["Will prosper in limited or closely controlled economy.",//d10
+            "Can predict and avoid mistakes."],
+        6: ["Capable of surviving in resource scarce environment.",//d12
+            "Can formulate complex plans.",
+            "Unconscious competence"],
+        7: ["Able to thrive in a cut-throat dog eat dog world.",//10+triangl
+            "Does always extra."],
+        8: [],//10+square
+        9: [],//10+d8
+        10: []//2d10
+    },
+    skills:
+    {
+        athletics:
+        {
+            talents:
+            [
+                "biking",
+                "sailing",
+                "diving",
+                "climbing",
+                "lifting",
+                "acrobatics",
+                "gymnastics",
+                "swimming",
+                "running"
+            ]
+        }
+    }
+}
+
+object = (container, value) => { try { return container[value] } catch {} }
+array = (container, value) => { try { return container[parseInt(value)] } catch {} }
+
+class HTMLStatDescriptionElement extends HTMLElement {
+    static observedAttributes = ['level', 'bonus']
+    constructor() { super() }
+
+    connectedCallback() { }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name == 'level')
+            this.print(array(rules.map, newValue), newValue)
+        else //name == 'pool'
+            this.update() //values
+    }
+
+    print(content, level)
+    {
+        const levelElement = maek('span', ['level'])
+        levelElement.innerHTML = level
+        this.appendChild(levelElement)
+
+        const description = maek('span', ['description'])
+        description.innerHTML = content.join("<br>")
+        this.appendChild(description)
+        // print ur html here
+    }
+
+    update()
+    {
+
+    }
+
+} customElements.define('stat-description', HTMLStatDescriptionElement)
+
+</script>
+<body bgcolor='black'>
+    <stat-description level="0">
+
+    </stat-description>
+    <stat-description level="1" bonus="1"></stat-description>
+    <stat-description level="2" bonus="2"></stat-description>
+
+
+</body>

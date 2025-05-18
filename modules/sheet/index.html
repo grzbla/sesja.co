@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk 2020 Character Sheet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        :root {
+            --primary: #ff0066;
+            --primary-hover: #ff1a75;
+            --background-color: #1a1a1a;
+            --text-color: #00ff00;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+        }
+
+        .character-sheet {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .neon-border {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 10px var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .cyber-button {
+            background: linear-gradient(45deg, var(--primary), var(--primary-hover));
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cyber-button:hover {
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .stat-box {
+            border: 1px solid var(--primary);
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .editable {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--text-color);
+            padding: 5px;
+            margin: 5px 0;
+            width: 100%;
+        }
+
+        .editable:focus {
+            outline: none;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 5px 0;
+        }
+
+        .skill-value {
+            width: 60px;
+        }
+
+        .character-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        select.editable {
+            background-color: var(--background-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .life-events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .life-event-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+        }
+
+        .life-event-container select {
+            margin: 0;
+        }
+
+        .life-event-container .cyber-button {
+            padding: 5px 10px;
+            margin: 0;
+            height: 38px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .life-event-container:hover .cyber-button {
+            opacity: 1;
+        }
+
+        .life-event-link {
+            color: var(--text-color);
+            text-decoration: none;
+            cursor: pointer;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .life-event-link:hover {
+            color: var(--primary);
+            text-shadow: 0 0 5px var(--primary);
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background: var(--background-color);
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 600px;
+            width: 90%;
+            margin: 20px;
+        }
+
+        .event-category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .event-category-item {
+            padding: 15px;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: normal;
+            line-height: 1.4;
+        }
+
+        .event-category-item:hover {
+            background: rgba(255, 0, 102, 0.1);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .event-category-item.random {
+            border: 1px solid #00ff00;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .event-category-item.random:hover {
+            background: rgba(0, 255, 0, 0.1);
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .event-category-item.random .random-event {
+            font-size: 1.1em;
+            color: #00ff00;
+            padding: 5px;
+            border-top: 1px solid rgba(0, 255, 0, 0.3);
+            animation: glow 0.2s ease-in-out infinite alternate;
+            text-align: center;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 2px #00ff00;
+            }
+            to {
+                text-shadow: 0 0 8px #00ff00;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .life-event-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="character-sheet">
+        <h1 class="text-center section-title">Cyberpunk 2020 Character Sheet</h1>
+        
+        <div class="character-info">
+            <!-- Basic Info Section -->
+            <div class="neon-border">
+                <h2 class="section-title">Basic Information</h2>
+                <div>
+                    <label>Character Name</label>
+                    <input type="text" id="characterName" class="editable" placeholder="Enter name">
+                </div>
+                <div>
+                    <label>Role</label>
+                    <select id="role" class="editable">
+                        <option value="">Select a role</option>
+                        <option value="Solo">Solo</option>
+                        <option value="Netrunner">Netrunner</option>
+                        <option value="Techie">Techie</option>
+                        <option value="Medtechie">Medtechie</option>
+                        <option value="Media">Media</option>
+                        <option value="Cop">Cop</option>
+                        <option value="Corporate">Corporate</option>
+                        <option value="Fixer">Fixer</option>
+                        <option value="Nomad">Nomad</option>
+                        <option value="Rockerboy">Rockerboy</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="neon-border">
+                <h2 class="section-title">Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <label>INT</label>
+                        <input type="number" id="statINT" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>REF</label>
+                        <input type="number" id="statREF" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>TECH</label>
+                        <input type="number" id="statTECH" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>COOL</label>
+                        <input type="number" id="statCOOL" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>ATTR</label>
+                        <input type="number" id="statATTR" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>LUCK</label>
+                        <input type="number" id="statLUCK" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>MA</label>
+                        <input type="number" id="statMA" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>BODY</label>
+                        <input type="number" id="statBODY" class="editable" min="1" max="10" value="1">
+                    </div>
+                    <div class="stat-box">
+                        <label>EMP</label>
+                        <input type="number" id="statEMP" class="editable" min="1" max="10" value="1">
+                    </div>
+                </div>
+                <div id="statPoints" class="text-center mt-3">
+                    Points Remaining: 75
+                </div>
+            </div>
+        </div>
+
+        <!-- Background Section -->
+        <div class="neon-border">
+            <h2 class="section-title">Background</h2>
+            <div class="grid">
+                <div>
+                    <label>Family Background</label>
+                    <select id="familyBackground" class="editable">
+                        <option value="">Choose your family background</option>
+                        <option value="corporate">Corporate</option>
+                        <option value="nomad">Nomad</option>
+                        <option value="street">Street</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Life Events</label>
+                    <div id="lifeEvents" class="life-events-list">
+                        <!-- Life events will be dynamically added here -->
+                    </div>
+                    <button type="button" class="cyber-button" id="addLifeEvent">Add Life Event</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="neon-border">
+            <h2 class="section-title">Skills</h2>
+            <div id="skillsList" class="grid">
+                <!-- Skills will be dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Equipment Section -->
+        <div class="neon-border">
+            <h2 class="section-title">Equipment</h2>
+            <div class="grid">
+                <div>
+                    <h3>Starting Equipment</h3>
+                    <div id="startingEquipment">
+                        <!-- Equipment will be dynamically populated based on role -->
+                    </div>
+                </div>
+                <div>
+                    <h3>Cyberware</h3>
+                    <div id="cyberware">
+                        <!-- Cyberware options will be dynamically populated -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Character Management -->
+        <div class="neon-border">
+            <h2 class="section-title">Saved Characters</h2>
+            <div id="charactersList" class="grid">
+                <!-- Saved characters will be listed here -->
+            </div>
+            <button type="button" class="cyber-button" id="newCharacter">New Character</button>
+        </div>
+    </div>
+
+    <!-- Add popup container at the end of body -->
+    <div id="eventPopup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <div id="eventCategoryList" class="event-category-list">
+                <!-- Categories and events will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

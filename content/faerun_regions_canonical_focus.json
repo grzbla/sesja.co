@@ -1,0 +1,515 @@
+[
+    {
+        "name": "Spine of the World",
+        "whats_there": "Icewind Dale, Ten-Towns, Luskan, Mirabar, dwarven delves, orc tribes",
+        "fluff": "Frostbitten frontier. Wolves wear names. The wind is older than kings. Every mountain has a tomb, and every tomb remembers its slayer.",
+        "languages": [
+            "Illuskan",
+            "Dwarvish",
+            "Uluik"
+        ],
+        "canonical_notes": [
+            "Base of operations for dwarves of Mithral Hall and Felbarr.",
+            "Luskan is ruled by the Arcane Brotherhood, a loose cabal of power-hungry wizards.",
+            "Ten-Towns are loosely allied fishing villages often harried by beasts and weather.",
+            "Orc hordes from the Spine routinely raid the lowlands.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "The North",
+        "whats_there": "Neverwinter, Waterdeep, Silverymoon, High Forest, bard-roads and monster trails",
+        "fluff": "Blade-sharp cities ringed by wild gods and older trees. Magic lives in the bricks.",
+        "languages": [
+            "Elvish",
+            "Chondathan",
+            "Illuskan"
+        ],
+        "canonical_notes": [
+            "Waterdeep is the City of Splendors, seat of masked lords and economic power.",
+            "Silverymoon is Faer\u00fbn\u2019s closest thing to a true elven-human arcane city.",
+            "Neverwinter rises from its scars, rebuilt from past eruptions and intrigue.",
+            "The High Forest houses remnants of old elf empires like Eaerlann.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Western Heartlands",
+        "whats_there": "Baldur\u2019s Gate, Candlekeep, Beregost, Iriaebor, crossroads of everything",
+        "fluff": "Every deal, every duel, every lie meets here. Heroes die in the margins.",
+        "languages": [
+            "Chondathan",
+            "Common",
+            "Dwarvish"
+        ],
+        "canonical_notes": [
+            "Baldur\u2019s Gate is a mercantile powerhouse ruled by four Grand Dukes.",
+            "Candlekeep is a fortress-library that trades knowledge for rare tomes.",
+            "Iriaebor, the City of a Thousand Spires, is ruled by merchant princes.",
+            "The region bridges the North, Amn, and Cormyr.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Amn",
+        "whats_there": "Athkatla, Crimmor, gold mines, merchant dynasties",
+        "fluff": "Streets paved in silver tongues. Poisoned cups, smiling lips.",
+        "languages": [
+            "Alzhedo",
+            "Chondathan"
+        ],
+        "canonical_notes": [
+            "Governed by the Council of Five merchant houses.",
+            "Famous for aggressive trade and slave markets.",
+            "Athkatla is known as the City of Coin.",
+            "Trade extends to Maztica and Chult.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Tethyr",
+        "whats_there": "Zazesspur, Ithal Pass, ruined thrones, deep woods",
+        "fluff": "Kingdom built on bones. The crowns whisper still.",
+        "languages": [
+            "Common",
+            "Elvish",
+            "Halfling"
+        ],
+        "canonical_notes": [
+            "Recently stabilized after civil war and regicide.",
+            "Elves of Tethir Forest still guard ancient glades.",
+            "Monarchy restored under Queen Zaranda Star.",
+            "The land holds both old nobility and rural unrest.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Calimshan",
+        "whats_there": "Calimport, Memnon, Marching Mountains, genie ruins",
+        "fluff": "Heat-hung city of marble masks. Smoke rises from old wishes.",
+        "languages": [
+            "Alzhedo",
+            "Midani",
+            "Shaaran"
+        ],
+        "canonical_notes": [
+            "Ruled historically by Pashas, now recovering from genie-driven upheaval.",
+            "Calimport is one of the oldest and most populous cities in Faer\u00fbn.",
+            "Genies once ruled vast territories during the Shoon Imperium.",
+            "Desert nomads and slave trades still mark its economic undercurrent.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Anauroch",
+        "whats_there": "High Ice, Bedine tents, sunken Netherese tombs",
+        "fluff": "The wind cuts. The sky kills. But the stars still fall.",
+        "languages": [
+            "Bedine dialect",
+            "Midani",
+            "Loross (forgotten)"
+        ],
+        "canonical_notes": [
+            "The Bedine are desert nomads descended from Zakhara.",
+            "Netherese ruins and mythallars lie buried beneath the sands.",
+            "The Shade Enclave once ruled from floating cities above.",
+            "Harsh weather magic and ancient curses warp the desert.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Cormyr",
+        "whats_there": "Suzail, Arabel, Hullack Forest, noble hunts and monster blights",
+        "fluff": "Polished steel in velvet gloves. Dragons once ruled; maybe they still do.",
+        "languages": [
+            "Chondathan",
+            "Common"
+        ],
+        "canonical_notes": [
+            "Monarchic kingdom ruled by House Obarskyr.",
+            "Protected by the Purple Dragons and War Wizards.",
+            "Famous for monster hunts and strict laws.",
+            "Border conflicts with Sembia and the Stonelands.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Dalelands",
+        "whats_there": "Shadowdale, Mistledale, ruined Myth Drannor, stubborn farmers",
+        "fluff": "Every tree has a ghost. Every man has a sword.",
+        "languages": [
+            "Elvish",
+            "Chondathan",
+            "Halfling"
+        ],
+        "canonical_notes": [
+            "Independent dales form loose alliances and resist central control.",
+            "Myth Drannor was once the capital of the elven empire of Cormanthyr.",
+            "Farms and trade routes crisscross old magical battlefields.",
+            "Home of powerful mortals like Elminster.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Vilhon Reach",
+        "whats_there": "Hlondeth, Chondath, Turmish, serpent cults and city fleets",
+        "fluff": "Trade glides on green waters. Gods still bite.",
+        "languages": [
+            "Chondathan",
+            "Shaaran"
+        ],
+        "canonical_notes": [
+            "Hlondeth houses a powerful yuan-ti undercurrent.",
+            "Turmish is known for its respect for nature and powerful druidic orders.",
+            "The Emerald Enclave originated in this region.",
+            "Once home to the ancient empire of Jhaamdath.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "The Vast",
+        "whats_there": "Procampur, Tantras, pirate gulfs and devil-plagued ruins",
+        "fluff": "A half-built land waiting to burn or rise.",
+        "languages": [
+            "Damaran",
+            "Common"
+        ],
+        "canonical_notes": [
+            "Borders the Sea of Fallen Stars and hosts busy port towns.",
+            "Tantras is a major religious center, especially for Lathander.",
+            "Adventurers are common due to ruined fortresses and tombs.",
+            "Many local rulers are ex-mercenaries or former pirates.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "The Cold Lands",
+        "whats_there": "Damara, Vaasa, Narfell, demon-blasted hills",
+        "fluff": "Blood freezes but curses don\u2019t. Steel sings best in snow.",
+        "languages": [
+            "Damaran",
+            "Rashemi"
+        ],
+        "canonical_notes": [
+            "Damara is recovering from war with Orcus' legions from Vaasa.",
+            "Paladins and fiend-hunters travel to Vaasa to challenge evil.",
+            "Narfell is known for ancient demon-blooded sorcerers and spirits.",
+            "Old magic lies just beneath the snow crust.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Easting Reach",
+        "whats_there": "Aglarond, Thesk, Ashanath, sea-border wilds",
+        "fluff": "Witches in the trees. Trade under siege. Spies at every inn.",
+        "languages": [
+            "Elvish",
+            "Damaran",
+            "Rashemi"
+        ],
+        "canonical_notes": [
+            "Aglarond is protected by the Simbul and the Yuirwood\u2019s elven spirits.",
+            "Thesk serves as a melting pot between west and east.",
+            "Ashanath is an untamed region with merchant expansion.",
+            "Red Wizards constantly seek to extend influence here.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Thay",
+        "whats_there": "Thaymount, Tharchs, red wizards, slave-cities",
+        "fluff": "Undeath is power. Magic is law. You are property.",
+        "languages": [
+            "Mulhorandi",
+            "Thayan dialect",
+            "Damaran"
+        ],
+        "canonical_notes": [
+            "Ruled by Zulkirs, each master of a school of magic.",
+            "Thay is infamous for its necromancy and undead armies.",
+            "Slavery is institutional and magical surveillance is omnipresent.",
+            "Its enemies include Aglarond, Rashemen, and Mulhorand.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Old Empires",
+        "whats_there": "Mulhorand, Unther, Chessenta, walking gods and shattered temples",
+        "fluff": "Bloodlines glow like embers. Thrones never go cold.",
+        "languages": [
+            "Mulhorandi",
+            "Untheric",
+            "Midani"
+        ],
+        "canonical_notes": [
+            "Mulhorand was once ruled directly by incarnate deities.",
+            "Unther rose and fell under the tyranny of Gilgeam.",
+            "Chessenta values personal strength and public debate.",
+            "Ancient tombs, divine relics, and living legends abound.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Chultan Peninsula",
+        "whats_there": "Port Nyanzaru, jungle ruins, forgotten cities, dinosaurs",
+        "fluff": "The jungle eats time. Gold glitters on every corpse.",
+        "languages": [
+            "Chultan",
+            "Tabaxi dialects"
+        ],
+        "canonical_notes": [
+            "Port Nyanzaru is the last stronghold of civilization, ruled by merchant princes.",
+            "The jungle is filled with undead from long-lost Omu and Mezro.",
+            "Dinosaurs roam freely and are used as mounts in the city.",
+            "Ubtao was the dominant god but has since vanished.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Maztica",
+        "whats_there": "Nexal, Payit, Kultaka, war-priests and stone pyramids",
+        "fluff": "Obsidian blood runs hot. The gods here scream.",
+        "languages": [
+            "Nexalan"
+        ],
+        "canonical_notes": [
+            "Maztica was invaded by Amnian colonists seeking gold and slaves.",
+            "Known for its reverence of sun, blood, and nature deities.",
+            "Obsessed with ritual and divine punishment or blessing.",
+            "A land of jaguar knights, eagle warriors, and temple magic.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Shining South",
+        "whats_there": "Halruaa, Luiren, Dambrath, Tashalar, skyships and jungle mages",
+        "fluff": "Magic isn't power here\u2014it\u2019s birthright.",
+        "languages": [
+            "Halruaan",
+            "Shaaran",
+            "Tashalan"
+        ],
+        "canonical_notes": [
+            "Halruaa is ruled by a council of wizards who fly skyships.",
+            "Dambrath is ruled by half-drow matriarchs who enslave humans.",
+            "Luiren is the halfling homeland, fiercely independent and well-defended.",
+            "Tashalar is a lush land of trade, wine, and powerful merchant lords.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Moonsea",
+        "whats_there": "Zhentil Keep, Mulmaster, Phlan, tyrants and fallen towers",
+        "fluff": "Blade meets throat. No one dies innocent.",
+        "languages": [
+            "Damaran",
+            "Common",
+            "Orcish"
+        ],
+        "canonical_notes": [
+            "Zhentil Keep is home to the Zhentarim\u2014mercenary merchants and spies.",
+            "Mulmaster is a city of state-sponsored religion and brutal justice.",
+            "Phlan is constantly rebuilding from waves of war and occupation.",
+            "The Moonsea is plagued by ancient evils, ruins, and political strife.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Border Kingdoms",
+        "whats_there": "Dozens of micro-realms, conmen, mad barons",
+        "fluff": "Power lasts as long as your last duel.",
+        "languages": [
+            "Chondathan",
+            "Common",
+            "various"
+        ],
+        "canonical_notes": [
+            "Often ruled by adventurers who carved out a piece of land.",
+            "Borders change with every assassination or marriage pact.",
+            "A place for exiles, runaways, and power-hungry fools.",
+            "Taverns have better intelligence than spy networks.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Shaar",
+        "whats_there": "Endless plains, lion totems, ruined Watchwalls",
+        "fluff": "Wind sings, grass cuts, and the sky stretches forever.",
+        "languages": [
+            "Shaaran",
+            "Damaran"
+        ],
+        "canonical_notes": [
+            "Populated by nomadic horse clans and traders.",
+            "The Watchwall holds back threats from the deep south.",
+            "Old ruins of Raumathari and Jhaamdathan origin dot the land.",
+            "Cults and beast-totems shape local traditions.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Great Glacier",
+        "whats_there": "Sossal, Endless Ice, dead gods beneath snow",
+        "fluff": "Ice is silence. The silence remembers.",
+        "languages": [
+            "Uluik",
+            "Rashemi"
+        ],
+        "canonical_notes": [
+            "Home to snow barbarians and white dragons.",
+            "The Sossrim are a secretive people with ancient knowledge.",
+            "The region is considered nearly uninhabitable by southerners.",
+            "Fey and spirits of winter are active across the landscape.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Unapproachable East",
+        "whats_there": "Rashemen, Aglarond, Thesk, spirit lands and witch roads",
+        "fluff": "Your ancestors still walk beside you. So do your enemies.",
+        "languages": [
+            "Rashemi",
+            "Elvish",
+            "Damaran"
+        ],
+        "canonical_notes": [
+            "Rashemen is governed by the Witches of Rashemen, powerful spellcasters.",
+            "Aglarond protects its forests with magic and tradition.",
+            "Thesk connects to the Hordelands and serves as a trade corridor.",
+            "Red Wizard infiltration is constant, even if subtle.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "The High Forest",
+        "whats_there": "Star Mounts, Grandfather Tree, Old Nar ruins",
+        "fluff": "The trees remember when the sky cracked. So do you.",
+        "languages": [
+            "Elvish",
+            "Sylvan"
+        ],
+        "canonical_notes": [
+            "Once part of the great elven realm of Eaerlann.",
+            "Grandfather Tree is a living relic of primal spirit magic.",
+            "Star Mounts are believed to be touched by celestial forces.",
+            "Treants, dryads, and ancient fey creatures guard sacred sites.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    },
+    {
+        "name": "Nelanther Isles",
+        "whats_there": "Pirate isles, sunken gods, ghost-cursed reefs",
+        "fluff": "No laws. No land. Just teeth and tide.",
+        "languages": [
+            "Illuskan",
+            "Common"
+        ],
+        "canonical_notes": [
+            "A haven for pirates, smugglers, and escaped slaves.",
+            "Worship of Umberlee and Talos is common\u2014appease or perish.",
+            "Shipwrecks and sea monster sightings are frequent.",
+            "Islands shift in ownership like coin at a gaming table.",
+            "Referenced in major 2e/3e sourcebooks such as The North, Volo\u2019s Guides, FR Campaign Set, and regional supplements.",
+            "Tied to key historical events like the Time of Troubles, Spellplague precursors, or major invasions (orc, Tuigan, Netherese).",
+            "Known for unique magical phenomena, racial tensions, divine presence, or lost empires.",
+            "Hosts ruins, portals, or landmarks associated with famous figures or legendary artifacts.",
+            "Languages represent not just speech but access to culture, faith, trade, or secrets tied to the land."
+        ]
+    }
+]

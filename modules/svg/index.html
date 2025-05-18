@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Turbulent SVG</title>
+  <style>
+    body {
+      margin: 0;
+      background: #1a1a1a;
+      color: #eee;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    #dropzone {
+      border: 2px dashed #555;
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      background: #2a2a2a;
+    }
+    #output {
+      margin-top: 2rem;
+      max-height: 60vh;
+      overflow: auto;
+      background: #111;
+      border-radius: 0.5rem;
+      padding: 1rem;
+    }
+    a {
+      color: #9cf;
+    }
+  </style>
+</head>
+<body>
+
+<div id="dropzone">Drop your SVG file here</div>
+<div id="output"></div>
+
+<script>
+  // CommonJS-style SimplexNoise inline
+  class SimplexNoise {
+    constructor(r = Math.random) {
+      this.p = new Uint8Array(512);
+      this.perm = new Uint8Array(512);
+      this.grad3 = new Float32Array([
+        1,1,0, -1,1,0, 1,-1,0, -1,-1,0,
+        1,0,1, -1,0,1, 1,0,-1, -1,0,-1,
+        0,1,1, 0,-1,1, 0,1,-1, 0,-1,-1
+      ]);
+      let perm = new Uint8Array(256);
+      for (let i = 0; i < 256; i++) perm[i] = i;
+      for (let i = 255; i > 0; i--) {
+        let j = Math.floor(r() * (i + 1));
+        [perm[i], perm[j]] = [perm[j], perm[i]];
+      }
+      for (let i = 0; i < 512; i++) this.perm[i] = perm[i & 255];
+    }
+
+    noise2D(xin, yin) {
+      let grad3 = this.grad3, perm = this.perm;
+      const F2 = 0.5 * (Math.sqrt(3) - 1);
+      const G2 = (3 - Math.sqrt(3)) / 6;
+      let n0 = 0, n1 = 0, n2 = 0;
+      let s = (xin + yin) * F2;
+      let i = Math.floor(xin + s);
+      let j = Math.floor(yin + s);
+      let t = (i + j) * G2;
+      let X0 = i - t, Y0 = j - t;
+      let x0 = xin - X0, y0 = yin - Y0;
+      let i1, j1;
+      if (x0 > y0) { i1 = 1; j1 = 0; } else { i1 = 0; j1 = 1; }
+      let x1 = x0 - i1 + G2, y1 = y0 - j1 + G2;
+      let x2 = x0 - 1 + 2 * G2, y2 = y0 - 1 + 2 * G2;
+      let ii = i & 255, jj = j & 255;
+      let gi0 = perm[ii + perm[jj]] % 12 * 3;
+      let gi1 = perm[ii + i1 + perm[jj + j1]] % 12 * 3;
+      let gi2 = perm[ii + 1 + perm[jj + 1]] % 12 * 3;
+      let t0 = 0.5 - x0*x0 - y0*y0;
+      if (t0 >= 0) {
+        t0 *= t0;
+        n0 = t0 * t0 * (grad3[gi0] * x0 + grad3[gi0+1] * y0);
+      }
+      let t1 = 0.5 - x1*x1 - y1*y1;
+      if (t1 >= 0) {
+        t1 *= t1;
+        n1 = t1 * t1 * (grad3[gi1] * x1 + grad3[gi1+1] * y1);
+      }
+      let t2 = 0.5 - x2*x2 - y2*y2;
+      if (t2 >= 0) {
+        t2 *= t2;
+        n2 = t2 * t2 * (grad3[gi2] * x2 + grad3[gi2+1] * y2);
+      }
+      return 70 * (n0 + n1 + n2);
+    }
+  }
+
+  const dropzone = document.getElementById('dropzone');
+  const output = document.getElementById('output');
+  const noise = new SimplexNoise();
+
+  dropzone.addEventListener('dragover', e => {
+    e.preventDefault();
+    dropzone.textContent = "Drop it like it's SVG";
+  });
+
+  dropzone.addEventListener('drop', async e => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    if (!file || !file.name.endsWith('.svg')) return;
+
+    const text = await file.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, "image/svg+xml");
+
+  const settings = {
+    drift: 0.05,   // macro: soft shoulder bias, slow arcs (~0.8px)
+    jitter: 0.05,  // micro: sharp wrist/finger tremor (~0.4px)
+    lag: 1,    // intent lag: low = quick hand, high = slow wrist
+    samples: 1000  // higher = smoother curves, denser perturbation
+  };
+
+
+    doc.querySelectorAll('path').forEach(path => {
+      const d = path.getAttribute('d');
+      const newD = turbulentizePath(d, settings);
+      path.setAttribute('d', newD);
+    });
+
+    const serialized = new XMLSerializer().serializeToString(doc.documentElement);
+    // Encode Unicode string to base64:
+    const b64 = btoa(unescape(encodeURIComponent(serialized)));
+    const link = `<a download="turbulentized.svg" href="data:image/svg+xml;base64,${b64}">Download Result</a>`;
+    output.innerHTML = link + "<br><br>" + serialized;
+  });
+
+  function turbulentizePath(d, opts) {
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", d);
+    const len = p.getTotalLength();
+
+    const pts = [];
+    for (let i = 0; i <= opts.samples; i++) {
+      const pt = p.getPointAtLength((i / opts.samples) * len);
+      const t = i / opts.samples;
+
+      const driftX = noise.noise2D(t * 1.2, 0) * opts.drift;
+      const driftY = noise.noise2D(0, t * 1.2) * opts.drift;
+      const jitterX = noise.noise2D(t * 8, 42) * opts.jitter;
+      const jitterY = noise.noise2D(42, t * 8) * opts.jitter;
+
+      const last = pts[pts.length - 1] || pt;
+      const lagX = last.x + (pt.x - last.x) * opts.lag;
+      const lagY = last.y + (pt.y - last.y) * opts.lag;
+
+      pts.push({ x: lagX + driftX + jitterX, y: lagY + driftY + jitterY });
+    }
+
+    return pointsToPath(pts);
+  }
+
+  function pointsToPath(pts) {
+    return pts.map((p, i) => (i === 0 ? `M${p.x},${p.y}` : `L${p.x},${p.y}`)).join(" ");
+  }
+</script>
+
+</body>
+</html>
+
