@@ -1,0 +1,268 @@
+[
+  {
+    "weapon": "Glock 17",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Reliable polymer-framed semi-auto, favored for law enforcement and civilians alike.",
+    "visual": "Squared slide, minimal controls, matte black finish, plastic grip texture."
+  },
+  {
+    "weapon": "Glock 19",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Reliable polymer-framed semi-auto, favored for law enforcement and civilians alike.",
+    "visual": "Squared slide, minimal controls, matte black finish, plastic grip texture."
+  },
+  {
+    "weapon": "Glock 43",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Reliable polymer-framed semi-auto, favored for law enforcement and civilians alike.",
+    "visual": "Squared slide, minimal controls, matte black finish, plastic grip texture."
+  },
+  {
+    "weapon": "Glock 20",
+    "caliber": "10mm Auto",
+    "pen": 2.4,
+    "practical": "Reliable polymer-framed semi-auto, favored for law enforcement and civilians alike.",
+    "visual": "Squared slide, minimal controls, matte black finish, plastic grip texture."
+  },
+  {
+    "weapon": "Glock 42",
+    "caliber": ".380 ACP",
+    "pen": 1.6,
+    "practical": "Reliable polymer-framed semi-auto, favored for law enforcement and civilians alike.",
+    "visual": "Squared slide, minimal controls, matte black finish, plastic grip texture."
+  },
+  {
+    "weapon": "Colt 1911",
+    "caliber": ".45 ACP",
+    "pen": 2.1,
+    "practical": "Heavy all-metal .45 with historical roots. Excellent trigger, low capacity.",
+    "visual": "Sleek stainless or blued steel, checkered wood or G10 grips, hammer-back profile."
+  },
+  {
+    "weapon": "SIG P226",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Swiss-inspired, high-precision handgun known for solid feel and modularity.",
+    "visual": "Thick frame, serrated slide, ergonomic contours, night sight options."
+  },
+  {
+    "weapon": "SIG P320",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Swiss-inspired, high-precision handgun known for solid feel and modularity.",
+    "visual": "Thick frame, serrated slide, ergonomic contours, night sight options."
+  },
+  {
+    "weapon": "SIG P365",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Swiss-inspired, high-precision handgun known for solid feel and modularity.",
+    "visual": "Thick frame, serrated slide, ergonomic contours, night sight options."
+  },
+  {
+    "weapon": "Beretta 92FS",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Military-grade double-stack pistol with open-slide design and soft recoil.",
+    "visual": "Visible barrel, curved trigger guard, black alloy frame with grip panels."
+  },
+  {
+    "weapon": "Beretta Px4 Storm",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Military-grade double-stack pistol with open-slide design and soft recoil.",
+    "visual": "Visible barrel, curved trigger guard, black alloy frame with grip panels."
+  },
+  {
+    "weapon": "Springfield XD",
+    "caliber": ".40 S&W",
+    "pen": 2.2,
+    "practical": "Generic pistol.",
+    "visual": "Generic shape."
+  },
+  {
+    "weapon": "Springfield Hellcat",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Generic pistol.",
+    "visual": "Generic shape."
+  },
+  {
+    "weapon": "Taurus PT92",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Affordable Brazilian clones of classics. Functional, if not always polished.",
+    "visual": "Chunky build, variable slide finishes, rubberized or textured plastic grips."
+  },
+  {
+    "weapon": "Taurus G2C",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Affordable Brazilian clones of classics. Functional, if not always polished.",
+    "visual": "Chunky build, variable slide finishes, rubberized or textured plastic grips."
+  },
+  {
+    "weapon": "Walther PPK",
+    "caliber": ".32 ACP",
+    "pen": 1.6,
+    "practical": "German compact pistols. Famous for PPK spy legacy and modern carry comfort.",
+    "visual": "Angled slide serrations, deep undercut trigger guard, steel/poly combo."
+  },
+  {
+    "weapon": "Walther PPQ",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "German compact pistols. Famous for PPK spy legacy and modern carry comfort.",
+    "visual": "Angled slide serrations, deep undercut trigger guard, steel/poly combo."
+  },
+  {
+    "weapon": "Walther PDP",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "German compact pistols. Famous for PPK spy legacy and modern carry comfort.",
+    "visual": "Angled slide serrations, deep undercut trigger guard, steel/poly combo."
+  },
+  {
+    "weapon": "FN Five-seveN",
+    "caliber": "5.7\u00d728mm FN",
+    "pen": 2.4,
+    "practical": "High-capacity polymer sidearm designed for armor penetration and low recoil.",
+    "visual": "Distinct tall slide, black polymer frame, raised iron sights, textured rails."
+  },
+  {
+    "weapon": "CZ 75",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Well-balanced steel-frame European classic with great trigger feel.",
+    "visual": "Curved lines, exposed hammer, front-heavy design, textured rubber grips."
+  },
+  {
+    "weapon": "CZ P-10 C",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Well-balanced steel-frame European classic with great trigger feel.",
+    "visual": "Curved lines, exposed hammer, front-heavy design, textured rubber grips."
+  },
+  {
+    "weapon": "Steyr M9-A1",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Futuristic Austrian pistol with low bore axis and trapezoidal sights.",
+    "visual": "Angular slide, deeply raked grip, front-heavy muzzle geometry."
+  },
+  {
+    "weapon": "Jericho 941",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Israeli CZ clone with tactical flair. Heavy, but dependable.",
+    "visual": "Squared slide, forward slide serrations, often two-tone finish."
+  },
+  {
+    "weapon": "Desert Eagle",
+    "caliber": ".50 AE",
+    "pen": 3.5,
+    "practical": "Oversized magnum semi-auto. Intimidating, impractical, but iconic.",
+    "visual": "Chrome/brushed finish, massive slide with barrel vents, beefy proportions."
+  },
+  {
+    "weapon": "S&W Model 29",
+    "caliber": ".44 Magnum",
+    "pen": 2.8,
+    "practical": "Classic revolver firing magnum rounds. Loud, heavy, and deadly.",
+    "visual": "Long steel barrel, exposed cylinder, large wooden or rubber grip."
+  },
+  {
+    "weapon": "S&W M&P9",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Modern striker-fired polymer pistols for defense and duty use.",
+    "visual": "Smooth frame, low-profile slide, fish-scale serrations, squared stance."
+  },
+  {
+    "weapon": "S&W M&P Shield",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Modern striker-fired polymer pistols for defense and duty use.",
+    "visual": "Smooth frame, low-profile slide, fish-scale serrations, squared stance."
+  },
+  {
+    "weapon": "S&W Bodyguard",
+    "caliber": ".380 ACP",
+    "pen": 1.6,
+    "practical": "Modern striker-fired polymer pistols for defense and duty use.",
+    "visual": "Smooth frame, low-profile slide, fish-scale serrations, squared stance."
+  },
+  {
+    "weapon": "Browning Hi-Power",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "One of the first successful high-capacity 9mms. Historic and smooth-shooting.",
+    "visual": "Blacked steel frame, ring hammer, wood or black plastic panels."
+  },
+  {
+    "weapon": "Kimber Custom II",
+    "caliber": ".45 ACP",
+    "pen": 2.1,
+    "practical": "Heavy all-metal .45 with historical roots. Excellent trigger, low capacity.",
+    "visual": "Sleek stainless or blued steel, checkered wood or G10 grips, hammer-back profile."
+  },
+  {
+    "weapon": "Ruger LCP",
+    "caliber": ".380 ACP",
+    "pen": 1.6,
+    "practical": "Affordable American designs. Reliable carry options in compact form.",
+    "visual": "Sleek slides, polymer frames, minimalistic controls, hard plastic grips."
+  },
+  {
+    "weapon": "Ruger SR1911",
+    "caliber": ".45 ACP",
+    "pen": 2.1,
+    "practical": "Heavy all-metal .45 with historical roots. Excellent trigger, low capacity.",
+    "visual": "Sleek stainless or blued steel, checkered wood or G10 grips, hammer-back profile."
+  },
+  {
+    "weapon": "Ruger Security-9",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Affordable American designs. Reliable carry options in compact form.",
+    "visual": "Sleek slides, polymer frames, minimalistic controls, hard plastic grips."
+  },
+  {
+    "weapon": "Kel-Tec PMR-30",
+    "caliber": ".22 WMR",
+    "pen": 1.4,
+    "practical": "Innovative but polarizing lightweight carry pistols with high capacity.",
+    "visual": "Plastic-heavy build, minimal ergonomics, flat frame, fiber sight dots."
+  },
+  {
+    "weapon": "Kel-Tec P-11",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Innovative but polarizing lightweight carry pistols with high capacity.",
+    "visual": "Plastic-heavy build, minimal ergonomics, flat frame, fiber sight dots."
+  },
+  {
+    "weapon": "Heckler & Koch VP9",
+    "caliber": "9mm FMJ",
+    "pen": 2.0,
+    "practical": "Generic pistol.",
+    "visual": "Generic shape."
+  },
+  {
+    "weapon": "HK USP Compact",
+    "caliber": ".40 S&W",
+    "pen": 2.2,
+    "practical": "German tactical pistols. Accurate, durable, with premium build.",
+    "visual": "Aggressive serrations, polymer frame with side paddle release, robust stance."
+  },
+  {
+    "weapon": "Makarov PM",
+    "caliber": "9\u00d718mm Makarov",
+    "pen": 1.8,
+    "practical": "Soviet-era sidearm. Durable, simple, underpowered by modern standards.",
+    "visual": "Compact steel frame, bulbous grip, blued metal, cold-war charm."
+  }
+]

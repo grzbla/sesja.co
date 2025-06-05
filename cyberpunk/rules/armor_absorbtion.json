@@ -1,0 +1,66 @@
+[
+  {
+    "material": "Kevlar (Soft Panel)",
+    "dispersion": 2.5,
+    "defense": "Flattened — pistol, slug",
+    "weight": "Medium",
+    "practical_description": "The gold standard for soft body armor. Catches and deforms bullets with fiber tension. Poor against blades or sharp fragments. Delaminates after repeat strain.",
+    "visual_description": "Tightly woven golden-yellow fabric, stiff under pressure. Slightly waxy touch with visible yarn patterns."
+  },
+  {
+    "material": "UHMWPE (Dyneema)",
+    "dispersion": 2.25,
+    "defense": "Flattened — pistol, slug",
+    "weight": "Light",
+    "practical_description": "Ultra-light alternative to Kevlar. Absorbs blunt energy well but suffers under heat and repeated compression. Used in covert and marine armor.",
+    "visual_description": "White synthetic fabric with glossy crisscross threads. Smooth, semi-slick surface, almost like hard sailcloth."
+  },
+  {
+    "material": "Kevlar + STF Combo",
+    "dispersion": 2.25,
+    "defense": "Splintered — stab, shrapnel",
+    "weight": "Medium",
+    "practical_description": "Composite armor for edged/blunt crossover threats. Solid against fast, small projectiles. STF hardens briefly, then relaxes. Performance drops fast under repeated abuse.",
+    "visual_description": "Kevlar sheet with embedded glossy finish. Slight stick to the hand. Waxes over time, grays with wear."
+  },
+  {
+    "material": "Polyurea-Kevlar Hybrid",
+    "dispersion": 2.0,
+    "defense": "Fragmented — shrapnel, blunt",
+    "weight": "Medium",
+    "practical_description": "Impact-tolerant soft armor with rubbery bounce. Excellent for riot use and limb panels. Warps and tears rather than cracking.",
+    "visual_description": "Dull yellow core encased in semi-gloss black skin. Compresses and rebounds when squeezed. Slight chemical odor."
+  },
+  {
+    "material": "CNT Stretch Fabric",
+    "dispersion": 2.0,
+    "defense": "Splintered — frag, slash",
+    "weight": "Light",
+    "practical_description": "Carbon nanotube-based elastic webbing. Deflects glancing hits and surface-level trauma. Tension disperses, but edge cuts penetrate easily.",
+    "visual_description": "Midnight black matte fabric. Flexes like latex, but with powder-dry finish. Sparkles faintly at stretch points."
+  },
+  {
+    "material": "Graphene Fabric Blend",
+    "dispersion": 2.75,
+    "defense": "Flattened — rifle, blunt",
+    "weight": "Light",
+    "practical_description": "Premium-tier soft armor. High density without weight penalty. Slows even rifle threats after impact reshaping. Expensive and fragile to heat.",
+    "visual_description": "Dark grey with graphite speckle. Dense but flowing. Light pools in diagonal threads like carbon velvet."
+  },
+  {
+    "material": "Ballistic Nylon (Legacy)",
+    "dispersion": 1.5,
+    "defense": "Fragmented — frag, stab",
+    "weight": "Medium",
+    "practical_description": "Old but serviceable. Catches basic frag and debris. Best used in layering or against low-velocity threats. Cuts and frays easily.",
+    "visual_description": "Thick black textile with coarse weave. Frays at the edges. Looks surplus, smells of storage."
+  },
+  {
+    "material": "Reinforced Rubber Laminate",
+    "dispersion": 1.75,
+    "defense": "Flattened — blunt, riot",
+    "weight": "Heavy",
+    "practical_description": "Non-lethal armor pad. Blunts baton strikes, absorbs shock. Poor against ballistics. Found in crowd-control gear and shields.",
+    "visual_description": "Thick rubber slab with embedded mesh. Feels like a tire tread. Matte and scuffed with pressure wrinkles."
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "material": "EVA Foam (Closed Cell)",
+    "dispersion": 0.75,
+    "defense": "None",
+    "weight": "Light",
+    "practical_description": "Baseline padding found behind most soft armor. Reduces bruising and helps with fit. Useless alone. Compresses under load and slowly rebounds.",
+    "visual_description": "Dull grey sheet with spongey feel. Texture like athletic mat. Compresses with a dry creak."
+  },
+  {
+    "material": "Silicone-Gel Liner",
+    "dispersion": 1.0,
+    "defense": "None",
+    "weight": "Medium",
+    "practical_description": "Conformal trauma dampener. Absorbs backface deformation well. Sticky, heat-stable, and often paired with ceramic armor. Heavy but reliable.",
+    "visual_description": "Clear-blue slab with slow-flowing consistency. Cold and pliable. Smears slightly when rubbed."
+  },
+  {
+    "material": "TPU 3D-Printed Lattice",
+    "dispersion": 0.5,
+    "defense": "None",
+    "weight": "Light",
+    "practical_description": "Modular padding used in high-tech kits. Customizable airflow and damping patterns. Fails by cracking at hinges.",
+    "visual_description": "Transparent plastic web, hexagonal pattern. Compresses like a spring. Snaps back sharply when released."
+  },
+  {
+    "material": "Viscoelastic Smart Foam",
+    "dispersion": 1.0,
+    "defense": "None",
+    "weight": "Medium",
+    "practical_description": "Reactive under force. Absorbs slow or fast hits differently. Slowly conforms to shape, often used in fitted vests.",
+    "visual_description": "Light beige slab, warm and dense. Dentable by finger. Returns shape in slow motion."
+  },
+  {
+    "material": "Graphene-Rubber Hybrid",
+    "dispersion": 1.0,
+    "defense": "None",
+    "weight": "Light",
+    "practical_description": "Cutting-edge pad with antimicrobial and thermal regulation traits. Great in extreme climates or long-wear deployments.",
+    "visual_description": "Black matte with slight shimmer. Cool to the touch. Flexible like heavy leather but rebounds sharper."
+  },
+  {
+    "material": "Aerogel Soft Pad",
+    "dispersion": 0.5,
+    "defense": "None",
+    "weight": "Light",
+    "practical_description": "Used for thermal and blast insulation. Not good for direct kinetic hits but adds comfort and temperature control. Brittle under compression.",
+    "visual_description": "Frosted translucent blue, rigid and dry. Breaks like foam glass. Dusts lightly when scraped."
+  },
+  {
+    "material": "High-Density Foam Composite",
+    "dispersion": 1.25,
+    "defense": "None",
+    "weight": "Heavy",
+    "practical_description": "Industrial padding for heavy armor suits. Great at soaking slow force. Cumbersome. Retains heat and moisture.",
+    "visual_description": "Dark green or charcoal block. Feels like kneepad core. Slight rubber reverb when tapped."
+  },
+  {
+    "material": "Air Channel Spacer Mesh",
+    "dispersion": 0.5,
+    "defense": "None",
+    "weight": "Light",
+    "practical_description": "Worn under armor for sweat and airflow control. Adds negligible protection but boosts wear time comfort.",
+    "visual_description": "Silver-grey mesh with a loose weave. Compresses like loosely stuffed pillow. Breathes easily when pressed."
+  }
+]
+

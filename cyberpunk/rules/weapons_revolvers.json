@@ -1,0 +1,82 @@
+[
+  {
+    "weapon": "Smith & Wesson Model 29",
+    "caliber": ".44 Magnum",
+    "pen_multiplier": 13.0,
+    "effective_range": 75,
+    "practical": "Dirty Harry’s choice. Devastating, long-barrel revolver with huge recoil.",
+    "visual": "Glossy blued finish, long heavy barrel, hardwood grips, six-shot cylinder."
+  },
+  {
+    "weapon": "Ruger GP100",
+    "caliber": ".357 Magnum",
+    "pen_multiplier": 12.0,
+    "effective_range": 60,
+    "practical": "Tank-like build, excellent balance of stopping power and control.",
+    "visual": "Brushed stainless frame, full-lug barrel, black rubber grips with wood inserts."
+  },
+  {
+    "weapon": "Colt Python",
+    "caliber": ".357 Magnum",
+    "pen_multiplier": 13.0,
+    "effective_range": 65,
+    "practical": "Elite revolver. Smooth trigger, premium machining, collector’s favorite.",
+    "visual": "Polished stainless finish, full underlug, vented rib barrel, gold Colt medallions."
+  },
+  {
+    "weapon": "Taurus Judge",
+    "caliber": ".410 Bore / .45 Colt",
+    "pen_multiplier": 10.0,
+    "effective_range": 30,
+    "practical": "Shotgun-shell revolver. Devastating at point blank, poor accuracy beyond.",
+    "visual": "Massive cylinder, matte black, thick barrel and recoil-absorbing grip."
+  },
+  {
+    "weapon": "Nagant M1895",
+    "caliber": "7.62×38mmR",
+    "pen_multiplier": 8.0,
+    "effective_range": 40,
+    "practical": "Old Tsarist-era design. Gassy trigger, but unique gas-seal cylinder.",
+    "visual": "Antique steel finish, small grip, offset barrel above long gap-to-cylinder."
+  },
+  {
+    "weapon": "Chiappa Rhino 60DS",
+    "caliber": ".357 Magnum",
+    "pen_multiplier": 12.0,
+    "effective_range": 60,
+    "practical": "Low bore axis revolver. Strange looks, minimal muzzle flip, futuristic handling.",
+    "visual": "Angular matte body, bottom-firing barrel, fiber optic sights."
+  },
+  {
+    "weapon": "Smith & Wesson 686",
+    "caliber": ".357 Magnum",
+    "pen_multiplier": 11.0,
+    "effective_range": 60,
+    "practical": "Balanced six-shooter. Duty-sized frame, versatile and durable.",
+    "visual": "Satin stainless, checkered grip, broad rear sight notch, target hammer."
+  },
+  {
+    "weapon": "Ruger Redhawk",
+    "caliber": ".44 Magnum",
+    "pen_multiplier": 13.5,
+    "effective_range": 80,
+    "practical": "Heavy-hitting backcountry revolver. Serious weight, serious impact.",
+    "visual": "Brushed stainless bulk, oversize cylinder, thick rubberized grips."
+  },
+  {
+    "weapon": "Colt Detective Special",
+    "caliber": ".38 Special",
+    "pen_multiplier": 9.0,
+    "effective_range": 35,
+    "practical": "Snub-nose concealment icon. Limited range, fast draw.",
+    "visual": "Rounded frame, blued steel, short barrel, wood service grip."
+  },
+  {
+    "weapon": "Ruger LCR",
+    "caliber": ".38 Special",
+    "pen_multiplier": 9.5,
+    "effective_range": 35,
+    "practical": "Modern polymer revolver. Ultra-light, DAO trigger, better recoil than expected.",
+    "visual": "Matte black polymer body, cylinder fluting, scalloped grip."
+  }
+]

@@ -1,0 +1,83 @@
+[
+  {
+    "material": "Alumina (Al₂O₃)",
+    "dispersion": 5.5,
+    "defense": "Fragmented — frag",
+    "weight": "Heavy",
+    "practical_description": "Entry-level ceramic used in riot and static defense. Cracks on first strong hit, unsuitable for sustained fire. Disposably reliable.",
+    "visual_description": "Flat white tile with chalk texture, fracture lines bloom like dry riverbeds after impact."
+  },
+  {
+    "material": "AR500 Steel",
+    "dispersion": 4.5,
+    "defense": "Fragmented — slug, blunt",
+    "weight": "Heavy",
+    "practical_description": "Blunt trauma tanking and cost-effective. Survives abuse but risks spall and ricochet. Needs coating to be safe.",
+    "visual_description": "Dark grey, matte-finished slab. Pocks and pits visibly after hits, edges chip like dented tools."
+  },
+  {
+    "material": "Silicon Carbide (SiC)",
+    "dispersion": 6.0,
+    "defense": "Flattened — rifle, slug",
+    "weight": "Medium",
+    "practical_description": "Modern rifle plate ceramic. Breaks clean under stress, minimizes secondary damage. Trusted baseline for military kits.",
+    "visual_description": "Charcoal grey with smooth but gritty surface. Seams are polygonal; when cracked, it shatters like tough glass."
+  },
+  {
+    "material": "Titanium-Carbide Hybrid",
+    "dispersion": 5.0,
+    "defense": "Fragmented — AP, slug",
+    "weight": "Medium",
+    "practical_description": "Semi-metallic plate with high impact tolerance. Fails by compression and bending rather than cracking.",
+    "visual_description": "Gunmetal shimmer, curved slightly outward. Surface has faint hammer-forged texture and heat-tempered edge glow."
+  },
+  {
+    "material": "Boron Carbide (B₄C)",
+    "dispersion": 6.5,
+    "defense": "Flattened — rifle, AP",
+    "weight": "Light",
+    "practical_description": "Premium military plate. Eats high-velocity rounds cleanly but crumbles with successive hits. Effective, not durable.",
+    "visual_description": "Black monolithic tile, unnaturally light for its size. Feels dead to the touch. Craters into dust on failure."
+  },
+  {
+    "material": "Graphene-Laminated SiC",
+    "dispersion": 6.75,
+    "defense": "Flattened — rifle, blunt",
+    "weight": "Light",
+    "practical_description": "Composite edge-tech with high resilience. Redirects kinetic force. Excellent multi-hit retention. Rare and expensive.",
+    "visual_description": "Carbon matte finish with micro-weave gloss under light. Seamless black skin over ceramic bone."
+  },
+  {
+    "material": "Nano-crystalline Graphene",
+    "dispersion": 4.25,
+    "defense": "Splintered — frag, glancing",
+    "weight": "Light",
+    "practical_description": "Built for shrapnel and light hits. Fails by puncture and directional tear. Good for drones, scouts, or armor overlays.",
+    "visual_description": "Flexible black mesh, shimmers like motor oil. Folds and creases when manipulated, then flattens itself again."
+  },
+  {
+    "material": "ALON (Transparent Ceramic)",
+    "dispersion": 5.5,
+    "defense": "Flattened — rifle, slug",
+    "weight": "Medium",
+    "practical_description": "Transparent rifle-stop glass. Strong but brittle after use. Used in riot masks and military optics.",
+    "visual_description": "Slightly blue transparent slab. Smooth like tempered glass. Cracks in radial starburst under load."
+  },
+  {
+    "material": "Tungsten Carbide",
+    "dispersion": 5.25,
+    "defense": "Fragmented — AP, slug",
+    "weight": "Heavy",
+    "practical_description": "Extremely dense. Used in tank armor and heavy static mounts. Shatters incoming rounds but transmits a lot of force. Not wearable.",
+    "visual_description": "Dull metallic plate with unnatural weight. Edges chip into flakes; dents glow under impact light."
+  },
+  {
+    "material": "Sintered Boron-Nitride Composite",
+    "dispersion": 5.75,
+    "defense": "Flattened — rifle, frag",
+    "weight": "Medium",
+    "practical_description": "Exotic high-temp armor plate. Resists thermal fatigue and directional blasts. Hard to source, harder to shape.",
+    "visual_description": "Off-white with grainy surface. Feels soft to the finger but rings under a tap. Smokes under sustained fire."
+  }
+]
+

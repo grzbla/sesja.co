@@ -1,0 +1,44 @@
+[
+  {
+    "variant": "FMJ",
+    "pen_modifier": 1.0,
+    "practical": "Standard full metal jacket. Stable flight, good penetration, poor yaw or fragmentation.",
+    "visual": "Smooth copper tip with full metal coating, uniform shine."
+  },
+  {
+    "variant": "JHP",
+    "pen_modifier": 0.75,
+    "practical": "Jacketed hollow point. Expands on impact. Devastating to soft targets, bad vs armor.",
+    "visual": "Indented nose cavity, usually exposed lead with copper rim."
+  },
+  {
+    "variant": "AP",
+    "pen_modifier": 1.5,
+    "practical": "Armor piercing. Hardened core penetrates protection layers. Overpenetrates flesh.",
+    "visual": "Black or steel tip, denser core, often matte finish or segmented ring."
+  },
+  {
+    "variant": "Soft Point",
+    "pen_modifier": 0.85,
+    "practical": "Lead-tipped bullet. Expands irregularly, causes fragmentation. Inconsistent.",
+    "visual": "Exposed soft lead nose with copper base jacket, dull tip."
+  },
+  {
+    "variant": "Tracer",
+    "pen_modifier": 0.95,
+    "practical": "Glows in flight. Easy to trace. Minimal ballistic difference.",
+    "visual": "Color-tipped bullet, often red or orange with visible streaks."
+  },
+  {
+    "variant": "Incendiary",
+    "pen_modifier": 1.1,
+    "practical": "Ignites flammable targets. Not legal for common use. Penetrates with added flame.",
+    "visual": "Silver or blue tip with burn marks or discoloration."
+  },
+  {
+    "variant": "Frangible",
+    "pen_modifier": 0.6,
+    "practical": "Shatters on impact. Minimal penetration. Used for training or air marshals.",
+    "visual": "Powdery tip, fragile composite look, matte light finish."
+  }
+]

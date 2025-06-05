@@ -1,0 +1,67 @@
+[
+  {
+    "material": "Aramid Honeycomb Core",
+    "dispersion": 1.75,
+    "defense": "Flattened — blunt, slug",
+    "weight": "Light",
+    "practical_description": "Lightweight spacer layer designed to redirect impact energy laterally. Helps prevent trauma through deflection, not absorption. Prone to folding under tight stacking.",
+    "visual_description": "Woven yellow-brown core with tight hex cells. Compresses with pressure and springs back. Feels like dry cardboard soaked in kevlar."
+  },
+  {
+    "material": "UHMWPE Foam",
+    "dispersion": 1.25,
+    "defense": "Flattened — slug, pistol",
+    "weight": "Light",
+    "practical_description": "Polyethylene foam insert with limited ballistic resistance. Dissipates energy, especially useful when layered behind strike plates. Melts or compresses on overmatch.",
+    "visual_description": "White, soft-touch foam sheet with plasticky smell. Squeezable like dense packaging material. Scorches under friction."
+  },
+  {
+    "material": "STF-Coated Fabric",
+    "dispersion": 1.5,
+    "defense": "Splintered — stab, shrapnel",
+    "weight": "Light",
+    "practical_description": "Flexible fabric infused with shear-thickening fluid. Soft under normal conditions, turns rigid when hit. Wears out under repeated strain.",
+    "visual_description": "Slick textile, glossy under touch. Moves like rubber until struck, then feels like stone. Greasy gloss fades with age."
+  },
+  {
+    "material": "Kevlar-Graphene Interlayer",
+    "dispersion": 1.0,
+    "defense": "Fragmented — frag, slash",
+    "weight": "Light",
+    "practical_description": "Thin interstitial weave used to bond armor stacks. Deflects low-mass threats and spreads force between layers. Weak against core strikes.",
+    "visual_description": "Ultra-thin woven sheet, golden with faint black threads. Moves like silk. Reflects light only at certain angles."
+  },
+  {
+    "material": "CNT-Infused Epoxy Grid",
+    "dispersion": 2.0,
+    "defense": "Fragmented — frag, AP spall",
+    "weight": "Medium",
+    "practical_description": "Carbon nanotube mesh embedded in hardened resin. Designed to catch micro-shrapnel and spread energy. Cracks cleanly under overload.",
+    "visual_description": "Dark grey panel with a diamond-grid shimmer. Rigid and unbending. Cold and smooth like a sculpted graphite slab."
+  },
+  {
+    "material": "Graphene Aerogel Sheet",
+    "dispersion": 2.5,
+    "defense": "Flattened — slug, blast",
+    "weight": "Light",
+    "practical_description": "Hyperlight structure that collapses on impact, absorbing massive force. Best-in-class energy sink, but not durable. Often used as sacrificial core.",
+    "visual_description": "Velvety matte black, floats in air when dropped. Feels like frozen smoke. Leaves graphite dust on fingers."
+  },
+  {
+    "material": "MoS₂ Nanotube Matrix",
+    "dispersion": 2.25,
+    "defense": "Splintered — shrapnel, angled shots",
+    "weight": "Medium",
+    "practical_description": "Molybdenum disulfide-reinforced structure. Performs best against irregular fragments and shearing impacts. Crumbles at high temperatures.",
+    "visual_description": "Slate grey composite with metallic sparkle. Feels like ceramic sponge. Emits dry crunch when flexed."
+  },
+  {
+    "material": "Liquid Crystal Polymer Foam",
+    "dispersion": 1.75,
+    "defense": "Fragmented — frag, sharp",
+    "weight": "Light",
+    "practical_description": "Flexible and stab-resistant layer. Holds tension until punctured. Often used behind soft armor panels.",
+    "visual_description": "Smooth translucent yellow foam, dense and elastic. Warms under pressure. Textured like sealed rubber honeycomb."
+  }
+]
+

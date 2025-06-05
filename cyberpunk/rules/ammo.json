@@ -1,0 +1,122 @@
+[
+  {
+    "caliber": ".22LR",
+    "ammo_base": 1.0,
+    "pen_drop_per_effective_range_%": 100.0,
+    "practical": "Training round, assassin's fallback, low recoil, often fails to penetrate skull unless point blank.",
+    "visual": "Tiny brass casing, lead nose, rimfire primer, almost toy-like."
+  },
+  {
+    "caliber": ".32 ACP",
+    "ammo_base": 1.6,
+    "pen_drop_per_effective_range_%": 50.0,
+    "practical": "Pocket pistol ammo. Easily concealable. Weak but reliable for soft targets.",
+    "visual": "Short stubby cartridge, rounded tip, brass or nickel casing."
+  },
+  {
+    "caliber": "9mm FMJ",
+    "ammo_base": 2.0,
+    "pen_drop_per_effective_range_%": 33.3,
+    "practical": "Global handgun staple. Balanced speed and mass. Moderate penetration. Still lethal.",
+    "visual": "Sleek brass case, round-nosed bullet, matte copper jacket."
+  },
+  {
+    "caliber": ".45 ACP",
+    "ammo_base": 2.0,
+    "pen_drop_per_effective_range_%": 50.0,
+    "practical": "Slow and heavy. Devastating to flesh, weak vs armor. Prone to flattening.",
+    "visual": "Fat and short cartridge, wide hollow base, dark copper jacket."
+  },
+  {
+    "caliber": ".40 S&W",
+    "ammo_base": 2.2,
+    "pen_drop_per_effective_range_%": 50.0,
+    "practical": "Designed to compromise between 9mm speed and .45 punch. Still compromises.",
+    "visual": "Mid-size brass case, thick-walled projectile, clean copper top."
+  },
+  {
+    "caliber": ".357 Magnum",
+    "ammo_base": 2.4,
+    "pen_drop_per_effective_range_%": 37.5,
+    "practical": "Revolver hotshot. Great tissue disruption. Violent recoil, overpenetration risk.",
+    "visual": "Chrome revolver round, long brass casing, pointed soft nose."
+  },
+  {
+    "caliber": "10mm Auto",
+    "ammo_base": 2.4,
+    "pen_drop_per_effective_range_%": 37.5,
+    "practical": "High-energy automatic. Penetrates cars, barriers, and egos.",
+    "visual": "Elongated .40 cal, copper-tipped, clean-cut jacket and shine."
+  },
+  {
+    "caliber": "5.7×28mm FN",
+    "ammo_base": 2.4,
+    "pen_drop_per_effective_range_%": 33.3,
+    "practical": "Light, fast, armor-tickling. Devours soft targets with low recoil.",
+    "visual": "Thin bottleneck cartridge, long bullet, matte-black polymer tips."
+  },
+  {
+    "caliber": ".44 Magnum",
+    "ammo_base": 2.8,
+    "pen_drop_per_effective_range_%": 50.0,
+    "practical": "Exaggerated firepower. Kicks like a mule. Punches like a truck. Old-school menace.",
+    "visual": "Oversized brass casing, lead hollow or soft-point tip, smoky patina."
+  },
+  {
+    "caliber": "5.45×39mm",
+    "ammo_base": 2.64,
+    "pen_drop_per_effective_range_%": 33.3,
+    "practical": "Eastern bloc rifle round. Zips through air and flesh with high velocity.",
+    "visual": "Steel case, sharp ogive tip, thin neck, green or lacquer finish."
+  },
+  {
+    "caliber": "5.56×45mm NATO",
+    "ammo_base": 2.64,
+    "pen_drop_per_effective_range_%": 33.3,
+    "practical": "Standard NATO rifle. Light recoil, decent armor defeat, high fragmentation.",
+    "visual": "Pointed copper round, thin brass casing, combat-polished."
+  },
+  {
+    "caliber": "7.62×39mm",
+    "ammo_base": 2.8,
+    "pen_drop_per_effective_range_%": 50.0,
+    "practical": "Classic AK food. Thicker, slower, deeper penetration in tissue.",
+    "visual": "Slightly tapered steel case, reddish sealant, blunt bullet tip."
+  },
+  {
+    "caliber": "7.62×51mm NATO",
+    "ammo_base": 3.2,
+    "pen_drop_per_effective_range_%": 33.3,
+    "practical": "Full battle rifle power. Shreds cover. Long-range dominance.",
+    "visual": "Long, wide cartridge, copper FMJ tip, polished brass sleeve."
+  },
+  {
+    "caliber": ".308 Winchester (AP)",
+    "ammo_base": 3.6,
+    "pen_drop_per_effective_range_%": 33.3,
+    "practical": "Civilian cousin with armor-piercing bite. Precision punch through bone or vest.",
+    "visual": "Blackened tip, clean brass body, subtle engraved ring."
+  },
+  {
+    "caliber": ".300 Blackout",
+    "ammo_base": 2.64,
+    "pen_drop_per_effective_range_%": 50.0,
+    "practical": "Specialist subsonic beast. Quiet kill from suppressed setups. Moderate armor punch.",
+    "visual": "Fat black bullet, short case, matte steel primer."
+  },
+  {
+    "caliber": ".338 Lapua Magnum",
+    "ammo_base": 4.8,
+    "pen_drop_per_effective_range_%": 40.0,
+    "practical": "Sniper god-tier. Anti-personnel at 1km+, light armor crack potential.",
+    "visual": "Long, sleek bullet with matte black tip and burnished neck."
+  },
+  {
+    "caliber": ".50 BMG",
+    "ammo_base": 6.0,
+    "pen_drop_per_effective_range_%": 50.0,
+    "practical": "Absolute hammer. Punches through walls, engines, god. Not for people.",
+    "visual": "Massive rifle round, steel core, chromed tip, fearsome scale."
+  }
+]
+

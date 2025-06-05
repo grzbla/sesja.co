@@ -1,0 +1,82 @@
+[
+  {
+    "weapon": "HK MP5",
+    "caliber": "9mm FMJ",
+    "pen_multiplier": 18.0,
+    "effective_range": 100,
+    "practical": "Cold war CQB king. Recoil is a whisper, burst control is sublime.",
+    "visual": "Smooth steel receiver, collapsible stock, slim navy trigger group."
+  },
+  {
+    "weapon": "Uzi",
+    "caliber": "9mm FMJ",
+    "pen_multiplier": 14.0,
+    "effective_range": 75,
+    "practical": "Simple and durable. Heavy bolt gives distinct mechanical rhythm.",
+    "visual": "Boxy frame, wraparound bolt, side-folding metal stock."
+  },
+  {
+    "weapon": "MAC-10",
+    "caliber": ".45 ACP",
+    "pen_multiplier": 13.0,
+    "effective_range": 50,
+    "practical": "Pocket-sized chaos. High rate of fire, uncontrollable beyond 15m.",
+    "visual": "Tiny rectangular body, top cocking handle, wire stock."
+  },
+  {
+    "weapon": "B&T APC9",
+    "caliber": "9mm FMJ",
+    "pen_multiplier": 17.0,
+    "effective_range": 100,
+    "practical": "Modern SMG for police/military. Quiet, modular, laser-flat.",
+    "visual": "Tactical black polymer, monolithic top rail, skeletonized stock."
+  },
+  {
+    "weapon": "Steyr TMP",
+    "caliber": "9mm FMJ",
+    "pen_multiplier": 15.0,
+    "effective_range": 75,
+    "practical": "Compact PDW. Short bursts are snappy and clean.",
+    "visual": "Polymer shell, integrated foregrip, back-swept charging handle."
+  },
+  {
+    "weapon": "MP7",
+    "caliber": "4.6×30mm",
+    "pen_multiplier": 16.0,
+    "effective_range": 150,
+    "practical": "Armor-piercing PDW. Low recoil, high velocity, compact profile.",
+    "visual": "Narrow frame, top-folding foregrip, telescoping stock."
+  },
+  {
+    "weapon": "PP-2000",
+    "caliber": "9×19mm",
+    "pen_multiplier": 15.0,
+    "effective_range": 100,
+    "practical": "Russian PDW. Hollow polymer feel, rear-loaded magazine backup.",
+    "visual": "Skeleton frame, top ejecting port, underfold stock."
+  },
+  {
+    "weapon": "FN P90",
+    "caliber": "5.7×28mm",
+    "pen_multiplier": 16.0,
+    "effective_range": 150,
+    "practical": "Bullpup futuristic PDW. Horizontal mag, high capacity, low recoil.",
+    "visual": "Rounded shell, top-fed mag, ergonomic bullpup frame."
+  },
+  {
+    "weapon": "CZ Scorpion EVO 3",
+    "caliber": "9mm FMJ",
+    "pen_multiplier": 16.0,
+    "effective_range": 100,
+    "practical": "Tactical favorite. Lightweight, soft shooting, user friendly.",
+    "visual": "Angular polymer body, side charging, folding stock."
+  },
+  {
+    "weapon": "KRISS Vector",
+    "caliber": ".45 ACP",
+    "pen_multiplier": 15.0,
+    "effective_range": 75,
+    "practical": "Recoil-mitigated beast. Unique action, rapid fire .45 tameable.",
+    "visual": "Futuristic layout, vertical mag well, wide flat body."
+  }
+]
